@@ -5,6 +5,12 @@ set -e
 DL_ROOT=/var/www/geoserver
 GIT_REV=$(git log -1 --pretty=format:%h)
 
+# Build for launchpad
+debuild -S
+dput ppa:geonode/unstable ../geoserver-geonode_2.0_source.changes
+rm ../geoserver-geonode*
+
+# Re-build local debs
 debuild
 
 if [ -d $DL_ROOT/$GIT_REV ]; then
@@ -21,3 +27,4 @@ cp target/geonode-geoserver-ext-*-geoserver-plugin.zip $DL_ROOT/$GIT_REV/.
 
 rm -rf $DL_ROOT/latest
 ln -sf $DL_ROOT/$GIT_REV $DL_ROOT/latest
+rm ../geoserver-geonode*
