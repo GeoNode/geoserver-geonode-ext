@@ -14,7 +14,7 @@ if [ "$(grep ^GEOSERVER /etc/default/tomcat7)" == "" ]; then
 fi
 
 # Fix permissions on deployed jar
-chown -R tomcat7:tomcat7 /usr/share/geoserver/geoserver
+chown -R tomcat7:tomcat7 /usr/share/geoserver/
 
 # start tomcat after installing geoserver
 service tomcat7 restart
