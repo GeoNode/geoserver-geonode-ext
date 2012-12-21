@@ -101,10 +101,9 @@
     </dependency>
 
     <dependency>
-        <groupId>org.opengeo.data.csv</groupId>
-        <artifactId>csv</artifactId>
-        <version>2.2-SNAPSHOT</version>
-        <scope>runtime</scope>
+      <groupId>org.geotools.xsd</groupId>
+      <artifactId>gt-xsd-kml</artifactId>
+      <version>8-SNAPSHOT</version>
     </dependency>
 
     <dependency>
