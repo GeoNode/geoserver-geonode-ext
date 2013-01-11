@@ -68,19 +68,6 @@
       <version>${geoserver.version}</version>
     </dependency-->
     <dependency>
-      <groupId>org.geoserver.web</groupId>
-      <artifactId>web-app</artifactId>
-      <type>jar</type>
-      <version>${geoserver.version}</version>
-      <scope>runtime</scope>
-		<exclusions>
-		  <exclusion>
-		    <groupId>net.sf.json-lib</groupId>
-		    <artifactId>json-lib</artifactId>
-		  </exclusion>
-		</exclusions>
-    </dependency>
-    <dependency>
       <groupId>commons-httpclient</groupId>
       <artifactId>commons-httpclient</artifactId>
       <version>3.1</version>
