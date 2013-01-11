@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<assembly>
+    <id>data</id>
+    <baseDirectory>data</baseDirectory>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>src/main/webapp/data/</directory>
+            <outputDirectory>/</outputDirectory>
+        </fileSet>
+    </fileSets>
+</assembly>
