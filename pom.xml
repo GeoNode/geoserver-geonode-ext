@@ -286,6 +286,7 @@
         <configuration>
           <descriptors>
             <descriptor>assembly.xml</descriptor>
+            <descriptor>data.xml</descriptor>
           </descriptors>
         </configuration>
         <executions>
@@ -298,27 +299,6 @@
         </executions>
       </plugin>
       
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>2.3</version>
-        <configuration>
-          <descriptors>
-            <descriptor>data.xml</descriptor>
-          </descriptors>
-          <finalName>data</finalName>
-          <appendAssemblyId>false</appendAssemblyId>
-        </configuration>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
