@@ -68,19 +68,6 @@
       <version>${geoserver.version}</version>
     </dependency-->
     <dependency>
-      <groupId>org.geoserver.web</groupId>
-      <artifactId>web-app</artifactId>
-      <type>jar</type>
-      <version>${geoserver.version}</version>
-      <scope>runtime</scope>
-		<exclusions>
-		  <exclusion>
-		    <groupId>net.sf.json-lib</groupId>
-		    <artifactId>json-lib</artifactId>
-		  </exclusion>
-		</exclusions>
-    </dependency>
-    <dependency>
       <groupId>commons-httpclient</groupId>
       <artifactId>commons-httpclient</artifactId>
       <version>3.1</version>
@@ -310,13 +297,35 @@
           </execution>
         </executions>
       </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <descriptors>
+            <descriptor>data.xml</descriptor>
+          </descriptors>
+          <finalName>data</finalName>
+          <appendAssemblyId>false</appendAssemblyId>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
 
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
           <warName>geoserver</warName> 
-          <webappDirectory>${project.build.directory}/geoserver</webappDirectory> -->
+          <webappDirectory>${project.build.directory}/geoserver</webappDirectory>
+          <packagingExcludes>**/data/</packagingExcludes>
         </configuration>
         <executions>
           <execution>
