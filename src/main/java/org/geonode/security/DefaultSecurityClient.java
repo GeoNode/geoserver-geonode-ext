@@ -24,6 +24,7 @@ import org.geonode.security.LayersGrantedAuthority.LayerMode;
 import org.geoserver.catalog.ResourceInfo;
 import org.geoserver.security.AccessMode;
 import org.geoserver.security.impl.GeoServerRole;
+import org.geoserver.security.impl.GeoServerUser;
 import org.geotools.util.logging.Logging;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -31,6 +32,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
 /**
@@ -96,8 +98,9 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
 
                     cachedAuth = authenticate(cookieValue, headerName, headerValue);
                     if (cachedAuth instanceof UsernamePasswordAuthenticationToken) {
+                        UserDetails userDetails = new GeoServerUser(cachedAuth.getCredentials().toString());
                         cachedAuth = new GeoNodeSessionAuthToken(cachedAuth.getPrincipal(),
-                                cachedAuth.getCredentials(), cachedAuth.getAuthorities());
+                                userDetails, cachedAuth.getAuthorities());
                     }
                     authCache.put(cookieValue, cachedAuth);
                 }
@@ -201,8 +204,8 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
     }
     
     static boolean authorizeUsingAuthorities(Authentication user, ResourceInfo resource, AccessMode mode) {
-        boolean authorized = false;
-        if (user != null && user.getAuthorities() != null) {
+        boolean authorized = user.getAuthorities().contains(GeoNodeDataAccessManager.getAdminRole());
+        if (!authorized && user != null && user.getAuthorities() != null) {
             for (GrantedAuthority ga : user.getAuthorities()) {
                 if (ga instanceof LayersGrantedAuthority) {
                     LayersGrantedAuthority lga = ((LayersGrantedAuthority) ga);

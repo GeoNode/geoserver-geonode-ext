@@ -3,6 +3,7 @@ package org.geonode.security;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public class GeoNodeSessionAuthToken extends AbstractAuthenticationToken {
 
