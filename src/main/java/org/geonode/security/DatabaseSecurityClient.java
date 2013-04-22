@@ -19,6 +19,7 @@ import net.sf.json.JSONSerializer;
 import org.apache.commons.codec.binary.Base64;
 import org.geoserver.catalog.ResourceInfo;
 import org.geoserver.security.AccessMode;
+import org.geoserver.security.impl.GeoServerUser;
 import org.geotools.util.logging.Logging;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -26,6 +27,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
 /**
@@ -146,7 +148,8 @@ public class DatabaseSecurityClient implements GeoNodeSecurityClient {
             } else {
                 authorities = Collections.EMPTY_LIST;
             }
-            auth = new UsernamePasswordAuthenticationToken(userName, credentials, authorities);
+            UserDetails details = new GeoServerUser(userName.toString());
+            auth = new UsernamePasswordAuthenticationToken(details, credentials, authorities);
         }
         return auth;
     }

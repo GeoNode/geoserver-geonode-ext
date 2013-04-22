@@ -84,6 +84,7 @@ public class GeoNodeCookieProcessingFilter extends GeoServerSecurityFilter
                 Authentication authRequest =
                     new GeoNodeSessionAuthToken(principal, gnCookie, authorities);
                 final Authentication authResult = getSecurityManager().authenticate(authRequest);
+                LOGGER.log(Level.FINE, "authResult : {0}", authResult);
                 securityContext.setAuthentication(authResult);
             } catch (AuthenticationException e) {
                 // we just go ahead and fall back on basic authentication

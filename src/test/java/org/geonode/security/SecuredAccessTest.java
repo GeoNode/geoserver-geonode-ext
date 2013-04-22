@@ -23,6 +23,9 @@ import org.xml.sax.SAXException;
 
 import com.mockrunner.mock.web.MockHttpServletRequest;
 import com.mockrunner.mock.web.MockHttpServletResponse;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import org.geotools.util.logging.Logging;
 
 public class SecuredAccessTest extends GeoNodeTestSupport {
 
@@ -65,6 +68,9 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
 
         GeoNodeTestSecurityProvider geoNodeTestSecurityProvider = (GeoNodeTestSecurityProvider) applicationContext.getBean("geoNodeSecurityProvider");
         client = (MockSecurityClient) geoNodeTestSecurityProvider.getSecurityClient();
+
+        Logging.getLogger("").setLevel(Level.ALL);
+        Logging.getLogger("org.geonode.security").setLevel(Level.ALL);
     }
 
     /**

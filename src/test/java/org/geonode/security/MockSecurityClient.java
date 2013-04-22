@@ -10,11 +10,13 @@ import org.geonode.security.LayersGrantedAuthority.LayerMode;
 import org.geoserver.catalog.ResourceInfo;
 import org.geoserver.security.AccessMode;
 import org.geoserver.security.impl.GeoServerRole;
+import org.geoserver.security.impl.GeoServerUser;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * A mock security client used to test
@@ -85,9 +87,9 @@ public class MockSecurityClient implements GeoNodeSecurityClient {
         if (readWriteLayers != null && readWriteLayers.size() > 0) {
             authorities.add(new LayersGrantedAuthority(readWriteLayers, LayerMode.READ_WRITE));
         }
-
+        UserDetails details = new GeoServerUser(username);
         UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(
-                username, password, authorities);
+                details, password, authorities);
         return token;
     }
 
