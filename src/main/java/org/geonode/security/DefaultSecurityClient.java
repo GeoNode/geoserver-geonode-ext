@@ -98,9 +98,9 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
 
                     cachedAuth = authenticate(cookieValue, headerName, headerValue);
                     if (cachedAuth instanceof UsernamePasswordAuthenticationToken) {
-                        UserDetails userDetails = new GeoServerUser(cachedAuth.getCredentials().toString());
-                        cachedAuth = new GeoNodeSessionAuthToken(cachedAuth.getPrincipal(),
-                                userDetails, cachedAuth.getAuthorities());
+                        UserDetails userDetails = new GeoServerUser(cachedAuth.getPrincipal().toString());
+                        cachedAuth = new GeoNodeSessionAuthToken(userDetails,
+                                cachedAuth.getCredentials(), cachedAuth.getAuthorities());
                     }
                     authCache.put(cookieValue, cachedAuth);
                 }
