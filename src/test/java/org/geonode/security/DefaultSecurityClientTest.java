@@ -13,6 +13,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.easymock.classextension.EasyMock;
 import org.geonode.security.LayersGrantedAuthority.LayerMode;
 import org.geoserver.security.GeoServerSecurityTestSupport;
+import org.geoserver.security.impl.GeoServerUser;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -98,7 +99,7 @@ public class DefaultSecurityClientTest extends GeoServerSecurityTestSupport {
         assertNotNull(authentication);
         assertTrue(authentication instanceof GeoNodeSessionAuthToken);
         assertTrue(authentication.isAuthenticated());
-        assertEquals("aang", authentication.getPrincipal());
+        assertEquals("aang", ((GeoServerUser)authentication.getPrincipal()).getUsername());
 
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         authorities.addAll(authentication.getAuthorities());
