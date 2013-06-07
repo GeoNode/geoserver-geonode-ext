@@ -106,9 +106,16 @@
     </dependency>
 
     <dependency>
+      <groupId>org.geoserver.extension</groupId>
+      <artifactId>wps-core</artifactId>
+      <version>${geoserver.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
       <groupId>org.geotools.xsd</groupId>
       <artifactId>gt-xsd-kml</artifactId>
-      <version>8-SNAPSHOT</version>
+      <version>${geotools.version}</version>
     </dependency>
 
     <dependency>
@@ -317,7 +324,7 @@
         </executions>
       </plugin>
       
-      <!--plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
@@ -334,7 +341,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin-->
+      </plugin>
     </plugins>
   </build>
 </project>
