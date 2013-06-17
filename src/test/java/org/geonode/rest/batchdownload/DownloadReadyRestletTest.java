@@ -48,6 +48,7 @@ import org.restlet.data.MediaType;
 import org.restlet.data.Status;
 
 import com.mockrunner.mock.web.MockHttpServletResponse;
+import static junit.framework.Assert.assertEquals;
 
 public class DownloadReadyRestletTest extends GeoNodeTestSupport {
 
@@ -87,11 +88,13 @@ public class DownloadReadyRestletTest extends GeoNodeTestSupport {
 
         final Long processId = issueProcessAndWaitForTermination();
 
-        final String request = RESTLET_PATH + "/" + processId.longValue();
+        // zip extension is not required but should be handled
+        final String request = RESTLET_PATH + "/" + processId.longValue() + ".zip";
 
         final MockHttpServletResponse response = getAsServletResponse(request);
         assertEquals(Status.SUCCESS_OK, Status.valueOf(response.getStatusCode()));
         assertEquals(MediaType.APPLICATION_ZIP, MediaType.valueOf(response.getContentType()));
+        assertEquals("attachment; filename=\"test map.zip\"", response.getHeader("Content-Disposition"));
 
         final ByteArrayInputStream responseStream = getBinaryInputStream(response);
         final ZipInputStream zipIn = new ZipInputStream(responseStream);
