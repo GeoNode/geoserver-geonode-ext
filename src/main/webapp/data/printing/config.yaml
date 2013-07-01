@@ -17,23 +17,38 @@ scales:
   - 4000000
 
 #===========================================================================
-# the list of allowed hosts
+# the list of allowed ips
 #===========================================================================
 hosts:
   - !localMatch
     dummy: true
-  - !ipMatch
-    ip: www.camptocamp.org
   - !dnsMatch
-    host: labs.metacarta.com
+    host: otile1.mqcdn.com 
     port: 80
   - !dnsMatch
-    host: terraservice.net
+    host: otile2.mqcdn.com
     port: 80
   - !dnsMatch
-    host: sigma.openplans.org
+    host: otile3.mqcdn.com
+    port: 80
   - !dnsMatch
-    host: demo.mapfish.org
+    host: otile4.mqcdn.com
+    port: 80
+  - !dnsMatch
+    host: otile5.mqcdn.com 
+    port: 80
+  - !dnsMatch
+    host: a.tile.openstreetmap.org
+    port: 80
+  - !dnsMatch
+    host: b.tile.openstreetmap.org
+    port: 80
+  - !dnsMatch
+    host: c.tile.openstreetmap.org
+    port: 80
+  - !dnsMatch
+    host: d.tile.openstreetmap.org
+    port: 80
 
 layouts:
   Legal:
@@ -48,29 +63,29 @@ layouts:
   A4 portrait:
   #===========================================================================
     metaData:
-#      title: '${mapTitle}'
-      author: 'MapFish print module'
+      title: '${mapTitle}'
+      author: 'GeoNode'
       subject: 'Simple layout'
       keywords: 'map,print'
-      creator: 'MapFish'
+      creator: 'GeoNode'
 
-    titlePage:
-      pageSize: A4
-      items:
-        - !text
-          spacingAfter: 150
-        - !text
-          font: Helvetica
-          fontSize: 40
-          spacingAfter: 100
-          align: center
-          text: '${layout}'
-        - !image
-          maxWidth: 160
-          maxHeight: 160
-          spacingAfter: 100
-          align: center
-          url: http://trac.mapfish.org/trac/mapfish/attachment/ticket/3/logo_v8_sphere.svg?format=raw
+    #titlePage:
+    #  pageSize: A4
+    #  items:
+    #    - !text
+    #      spacingAfter: 150
+    #    - !text
+    #      font: Helvetica
+    #      fontSize: 40
+    #      spacingAfter: 100
+    #      align: center
+    #      text: '${layout}'
+    #    - !image
+    #      maxWidth: 160
+    #      maxHeight: 160
+    #      spacingAfter: 100
+    #      align: center
+    #      url: http://trac.mapfish.org/trac/mapfish/attachment/ticket/3/logo_v8_sphere.svg?format=raw
 
       footer: &commonFooter
         height: 30
@@ -80,19 +95,19 @@ layouts:
               cells:
                 - paddingBottom: 5   
             items:
+              #- !text
+              #  backgroundColor: #FF0000
+              #  align: left
+              #  text: a red box
               - !text
-                backgroundColor: #FF0000
-                align: left
-                text: a red box
-              - !text
-                align: right
+                align: center 
                 text: 'Page ${pageNum}'
-              - !image
-                align: center
-                maxWidth: 100
-                maxHeight: 30
-                spacingAfter: 200
-                url: 'http://geoserver.org/download/attachments/10158143/pbGS-Bttn228x68.png'
+              #- !image
+              #  align: center
+              #  maxWidth: 100
+              #  maxHeight: 30
+              #  spacingAfter: 200
+              #  url: 'http://geoserver.org/download/attachments/10158143/pbGS-Bttn228x68.png'
 
     #-------------------------------------------------------------------------
     mainPage:
