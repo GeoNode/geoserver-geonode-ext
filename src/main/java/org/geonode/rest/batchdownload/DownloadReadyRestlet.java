@@ -5,12 +5,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.io.IOUtils;
 import org.geonode.process.batchdownload.BatchDownloadFactory;
 import org.geonode.process.control.ProcessController;
 import org.geonode.process.storage.Resource;
 import org.restlet.Restlet;
+import org.restlet.data.Form;
 import org.restlet.data.MediaType;
 import org.restlet.data.Method;
 import org.restlet.data.Reference;
@@ -46,14 +49,14 @@ public class DownloadReadyRestlet extends Restlet {
         }
 
         final Reference resourceRef = request.getResourceRef();
-        final String lastSegment = resourceRef.getLastSegment();
+        final Matcher lastSegment = Pattern.compile("\\d+").matcher(resourceRef.getLastSegment());
         final Long processId;
-        try {
-            processId = Long.decode(lastSegment);
-        } catch (NumberFormatException e) {
-            response.setStatus(Status.CLIENT_ERROR_BAD_REQUEST, lastSegment
+        if (! lastSegment.find() ) {
+            response.setStatus(Status.CLIENT_ERROR_BAD_REQUEST, resourceRef.getLastSegment()
                     + " is not a valid process identifier");
             return;
+        } else {
+            processId = Long.decode(lastSegment.group());
         }
 
         Map<String, Object> result;
@@ -84,13 +87,23 @@ public class DownloadReadyRestlet extends Restlet {
             }
         };
 
+        String downloadName = null;
         try {
             File file = zipRes.getFile();
+            downloadName = file.getName();
             long fileSize = file.length();
             representation.setSize(fileSize);
         } catch (Exception e) {
             // no worries, may the resource be not referencing a file in the filesystem but some
             // other kind of resource
+        }
+        if (downloadName != null) {
+            Form headers = new Form();
+            headers.add("Content-Disposition", String.format("attachment; filename=\"%s\"", downloadName));
+            // this is a backdoor to setting arbitrary headers not supported
+            // by the restlet formalized API
+            response.getAttributes().put("org.restlet.http.headers",
+                headers);
         }
         response.setEntity(representation);
     }
