@@ -14,6 +14,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.util.Assert;
 
 /**
@@ -39,10 +40,17 @@ public class GeoNodeAuthenticationProvider extends GeoServerAuthenticationProvid
 	        String password = (String) token.getCredentials();
 	
 	        try {
-	        	if (username == "" && password == null)
+	        	if (username == "" && password == null) {
 	        		return client.authenticateAnonymous();
-	        	else
-	        		return client.authenticateUserPwd(username, password);
+                } else {
+                    // if an anonymous session cookie exists in the request but
+                    // the user is logging in via the admin or other form mechanism,
+                    // it's possible that the GeoNodeCookieProcessingFilter will
+                    // 'overwrite' the credentials... it will check for this
+                    Authentication auth = client.authenticateUserPwd(username, password);
+                    SecurityContextHolder.getContext().setAuthentication(auth);
+                    return auth;
+                }
 	        } catch (IOException e) {
 	            throw new AuthenticationServiceException("Communication with GeoNode failed", e);
 	        }

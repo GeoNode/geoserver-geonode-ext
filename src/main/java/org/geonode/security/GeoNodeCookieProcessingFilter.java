@@ -15,12 +15,14 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import org.geoserver.security.GeoServerSecurityFilterChainProxy;
 
 import org.geoserver.security.filter.GeoServerAuthenticationFilter;
 import org.geoserver.security.filter.GeoServerSecurityFilter;
 import org.geoserver.security.impl.GeoServerUser;
 import org.geotools.util.logging.Logging;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
@@ -62,13 +64,19 @@ public class GeoNodeCookieProcessingFilter extends GeoServerSecurityFilter
         final Authentication existingAuth = securityContext.getAuthentication();
 
         final String gnCookie = getGeoNodeCookieValue(httpRequest);
-        
+
         final boolean alreadyAuthenticated = existingAuth != null && existingAuth.isAuthenticated();
         final boolean anonymous = existingAuth == null || existingAuth instanceof AnonymousAuthenticationToken;
+        // if logging in via geoserver web form, we want to short circuit the cookie
+        // check below which might get triggered with an anon geonode cookie
+        // the result looks like the login worked but because we replace the
+        // auth below, it functionaly fails
+        final boolean loggedInWithPassword = existingAuth instanceof UsernamePasswordAuthenticationToken &&
+                alreadyAuthenticated;
         final boolean hasPreviouslyValidatedGeoNodeCookie =
         		(existingAuth instanceof GeoNodeSessionAuthToken) &&
         		existingAuth.getCredentials().equals(gnCookie);
-        
+
         if (hasPreviouslyValidatedGeoNodeCookie) existingAuth.setAuthenticated(true);
 
         // if we still need to authenticate and we find the cookie, consult GeoNode for
@@ -76,7 +84,7 @@ public class GeoNodeCookieProcessingFilter extends GeoServerSecurityFilter
         final boolean authenticationRequired =
             (!alreadyAuthenticated || anonymous || !hasPreviouslyValidatedGeoNodeCookie);
         
-        if (authenticationRequired && gnCookie != null) {
+        if (!loggedInWithPassword && authenticationRequired && gnCookie != null) {
             try {
                 Object principal = existingAuth == null ? null : existingAuth.getPrincipal();
                 Collection<? extends GrantedAuthority> authorities = 
