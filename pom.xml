@@ -333,14 +333,6 @@
           <packagingExcludes>**/data/</packagingExcludes>
           <packagingExcludes>**/web-app*.jar</packagingExcludes>
         </configuration>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>war</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>
