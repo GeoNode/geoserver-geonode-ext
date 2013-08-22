@@ -126,18 +126,21 @@ public class GeoNodeSecurityProvider extends GeoServerSecurityProvider implement
 
         GeoServerSecurityFilterChain filterChain = config.getFilterChain();
 
-        String[] anonymousChains = {
+        // place the geonodeCookieFilter before the anonymous filter
+        String[] geonodeCookieChains = {
             GeoServerSecurityFilterChain.WEB_CHAIN,
             GeoServerSecurityFilterChain.REST_CHAIN,
+            GeoServerSecurityFilterChain.GWC_WEB_CHAIN,
             GeoServerSecurityFilterChain.GWC_REST_CHAIN,
             GeoServerSecurityFilterChain.DEFAULT_CHAIN
         };
         
-        for (String chain : anonymousChains) {
-            filterChain.insertBefore(chain, "geonodeAnonymousFilter", "anonymous");
+        for (String chain : geonodeCookieChains) {
+            filterChain.insertFirst(chain, "geonodeCookieFilter");
         }
 
-        filterChain.insertBefore(GeoServerSecurityFilterChain.DEFAULT_CHAIN, "geonodeCookieFilter", "geonodeAnonymousFilter");
+        // stick the geonodeAnonymousFilter filter before the anonymous
+        filterChain.insertBefore(GeoServerSecurityFilterChain.DEFAULT_CHAIN, "geonodeAnonymousFilter", GeoServerSecurityFilterChain.ANONYMOUS_FILTER);
         
         manager.saveSecurityConfig(config);
     }

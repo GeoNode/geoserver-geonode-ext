@@ -38,7 +38,7 @@ public class GeoNodeDataAccessManager implements DataAccessManager {
     }
     
     public static GeoServerRole getAdminRole() {
-        return roleService().getAdminRole();
+        return GeoServerRole.ADMIN_ROLE;
     }
     
     private static GeoServerSecurityManager securityManager() {
