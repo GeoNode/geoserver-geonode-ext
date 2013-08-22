@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
@@ -97,11 +98,6 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
                     final String headerValue = GEONODE_COOKIE_NAME + "=" + cookieValue;
 
                     cachedAuth = authenticate(cookieValue, headerName, headerValue);
-                    if (cachedAuth instanceof UsernamePasswordAuthenticationToken) {
-                        UserDetails userDetails = new GeoServerUser(cachedAuth.getPrincipal().toString());
-                        cachedAuth = new GeoNodeSessionAuthToken(userDetails,
-                                cachedAuth.getCredentials(), cachedAuth.getAuthorities());
-                    }
                     authCache.put(cookieValue, cachedAuth);
                 }
             } finally {
@@ -160,6 +156,14 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
 
         JSONObject json = (JSONObject) JSONSerializer.toJSON(responseBodyAsString);
         Authentication authentication = toAuthentication(credentials, json);
+        if (authentication instanceof UsernamePasswordAuthenticationToken) {
+            GeoServerUser userDetails = new GeoServerUser(authentication.getPrincipal().toString());
+            authentication = new GeoNodeSessionAuthToken(userDetails,
+                    authentication.getCredentials(), authentication.getAuthorities());
+            Properties props = userDetails.getProperties();
+            props.put("email", json.optString("email"));
+            props.put("fullname", json.optString("fullname"));
+        }
         return authentication;
     }
 
