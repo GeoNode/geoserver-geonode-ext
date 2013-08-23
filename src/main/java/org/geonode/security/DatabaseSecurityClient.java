@@ -19,6 +19,7 @@ import net.sf.json.JSONSerializer;
 import org.apache.commons.codec.binary.Base64;
 import org.geoserver.catalog.ResourceInfo;
 import org.geoserver.security.AccessMode;
+import org.geoserver.security.impl.GeoServerRole;
 import org.geoserver.security.impl.GeoServerUser;
 import org.geotools.util.logging.Logging;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -26,7 +27,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 
@@ -60,9 +60,9 @@ public class DatabaseSecurityClient implements GeoNodeSecurityClient {
      */
     private final Cache<AuthorizationKey, Byte> authorizationCache;
     private final AnonymousAuthenticationToken ANONYMOUS = new AnonymousAuthenticationToken(
-            "geonode", "anonymous", Collections.singletonList(new SimpleGrantedAuthority("ROLE_ANONYMOUS")));
+            "geonode", "anonymous", Collections.singletonList(GeoServerRole.ANONYMOUS_ROLE));
     private final Collection<? extends GrantedAuthority> ADMIN_AUTHORITY = 
-            Collections.singleton(GeoNodeDataAccessManager.getAdminRole());
+            Arrays.asList(GeoServerRole.ADMIN_ROLE, GeoServerRole.AUTHENTICATED_ROLE);
 
     public DatabaseSecurityClient(DataSource dataSource, String baseUrl, HTTPClient httpClient) {
         this.dataSource = dataSource;

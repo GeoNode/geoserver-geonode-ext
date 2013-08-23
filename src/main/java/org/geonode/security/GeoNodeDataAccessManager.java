@@ -37,10 +37,6 @@ public class GeoNodeDataAccessManager implements DataAccessManager {
         this.securityClientProvider = securityClientProvider;
     }
     
-    public static GeoServerRole getAdminRole() {
-        return GeoServerRole.ADMIN_ROLE;
-    }
-    
     private static GeoServerSecurityManager securityManager() {
         return GeoServerExtensions.bean(GeoServerSecurityManager.class);
     }
@@ -92,7 +88,7 @@ public class GeoNodeDataAccessManager implements DataAccessManager {
             LOG.finer("Checking permissions for " + user +" with authorities " + user.getAuthorities() + " accessing " + resource);
         }
         
-        if (user.getAuthorities().contains(GeoNodeDataAccessManager.getAdminRole())) {
+        if (user.getAuthorities().contains(GeoServerRole.ADMIN_ROLE)) {
             return true;
         }
         

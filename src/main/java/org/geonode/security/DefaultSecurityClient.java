@@ -176,7 +176,6 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
         }
         if (json.getBoolean("is_superuser")) {
             authorities.add(GeoServerRole.ADMIN_ROLE);
-            authorities.add(GeoNodeDataAccessManager.getAdminRole());
         }
 
         final Authentication authentication;
@@ -204,7 +203,7 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
     }
     
     static boolean authorizeUsingAuthorities(Authentication user, ResourceInfo resource, AccessMode mode) {
-        boolean authorized = user.getAuthorities().contains(GeoNodeDataAccessManager.getAdminRole());
+        boolean authorized = user.getAuthorities().contains(GeoServerRole.ADMIN_ROLE);
         if (!authorized && user != null && user.getAuthorities() != null) {
             for (GrantedAuthority ga : user.getAuthorities()) {
                 if (ga instanceof LayersGrantedAuthority) {

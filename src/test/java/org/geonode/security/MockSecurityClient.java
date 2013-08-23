@@ -79,7 +79,7 @@ public class MockSecurityClient implements GeoNodeSecurityClient {
             List<String> readOnlyLayers, List<String> readWriteLayers) {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         if (admin) {
-            authorities.add(GeoNodeDataAccessManager.getAdminRole());
+            authorities.add(GeoServerRole.ADMIN_ROLE);
         }
         if (readOnlyLayers != null && readOnlyLayers.size() > 0) {
             authorities.add(new LayersGrantedAuthority(readOnlyLayers, LayerMode.READ_ONLY));
@@ -98,7 +98,7 @@ public class MockSecurityClient implements GeoNodeSecurityClient {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         authorities.add(GeoServerRole.ANONYMOUS_ROLE);
         if (admin) {
-            authorities.add(GeoNodeDataAccessManager.getAdminRole());
+            authorities.add(GeoServerRole.ADMIN_ROLE);
         }
         if (readOnlyLayers != null && readOnlyLayers.size() > 0) {
             authorities.add(new LayersGrantedAuthority(readOnlyLayers, LayerMode.READ_ONLY));

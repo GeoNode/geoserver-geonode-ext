@@ -12,7 +12,7 @@ import java.util.List;
 import org.apache.commons.codec.binary.Base64;
 import org.easymock.classextension.EasyMock;
 import org.geonode.security.LayersGrantedAuthority.LayerMode;
-import org.geoserver.security.GeoServerSecurityTestSupport;
+import org.geoserver.security.impl.GeoServerRole;
 import org.geoserver.security.impl.GeoServerUser;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,7 +28,7 @@ import org.junit.Test;
  * @author groldan
  * 
  */
-public class DefaultSecurityClientTest extends GeoServerSecurityTestSupport {
+public class DefaultSecurityClientTest {
 
     private HTTPClient mockHttpClient;
 
@@ -103,7 +103,7 @@ public class DefaultSecurityClientTest extends GeoServerSecurityTestSupport {
 
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         authorities.addAll(authentication.getAuthorities());
-        assertEquals(5, authorities.size());
+        assertEquals(4, authorities.size());
         assertTrue(authorities.get(0) instanceof LayersGrantedAuthority);
         assertEquals(LayerMode.READ_ONLY, ((LayersGrantedAuthority) authorities.get(0)).getAccessMode());
         assertEquals(Collections.singletonList("layer3"),
@@ -115,7 +115,7 @@ public class DefaultSecurityClientTest extends GeoServerSecurityTestSupport {
                 ((LayersGrantedAuthority) authorities.get(1)).getLayerNames());
 
         assertTrue(authorities.get(2) instanceof GrantedAuthority);
-        assertTrue(authorities.contains(GeoNodeDataAccessManager.getAdminRole()));
+        assertTrue(authorities.contains(GeoServerRole.ADMIN_ROLE));
     }
 
     @Test
@@ -143,6 +143,7 @@ public class DefaultSecurityClientTest extends GeoServerSecurityTestSupport {
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         authorities.addAll(authentication.getAuthorities());
         assertEquals(3, authorities.size());
+        assertTrue(authorities.contains(GeoServerRole.AUTHENTICATED_ROLE));
         assertTrue(authorities.get(0) instanceof LayersGrantedAuthority);
         assertEquals(LayerMode.READ_ONLY, ((LayersGrantedAuthority) authorities.get(0)).getAccessMode());
         assertEquals(Arrays.asList("layer2", "layer3"),
