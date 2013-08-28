@@ -21,11 +21,11 @@ if (username IS NOT NULL) then
 		-- no user
 		return 'nu';
 	end if;
-	if (user.id = layer.owner_id) then
+	if ("user".id = "layer".owner_id) then
 		-- layer owner
 		return 'lo-rw';
 	end if;
-	if (user.is_superuser) then
+	if ("user".is_superuser) then
 		-- super user
 		return 'su-rw';
 	end if;
@@ -86,8 +86,8 @@ if (username IS NOT NULL) then
 		ON ("security_objectrole"."id" = "security_objectrole_permissions"."objectrole_id") 
 		WHERE ("security_objectrole_permissions"."permission_id" = change_perm 
 		AND "security_userobjectrolemapping"."object_ct_id" = ct 
-		AND "security_userobjectrolemapping"."user_id" = user.id 
-		AND "security_userobjectrolemapping"."object_id" = layer.id
+		AND "security_userobjectrolemapping"."user_id" = "user".id 
+		AND "security_userobjectrolemapping"."object_id" = "layer".id
 		);
 	if (FOUND) then return 'ur-rw'; end if;
 
@@ -100,8 +100,8 @@ if (username IS NOT NULL) then
 		ON ("security_objectrole"."id" = "security_objectrole_permissions"."objectrole_id") 
 		WHERE ("security_objectrole_permissions"."permission_id" = change_perm 
 		AND "security_userobjectrolemapping"."object_ct_id" = ct 
-		AND "security_userobjectrolemapping"."user_id" = user.id 
-		AND "security_userobjectrolemapping"."object_id" = layer.id
+		AND "security_userobjectrolemapping"."user_id" = "user".id 
+		AND "security_userobjectrolemapping"."object_id" = "layer".id
 		);
 	if (FOUND) then return 'ur-ro'; end if;
 end if;
