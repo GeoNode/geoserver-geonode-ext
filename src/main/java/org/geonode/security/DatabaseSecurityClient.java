@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -148,7 +149,11 @@ public class DatabaseSecurityClient implements GeoNodeSecurityClient {
             } else {
                 authorities = Collections.EMPTY_LIST;
             }
-            UserDetails details = new GeoServerUser(userName.toString());
+            GeoServerUser details = new GeoServerUser(userName.toString());
+            Properties props = details.getProperties();
+            props.put("email", json.optString("email"));
+            props.put("fullname", json.optString("fullname"));
+
             auth = new UsernamePasswordAuthenticationToken(details, credentials, authorities);
         }
         return auth;

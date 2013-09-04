@@ -125,7 +125,9 @@ public class DefaultSecurityClientTest {
         final String[] requestHeaders = { "Authorization",
                 "Basic " + new String(Base64.encodeBase64((username + ":" + password).getBytes())) };
 
-        final String response = "{'is_superuser': false, 'rw': ['layer1'], 'ro': ['layer2', 'layer3'], 'is_anonymous': false, 'name': 'aang'}";
+        final String response = "{'is_superuser': false, 'rw': ['layer1'], 'ro': ['layer2', 'layer3'],"
+                + " 'is_anonymous': false, 'name': 'aang', 'fullname': 'Andy Ang',"
+                + " 'email': 'a@ang.com'}";
 
         EasyMock.expect(
                 mockHttpClient.sendGET(EasyMock.eq("http://localhost:8000/layers/acls"),
@@ -136,9 +138,12 @@ public class DefaultSecurityClientTest {
         EasyMock.verify(mockHttpClient);
 
         assertNotNull(authentication);
-        assertTrue(authentication instanceof UsernamePasswordAuthenticationToken);
+        assertTrue(authentication instanceof GeoNodeSessionAuthToken);
         assertTrue(authentication.isAuthenticated());
-        assertEquals("aang", authentication.getPrincipal());
+        GeoServerUser user = (GeoServerUser) authentication.getPrincipal();
+        assertEquals("aang", user.getUsername());
+        assertEquals("Andy Ang", user.getProperties().get("fullname"));
+        assertEquals("a@ang.com", user.getProperties().get("email"));
 
         List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
         authorities.addAll(authentication.getAuthorities());
