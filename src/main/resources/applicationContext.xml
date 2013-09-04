@@ -123,4 +123,9 @@
     <property name="titleKey" value="GeoNodeAuthProviderPanel.title" />
     <property name="descriptionKey" value="GeoNodeAuthProviderPanel.description"/>
   </bean>
+  <bean id="GeonodeWFSCredentialsPlugin" class="org.geonode.wfs.GeonodeWFSCredentialsPlugin">
+    <description>Sets some geonode specific metadata properties to WFS transactions
+    (such as full user name and email) to be available to the lower level geotools data access layer.
+    For the specific case of versioning datastores this data can be used as part of the commit information</description>
+  </bean>
 </beans>
