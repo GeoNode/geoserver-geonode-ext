@@ -3,7 +3,7 @@
   <groupId>org.opengeo</groupId>
   <artifactId>geonode-geoserver-ext</artifactId>
   <packaging>jar</packaging>
-  <version>0.3</version>
+  <version>${geoserver.version}</version>
   <name>GeoNode GeoServer Extensions</name>
 
   <repositories>
@@ -94,27 +94,34 @@
     <dependency>
         <groupId>org.opengeo.geoserver</groupId>
         <artifactId>importer</artifactId>
-        <version>${geoserver.version}-SNAPSHOT</version>
+        <version>${geoserver.version}</version>
         <scope>runtime</scope>
     </dependency>
 
     <dependency>
         <groupId>org.opengeo.data.csv</groupId>
         <artifactId>csv</artifactId>
-        <version>${geoserver.version}-SNAPSHOT</version>
+        <version>${geoserver.version}</version>
         <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.geoserver.extension</groupId>
+      <artifactId>wps-core</artifactId>
+      <version>${geoserver.version}</version>
+      <scope>runtime</scope>
     </dependency>
 
     <dependency>
       <groupId>org.geotools.xsd</groupId>
       <artifactId>gt-xsd-kml</artifactId>
-      <version>8-SNAPSHOT</version>
+      <version>${geotools.version}</version>
     </dependency>
 
     <dependency>
         <groupId>org.opengeo.geoserver</groupId>
         <artifactId>printng</artifactId>
-        <version>${geoserver.version}-SNAPSHOT</version>
+        <version>${geoserver.version}</version>
         <scope>runtime</scope>
     </dependency>
 
@@ -152,7 +159,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.2</version>
+      <version>4.10</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -223,8 +230,8 @@
     </dependency>
   </dependencies>
   <properties>
-    <geotools.version>8.2</geotools.version>
-    <geoserver.version>2.2</geoserver.version>
+    <geotools.version>9-SNAPSHOT</geotools.version>
+    <geoserver.version>2.3-SNAPSHOT</geoserver.version>
     <jetty.version>6.1.8</jetty.version>
     <maven.test.search.classdir>true</maven.test.search.classdir>
   </properties>
@@ -326,14 +333,6 @@
           <packagingExcludes>**/data/</packagingExcludes>
           <packagingExcludes>**/web-app*.jar</packagingExcludes>
         </configuration>
-        <executions>
-          <execution>
-            <phase>package</phase>
-            <goals>
-              <goal>war</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
     </plugins>
   </build>

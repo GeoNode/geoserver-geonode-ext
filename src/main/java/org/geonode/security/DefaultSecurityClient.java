@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.util.logging.Level;
@@ -24,6 +25,7 @@ import org.geonode.security.LayersGrantedAuthority.LayerMode;
 import org.geoserver.catalog.ResourceInfo;
 import org.geoserver.security.AccessMode;
 import org.geoserver.security.impl.GeoServerRole;
+import org.geoserver.security.impl.GeoServerUser;
 import org.geotools.util.logging.Logging;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -31,6 +33,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
 /**
@@ -95,10 +98,6 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
                     final String headerValue = GEONODE_COOKIE_NAME + "=" + cookieValue;
 
                     cachedAuth = authenticate(cookieValue, headerName, headerValue);
-                    if (cachedAuth instanceof UsernamePasswordAuthenticationToken) {
-                        cachedAuth = new GeoNodeSessionAuthToken(cachedAuth.getPrincipal(),
-                                cachedAuth.getCredentials(), cachedAuth.getAuthorities());
-                    }
                     authCache.put(cookieValue, cachedAuth);
                 }
             } finally {
@@ -157,6 +156,14 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
 
         JSONObject json = (JSONObject) JSONSerializer.toJSON(responseBodyAsString);
         Authentication authentication = toAuthentication(credentials, json);
+        if (authentication instanceof UsernamePasswordAuthenticationToken) {
+            GeoServerUser userDetails = new GeoServerUser(authentication.getPrincipal().toString());
+            authentication = new GeoNodeSessionAuthToken(userDetails,
+                    authentication.getCredentials(), authentication.getAuthorities());
+            Properties props = userDetails.getProperties();
+            props.put("email", json.optString("email"));
+            props.put("fullname", json.optString("fullname"));
+        }
         return authentication;
     }
 
@@ -173,7 +180,6 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
         }
         if (json.getBoolean("is_superuser")) {
             authorities.add(GeoServerRole.ADMIN_ROLE);
-            authorities.add(GeoNodeDataAccessManager.getAdminRole());
         }
 
         final Authentication authentication;
@@ -201,8 +207,8 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
     }
     
     static boolean authorizeUsingAuthorities(Authentication user, ResourceInfo resource, AccessMode mode) {
-        boolean authorized = false;
-        if (user != null && user.getAuthorities() != null) {
+        boolean authorized = user.getAuthorities().contains(GeoServerRole.ADMIN_ROLE);
+        if (!authorized && user != null && user.getAuthorities() != null) {
             for (GrantedAuthority ga : user.getAuthorities()) {
                 if (ga instanceof LayersGrantedAuthority) {
                     LayersGrantedAuthority lga = ((LayersGrantedAuthority) ga);

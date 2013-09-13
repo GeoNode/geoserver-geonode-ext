@@ -7,14 +7,14 @@ package org.geonode.security;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import org.geoserver.security.GeoServerAuthenticationProvider;
+import org.geoserver.security.impl.GeoServerUser;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.util.Assert;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
  * An {@link AuthenticationProvider} provider passing the username/password to GeoNode for
@@ -37,12 +37,26 @@ public class GeoNodeAuthenticationProvider extends GeoServerAuthenticationProvid
 	        UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
 	        String username = token.getName();
 	        String password = (String) token.getCredentials();
+
+            // ignore this - let the other provider(s) handle things
+            if (GeoServerUser.ROOT_USERNAME.equals(username) && GeoServerUser.DEFAULT_ADMIN_PASSWD.equals(username)) {
+                return null;
+            }
 	
 	        try {
-	        	if (username == "" && password == null)
+	        	if (username == "" && password == null) {
 	        		return client.authenticateAnonymous();
-	        	else
-	        		return client.authenticateUserPwd(username, password);
+                } else {
+                    // if an anonymous session cookie exists in the request but
+                    // the user is logging in via the admin or other form mechanism,
+                    // it's possible that the GeoNodeCookieProcessingFilter will
+                    // 'overwrite' the credentials... it will check for this
+                    Authentication auth = client.authenticateUserPwd(username, password);
+                    if (auth.isAuthenticated()) {
+                        SecurityContextHolder.getContext().setAuthentication(auth);
+                    }
+                    return auth;
+                }
 	        } catch (IOException e) {
 	            throw new AuthenticationServiceException("Communication with GeoNode failed", e);
 	        }
