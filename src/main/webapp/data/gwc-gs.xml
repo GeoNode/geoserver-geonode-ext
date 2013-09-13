@@ -1,6 +1,6 @@
 <GeoServerGWCConfig>
   <version>1.0.0</version>
-  <directWMSIntegrationEnabled>false</directWMSIntegrationEnabled>
+  <directWMSIntegrationEnabled>true</directWMSIntegrationEnabled>
   <WMSCEnabled>true</WMSCEnabled>
   <WMTSEnabled>true</WMTSEnabled>
   <TMSEnabled>true</TMSEnabled>
