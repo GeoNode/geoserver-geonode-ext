@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION geonode_authorize_layer(username varchar, typename varchar) RETURNS varchar AS $$
+CREATE OR REPLACE FUNCTION geonode_authorize_layer(username varchar, type_name varchar) RETURNS varchar AS $$
 
 DECLARE
 view_perm integer;
@@ -10,7 +10,7 @@ layer RECORD;
 BEGIN
 
 -- get the layer and user, take quick action if we can
-SELECT INTO layer "layers_layer"."id", "layers_layer"."owner_id" FROM "layers_layer" WHERE "layers_layer"."typename" = typename;
+SELECT INTO layer "base_resourcebase"."id", "base_resourcebase"."owner_id" FROM "base_resourcebase", "layers_layer" WHERE "base_resourcebase"."id" = "layers_layer"."resourcebase_ptr_id" AND "layers_layer"."typename" = type_name;
 if (not FOUND) then
 	-- no layer
 	return 'nl';
