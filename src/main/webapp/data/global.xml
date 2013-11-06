@@ -18,4 +18,5 @@
   <verbose>false</verbose>
   <verboseExceptions>false</verboseExceptions>
   <updateSequence>0</updateSequence>
+  <resourceErrorHandling>SKIP_MISCONFIGURED_LAYERS</resourceErrorHandling>
 </global>
