@@ -23,7 +23,7 @@ import org.geonode.process.storage.Folder;
 import org.geonode.process.storage.Resource;
 import org.geonode.process.storage.StorageManager;
 import org.geotools.coverage.grid.GridCoverage2D;
-import org.geotools.coverage.grid.io.AbstractGridCoverage2DReader;
+import org.geotools.coverage.grid.io.GridCoverage2DReader;
 import org.geotools.coverage.grid.io.AbstractGridFormat;
 import org.geotools.coverage.grid.io.imageio.GeoToolsWriteParams;
 import org.geotools.data.FeatureSource;
@@ -300,7 +300,7 @@ final class BatchDownload extends AsyncProcess {
     private void zipRasterLayer(final LayerReference layerRef, final ZipOutputStream zipOut,
             final ProgressListener monitor) throws IOException {
 
-        final AbstractGridCoverage2DReader reader = layerRef.getRasterSource();
+        final GridCoverage2DReader reader = layerRef.getRasterSource();
 
         // read coverage
         final GridCoverage2D coverage2d = reader.read(null);

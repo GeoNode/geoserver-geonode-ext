@@ -2,7 +2,7 @@ package org.geonode.process.batchdownload;
 
 import java.net.URL;
 
-import org.geotools.coverage.grid.io.AbstractGridCoverage2DReader;
+import org.geotools.coverage.grid.io.GridCoverage2DReader;
 import org.geotools.data.FeatureSource;
 import org.geotools.geometry.jts.ReferencedEnvelope;
 import org.opengis.feature.Feature;
@@ -20,7 +20,7 @@ public class LayerReference {
 
     private final FeatureSource<? extends FeatureType, ? extends Feature> vectorSource;
 
-    private final AbstractGridCoverage2DReader rasterSource;
+    private final GridCoverage2DReader rasterSource;
 
     private URL metadataURL;
 
@@ -36,7 +36,7 @@ public class LayerReference {
         rasterSource = null;
     }
 
-    public LayerReference(String name, AbstractGridCoverage2DReader source) {
+    public LayerReference(String name, GridCoverage2DReader source) {
         kind = Kind.RASTER;
         this.name = name;
         vectorSource = null;
@@ -51,7 +51,7 @@ public class LayerReference {
         return vectorSource;
     }
 
-    public AbstractGridCoverage2DReader getRasterSource() {
+    public GridCoverage2DReader getRasterSource() {
         return rasterSource;
     }
 

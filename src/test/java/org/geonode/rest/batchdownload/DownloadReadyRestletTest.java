@@ -37,7 +37,7 @@ import org.geoserver.data.util.IOUtils;
 import org.geoserver.platform.GeoServerExtensions;
 import org.geoserver.security.SecureCatalogImpl;
 import org.geotools.coverage.grid.GridCoverage2D;
-import org.geotools.coverage.grid.io.AbstractGridCoverage2DReader;
+import org.geotools.coverage.grid.io.GridCoverage2DReader;
 import org.geotools.data.FeatureSource;
 import org.geotools.gce.geotiff.GeoTiffReader;
 import org.geotools.referencing.CRS;
@@ -177,8 +177,8 @@ public class DownloadReadyRestletTest extends GeoNodeTestSupport {
     private LayerReference rasterLayer() throws IOException {
         Catalog catalog = getCatalog();
         CoverageInfo coverageInfo = catalog.getCoverageByName(RASTER_LAYER_NAME);
-        AbstractGridCoverage2DReader reader;
-        reader = (AbstractGridCoverage2DReader) coverageInfo.getGridCoverageReader(null, null);
+        GridCoverage2DReader reader;
+        reader = (GridCoverage2DReader) coverageInfo.getGridCoverageReader(null, null);
 
         LayerReference layerReference = new LayerReference(RASTER_LAYER_NAME, reader);
         return layerReference;

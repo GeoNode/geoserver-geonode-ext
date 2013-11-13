@@ -130,7 +130,7 @@ public class DownloadLauncherRestletTest extends GeoNodeTestSupport {
     // ProcessController controller = (ProcessController) GeoServerExtensions
     // .bean("processController");
     //
-    // AbstractGridCoverage2DReader reader = new ArcSDERasterFormatFactory().createFormat()
+    // GridCoverage2DReader reader = new ArcSDERasterFormatFactory().createFormat()
     // .getReader("sde://sde:geo123@arcy.opengeo.org:5151/#SDE.BH_30MHS_RD");
     // LayerReference layerReference = new LayerReference("SDE.BH_30MHS_RD", reader);
     // MapMetadata map = new MapMetadata("title", "abstract", "groldan");

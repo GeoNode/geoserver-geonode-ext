@@ -25,7 +25,7 @@ import org.geonode.process.control.ProcessStatus;
 import org.geoserver.catalog.Catalog;
 import org.geoserver.catalog.CoverageInfo;
 import org.geoserver.catalog.FeatureTypeInfo;
-import org.geotools.coverage.grid.io.AbstractGridCoverage2DReader;
+import org.geotools.coverage.grid.io.GridCoverage2DReader;
 import org.geotools.data.FeatureSource;
 import org.geotools.factory.Hints;
 import org.geotools.feature.NameImpl;
@@ -303,7 +303,7 @@ public class DownloadLauncherRestlet extends Restlet {
             FeatureSource<FeatureType, Feature> source = getFeatureSource(serviceURL, layerName);
             layer = new LayerReference(layerName, source);
         } else if ("WCS".equals(service)) {
-            AbstractGridCoverage2DReader source = getCoverageReader(serviceURL, layerName);
+            GridCoverage2DReader source = getCoverageReader(serviceURL, layerName);
             layer = new LayerReference(layerName, source);
         } else {
             throw new IllegalArgumentException("Invalid service name for layer '" + layerName
@@ -315,7 +315,7 @@ public class DownloadLauncherRestlet extends Restlet {
         return layer;
     }
 
-    private AbstractGridCoverage2DReader getCoverageReader(final String serviceURL,
+    private GridCoverage2DReader getCoverageReader(final String serviceURL,
             final String layerName) {
         if (LOGGER.isLoggable(Level.FINE)) {
             LOGGER.fine("Ignoring serviceURL '" + serviceURL
@@ -326,9 +326,9 @@ public class DownloadLauncherRestlet extends Restlet {
         if (coverageInfo == null) {
             throw new IllegalArgumentException("Coverage '" + layerName + "' does not exist");
         }
-        AbstractGridCoverage2DReader reader;
+        GridCoverage2DReader reader;
         try {
-            reader = (AbstractGridCoverage2DReader) coverageInfo.getGridCoverageReader(
+            reader = (GridCoverage2DReader) coverageInfo.getGridCoverageReader(
                     new NullProgressListener(), (Hints) null);
         } catch (IOException e) {
             throw new RuntimeException("Error retrieveing coverage '" + layerName + "': "
