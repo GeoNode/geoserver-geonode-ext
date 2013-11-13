@@ -242,21 +242,17 @@ public class DownloadLauncherRestlet extends Restlet {
      */
     private MapMetadata convertMapMetadataParam(final JSONObject obj) throws JSONException {
         MapMetadata mmd;
+        String readme = "";
         if (obj.containsKey("readme")) {
-            String readme = obj.getString("readme");
-            mmd = new MapMetadata(readme);
-        } else {
-            String title = obj.getString("title");
-            if (title.length() == 0) {
-                throw new IllegalArgumentException("Map name is empty");
-            }
-            String _abstract = obj.containsKey("abstract") ? obj.getString("abstract") : null;
-            String author = obj.getString("author");
-            if (author.length() == 0) {
-                throw new IllegalArgumentException("author name is empty");
-            }
-            mmd = new MapMetadata(title, _abstract, author);
+            readme = obj.getString("readme");
         }
+        String title = obj.getString("title");
+        if (title.length() == 0) {
+            throw new IllegalArgumentException("Map name is empty");
+        }
+        String _abstract = obj.containsKey("abstract") ? obj.getString("abstract") : null;
+        String author = obj.containsKey("abstract") ? obj.getString("author") : null;
+        mmd = new MapMetadata(readme, title, _abstract, author);
         return mmd;
     }
 

@@ -21,7 +21,8 @@ public class MapMetadata {
      * @param author
      *            the readme file's author field content
      */
-    public MapMetadata(String title, String abstractInfo, String author) {
+    public MapMetadata(String readme, String title, String abstractInfo, String author) {
+        this.readme = readme;
         this.title = title;
         this.author = author;
         this.abstractInfo = abstractInfo;
