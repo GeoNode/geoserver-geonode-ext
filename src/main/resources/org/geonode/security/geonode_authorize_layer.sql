@@ -37,16 +37,16 @@ SELECT INTO view_perm "auth_permission"."id"
         FROM "auth_permission" INNER JOIN "django_content_type" 
         ON ("auth_permission"."content_type_id" = "django_content_type"."id") 
         WHERE ("auth_permission"."codename" = E'view_layer'
-        AND "django_content_type"."app_label" = E'maps' );
+        AND "django_content_type"."app_label" = E'layers' );
 SELECT INTO change_perm "auth_permission"."id"
 	FROM "auth_permission" INNER JOIN "django_content_type" 
 	ON ("auth_permission"."content_type_id" = "django_content_type"."id") 
 	WHERE ("auth_permission"."codename" = E'change_layer'  
-	AND "django_content_type"."app_label" = E'maps' );
+	AND "django_content_type"."app_label" = E'layers' );
 SELECT INTO ct "django_content_type"."id" 
 	FROM "django_content_type" 
 	WHERE ("django_content_type"."model" = E'layer'  
-	AND "django_content_type"."app_label" = E'maps' );
+	AND "django_content_type"."app_label" = E'layers' );
 
 -- generic role, read-write
 PERFORM "security_genericobjectrolemapping"."object_id" 
