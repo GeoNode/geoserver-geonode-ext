@@ -90,10 +90,22 @@
       <artifactId>commons-httpclient</artifactId>
       <version>3.1</version>
     </dependency>
-    
+
     <dependency>
-        <groupId>org.opengeo.geoserver</groupId>
-        <artifactId>importer</artifactId>
+        <groupId>org.geoserver.importer</groupId>
+        <artifactId>importer-core</artifactId>
+        <version>${geoserver.version}</version>
+        <scope>runtime</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.geoserver.importer</groupId>
+        <artifactId>importer-web</artifactId>
+        <version>${geoserver.version}</version>
+        <scope>runtime</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.geoserver.importer</groupId>
+        <artifactId>importer-rest</artifactId>
         <version>${geoserver.version}</version>
         <scope>runtime</scope>
     </dependency>
