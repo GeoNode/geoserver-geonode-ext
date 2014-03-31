@@ -1,4 +1,4 @@
-CREATE OR REPLACE FUNCTION geonode_authorize_layer(username varchar, type_name varchar) RETURNS varchar AS $$
+CREATE OR REPLACE FUNCTION geonode_authorize_layer(user_name varchar, type_name varchar) RETURNS varchar AS $$
 
 DECLARE
 view_perm integer;
@@ -15,8 +15,8 @@ if (not FOUND) then
 	-- no layer
 	return 'nl';
 end if;
-if (username IS NOT NULL) then
-	SELECT INTO user * FROM "auth_user" WHERE "auth_user"."username" = username;
+if (user_name IS NOT NULL) then
+	SELECT INTO user * FROM "auth_user" WHERE "auth_user"."username" = user_name;
 	if (not FOUND) then
 		-- no user
 		return 'nu';
@@ -76,7 +76,7 @@ PERFORM "security_genericobjectrolemapping"."object_id"
 	);
 if (FOUND) then return 'gr-ro'; end if;
 
-if (username IS NOT NULL) then
+if (user_name IS NOT NULL) then
 	-- user role, read-write
 	PERFORM "security_userobjectrolemapping"."object_id" 
 		FROM "security_userobjectrolemapping" 
