@@ -104,18 +104,18 @@ if (user_name IS NOT NULL) then
 
   -- user role, user has read-write permissions via group membership
   if (groups_enabled) then
-  PERFORM "security_groupobjectrolemapping"."object_id"
-		FROM "security_groupobjectrolemapping"
-		INNER JOIN "security_objectrole"
-		ON ("security_groupobjectrolemapping"."role_id" = "security_objectrole"."id")
-		INNER JOIN "security_objectrole_permissions"
-		ON ("security_objectrole"."id" = "security_objectrole_permissions"."objectrole_id")
-		WHERE ("security_objectrole_permissions"."permission_id" = change_perm
-		AND "security_groupobjectrolemapping"."object_ct_id" = ct
-		AND "security_groupobjectrolemapping"."group_id" IN (SELECT DISTINCT(group_id) FROM groups_groupmember WHERE user_id="user".id)
-		AND "security_groupobjectrolemapping"."object_id" = "layer".id
-		);
-	if (FOUND) then return 'ur-rw'; end if;
+    PERFORM "security_groupobjectrolemapping"."object_id"
+      FROM "security_groupobjectrolemapping"
+      INNER JOIN "security_objectrole"
+      ON ("security_groupobjectrolemapping"."role_id" = "security_objectrole"."id")
+      INNER JOIN "security_objectrole_permissions"
+      ON ("security_objectrole"."id" = "security_objectrole_permissions"."objectrole_id")
+      WHERE ("security_objectrole_permissions"."permission_id" = change_perm
+      AND "security_groupobjectrolemapping"."object_ct_id" = ct
+      AND "security_groupobjectrolemapping"."group_id" IN (SELECT DISTINCT(group_id) FROM groups_groupmember WHERE user_id="user".id)
+      AND "security_groupobjectrolemapping"."object_id" = "layer".id
+      );
+    if (FOUND) then return 'gr-rw'; end if;
 	end if;
 
 	-- user role, read-only
@@ -134,18 +134,18 @@ if (user_name IS NOT NULL) then
 
 	-- user role, user has read-only permissions via group membership
 	if (groups_enabled) then
-  PERFORM "security_groupobjectrolemapping"."object_id"
-		FROM "security_groupobjectrolemapping"
-		INNER JOIN "security_objectrole"
-		ON ("security_groupobjectrolemapping"."role_id" = "security_objectrole"."id")
-		INNER JOIN "security_objectrole_permissions"
-		ON ("security_objectrole"."id" = "security_objectrole_permissions"."objectrole_id")
-		WHERE ("security_objectrole_permissions"."permission_id" = view_perm
-		AND "security_groupobjectrolemapping"."object_ct_id" = ct
-		AND "security_groupobjectrolemapping"."group_id" IN (SELECT DISTINCT(group_id) FROM groups_groupmember WHERE user_id="user".id)
-		AND "security_groupobjectrolemapping"."object_id" = "layer".id
-		);
-	if (FOUND) then return 'ur-ro'; end if;
+    PERFORM "security_groupobjectrolemapping"."object_id"
+      FROM "security_groupobjectrolemapping"
+      INNER JOIN "security_objectrole"
+      ON ("security_groupobjectrolemapping"."role_id" = "security_objectrole"."id")
+      INNER JOIN "security_objectrole_permissions"
+      ON ("security_objectrole"."id" = "security_objectrole_permissions"."objectrole_id")
+      WHERE ("security_objectrole_permissions"."permission_id" = view_perm
+      AND "security_groupobjectrolemapping"."object_ct_id" = ct
+      AND "security_groupobjectrolemapping"."group_id" IN (SELECT DISTINCT(group_id) FROM groups_groupmember WHERE user_id="user".id)
+      AND "security_groupobjectrolemapping"."object_id" = "layer".id
+      );
+	if (FOUND) then return 'gr-ro'; end if;
 	end if;
 end if;
 
