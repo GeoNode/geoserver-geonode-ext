@@ -101,7 +101,7 @@ if (user_name IS NOT NULL) then
       AND "security_groupobjectrolemapping"."group_id" IN (SELECT DISTINCT(group_id) FROM groups_groupmember WHERE user_id="user".id)
       AND "security_groupobjectrolemapping"."object_id" = "layer".id
       );
-    if (FOUND) then return 'gr-rw'; end if;
+    if (FOUND) then return 'group-rw'; end if;
 	end if;
 
 	-- user role, read-only
@@ -131,7 +131,7 @@ if (user_name IS NOT NULL) then
       AND "security_groupobjectrolemapping"."group_id" IN (SELECT DISTINCT(group_id) FROM groups_groupmember WHERE user_id="user".id)
       AND "security_groupobjectrolemapping"."object_id" = "layer".id
       );
-	if (FOUND) then return 'gr-ro'; end if;
+	if (FOUND) then return 'group-ro'; end if;
 	end if;
 end if;
 
