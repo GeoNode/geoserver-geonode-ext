@@ -39,7 +39,7 @@ if (user_name IS NOT NULL) then
 		-- super user
 		return 'su-rw';
 	end if;
-	roles[1] = 'authenticated';
+	roles[2] = 'authenticated';
 end if;
 
 -- resolve permission and content_type ids
