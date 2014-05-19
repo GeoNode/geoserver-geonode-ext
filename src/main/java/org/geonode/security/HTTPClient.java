@@ -71,7 +71,8 @@ public class HTTPClient {
             status = client.executeMethod(get);
             if (status != 200) {
                 throw new IOException("GeoNode communication failed, status report is: " + status
-                        + ", " + get.getStatusText());
+                        + ", " + get.getStatusText())
+                    + ", " + url;
             }
             
             // releaseConnection will close the stream
