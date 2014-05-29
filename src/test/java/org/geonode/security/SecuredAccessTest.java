@@ -82,8 +82,8 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
         // In HIDE mode restricted access gets an OGC service error as if the layer does not exist
         assertEquals(200, resp.getErrorCode());
         Document doc = dom(new ByteArrayInputStream(resp.getOutputStreamContent().getBytes()));
-        assertXpathEvaluatesTo("0", "count(/wfs:FeatureCollection)", doc);
         assertNull(resp.getHeader("WWW-Authenticate"));
+        assertXpathEvaluatesTo("0", "count(/wfs:FeatureCollection)", doc);
     }
 
     public void testAdminBasic() throws Exception {
