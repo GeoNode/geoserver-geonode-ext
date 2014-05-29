@@ -36,6 +36,13 @@
       <artifactId>web-security</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
+    
+    <dependency>
+      <groupId>org.geoserver.community</groupId>
+      <artifactId>sldService</artifactId>
+      <version>${geoserver.version}</version>
+    </dependency>
+
     <dependency>
       <groupId>org.geoserver.community</groupId>
       <artifactId>printing</artifactId>
@@ -103,6 +110,7 @@
         <version>${geoserver.version}</version>
         <scope>runtime</scope>
     </dependency>
+   
     <dependency>
         <groupId>org.geoserver.importer</groupId>
         <artifactId>importer-rest</artifactId>
