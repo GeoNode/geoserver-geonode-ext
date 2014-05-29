@@ -3,7 +3,7 @@
   <groupId>org.opengeo</groupId>
   <artifactId>geonode-geoserver-ext</artifactId>
   <packaging>jar</packaging>
-  <version>${geoserver.version}</version>
+  <version>2.5.1</version>
   <name>GeoNode GeoServer Extensions</name>
 
   <repositories>
@@ -28,24 +28,24 @@
   <dependencies>
     <dependency>
       <groupId>org.geoserver</groupId>
-      <artifactId>rest</artifactId>
+      <artifactId>gs-rest</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geoserver.web</groupId>
-      <artifactId>web-security</artifactId>
+      <artifactId>gs-web-sec-core</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
     
     <dependency>
       <groupId>org.geoserver.community</groupId>
-      <artifactId>sldService</artifactId>
+      <artifactId>gs-sldService</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.geoserver.community</groupId>
-      <artifactId>printing</artifactId>
+      <artifactId>gs-printing</artifactId>
       <version>${geoserver.version}</version>
       <exclusions>
         <exclusion>
@@ -56,12 +56,12 @@
     </dependency>
     <dependency>
       <groupId>org.geoserver</groupId>
-      <artifactId>restconfig</artifactId>
+      <artifactId>gs-restconfig</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geoserver.extension</groupId>
-      <artifactId>web-wps</artifactId>
+      <artifactId>gs-web-wps</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
     <dependency>
@@ -71,7 +71,7 @@
     </dependency>
     <dependency>
       <groupId>org.geoserver.extension</groupId>
-      <artifactId>excel</artifactId>
+      <artifactId>gs-excel</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
     <!--dependency>
@@ -81,7 +81,7 @@
     </dependency-->
     <dependency>
       <groupId>org.geoserver.web</groupId>
-      <artifactId>web-app</artifactId>
+      <artifactId>gs-web-app</artifactId>
       <type>jar</type>
       <version>${geoserver.version}</version>
       <scope>runtime</scope>
@@ -100,23 +100,29 @@
 
     <dependency>
         <groupId>org.geoserver.importer</groupId>
-        <artifactId>importer-core</artifactId>
+        <artifactId>gs-importer-core</artifactId>
         <version>${geoserver.version}</version>
         <scope>runtime</scope>
     </dependency>
     <dependency>
         <groupId>org.geoserver.importer</groupId>
-        <artifactId>importer-web</artifactId>
+        <artifactId>gs-importer-web</artifactId>
         <version>${geoserver.version}</version>
         <scope>runtime</scope>
     </dependency>
    
     <dependency>
         <groupId>org.geoserver.importer</groupId>
-        <artifactId>importer-rest</artifactId>
+        <artifactId>gs-importer-rest</artifactId>
         <version>${geoserver.version}</version>
         <scope>runtime</scope>
     </dependency>
+
+<!--
+   This was discontinued from the opengeo repo for
+   geoserver version 2.5. If someone is able to get a 2.5.1
+   version deployed repo.opengeo.org this can be enabled again.
+   Commented out by ingenieroariel on May 29, 2014.
 
     <dependency>
         <groupId>org.opengeo.data.csv</groupId>
@@ -124,10 +130,10 @@
         <version>${geoserver.version}</version>
         <scope>runtime</scope>
     </dependency>
-
+-->
     <dependency>
       <groupId>org.geoserver.extension</groupId>
-      <artifactId>wps-core</artifactId>
+      <artifactId>gs-wps-core</artifactId>
       <version>${geoserver.version}</version>
       <scope>runtime</scope>
     </dependency>
@@ -141,7 +147,7 @@
     <dependency>
         <groupId>org.opengeo.geoserver</groupId>
         <artifactId>printng</artifactId>
-        <version>${geoserver.version}</version>
+        <version>2.5-20140520.213330-6</version>
         <scope>runtime</scope>
     </dependency>
 
@@ -184,14 +190,14 @@
     </dependency>
     <dependency>
       <groupId>org.geoserver</groupId>
-      <artifactId>main</artifactId>
+      <artifactId>gs-main</artifactId>
       <scope>test</scope>
       <classifier>tests</classifier>
       <version>${geoserver.version}</version>
     </dependency>
     <dependency>
       <groupId>org.geoserver.web</groupId>
-      <artifactId>web-core</artifactId>
+      <artifactId>gs-web-core</artifactId>
       <scope>test</scope>
       <classifier>tests</classifier>
       <version>${geoserver.version}</version>
