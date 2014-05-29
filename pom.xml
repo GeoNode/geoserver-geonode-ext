@@ -242,8 +242,8 @@
     </dependency>
   </dependencies>
   <properties>
-    <geotools.version>10-SNAPSHOT</geotools.version>
-    <geoserver.version>2.4-SNAPSHOT</geoserver.version>
+    <geotools.version>11-SNAPSHOT</geotools.version>
+    <geoserver.version>2.5-SNAPSHOT</geoserver.version>
     <jetty.version>6.1.8</jetty.version>
     <maven.test.search.classdir>true</maven.test.search.classdir>
   </properties>
