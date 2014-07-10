@@ -54,8 +54,7 @@ public class HTTPClient {
 
         GetMethod get = new GetMethod(url);
         get.setFollowRedirects(true);
-        // this is needed for any potential use of subdomain cookies (.domain.tld for exam
-        get.getParams().setCookiePolicy(CookiePolicy.BROWSER_COMPATIBILITY);
+        get.getParams().setCookiePolicy(CookiePolicy.IGNORE_COOKIES);
 
         final int numHeaders = requestHeaders == null ? 0 : requestHeaders.length / 2;
         for (int i = 0; i < numHeaders; i++) {
