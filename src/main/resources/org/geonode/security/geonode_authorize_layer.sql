@@ -24,7 +24,7 @@ if (not FOUND) then
 	return 'nl';
 end if;
 if (user_name IS NOT NULL) then
-	SELECT INTO user * FROM "auth_user" WHERE "auth_user"."username" = user_name;
+	SELECT INTO user * FROM "people_profile" WHERE "people_profile"."username" = user_name;
 	if (not FOUND) then
 		-- no user
 		return 'nu';
