@@ -37,11 +37,13 @@
       <version>${geoserver.version}</version>
     </dependency>
     
+    <!--
     <dependency>
       <groupId>org.geoserver.community</groupId>
       <artifactId>gs-sldService</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
+    -->
 
     <dependency>
       <groupId>org.geoserver.community</groupId>
@@ -357,7 +359,7 @@
           <warName>geoserver</warName> 
           <webappDirectory>${project.build.directory}/geoserver</webappDirectory>
           <packagingExcludes>**/data/</packagingExcludes>
-          <packagingExcludes>**/web-app*.jar</packagingExcludes>
+          <packagingExcludes>**/gs-web-app*.jar</packagingExcludes>
         </configuration>
       </plugin>
     </plugins>
