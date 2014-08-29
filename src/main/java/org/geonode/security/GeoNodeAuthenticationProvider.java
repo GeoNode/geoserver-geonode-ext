@@ -58,19 +58,19 @@ public class GeoNodeAuthenticationProvider extends GeoServerAuthenticationProvid
                     return auth;
                 }
 	        } catch (IOException e) {
-	            throw new AuthenticationServiceException("Communication with GeoNode failed", e);
+	            throw new AuthenticationServiceException("Communication with GeoNode failed (UsernamePasswordAuthenticationToken)", e);
 	        }
 	    } else if (authentication instanceof GeoNodeSessionAuthToken) {
 	    	try {
 	    		return client.authenticateCookie((String) authentication.getCredentials());
 	    	} catch (IOException e) {
-	    		throw new AuthenticationServiceException("Communication with GeoNode failed", e);
+	    		throw new AuthenticationServiceException("Communication with GeoNode failed (GeoNodeSessionAuthToken)", e);
 	    	}
 	    } else if (authentication instanceof AnonymousGeoNodeAuthenticationToken) {
 	       try { 
 	           return client.authenticateAnonymous();
 	       } catch (IOException e) {
-	           throw new AuthenticationServiceException("Communication with GeoNode failed", e);
+	           throw new AuthenticationServiceException("Communication with GeoNode failed (AnonymousGeoNodeAuthenticationToken)", e);
 	       }
 	    } else {
 	    	throw new IllegalArgumentException("GeoNodeAuthenticationProvider accepts only UsernamePasswordAuthenticationToken and GeoNodeSessionAuthToken; received " + authentication);
