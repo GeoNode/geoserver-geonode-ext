@@ -5,6 +5,7 @@
 package org.geonode.security;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,8 +16,8 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import org.geoserver.security.GeoServerSecurityFilterChainProxy;
 
+import org.geoserver.security.GeoServerSecurityFilterChainProxy;
 import org.geoserver.security.filter.GeoServerAuthenticationFilter;
 import org.geoserver.security.filter.GeoServerSecurityFilter;
 import org.geoserver.security.impl.GeoServerUser;
@@ -41,6 +42,7 @@ public class GeoNodeCookieProcessingFilter extends GeoServerSecurityFilter
     implements GeoServerAuthenticationFilter
 {
     static final Logger LOGGER = Logging.getLogger(GeoNodeCookieProcessingFilter.class);
+    
     static final String GEONODE_COOKIE_NAME = "sessionid";
 
     /**
@@ -85,6 +87,9 @@ public class GeoNodeCookieProcessingFilter extends GeoServerSecurityFilter
             (!alreadyAuthenticated || anonymous || !hasPreviouslyValidatedGeoNodeCookie);
         
         if (!loggedInWithPassword && authenticationRequired && gnCookie != null) {
+            if (LOGGER.isLoggable(Level.FINE)) {
+                LOGGER.fine("Found GeoNode cookie checking if we have the authorizations in cache or if we have to reload from GeoNode");
+            }
             try {
                 Object principal = existingAuth == null ? null : existingAuth.getPrincipal();
                 Collection<? extends GrantedAuthority> authorities = 
@@ -108,12 +113,26 @@ public class GeoNodeCookieProcessingFilter extends GeoServerSecurityFilter
     }
 
     private String getGeoNodeCookieValue(HttpServletRequest request) {
-        if (request.getCookies() != null) {
-            for (Cookie c : request.getCookies()) {
+    	if(LOGGER.isLoggable(Level.FINE)){
+    		LOGGER.fine("Inspecting the http request looking for the GeoNode Session ID.");
+    	}
+        Cookie[] cookies = request.getCookies();
+		if (cookies != null) {
+        	if(LOGGER.isLoggable(Level.FINE)){
+        		LOGGER.fine("Found "+cookies.length+" cookies!");
+        	}        	
+            for (Cookie c : cookies) {
                 if (GEONODE_COOKIE_NAME.equals(c.getName())) {
+                	if(LOGGER.isLoggable(Level.FINE)){
+                		LOGGER.fine("Found GeoNode cookie: "+c.getValue());
+                	}                    	
                     return c.getValue();
                 }
             }
+        } else {
+        	if(LOGGER.isLoggable(Level.FINE)){
+        		LOGGER.fine("Found no cookies!");
+        	}      
         }
 
         return null;
