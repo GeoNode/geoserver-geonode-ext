@@ -11,7 +11,6 @@ import org.geoserver.security.GeoServerSecurityProvider;
 import org.geoserver.security.config.SecurityManagerConfig;
 import org.geoserver.security.config.SecurityNamedServiceConfig;
 import org.geoserver.security.validation.SecurityConfigException;
-import org.vfny.geoserver.global.GeoserverDataDirectory;
 
 public class GeoNodeAnonymousSecurityProvider extends GeoServerSecurityProvider {
     @Override
