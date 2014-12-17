@@ -215,8 +215,6 @@
     </dependency>
 
 
-    
-
     <!-- GeoJSON module dependencies -->
     <dependency>
       <groupId>net.sf.json-lib</groupId>
@@ -232,6 +230,22 @@
       <version>${geotools.version}</version>
     </dependency>
     
+    <dependency>
+      <groupId>org.opengeo.geoserver</groupId>
+      <artifactId>gs-geogit</artifactId>
+      <version>${gsgeogit.version}</version>
+      <classifier>shaded-plugin</classifier>
+      <exclusions>
+        <exclusion><groupId>org.geogit</groupId><artifactId>geogit-core</artifactId></exclusion>
+        <exclusion><groupId>org.geogit</groupId><artifactId>geogit-geotools</artifactId></exclusion>
+        <exclusion><groupId>org.geogit</groupId><artifactId>geogit-web-api</artifactId></exclusion>
+        <exclusion><groupId>com.google.code.findbugs</groupId><artifactId>jsr305</artifactId></exclusion>
+        <exclusion><groupId>com.google.guava</groupId><artifactId>guava</artifactId></exclusion>
+        <exclusion><groupId>org.geotools</groupId><artifactId>gt-geojson</artifactId></exclusion>
+        <exclusion><groupId>org.geotools.jdbc</groupId><artifactId>gt-jdbc-spatialite</artifactId></exclusion>
+      </exclusions>
+    </dependency>    
+        
     <!--  test dependencies  -->
     <dependency>
       <groupId>junit</groupId>
@@ -253,7 +267,6 @@
       <classifier>tests</classifier>
       <version>${geoserver.version}</version>
     </dependency>
-
     <dependency>
       <groupId>com.mockrunner</groupId>
       <artifactId>mockrunner</artifactId>
@@ -306,12 +319,15 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
   <properties>
     <geotools.version>11.3</geotools.version>
     <geoserver.version>2.5.3</geoserver.version>
     <jetty.version>6.1.8</jetty.version>
+    <gsgeogit.version>2.5-SNAPSHOT</gsgeogit.version> <!-- 2.5.1 build not available so using snapshot http://repo.opengeo.org/org/opengeo/geoserver/gs-geogit/ -->  
     <maven.test.search.classdir>true</maven.test.search.classdir>
   </properties>
+  
   <profiles>
     <profile>
       <id>arcsde</id>
