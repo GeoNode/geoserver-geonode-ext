@@ -2,6 +2,7 @@ package org.geonode.wfs;
 
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import net.opengis.wfs.TransactionResponseType;
@@ -30,39 +31,58 @@ public class GeonodeWFSCredentialsPlugin implements TransactionPlugin {
     private static final Logger LOGGER = Logging.getLogger(GeonodeWFSCredentialsPlugin.class);
 
     public TransactionType beforeTransaction(TransactionType request) throws WFSException {
-
+        if(LOGGER.isLoggable(Level.FINE)){
+        	LOGGER.fine("GeonodeWFSCredentialsPlugin::beforeTransaction --> No authentication object found, can't determine geonode user name and email");
+        }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
         if (authentication == null) {
-            LOGGER.fine("No authentication object found, can't determine geonode user name and email");
+            if(LOGGER.isLoggable(Level.INFO)){
+            	LOGGER.info("No authentication object found, can't determine geonode user name and email");
+            }
             return request;
         }
 
+        if(LOGGER.isLoggable(Level.FINE)){
+        	LOGGER.fine("GeonodeWFSCredentialsPlugin::beforeTransaction --> Authentication object found: "+authentication);
+        }
+        
         Object principal = authentication.getPrincipal();
         if (!(principal instanceof GeoServerUser)) {
-            LOGGER.info("Auth object is not of type GeoServerUser, is geonode authentication present?");
+        	if(LOGGER.isLoggable(Level.INFO)){
+        		LOGGER.info("GeonodeWFSCredentialsPlugin::beforeTransaction -->Auth object is not of type GeoServerUser, is geonode authentication present?");
+        	}
             return request;
         }
 
         // pass along any user property
         final GeoServerUser gsUser = (GeoServerUser) principal;
         final Properties geonodeUserProperties = gsUser.getProperties();
-
         final String fullname = geonodeUserProperties.getProperty("fullname");
         final String email = geonodeUserProperties.getProperty("email");
+        if(LOGGER.isLoggable(Level.FINE)){
+        	LOGGER.fine("GeonodeWFSCredentialsPlugin::beforeTransaction --> GeoServerUser: "+gsUser);
+        }
+                
 
         @SuppressWarnings("rawtypes")
         Map extendedTxProperties = request.getExtendedProperties();
         if (extendedTxProperties == null) {
-            LOGGER.warning("WFS transaction extended properties is absent");
+        	if(LOGGER.isLoggable(Level.WARNING)){
+        		LOGGER.warning("GeonodeWFSCredentialsPlugin::beforeTransaction --> WFS transaction extended properties is absent");
+        	}
             return request;
         }
 
         if (fullname == null) {
-            LOGGER.fine("current user's full name not available from geonode credentials");
+        	if(LOGGER.isLoggable(Level.FINE)){
+        		LOGGER.fine("GeonodeWFSCredentialsPlugin::beforeTransaction --> current user's full name not available from geonode credentials");
+        	}
         }
         if (email == null) {
-            LOGGER.fine("current user's email not available from geonode credentials");
+        	if(LOGGER.isLoggable(Level.FINE)){
+        		LOGGER.fine("GeonodeWFSCredentialsPlugin::beforeTransaction --> current user's email not available from geonode credentials");
+        	}
         }
         extendedTxProperties.put("fullname", fullname);
         extendedTxProperties.put("email", email);

@@ -117,11 +117,11 @@ public class DatabaseSecurityClient implements GeoNodeSecurityClient {
         final String url = baseUrl + "layers/resolve_user";
 
         if (LOGGER.isLoggable(Level.FINEST)) {
-            LOGGER.finest("Authenticating with " + Arrays.toString(requestHeaders));
+            LOGGER.finest("DatabaseSecurityClient::authenticate: Authenticating with " + Arrays.toString(requestHeaders));
         }
         final String responseBodyAsString = client.sendGET(url, requestHeaders);
         if (LOGGER.isLoggable(Level.FINEST)) {
-            LOGGER.finest("Auth response: " + responseBodyAsString);
+            LOGGER.finest("DatabaseSecurityClient::authenticate: Authentication response: " + responseBodyAsString);
         }
 
         JSONObject json = (JSONObject) JSONSerializer.toJSON(responseBodyAsString);
