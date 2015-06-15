@@ -83,15 +83,18 @@ public class GeoNodeDataAccessManager implements DataAccessManager {
             //throw new NullPointerException("user is null");
             return true;
         }
-                
-        if (LOG.isLoggable(Level.FINER)) {
-            LOG.finer("Checking permissions for " + user +" with authorities " + user.getAuthorities() + " accessing " + resource);
+
+        if (LOG.isLoggable(Level.FINE)) {
+            LOG.fine("GeoNodeDataAccessManager::canAccess: Checking permissions for " + user.getName() +" with authorities " + user.getAuthorities() + " accessing " + resource);
         }
-        
+
         if (user.getAuthorities().contains(GeoServerRole.ADMIN_ROLE)) {
+            if (LOG.isLoggable(Level.FINE)) {
+                LOG.fine("GeoNodeDataAccessManager::canAccess: user " + user.getName() + " is admin");
+            }
             return true;
         }
-        
+
         return securityClientProvider.getSecurityClient().authorize(user, resource, mode);
     }
 
