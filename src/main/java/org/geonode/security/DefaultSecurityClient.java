@@ -33,7 +33,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.util.Assert;
 
 /**
@@ -85,7 +84,10 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
     public Authentication authenticateCookie(final String cookieValue)
             throws AuthenticationException, IOException {
         Assert.notNull(cookieValue);
-        
+
+        if (LOGGER.isLoggable(Level.FINE)) {
+            LOGGER.fine("Checking cookieValue against cache");
+        }
         Authentication cachedAuth = authCache.get(cookieValue);
         if (null == cachedAuth) {
             authLock.lock();
@@ -94,14 +96,27 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
                 cachedAuth = authCache.get(cookieValue);
                 if (null == cachedAuth) {
 
+                    if (LOGGER.isLoggable(Level.FINE)) {
+                        LOGGER.fine("No cookieValue in cache");
+                    }
                     final String headerName = "Cookie";
                     final String headerValue = GEONODE_COOKIE_NAME + "=" + cookieValue;
 
                     cachedAuth = authenticate(cookieValue, headerName, headerValue);
                     authCache.put(cookieValue, cachedAuth);
+                } else {
+
+                    if (LOGGER.isLoggable(Level.FINE)) {
+                        LOGGER.fine("cookieValue in cache");
+                    }
                 }
             } finally {
                 authLock.unlock();
+            }
+        } else {
+
+            if (LOGGER.isLoggable(Level.FINE)) {
+                LOGGER.fine("cookieValue in cache");
             }
         }
 
@@ -146,17 +161,21 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
             throws AuthenticationException, IOException {
         final String url = baseUrl + "layers/acls";
 
-        if (LOGGER.isLoggable(Level.FINEST)) {
-            LOGGER.finest("Authenticating with " + Arrays.toString(requestHeaders));
+        if (LOGGER.isLoggable(Level.FINE)) {
+            LOGGER.fine("Authenticating against "+url+" with " + Arrays.toString(requestHeaders));
         }
         final String responseBodyAsString = client.sendGET(url, requestHeaders);
-        if (LOGGER.isLoggable(Level.FINEST)) {
-            LOGGER.finest("Auth response: " + responseBodyAsString);
+        if (LOGGER.isLoggable(Level.FINE)) {
+            LOGGER.fine("Authentication response: " + responseBodyAsString);
         }
 
         JSONObject json = (JSONObject) JSONSerializer.toJSON(responseBodyAsString);
         Authentication authentication = toAuthentication(credentials, json);
         if (authentication instanceof UsernamePasswordAuthenticationToken) {
+            if (LOGGER.isLoggable(Level.FINE)) {
+                LOGGER.fine("Authentication as UsernamePasswordAuthenticationToken: " + authentication);
+            }
+
             GeoServerUser userDetails = new GeoServerUser(authentication.getPrincipal().toString());
             authentication = new GeoNodeSessionAuthToken(userDetails,
                     authentication.getCredentials(), authentication.getAuthorities());
@@ -217,6 +236,11 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
                     if (mode == AccessMode.READ
                             || ((mode == AccessMode.WRITE) && lga.getAccessMode() == LayersGrantedAuthority.LayerMode.READ_WRITE)) {
                         if (lga.getLayerNames().contains(resource.prefixedName())) {
+
+                            if (LOGGER.isLoggable(Level.FINER)) {
+                                LOGGER.finer("User " + user.getName() + " has auth " + mode + " on resource " + resource.getPrefixedName());
+                            }
+
                             authorized = true;
                             break;
                         }
@@ -224,6 +248,11 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
                 }
             }
         }
+
+        if (!authorized && LOGGER.isLoggable(Level.FINER)) {
+            LOGGER.finer("User " + user.getName() + " does NOT have auth " + mode + " on resource " + resource.getPrefixedName());
+        }
+
         return authorized;
     }
 }

@@ -12,6 +12,23 @@ import org.springframework.scheduling.concurrent.CustomizableThreadFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.util.Assert;
 
+/**
+ * Simple cache for caching authorizations for authenticated users in order to not send queries to
+ * GeoNode too frequently.
+ *
+ * <p>
+ * Setting the timeout for values in cache to a value which is too big can have a nasty side effect has if
+ * we change authorizations for a user it will take a long time (in the worst case as long as the cache timeout)
+ * to have this reflected on GeoServer due to the delay introduced by the cache itself.
+ *
+ * <p>
+ * On the other hand a value for the timeout which is too low may result in a
+ * performance hit due to the fact that we would be sending * too many requests to GeoNode for loading the authorizations for the current user.
+ *
+ *
+ * @author Simone Giannecchini, GeoSolutions
+ *
+ */
 public class AuthCache {
 
     private static final Logger LOGGER = Logging.getLogger(AuthCache.class);
@@ -32,8 +49,8 @@ public class AuthCache {
 
         public void run() {
             Authentication removed = cache.remove(key);
-            if (LOGGER.isLoggable(Level.FINER)) {
-                LOGGER.finer("evicted auth '" + key + "': " + removed);
+            if (LOGGER.isLoggable(Level.FINE)) {
+                LOGGER.fine("AuthCache::run: evicted auth '" + key + "': " + removed);
             }
         }
 
@@ -64,6 +81,9 @@ public class AuthCache {
     }
 
     public void put(final String authKey, final Authentication auth) {
+        if (LOGGER.isLoggable(Level.FINE)) {
+            LOGGER.fine("AuthCache::put: Adding authentication to cache: " + auth);
+        }
         Assert.notNull(auth);
         cache.put(authKey, auth);
         cacheEvictor.schedule(new EvictAuth(authKey), timeout, TimeUnit.MILLISECONDS);
