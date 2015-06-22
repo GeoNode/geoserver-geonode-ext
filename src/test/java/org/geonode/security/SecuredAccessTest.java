@@ -23,7 +23,6 @@ import org.xml.sax.SAXException;
 
 import com.mockrunner.mock.web.MockHttpServletRequest;
 import com.mockrunner.mock.web.MockHttpServletResponse;
-import java.util.logging.ConsoleHandler;
 import java.util.logging.Level;
 import org.geotools.util.logging.Logging;
 
@@ -73,10 +72,19 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
         Logging.getLogger("org.geonode.security").setLevel(Level.ALL);
     }
 
+    @Override
+    protected void setUpInternal() throws Exception {
+        super.setUpInternal();
+
+        LOGGER.warning("==================== Running test " + getName());
+    }
+
     /**
      * No authentication, we should get a challenge to authenticate
      */
     public void testNoAuth() throws Exception {
+        client.setAnonymousRights(false, null, null);
+
         MockHttpServletResponse resp = getAsServletResponse("wfs?request=GetFeature&version=1.0.0&service=wfs&typeName="
                 + getLayerId(MockData.BUILDINGS));
         // In HIDE mode restricted access gets an OGC service error as if the layer does not exist
