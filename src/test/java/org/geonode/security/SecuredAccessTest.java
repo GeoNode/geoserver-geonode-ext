@@ -1,41 +1,33 @@
 package org.geonode.security;
 
 import static org.custommonkey.xmlunit.XMLAssert.assertXpathEvaluatesTo;
+import static junit.framework.Assert.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.servlet.Filter;
 import javax.servlet.http.Cookie;
 import javax.xml.parsers.ParserConfigurationException;
 
-import junit.framework.Test;
-
 import org.apache.commons.codec.binary.Base64;
 import org.custommonkey.xmlunit.exceptions.XpathException;
 import org.geonode.GeoNodeTestSupport;
 import org.geoserver.data.test.MockData;
+import org.geoserver.data.test.SystemTestData;
 import org.geoserver.platform.GeoServerExtensions;
+import org.geotools.util.logging.Logging;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import com.mockrunner.mock.web.MockHttpServletRequest;
 import com.mockrunner.mock.web.MockHttpServletResponse;
-import java.util.logging.ConsoleHandler;
-import java.util.logging.Level;
-import org.geotools.util.logging.Logging;
 
 public class SecuredAccessTest extends GeoNodeTestSupport {
 
-    /**
-     * This behaves like a read only test in that the mock status is reset by
-     * each test independently
-     */
-    public static Test suite() {
-        return new OneTimeTestSetup(new SecuredAccessTest());
-    }
     static MockSecurityClient client;
 
     @Override
@@ -54,21 +46,20 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
     }
 
     @Override
-    protected String[] getSpringContextLocations() {
-        return new String[]{
-            "classpath*:/applicationContext.xml",
-            "classpath*:/applicationSecurityContext.xml",
-            "classpath*:/testApplicationContext.xml"
-        };
+    protected void setUpSpring(List<String> springContextLocations) {
+        super.setUpSpring(springContextLocations);
+        springContextLocations.add("classpath*:/applicationContext.xml");
+        springContextLocations.add("classpath*:/applicationSecurityContext.xml");
+        springContextLocations.add("classpath*:/testApplicationContext.xml");
     }
 
     @Override
-    protected void oneTimeSetUp() throws Exception {
-        super.oneTimeSetUp();
+    protected void onSetUp(SystemTestData testData) throws Exception {
+        super.onSetUp(testData);
 
         GeoNodeTestSecurityProvider geoNodeTestSecurityProvider = (GeoNodeTestSecurityProvider) applicationContext.getBean("geoNodeSecurityProvider");
         client = (MockSecurityClient) geoNodeTestSecurityProvider.getSecurityClient();
-
+        
         Logging.getLogger("").setLevel(Level.ALL);
         Logging.getLogger("org.geonode.security").setLevel(Level.ALL);
     }

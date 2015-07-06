@@ -1,16 +1,17 @@
 package org.geonode.rest.batchdownload;
 
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 import static org.geonode.rest.batchdownload.BatchDownloadTestData.RESTLET_BASE_PATH;
 
 import java.util.Collections;
 import java.util.Map;
 
-import junit.framework.Test;
-
 import org.geonode.GeoNodeTestSupport;
 import org.geonode.process.control.AsyncProcess;
 import org.geonode.process.control.ProcessController;
-import org.geoserver.data.test.MockData;
+import org.geoserver.data.test.SystemTestData;
 import org.geoserver.platform.GeoServerExtensions;
 import org.geotools.process.ProcessException;
 import org.opengis.util.ProgressListener;
@@ -22,17 +23,11 @@ public class DownloadKillerRestletTest extends GeoNodeTestSupport {
 
     private static final String RESTLET_PATH = RESTLET_BASE_PATH + "/kill";
 
-    /**
-     * This is a READ ONLY TEST so we can use one time setup
-     */
-    public static Test suite() {
-        return new OneTimeTestSetup(new DownloadKillerRestletTest());
-    }
-
     @Override
-    protected void populateDataDirectory(MockData dataDirectory) throws Exception {
-        super.populateDataDirectory(dataDirectory);
-        dataDirectory.addWellKnownCoverageTypes();
+    protected void setUpTestData(SystemTestData testData) throws Exception {
+        testData.setUpDefaultRasterLayers();
+        testData.setUpWcs10RasterLayers();
+        //dataDirectory.addWcs10Coverages();
     }
 
     public void testHTTPMethod() throws Exception {
