@@ -4,10 +4,11 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
-import org.apache.commons.dbcp.BasicDataSource;
 
-import org.geoserver.config.GeoServerDataDirectory;
+import org.apache.commons.dbcp.BasicDataSource;
+import org.geoserver.catalog.Catalog;
 import org.geoserver.platform.GeoServerExtensions;
+import org.geoserver.platform.GeoServerResourceLoader;
 import org.geoserver.security.GeoServerSecurityFilterChain;
 import org.geoserver.security.GeoServerSecurityManager;
 import org.geoserver.security.GeoServerSecurityProvider;
@@ -15,11 +16,11 @@ import org.geoserver.security.config.SecurityManagerConfig;
 import org.geoserver.security.config.SecurityNamedServiceConfig;
 import org.geoserver.security.validation.SecurityConfigException;
 import org.geotools.util.logging.Logging;
-import org.vfny.geoserver.global.GeoserverDataDirectory;
 
 public class GeoNodeSecurityProvider extends GeoServerSecurityProvider implements GeoNodeSecurityClient.Provider {
 
-    private GeoNodeSecurityClient client;
+    private static Catalog catalog;
+	private GeoNodeSecurityClient client;
     
     @Override
     public Class<GeoNodeAuthenticationProvider> getAuthenticationProviderClass() {
@@ -82,8 +83,8 @@ public class GeoNodeSecurityProvider extends GeoServerSecurityProvider implement
     }
     
     private static File geonodeCookie() throws IOException {
-    	GeoServerDataDirectory directory = GeoserverDataDirectory.accessor();
-    	File geonodeDir = directory.findOrCreateDir("geonode");
+    	GeoServerResourceLoader loader = getCatalog().getResourceLoader();
+    	File geonodeDir = loader.findOrCreateDirectory("geonode");
     	return new File(geonodeDir, "geonode_initialized");
     }
     
@@ -143,5 +144,12 @@ public class GeoNodeSecurityProvider extends GeoServerSecurityProvider implement
         filterChain.insertBefore(GeoServerSecurityFilterChain.DEFAULT_CHAIN, "geonodeAnonymousFilter", GeoServerSecurityFilterChain.ANONYMOUS_FILTER);
         
         manager.saveSecurityConfig(config);
+    }
+    
+    private static Catalog getCatalog() {
+        if(catalog == null) {
+            catalog = (Catalog) GeoServerExtensions.bean( "catalog");
+        }
+        return catalog;
     }
 }

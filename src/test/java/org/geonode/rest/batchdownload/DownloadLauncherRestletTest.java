@@ -1,5 +1,8 @@
 package org.geonode.rest.batchdownload;
 
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNotNull;
+import static junit.framework.Assert.assertTrue;
 import static org.geonode.rest.batchdownload.BatchDownloadTestData.RASTER_LAYER;
 import static org.geonode.rest.batchdownload.BatchDownloadTestData.RASTER_LAYER_REQUEST_NO_METADATA;
 import static org.geonode.rest.batchdownload.BatchDownloadTestData.RESTLET_BASE_PATH;
@@ -18,7 +21,6 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import junit.framework.Test;
 import net.sf.json.JSONObject;
 
 import org.geonode.GeoNodeTestSupport;
@@ -26,7 +28,7 @@ import org.geonode.process.batchdownload.BatchDownloadFactory;
 import org.geonode.process.control.ProcessController;
 import org.geonode.process.control.ProcessStatus;
 import org.geonode.process.storage.Resource;
-import org.geoserver.data.test.MockData;
+import org.geoserver.data.test.SystemTestData;
 import org.geoserver.platform.GeoServerExtensions;
 import org.restlet.data.Status;
 
@@ -36,17 +38,11 @@ public class DownloadLauncherRestletTest extends GeoNodeTestSupport {
 
     private static final String RESTLET_PATH = RESTLET_BASE_PATH + "/launch";
 
-    /**
-     * This is a READ ONLY TEST so we can use one time setup
-     */
-    public static Test suite() {
-        return new OneTimeTestSetup(new DownloadLauncherRestletTest());
-    }
-
     @Override
-    protected void populateDataDirectory(MockData dataDirectory) throws Exception {
-        super.populateDataDirectory(dataDirectory);
-        dataDirectory.addWellKnownCoverageTypes();
+    protected void setUpTestData(SystemTestData testData) throws Exception {
+        testData.setUpDefaultRasterLayers();
+        testData.setUpWcs10RasterLayers();
+        //dataDirectory.addWcs10Coverages();
     }
 
     public void testHTTPMethod() throws Exception {
