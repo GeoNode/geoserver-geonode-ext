@@ -19,6 +19,12 @@ if (not FOUND) then
 	-- no layer
 	return 'nl';
 end if;
+
+if (user_name IS NULL or user_name = '') then
+        user_name = 'AnonymousUser';
+end if;
+
+
 if (user_name IS NOT NULL) then
 	SELECT INTO user * FROM "people_profile" WHERE "people_profile"."username" = user_name;
 	if (not FOUND) then
@@ -46,8 +52,8 @@ SELECT INTO view_perm "auth_permission"."id"
   AND "django_content_type"."app_label" = E'base' );
 
 SELECT INTO change_perm "auth_permission"."id"
-	FROM "auth_permission" INNER JOIN "django_content_type" 
-	ON ("auth_permission"."content_type_id" = "django_content_type"."id") 
+	FROM "auth_permission" INNER JOIN "django_content_type"
+	ON ("auth_permission"."content_type_id" = "django_content_type"."id")
 	WHERE ("auth_permission"."codename" = E'change_resourcebase'
 	AND "django_content_type"."app_label" = E'base' );
 
@@ -58,7 +64,7 @@ SELECT INTO manage_perm "auth_permission"."id"
 	AND "django_content_type"."app_label" = E'base' );
 
 SELECT INTO ct "django_content_type"."id"
-	FROM "django_content_type" 
+	FROM "django_content_type"
 	WHERE ("django_content_type"."model" = E'resourcebase'
 	AND "django_content_type"."app_label" = E'base' );
 
