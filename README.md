@@ -1,6 +1,8 @@
 geoserver-geonode-ext
 =====================
 
+[![Join the chat at https://gitter.im/GeoNode/geoserver-geonode-ext](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/GeoNode/geoserver-geonode-ext?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 GeoNode extends GeoServer with certain JSON, REST, and security capabilities.
 
 Security
