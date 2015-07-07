@@ -64,13 +64,6 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
         Logging.getLogger("org.geonode.security").setLevel(Level.ALL);
     }
 
-    @Override
-    protected void setUpInternal() throws Exception {
-        super.setUpInternal();
-
-        LOGGER.warning("==================== Running test " + getName());
-    }
-
     /**
      * No authentication, we should get a challenge to authenticate
      */
