@@ -68,7 +68,7 @@ SELECT INTO ct "django_content_type"."id"
 	WHERE ("django_content_type"."model" = E'resourcebase'
 	AND "django_content_type"."app_label" = E'base' );
 
-SELECT INTO group_ids array_agg("groups_groupmember"."group_id")
+SELECT INTO group_ids array_agg("groups_groupmember"."group_id" + 1)
   FROM "groups_groupmember"
   WHERE "groups_groupmember"."user_id" = "user".id;
 
