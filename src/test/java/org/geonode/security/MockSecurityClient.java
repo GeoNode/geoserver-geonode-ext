@@ -32,6 +32,9 @@ public class MockSecurityClient implements GeoNodeSecurityClient {
 
     AnonymousAuthenticationToken anonymousAuth;
 
+    public void setRequestUrl(String url) {
+    }
+
     public MockSecurityClient() {
         reset();
     }
