@@ -33,6 +33,7 @@ public class GeoNodeAuthenticationProvider extends GeoServerAuthenticationProvid
 
     @Override
     public Authentication authenticate(Authentication authentication, HttpServletRequest request) throws AuthenticationException {
+        this.client.setRequestUrl("http://" + request.getServerName() + "/");
     	if (authentication instanceof UsernamePasswordAuthenticationToken) {
 	        UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
 	        String username = token.getName();

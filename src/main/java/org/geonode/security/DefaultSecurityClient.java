@@ -52,6 +52,9 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
 
     private String baseUrl;
 
+    // The original request URL
+    public String requestUrl;
+
     /**
      * Caches anonymous and cookie based authorizations for a given time
      */
@@ -67,6 +70,7 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
         this.client = httpClient;
         this.authCache = new AuthCache();
         this.baseUrl = baseUrl;
+        this.requestUrl = "";
     }
 
     /**
@@ -76,6 +80,13 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
      */
     String getBaseUrl() {
         return baseUrl;
+    }
+
+    /**
+     * Set request URL, which will be used as the GeoNode URL if baseUrl is not set
+     */
+    public void setRequestUrl(String url) {
+        requestUrl = url;
     }
 
     /**
@@ -159,7 +170,14 @@ public class DefaultSecurityClient implements GeoNodeSecurityClient {
 
     private Authentication authenticate(final Object credentials, final String... requestHeaders)
             throws AuthenticationException, IOException {
-        final String url = baseUrl + "layers/acls";
+
+        // If baseUrl is not set, use the requesting URL
+        final String url;
+        if (baseUrl == "") {
+            url = requestUrl + "layers/acls";
+        } else {
+            url = baseUrl + "layers/acls";
+        }
 
         if (LOGGER.isLoggable(Level.FINE)) {
             LOGGER.fine("Authenticating against "+url+" with " + Arrays.toString(requestHeaders));

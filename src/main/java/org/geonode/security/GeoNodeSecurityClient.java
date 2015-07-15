@@ -21,6 +21,8 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
  */
 public interface GeoNodeSecurityClient {
 
+    public void setRequestUrl(String value);
+
     /**
      * Authenticates a user based on cookie contents
      * 
