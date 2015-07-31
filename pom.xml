@@ -57,6 +57,9 @@
 
   </repositories>
   
+  <!-- Codehaus no longer serves up Maven repositories
+       and all Codehaus services have been terminated.
+  
   <pluginRepositories>
     <pluginRepository>
       <id>codehaus-snapshot-plugins</id>
@@ -69,7 +72,7 @@
         <enabled>false</enabled>
        </releases>
     </pluginRepository>
-  </pluginRepositories>
+  </pluginRepositories>-->
 
   <dependencies>
     <dependency>
@@ -239,13 +242,13 @@
     
     <dependency>
       <groupId>org.opengeo.geoserver</groupId>
-      <artifactId>gs-geogit</artifactId>
-      <version>${gsgeogit.version}</version>
+      <artifactId>gs-geogig</artifactId>
+      <version>${gsgeogig.version}</version>
       <classifier>shaded-plugin</classifier>
       <exclusions>
-        <exclusion><groupId>org.geogit</groupId><artifactId>geogit-core</artifactId></exclusion>
-        <exclusion><groupId>org.geogit</groupId><artifactId>geogit-geotools</artifactId></exclusion>
-        <exclusion><groupId>org.geogit</groupId><artifactId>geogit-web-api</artifactId></exclusion>
+        <exclusion><groupId>org.geogig</groupId><artifactId>geogit-core</artifactId></exclusion>
+        <exclusion><groupId>org.geogig</groupId><artifactId>geogit-geotools</artifactId></exclusion>
+        <exclusion><groupId>org.geogig</groupId><artifactId>geogit-web-api</artifactId></exclusion>
         <exclusion><groupId>com.google.code.findbugs</groupId><artifactId>jsr305</artifactId></exclusion>
         <exclusion><groupId>com.google.guava</groupId><artifactId>guava</artifactId></exclusion>
         <exclusion><groupId>org.geotools</groupId><artifactId>gt-geojson</artifactId></exclusion>
@@ -330,7 +333,7 @@
     <geotools.version>13-SNAPSHOT</geotools.version>
     <geoserver.version>2.7-SNAPSHOT</geoserver.version>
     <jetty.version>6.1.8</jetty.version>
-    <gsgeogit.version>2.5-SNAPSHOT</gsgeogit.version> <!-- 2.5.1 build not available so using snapshot http://repo.opengeo.org/org/opengeo/geoserver/gs-geogit/ -->  
+    <gsgeogig.version>2.7-SNAPSHOT</gsgeogig.version>
     <maven.test.search.classdir>true</maven.test.search.classdir>
   </properties>
   
