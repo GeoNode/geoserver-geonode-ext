@@ -222,7 +222,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>16.0.1</version>
+      <version>17.0</version>
     </dependency>
 
     <!-- GeoJSON module dependencies -->
@@ -248,15 +248,31 @@
       <version>${gsgeogig.version}</version>
       <classifier>shaded-plugin</classifier>
       <exclusions>
-        <exclusion><groupId>org.geogig</groupId><artifactId>geogig-core</artifactId></exclusion>
-        <exclusion><groupId>org.geogig</groupId><artifactId>geogig-geotools</artifactId></exclusion>
-        <exclusion><groupId>org.geogig</groupId><artifactId>geogig-web-api</artifactId></exclusion>
-        <exclusion><groupId>com.google.code.findbugs</groupId><artifactId>jsr305</artifactId></exclusion>
-        <exclusion><groupId>com.google.guava</groupId><artifactId>guava</artifactId></exclusion>
-        <exclusion><groupId>org.geotools</groupId><artifactId>gt-geojson</artifactId></exclusion>
-        <exclusion><groupId>org.geotools.jdbc</groupId><artifactId>gt-jdbc-spatialite</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-geotools</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-core</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-cli</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-mongodb</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-sqlite-xerial</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-sqlite-core</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-metrics</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-bdbje</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-web-api</artifactId></exclusion>
+        <exclusion><groupId>org.locationtech.geogig</groupId><artifactId>geogig-osm</artifactId></exclusion>
+        <exclusion><groupId>com.jolbox</groupId><artifactId>bonecp</artifactId></exclusion>
       </exclusions>
     </dependency>    
+    <dependency>
+      <!-- required by gs-geogig but declares it as provided to avoid gt version clashes -->
+      <groupId>org.geotools.jdbc</groupId>
+      <artifactId>gt-jdbc-spatialite</artifactId>
+      <version>${geotools.version}</version>
+    </dependency>
+    <dependency>
+      <!-- required by gs-geogig but declares it as provided to avoid gt version clashes -->
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-geopkg</artifactId>
+      <version>${geotools.version}</version>
+    </dependency>
         
     <!--  test dependencies  -->
     <dependency>
