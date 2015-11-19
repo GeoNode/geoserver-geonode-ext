@@ -13,47 +13,61 @@
       <url>dav:http://repo.opengeo.org</url>
       <uniqueVersion>false</uniqueVersion>
     </repository>
+    
     <snapshotRepository>
       <id>opengeo</id>
       <name>OpenGeo Maven Repository</name>
       <url>dav:http://repo.opengeo.org</url>
       <uniqueVersion>false</uniqueVersion>
     </snapshotRepository>
+    
   </distributionManagement>
 
   <repositories>
   
-    <repository>
-      <id>boundless</id>
-      <name>Boundless Maven Repository</name>
-      <url>http://repo.boundlessgeo.com/main</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-    
-    <repository>
-      <id>osgeo</id>
-      <name>Open Source Geospatial Foundation Repository</name>
-      <url>http://download.osgeo.org/webdav/geotools/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
+        <repository>
+          <id>central.maven.org</id>
+          <name>Central Maven repository</name>
+          <url>http://central.maven.org/maven2</url>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+        </repository>
 
-    <repository>
-      <id>maven-restlet</id>
-      <name>Restlet Maven Repository</name>
-      <url>http://maven.restlet.org</url>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
+        <repository>
+          <id>geosolutions</id>
+          <name>geosolutions repository</name>
+          <url>http://maven.geo-solutions.it/</url>
+        </repository>
+
+        <repository>
+          <id>osgeo</id>
+          <name>Open Source Geospatial Foundation Repository</name>
+          <url>http://download.osgeo.org/webdav/geotools/</url>
+        </repository>
+
+        <repository>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+          <id>boundless</id>
+          <name>Boundless Maven Repository</name>
+          <url>https://repo.boundlessgeo.com/main/</url>
+        </repository>
+
+      <repository>
+        <id>maven-restlet</id>
+        <name>Restlet Maven Repository</name>
+        <url>http://maven.restlet.org</url>
+        <snapshots>
+          <enabled>false</enabled>
+        </snapshots>
+      </repository>
   
-    <repository>
-      <id>org.mapfish</id>
-      <url>http://dev.mapfish.org/maven/repository</url>
-    </repository>
+        <repository>
+          <id>org.mapfish</id>
+          <url>http://dev.mapfish.org/maven/repository</url>
+        </repository>
 
   </repositories>
   
@@ -203,7 +217,8 @@
     <dependency>
         <groupId>org.opengeo.geoserver</groupId>
         <artifactId>printng</artifactId>
-        <version>${geoserver.version}</version>
+        <!-- version>${geoserver.version}</version -->
+        <version>2.7-SNAPSHOT</version>
         <scope>runtime</scope>
     </dependency>
 
