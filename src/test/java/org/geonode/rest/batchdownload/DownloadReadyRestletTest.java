@@ -44,8 +44,7 @@ import org.opengis.feature.type.FeatureType;
 import org.opengis.referencing.crs.CoordinateReferenceSystem;
 import org.restlet.data.MediaType;
 import org.restlet.data.Status;
-
-import com.mockrunner.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockHttpServletResponse;
 
 public class DownloadReadyRestletTest extends GeoNodeTestSupport {
 
@@ -60,19 +59,19 @@ public class DownloadReadyRestletTest extends GeoNodeTestSupport {
     
     public void testHTTPMethod() throws Exception {
         MockHttpServletResponse r = postAsServletResponse(RESTLET_PATH, "");
-        assertEquals(Status.CLIENT_ERROR_METHOD_NOT_ALLOWED, Status.valueOf(r.getStatusCode()));
+        assertEquals(Status.CLIENT_ERROR_METHOD_NOT_ALLOWED, Status.valueOf(r.getStatus()));
     }
 
     public void testInvalidProcessId() throws Exception {
         String request = RESTLET_PATH + "/notAProcessId";
         MockHttpServletResponse r = getAsServletResponse(request);
-        assertEquals(Status.CLIENT_ERROR_BAD_REQUEST, Status.valueOf(r.getStatusCode()));
+        assertEquals(Status.CLIENT_ERROR_BAD_REQUEST, Status.valueOf(r.getStatus()));
     }
 
     public void testNonExistentProcess() throws Exception {
         String request = RESTLET_PATH + "/10000";
         MockHttpServletResponse r = getAsServletResponse(request);
-        assertEquals(Status.CLIENT_ERROR_NOT_FOUND, Status.valueOf(r.getStatusCode()));
+        assertEquals(Status.CLIENT_ERROR_NOT_FOUND, Status.valueOf(r.getStatus()));
     }
 
     public void testDownload() throws Exception {
@@ -83,7 +82,7 @@ public class DownloadReadyRestletTest extends GeoNodeTestSupport {
         final String request = RESTLET_PATH + "/" + processId.longValue() + ".zip";
 
         final MockHttpServletResponse response = getAsServletResponse(request);
-        assertEquals(Status.SUCCESS_OK, Status.valueOf(response.getStatusCode()));
+        assertEquals(Status.SUCCESS_OK, Status.valueOf(response.getStatus()));
         assertEquals(MediaType.APPLICATION_ZIP, MediaType.valueOf(response.getContentType()));
         assertEquals("attachment; filename=\"test map.zip\"", response.getHeader("Content-Disposition"));
 
@@ -116,7 +115,7 @@ public class DownloadReadyRestletTest extends GeoNodeTestSupport {
         final String request = RESTLET_PATH + "/" + processId.longValue();
 
         final MockHttpServletResponse response = getAsServletResponse(request);
-        assertEquals(Status.SUCCESS_OK, Status.valueOf(response.getStatusCode()));
+        assertEquals(Status.SUCCESS_OK, Status.valueOf(response.getStatus()));
         assertEquals(MediaType.APPLICATION_ZIP, MediaType.valueOf(response.getContentType()));
 
         final ByteArrayInputStream responseStream = getBinaryInputStream(response);

@@ -5,38 +5,28 @@
 package org.geonode.process.batchdownload.shp;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.PrintWriter;
-import java.net.MalformedURLException;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.ZipOutputStream;
 
 import org.geoserver.data.util.IOUtils;
-import org.geoserver.feature.RetypingFeatureCollection;
 import org.geoserver.platform.Operation;
-import org.geoserver.platform.ServiceException;
 import org.geoserver.wfs.WFSException;
 import org.geoserver.wfs.WFSGetFeatureOutputFormat;
-import org.geoserver.wfs.response.RemappingFeatureCollection;
 import org.geotools.data.DataStore;
 import org.geotools.data.FeatureSource;
 import org.geotools.data.FeatureWriter;
 import org.geotools.data.Query;
-import org.geotools.data.Transaction;
-import org.geotools.data.shapefile.ShapefileDataStore;
+import org.geotools.data.shapefile.ShapefileDumper;
 import org.geotools.data.simple.SimpleFeatureCollection;
 import org.geotools.feature.FeatureCollection;
-import org.geotools.feature.FeatureIterator;
-import org.geotools.feature.simple.SimpleFeatureTypeBuilder;
 import org.geotools.text.Text;
 import org.geotools.util.NullProgressListener;
 import org.geotools.util.logging.Logging;
@@ -48,12 +38,6 @@ import org.opengis.util.ProgressListener;
 
 import com.vividsolutions.jts.geom.Geometry;
 import com.vividsolutions.jts.geom.GeometryCollection;
-import com.vividsolutions.jts.geom.LineString;
-import com.vividsolutions.jts.geom.MultiLineString;
-import com.vividsolutions.jts.geom.MultiPoint;
-import com.vividsolutions.jts.geom.MultiPolygon;
-import com.vividsolutions.jts.geom.Point;
-import com.vividsolutions.jts.geom.Polygon;
 
 /**
  * 
@@ -177,12 +161,10 @@ public class ShapeZipWriter {
         Class geomType = geometryDescriptor.getType().getBinding();
         if (GeometryCollection.class.equals(geomType) || Geometry.class.equals(geomType)) {
             // in this case we fan out the output to multiple shapefiles
-            shapefileCreated = writeCollectionToShapefiles(featureCollection, tempDir,
-                    defaultCharset, monitor, featureProgressPercent);
+            shapefileCreated = writeCollectionToShapefiles(featureCollection, tempDir, defaultCharset);
         } else {
             // simple case, only one and supported type
-            writeCollectionToShapefile(featureCollection, tempDir, defaultCharset, monitor,
-                    featureProgressPercent);
+            writeCollectionToShapefiles(featureCollection, tempDir, defaultCharset);
             shapefileCreated = true;
         }
 
@@ -200,7 +182,7 @@ public class ShapeZipWriter {
      * @param featureProgressPercent
      *            per feature progress percent to report to {@code monitor}
      */
-    private void writeCollectionToShapefile(FeatureCollection<SimpleFeatureType, SimpleFeature> c,
+    /*private void writeCollectionToShapefile(FeatureCollection<SimpleFeatureType, SimpleFeature> c,
             File tempDir, Charset charset, ProgressListener monitor,
             final float featureProgressPercent) {
         c = remapCollectionSchema(c, null);
@@ -262,7 +244,7 @@ public class ShapeZipWriter {
                 dstore.dispose();
             }
         }
-    }
+    }*/
 
     /**
      * Takes a feature collection with a generic schema and remaps it to one whose schema respects
@@ -272,7 +254,7 @@ public class ShapeZipWriter {
      * @param targetGeometry
      * @return
      */
-    FeatureCollection<SimpleFeatureType, SimpleFeature> remapCollectionSchema(
+    /*FeatureCollection<SimpleFeatureType, SimpleFeature> remapCollectionSchema(
             FeatureCollection<SimpleFeatureType, SimpleFeature> fc, Class targetGeometry) {
         SimpleFeatureType schema = fc.getSchema();
 
@@ -309,7 +291,7 @@ public class ShapeZipWriter {
         // - field names have a max length of 10
         Map<String, String> attributeMappings = createAttributeMappings(schema);
         return new RemappingFeatureCollection((SimpleFeatureCollection)fc, attributeMappings);
-    }
+    }*/
 
     /**
      * Maps schema attributes to shapefile-compatible attributes.
@@ -374,12 +356,17 @@ public class ShapeZipWriter {
      * @param featureProgressPercent
      *            per feature progress percent to report to {@code monitor}
      * @return true if a shapefile has been created, false otherwise
+     * @throws IOException 
      */
     @SuppressWarnings("unchecked")
     private boolean writeCollectionToShapefiles(
-            FeatureCollection<SimpleFeatureType, SimpleFeature> c, File tempDir, Charset charset,
-            ProgressListener monitor, final float featureProgressPercent) {
-        c = remapCollectionSchema(c, null);
+            FeatureCollection<SimpleFeatureType, SimpleFeature> fc, File tempDir, Charset charset) throws IOException {
+        
+        ShapefileDumper dumper = new ShapefileDumper(tempDir);
+        dumper.setCharset(charset);
+        return dumper.dump((SimpleFeatureCollection) fc);
+        
+    /*    c = remapCollectionSchema(c, null);
         SimpleFeatureType schema = c.getSchema();
 
         boolean shapefileCreated = false;
@@ -435,116 +422,116 @@ public class ShapeZipWriter {
             }
         }
 
-        return shapefileCreated;
+        return shapefileCreated;*/
     }
 
-    /**
-     * Returns the feature writer for a specific geometry type, creates a new datastore and a new
-     * writer if there are none so far
-     */
-    private FeatureWriter<SimpleFeatureType, SimpleFeature> getFeatureWriter(SimpleFeature f,
-            Map<Class, StoreWriter> writers, File tempDir, Charset charset) throws IOException {
-        // get the target class
-        Class<?> target;
-        Geometry g = (Geometry) f.getDefaultGeometry();
-        String suffix = null;
-
-        if (g instanceof Point) {
-            target = Point.class;
-            suffix = "Point";
-        } else if (g instanceof MultiPoint) {
-            target = MultiPoint.class;
-            suffix = "MPoint";
-        } else if (g instanceof MultiPolygon || g instanceof Polygon) {
-            target = MultiPolygon.class;
-            suffix = "Polygon";
-        } else if (g instanceof LineString || g instanceof MultiLineString) {
-            target = MultiLineString.class;
-            suffix = "Line";
-        } else {
-            throw new RuntimeException("This should never happen, "
-                    + "there's a bug in the SHAPE-ZIP output format. I got a geometry of type "
-                    + g.getClass());
-        }
-
-        // see if we already have a cached writer
-        StoreWriter storeWriter = writers.get(target);
-        if (storeWriter == null) {
-            // retype the schema
-            SimpleFeatureType original = f.getFeatureType();
-            SimpleFeatureTypeBuilder builder = new SimpleFeatureTypeBuilder();
-            for (AttributeDescriptor d : original.getAttributeDescriptors()) {
-                if (Geometry.class.isAssignableFrom(d.getType().getBinding())) {
-                    GeometryDescriptor gd = (GeometryDescriptor) d;
-                    builder.add(gd.getLocalName(), target, gd.getCoordinateReferenceSystem());
-                    builder.setDefaultGeometry(gd.getLocalName());
-                } else {
-                    builder.add(d);
-                }
-            }
-            builder.setName(original.getTypeName().replace('.', '_') + suffix);
-            builder.setNamespaceURI(original.getName().getURI());
-            SimpleFeatureType retyped = builder.buildFeatureType();
-
-            // create the datastore for the current geom type
-            DataStore dstore = buildStore(tempDir, charset, retyped);
-
-            // cache it
-            storeWriter = new StoreWriter();
-            storeWriter.dstore = dstore;
-            storeWriter.writer = dstore.getFeatureWriter(retyped.getTypeName(),
-                    Transaction.AUTO_COMMIT);
-            writers.put(target, storeWriter);
-        }
-        return storeWriter.writer;
-    }
-
-    /**
-     * Creates a shapefile data store for the specified schema
-     * 
-     * @param tempDir
-     * @param charset
-     * @param schema
-     * @return
-     * @throws MalformedURLException
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
-    private ShapefileDataStore buildStore(File tempDir, Charset charset, SimpleFeatureType schema)
-            throws MalformedURLException, FileNotFoundException, IOException {
-        File file = new File(tempDir, schema.getTypeName() + ".shp");
-        ShapefileDataStore sfds = new ShapefileDataStore(file.toURI().toURL());
-
-        // handle shapefile encoding
-        // and dump the charset into a .cst file, for debugging and control purposes
-        // (.cst is not a standard extension)
-        sfds.setCharset(charset);
-        File charsetFile = new File(tempDir, schema.getTypeName() + ".cst");
-        PrintWriter pw = null;
-        try {
-            pw = new PrintWriter(charsetFile);
-            pw.write(charset.name());
-        } finally {
-            if (pw != null)
-                pw.close();
-        }
-
-        try {
-            sfds.createSchema(schema);
-        } catch (NullPointerException e) {
-            LOGGER.warning("Error in shapefile schema. It is possible you don't have a geometry set in the output. \n"
-                    + "Please specify a <wfs:PropertyName>geom_column_name</wfs:PropertyName> in the request");
-            throw new ServiceException(
-                    "Error in shapefile schema. It is possible you don't have a geometry set in the output.");
-        }
-
-        try {
-            if (schema.getCoordinateReferenceSystem() != null)
-                sfds.forceSchemaCRS(schema.getCoordinateReferenceSystem());
-        } catch (Exception e) {
-            LOGGER.log(Level.WARNING, "Could not properly create the .prj file", e);
-        }
-
-        return sfds;
-    }
+//    /**
+//     * Returns the feature writer for a specific geometry type, creates a new datastore and a new
+//     * writer if there are none so far
+//     */
+//    private FeatureWriter<SimpleFeatureType, SimpleFeature> getFeatureWriter(SimpleFeature f,
+//            Map<Class, StoreWriter> writers, File tempDir, Charset charset) throws IOException {
+//        // get the target class
+//        Class<?> target;
+//        Geometry g = (Geometry) f.getDefaultGeometry();
+//        String suffix = null;
+//
+//        if (g instanceof Point) {
+//            target = Point.class;
+//            suffix = "Point";
+//        } else if (g instanceof MultiPoint) {
+//            target = MultiPoint.class;
+//            suffix = "MPoint";
+//        } else if (g instanceof MultiPolygon || g instanceof Polygon) {
+//            target = MultiPolygon.class;
+//            suffix = "Polygon";
+//        } else if (g instanceof LineString || g instanceof MultiLineString) {
+//            target = MultiLineString.class;
+//            suffix = "Line";
+//        } else {
+//            throw new RuntimeException("This should never happen, "
+//                    + "there's a bug in the SHAPE-ZIP output format. I got a geometry of type "
+//                    + g.getClass());
+//        }
+//
+//        // see if we already have a cached writer
+//        StoreWriter storeWriter = writers.get(target);
+//        if (storeWriter == null) {
+//            // retype the schema
+//            SimpleFeatureType original = f.getFeatureType();
+//            SimpleFeatureTypeBuilder builder = new SimpleFeatureTypeBuilder();
+//            for (AttributeDescriptor d : original.getAttributeDescriptors()) {
+//                if (Geometry.class.isAssignableFrom(d.getType().getBinding())) {
+//                    GeometryDescriptor gd = (GeometryDescriptor) d;
+//                    builder.add(gd.getLocalName(), target, gd.getCoordinateReferenceSystem());
+//                    builder.setDefaultGeometry(gd.getLocalName());
+//                } else {
+//                    builder.add(d);
+//                }
+//            }
+//            builder.setName(original.getTypeName().replace('.', '_') + suffix);
+//            builder.setNamespaceURI(original.getName().getURI());
+//            SimpleFeatureType retyped = builder.buildFeatureType();
+//
+//            // create the datastore for the current geom type
+//            DataStore dstore = buildStore(tempDir, charset, retyped);
+//
+//            // cache it
+//            storeWriter = new StoreWriter();
+//            storeWriter.dstore = dstore;
+//            storeWriter.writer = dstore.getFeatureWriter(retyped.getTypeName(),
+//                    Transaction.AUTO_COMMIT);
+//            writers.put(target, storeWriter);
+//        }
+//        return storeWriter.writer;
+//    }
+//
+//    /**
+//     * Creates a shapefile data store for the specified schema
+//     * 
+//     * @param tempDir
+//     * @param charset
+//     * @param schema
+//     * @return
+//     * @throws MalformedURLException
+//     * @throws FileNotFoundException
+//     * @throws IOException
+//     */
+//    private ShapefileDataStore buildStore(File tempDir, Charset charset, SimpleFeatureType schema)
+//            throws MalformedURLException, FileNotFoundException, IOException {
+//        File file = new File(tempDir, schema.getTypeName() + ".shp");
+//        ShapefileDataStore sfds = new ShapefileDataStore(file.toURI().toURL());
+//
+//        // handle shapefile encoding
+//        // and dump the charset into a .cst file, for debugging and control purposes
+//        // (.cst is not a standard extension)
+//        sfds.setCharset(charset);
+//        File charsetFile = new File(tempDir, schema.getTypeName() + ".cst");
+//        PrintWriter pw = null;
+//        try {
+//            pw = new PrintWriter(charsetFile);
+//            pw.write(charset.name());
+//        } finally {
+//            if (pw != null)
+//                pw.close();
+//        }
+//
+//        try {
+//            sfds.createSchema(schema);
+//        } catch (NullPointerException e) {
+//            LOGGER.warning("Error in shapefile schema. It is possible you don't have a geometry set in the output. \n"
+//                    + "Please specify a <wfs:PropertyName>geom_column_name</wfs:PropertyName> in the request");
+//            throw new ServiceException(
+//                    "Error in shapefile schema. It is possible you don't have a geometry set in the output.");
+//        }
+//
+//        try {
+//            if (schema.getCoordinateReferenceSystem() != null)
+//                sfds.forceSchemaCRS(schema.getCoordinateReferenceSystem());
+//        } catch (Exception e) {
+//            LOGGER.log(Level.WARNING, "Could not properly create the .prj file", e);
+//        }
+//
+//        return sfds;
+//    }
 }

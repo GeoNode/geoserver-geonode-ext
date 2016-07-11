@@ -75,7 +75,7 @@
      
     <filter>
       <filter-name>Set Character Encoding</filter-name>
-      <filter-class>org.vfny.geoserver.filters.SetCharacterEncodingFilter</filter-class>
+      <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
       <init-param>
         <param-name>encoding</param-name>
         <param-value>UTF-8</param-value>
@@ -198,11 +198,6 @@
       <url-pattern>/*</url-pattern>
     </filter-mapping>
     
-      <filter-mapping>
-      <filter-name>Set Character Encoding</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping>
-    
     <filter-mapping>
       <filter-name>Advanced Dispatch Filter</filter-name>
       <url-pattern>/*</url-pattern>
@@ -258,6 +253,10 @@
     <mime-mapping>
       <extension>sld</extension>
       <mime-type>text/xml</mime-type>
+    </mime-mapping>
+    <mime-mapping>
+      <extension>json</extension>
+      <mime-type>application/json</mime-type>
     </mime-mapping>
   
     <welcome-file-list>

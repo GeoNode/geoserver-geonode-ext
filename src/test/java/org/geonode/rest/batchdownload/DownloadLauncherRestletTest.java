@@ -21,8 +21,6 @@ import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import net.sf.json.JSONObject;
-
 import org.geonode.GeoNodeTestSupport;
 import org.geonode.process.batchdownload.BatchDownloadFactory;
 import org.geonode.process.control.ProcessController;
@@ -31,8 +29,9 @@ import org.geonode.process.storage.Resource;
 import org.geoserver.data.test.SystemTestData;
 import org.geoserver.platform.GeoServerExtensions;
 import org.restlet.data.Status;
+import org.springframework.mock.web.MockHttpServletResponse;
 
-import com.mockrunner.mock.web.MockHttpServletResponse;
+import net.sf.json.JSONObject;
 
 public class DownloadLauncherRestletTest extends GeoNodeTestSupport {
 
@@ -47,7 +46,7 @@ public class DownloadLauncherRestletTest extends GeoNodeTestSupport {
 
     public void testHTTPMethod() throws Exception {
         MockHttpServletResponse r = getAsServletResponse(RESTLET_PATH);
-        assertEquals(Status.CLIENT_ERROR_METHOD_NOT_ALLOWED.getCode(), r.getStatusCode());
+        assertEquals(Status.CLIENT_ERROR_METHOD_NOT_ALLOWED.getCode(), r.getStatus());
     }
 
     public void testPreconditions() throws Exception {
@@ -80,7 +79,7 @@ public class DownloadLauncherRestletTest extends GeoNodeTestSupport {
         jsonRequest = VECTOR_LAYER_REQUEST_NO_METADATA;
 
         MockHttpServletResponse response = testRequest(jsonRequest, SUCCESS_OK);
-        String outputStreamContent = response.getOutputStreamContent();
+        String outputStreamContent = response.getContentAsString();
         assertNotNull(outputStreamContent);
         JSONObject jsonResponse = JSONObject.fromObject(outputStreamContent);
         assertTrue(jsonResponse.containsKey("id"));
@@ -103,7 +102,7 @@ public class DownloadLauncherRestletTest extends GeoNodeTestSupport {
         String jsonRequest = RASTER_LAYER_REQUEST_NO_METADATA;
 
         MockHttpServletResponse response = testRequest(jsonRequest, SUCCESS_OK);
-        String outputStreamContent = response.getOutputStreamContent();
+        String outputStreamContent = response.getContentAsString();
         assertNotNull(outputStreamContent);
         JSONObject jsonResponse = JSONObject.fromObject(outputStreamContent);
         assertTrue(jsonResponse.containsKey("id"));
@@ -188,7 +187,7 @@ public class DownloadLauncherRestletTest extends GeoNodeTestSupport {
             final Set<String> expectedFiles) throws Exception {
 
         MockHttpServletResponse response = testRequest(jsonRequest, SUCCESS_OK);
-        String outputStreamContent = response.getOutputStreamContent();
+        String outputStreamContent = response.getContentAsString();
         assertNotNull(outputStreamContent);
         JSONObject jsonResponse = JSONObject.fromObject(outputStreamContent);
         assertTrue(jsonResponse.containsKey("id"));
@@ -226,7 +225,7 @@ public class DownloadLauncherRestletTest extends GeoNodeTestSupport {
             final Status expectedResponseCode) throws Exception {
         MockHttpServletResponse response;
         response = postAsServletResponse(RESTLET_PATH, jsonRequest);
-        assertEquals(expectedResponseCode, Status.valueOf(response.getStatusCode()));
+        assertEquals(expectedResponseCode, Status.valueOf(response.getStatus()));
         return response;
     }
 }
