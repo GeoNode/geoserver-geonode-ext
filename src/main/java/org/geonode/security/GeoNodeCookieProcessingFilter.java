@@ -5,7 +5,6 @@
 package org.geonode.security;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,10 +16,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
-import org.geoserver.security.GeoServerSecurityFilterChainProxy;
 import org.geoserver.security.filter.GeoServerAuthenticationFilter;
 import org.geoserver.security.filter.GeoServerSecurityFilter;
-import org.geoserver.security.impl.GeoServerUser;
 import org.geotools.util.logging.Logging;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -29,7 +26,6 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * A processing filter that will inspect the cookies and look for the GeoNode single sign on one. If
@@ -95,7 +91,7 @@ public class GeoNodeCookieProcessingFilter extends GeoServerSecurityFilter
                     existingAuth == null ? null : existingAuth.getAuthorities();
                 Authentication authRequest =
                     new GeoNodeSessionAuthToken(principal, gnCookie, authorities);
-                final Authentication authResult = getSecurityManager().authenticate(authRequest);
+                final Authentication authResult = getSecurityManager().authenticationManager().authenticate(authRequest);
                 LOGGER.log(Level.FINE, "authResult : {0}", authResult);
                 securityContext.setAuthentication(authResult);
             } catch (AuthenticationException e) {

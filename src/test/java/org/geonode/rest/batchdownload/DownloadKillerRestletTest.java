@@ -16,8 +16,7 @@ import org.geoserver.platform.GeoServerExtensions;
 import org.geotools.process.ProcessException;
 import org.opengis.util.ProgressListener;
 import org.restlet.data.Status;
-
-import com.mockrunner.mock.web.MockHttpServletResponse;
+import org.springframework.mock.web.MockHttpServletResponse;
 
 public class DownloadKillerRestletTest extends GeoNodeTestSupport {
 
@@ -32,19 +31,19 @@ public class DownloadKillerRestletTest extends GeoNodeTestSupport {
 
     public void testHTTPMethod() throws Exception {
         MockHttpServletResponse r = postAsServletResponse(RESTLET_PATH, "");
-        assertEquals(Status.CLIENT_ERROR_METHOD_NOT_ALLOWED, Status.valueOf(r.getStatusCode()));
+        assertEquals(Status.CLIENT_ERROR_METHOD_NOT_ALLOWED, Status.valueOf(r.getStatus()));
     }
 
     public void testInvalidProcessId() throws Exception {
         String request = RESTLET_PATH + "/notAProcessId";
         MockHttpServletResponse r = getAsServletResponse(request);
-        assertEquals(Status.CLIENT_ERROR_BAD_REQUEST, Status.valueOf(r.getStatusCode()));
+        assertEquals(Status.CLIENT_ERROR_BAD_REQUEST, Status.valueOf(r.getStatus()));
     }
 
     public void testNonExistentProcess() throws Exception {
         String request = RESTLET_PATH + "/10000";
         MockHttpServletResponse r = getAsServletResponse(request);
-        assertEquals(Status.CLIENT_ERROR_NOT_FOUND, Status.valueOf(r.getStatusCode()));
+        assertEquals(Status.CLIENT_ERROR_NOT_FOUND, Status.valueOf(r.getStatus()));
     }
 
     public void testKillRunningProcess() throws Exception {
@@ -59,7 +58,7 @@ public class DownloadKillerRestletTest extends GeoNodeTestSupport {
         final String request = RESTLET_PATH + "/" + processId.longValue();
 
         final MockHttpServletResponse response = getAsServletResponse(request);
-        assertEquals(Status.SUCCESS_OK, Status.valueOf(response.getStatusCode()));
+        assertEquals(Status.SUCCESS_OK, Status.valueOf(response.getStatus()));
     }
 
     public void testKillFinishedProcess() throws Exception {
@@ -75,7 +74,7 @@ public class DownloadKillerRestletTest extends GeoNodeTestSupport {
         final String request = RESTLET_PATH + "/" + processId.longValue();
 
         final MockHttpServletResponse response = getAsServletResponse(request);
-        assertEquals(Status.SUCCESS_NO_CONTENT, Status.valueOf(response.getStatusCode()));
+        assertEquals(Status.SUCCESS_NO_CONTENT, Status.valueOf(response.getStatus()));
     }
 
     /**

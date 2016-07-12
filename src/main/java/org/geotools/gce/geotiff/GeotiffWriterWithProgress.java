@@ -225,7 +225,7 @@ public final class GeotiffWriterWithProgress extends AbstractGridCoverageWriter 
             setGeoReference(crs, metadata, tr, range);
 
             // writing ALWAYS the geophysics vew of the data
-            writeImage(((GridCoverage2D) gc).geophysics(true).getRenderedImage(), this.outStream,
+            writeImage(((GridCoverage2D) gc).getRenderedImage(), this.outStream,
                     metadata, gtParams, monitor);
 
         } else

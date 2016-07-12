@@ -1,7 +1,8 @@
 package org.geonode.security;
 
+import static junit.framework.Assert.assertEquals;
+import static junit.framework.Assert.assertNull;
 import static org.custommonkey.xmlunit.XMLAssert.assertXpathEvaluatesTo;
-import static junit.framework.Assert.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -20,11 +21,10 @@ import org.geoserver.data.test.MockData;
 import org.geoserver.data.test.SystemTestData;
 import org.geoserver.platform.GeoServerExtensions;
 import org.geotools.util.logging.Logging;
+import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.mock.web.MockHttpServletResponse;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-
-import com.mockrunner.mock.web.MockHttpServletRequest;
-import com.mockrunner.mock.web.MockHttpServletResponse;
 
 public class SecuredAccessTest extends GeoNodeTestSupport {
 
@@ -73,8 +73,8 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
         MockHttpServletResponse resp = getAsServletResponse("wfs?request=GetFeature&version=1.0.0&service=wfs&typeName="
                 + getLayerId(MockData.BUILDINGS));
         // In HIDE mode restricted access gets an OGC service error as if the layer does not exist
-        assertEquals(200, resp.getErrorCode());
-        Document doc = dom(new ByteArrayInputStream(resp.getOutputStreamContent().getBytes()));
+        assertEquals(200, resp.getStatus());
+        Document doc = dom(new ByteArrayInputStream(resp.getContentAsByteArray()));
         assertNull(resp.getHeader("WWW-Authenticate"));
         assertXpathEvaluatesTo("0", "count(/wfs:FeatureCollection)", doc);
     }
@@ -130,8 +130,8 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
                 "Basic " + new String(Base64.encodeBase64((username + ":" + password).getBytes())));
 
         MockHttpServletResponse resp = dispatch(request);
-        assertEquals(200, resp.getErrorCode());
-        Document doc = dom(new ByteArrayInputStream(resp.getOutputStreamContent().getBytes()));
+        assertEquals(200, resp.getStatus());
+        Document doc = dom(new ByteArrayInputStream(resp.getContentAsByteArray()));
         // print(doc);
         assertXpathEvaluatesTo("1", "count(/wfs:FeatureCollection)", doc);
     }
@@ -140,11 +140,11 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
             SAXException, IOException, XpathException {
         MockHttpServletRequest request = createRequest("wfs?request=GetFeature&version=1.0.0&service=wfs&typeName="
                 + getLayerId(MockData.BUILDINGS));
-        request.addCookie(new Cookie(GeoNodeCookieProcessingFilter.GEONODE_COOKIE_NAME, cookie));
+        request.setCookies(new Cookie(GeoNodeCookieProcessingFilter.GEONODE_COOKIE_NAME, cookie));
 
         MockHttpServletResponse resp = dispatch(request);
-        assertEquals(200, resp.getErrorCode());
-        Document doc = dom(new ByteArrayInputStream(resp.getOutputStreamContent().getBytes()));
+        assertEquals(200, resp.getStatus());
+        Document doc = dom(new ByteArrayInputStream(resp.getContentAsByteArray()));
         // print(doc);
         assertXpathEvaluatesTo("1", "count(/wfs:FeatureCollection)", doc);
     }
@@ -162,8 +162,8 @@ public class SecuredAccessTest extends GeoNodeTestSupport {
                 + getLayerId(MockData.BUILDINGS));
 
         MockHttpServletResponse resp = dispatch(request);
-        assertEquals(200, resp.getErrorCode());
-        Document doc = dom(new ByteArrayInputStream(resp.getOutputStreamContent().getBytes()));
+        assertEquals(200, resp.getStatus());
+        Document doc = dom(new ByteArrayInputStream(resp.getContentAsByteArray()));
         // print(doc);
         assertXpathEvaluatesTo("1", "count(/wfs:FeatureCollection)", doc);
     }
