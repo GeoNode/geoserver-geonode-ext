@@ -216,13 +216,6 @@
     </dependency>
 
     <dependency>
-        <groupId>org.opengeo.geoserver</groupId>
-        <artifactId>printng</artifactId>
-        <version>${geoserver.version}</version>
-        <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
         <groupId>org.geotools</groupId>
         <artifactId>gt-shapefile</artifactId>
         <version>${geotools.version}</version>
