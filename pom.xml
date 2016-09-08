@@ -163,11 +163,6 @@
 		  </exclusion>
 		</exclusions>
     </dependency>
-    <dependency>
-      <groupId>commons-httpclient</groupId>
-      <artifactId>commons-httpclient</artifactId>
-      <version>3.1</version>
-    </dependency>
 
     <dependency>
         <groupId>org.geoserver.importer</groupId>
@@ -216,16 +211,9 @@
     </dependency>
 
     <dependency>
-        <groupId>org.opengeo.geoserver</groupId>
-        <artifactId>printng</artifactId>
-        <version>${geoserver.version}</version>
-        <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
-        <groupId>org.geotools</groupId>
-        <artifactId>gt-shapefile</artifactId>
-        <version>${geotools.version}</version>
+      <groupId>org.opengeo.geoserver</groupId>
+      <artifactId>printng</artifactId>
+      <version>${geoserver.version}</version>
     </dependency>
 
     <dependency>
