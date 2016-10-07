@@ -51,6 +51,13 @@ public class DatabaseSecurityClient implements GeoNodeSecurityClient {
     private final DataSource dataSource;
     private final HTTPClient client;
     private final String baseUrl;
+
+    public String requestUrl;
+
+    public void setRequestUrl(String url) {
+        requestUrl = url;
+    }
+
     /**
      * Cache authentication for both cookie and user/password pairs
      */

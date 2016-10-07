@@ -15,14 +15,20 @@
   </defaultCachingGridSetIds>
   <defaultCoverageCacheFormats>
     <string>image/png</string>
+    <string>image/png8</string>
+    <string>image/gif</string>
     <string>image/jpeg</string>
   </defaultCoverageCacheFormats>
   <defaultVectorCacheFormats>
     <string>image/png</string>
+    <string>image/png8</string>
+    <string>image/gif</string>
     <string>image/jpeg</string>
   </defaultVectorCacheFormats>
   <defaultOtherCacheFormats>
     <string>image/png</string>
+    <string>image/png8</string>
+    <string>image/gif</string>
     <string>image/jpeg</string>
   </defaultOtherCacheFormats>
 </GeoServerGWCConfig>

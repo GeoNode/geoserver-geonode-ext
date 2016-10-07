@@ -4,6 +4,10 @@
  */
 package org.geonode.security;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,14 +18,12 @@ import org.easymock.classextension.EasyMock;
 import org.geonode.security.LayersGrantedAuthority.LayerMode;
 import org.geoserver.security.impl.GeoServerRole;
 import org.geoserver.security.impl.GeoServerUser;
+import org.junit.Before;
+import org.junit.Test;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
 /**
  * Unit test suite for {@link DefaultSecurityClient}
  * 

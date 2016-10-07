@@ -14,17 +14,14 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
-import org.geoserver.security.GeoServerAuthenticationProvider;
 import org.geoserver.security.filter.GeoServerAuthenticationFilter;
 import org.geoserver.security.filter.GeoServerSecurityFilter;
-
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.geotools.util.logging.Logging;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.geotools.util.logging.Logging;
 
 /**
  * A processing filter that will gather the unauthenticated user privileges from GeoNode's access
@@ -60,7 +57,7 @@ public class GeoNodeAnonymousProcessingFilter extends GeoServerSecurityFilter im
                     existingAuth == null ? null : existingAuth.getAuthorities();
                 Authentication authRequest =
                     new AnonymousGeoNodeAuthenticationToken(principal, authorities);
-                final Authentication authResult = getSecurityManager().authenticate(authRequest);
+                final Authentication authResult = getSecurityManager().authenticationManager().authenticate(authRequest);
                 securityContext.setAuthentication(authResult);
                 LOGGER.finer("GeoNode Anonymous filter kicked in.");
             } catch (AuthenticationException e) {

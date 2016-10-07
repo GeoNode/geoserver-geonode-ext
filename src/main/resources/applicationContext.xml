@@ -128,4 +128,6 @@
     (such as full user name and email) to be available to the lower level geotools data access layer.
     For the specific case of versioning datastores this data can be used as part of the commit information</description>
   </bean>
+  <!-- XStream persister initializer -->
+  <bean id="gNodeAuthFilterConfigXStreamPersisterInitializer" class="org.geonode.security.GeoNodeAuthFilterConfigXStreamPersisterInitializer" />
 </beans>

@@ -1,20 +1,20 @@
 package org.geonode;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.custommonkey.xmlunit.SimpleNamespaceContext;
 import org.custommonkey.xmlunit.XMLUnit;
-import org.geonode.security.GeoNodeDataAccessManager;
 import org.geoserver.data.test.MockData;
-import org.geoserver.platform.GeoServerExtensions;
-import org.geoserver.test.GeoServerTestSupport;
+import org.geoserver.data.test.SystemTestData;
+import org.geoserver.test.GeoServerSystemTestSupport;
 
-public abstract class GeoNodeTestSupport extends GeoServerTestSupport {
+public abstract class GeoNodeTestSupport extends GeoServerSystemTestSupport {
 
     @Override
-    protected void oneTimeSetUp() throws Exception {
-        super.oneTimeSetUp();
+    protected void onSetUp(SystemTestData testData) throws Exception {
+        super.onSetUp(testData);
 
         // init xmlunit
         Map<String, String> namespaces = new HashMap<String, String>();
@@ -44,11 +44,10 @@ public abstract class GeoNodeTestSupport extends GeoServerTestSupport {
      * @return
      */
     @Override
-    protected String[] getSpringContextLocations() {
-        return new String[] {
-                "classpath*:/applicationContext.xml",
-                "classpath*:/applicationSecurityContext.xml"
-            };
+    protected void setUpSpring(List<String> springContextLocations) {
+        super.setUpSpring(springContextLocations);
+        springContextLocations.add("classpath*:/applicationContext.xml");
+        springContextLocations.add("classpath*:/applicationSecurityContext.xml");
     }
     
     protected boolean isAuthorizationEnabled() {

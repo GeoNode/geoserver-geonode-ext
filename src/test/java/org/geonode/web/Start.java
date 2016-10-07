@@ -9,11 +9,13 @@ import java.io.FileInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.mortbay.jetty.Connector;
-import org.mortbay.jetty.Server;
-import org.mortbay.jetty.bio.SocketConnector;
-import org.mortbay.jetty.webapp.WebAppContext;
-import org.mortbay.xml.XmlConfiguration;
+import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.HttpConfiguration;
+import org.eclipse.jetty.server.HttpConnectionFactory;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
+import org.eclipse.jetty.webapp.WebAppContext;
+import org.eclipse.jetty.xml.XmlConfiguration;
 
 /**
  * Jetty starter, will run geoserver inside the Jetty web container.<br>
@@ -33,15 +35,17 @@ public class Start {
         try {
             jettyServer = new Server();
 
-            SocketConnector conn = new SocketConnector();
+            HttpConfiguration httpConfig = new HttpConfiguration();
+
+            ServerConnector http = new ServerConnector(jettyServer, new HttpConnectionFactory(httpConfig));
             String portVariable = System.getProperty("jetty.port");
             int port = parsePort(portVariable);
             if (port <= 0)
                 port = 8001;
-            conn.setPort(port);
-            conn.setAcceptQueueSize(100);
-            conn.setMaxIdleTime(1000 * 60 * 60);
-            conn.setSoLingerTime(-1);
+            http.setPort(Integer.getInteger("jetty.port", 8080));
+            http.setAcceptQueueSize(100);
+            http.setIdleTimeout(1000 * 60 * 60);
+            http.setSoLingerTime(-1);
 
             // Use this to set a limit on the number of threads used to respond requests
             // BoundedThreadPool tp = new BoundedThreadPool();
@@ -49,7 +53,7 @@ public class Start {
             // tp.setMaxThreads(8);
             // conn.setThreadPool(tp);
 
-            jettyServer.setConnectors(new Connector[] { conn });
+            jettyServer.setConnectors(new Connector[] { http });
 
             WebAppContext wah = new WebAppContext();
             wah.setContextPath("/geoserver");
