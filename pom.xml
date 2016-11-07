@@ -22,49 +22,37 @@
   </distributionManagement>
 
   <repositories>
-  <repository>
-   <id>boundless</id>
-   <name>Boundless Maven Repository</name>
-   <url>https://repo.boundlessgeo.com/main/</url>
-   <!-- contains snapshot and release (including third-party-dependences)               -->
-   <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
-   <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
-   <snapshots>
-     <enabled>true</enabled>
-   </snapshots>
-   <releases>
-     <enabled>true</enabled>
-   </releases>
-  </repository>
-  
-  <repository>
-    <id>osgeo</id>
-    <name>Open Source Geospatial Foundation Repository</name>
-    <url>http://download.osgeo.org/webdav/geotools/</url>
-    <!-- release repository used by geotools (and third-party dependencies) -->
-  </repository>
-   
-  <repository>
-    <id>maven-restlet</id>
-    <name>Restlet Maven Repository</name>
-    <url>http://maven.restlet.org</url>
-    <snapshots>
-      <enabled>false</enabled>
-    </snapshots>
-  </repository>
-
    <repository>
-      <id>geosolutions</id>
-      <name>geosolutions repository</name>
-      <url>http://maven.geo-solutions.it/</url>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
+     <id>boundless</id>
+     <name>Boundless Maven Repository</name>
+     <url>https://repo.boundlessgeo.com/main/</url>
+     <!-- contains snapshot and release (including third-party-dependences)               -->
+     <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
+     <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
+     <snapshots>
+       <enabled>true</enabled>
+     </snapshots>
      <releases>
        <enabled>true</enabled>
      </releases>
     </repository>
   
+    <repository>
+      <id>osgeo</id>
+      <name>Open Source Geospatial Foundation Repository</name>
+      <url>http://download.osgeo.org/webdav/geotools/</url>
+      <!-- release repository used by geotools (and third-party dependencies) -->
+    </repository>
+   
+    <repository>
+      <id>maven-restlet</id>
+      <name>Restlet Maven Repository</name>
+      <url>http://maven.restlet.org</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+
     <repository>
       <id>org.mapfish</id>
       <url>http://dev.mapfish.org/maven/repository</url>
@@ -163,11 +151,6 @@
 		  </exclusion>
 		</exclusions>
     </dependency>
-    <dependency>
-      <groupId>commons-httpclient</groupId>
-      <artifactId>commons-httpclient</artifactId>
-      <version>3.1</version>
-    </dependency>
 
     <dependency>
         <groupId>org.geoserver.importer</groupId>
@@ -217,12 +200,6 @@
 
     <dependency>
         <groupId>org.geotools</groupId>
-        <artifactId>gt-shapefile</artifactId>
-        <version>${geotools.version}</version>
-    </dependency>
-
-    <dependency>
-        <groupId>org.geotools</groupId>
         <artifactId>gt-metadata</artifactId>
         <version>${geotools.version}</version>
     </dependency>
@@ -247,14 +224,37 @@
       <artifactId>gt-process</artifactId>
       <version>${geotools.version}</version>
     </dependency>
+
+    <!-- Updated geogit to backup-and-restore -->
+    <dependency>
+      <groupId>org.geoserver.community.backuprestore</groupId>
+	  <artifactId>gs-backup-restore-core</artifactId>
+      <version>${geoserver.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geoserver.community.backuprestore</groupId>
+	  <artifactId>gs-backup-restore-extension</artifactId>
+      <version>${geoserver.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geoserver.community.backuprestore</groupId>
+	  <artifactId>gs-backup-restore-rest</artifactId>
+      <version>${geoserver.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geoserver.community.backuprestore</groupId>
+	  <artifactId>gs-backup-restore-web</artifactId>
+      <version>${geoserver.version}</version>
+    </dependency>
+
     
-    <!-- Updated geogit to geogig
-    -->
+    <!-- Updated geogit to geogig -->
     <dependency>
       <groupId>org.geoserver.community</groupId>
       <artifactId>gs-geogig</artifactId>
       <version>${geoserver.version}</version>
     </dependency>
+
     <dependency>
       <!-- required by gs-geogig but declares it as provided to avoid gt version clashes -->
       <groupId>org.geotools.jdbc</groupId>
@@ -268,6 +268,11 @@
       <version>${geotools.version}</version>
     </dependency>
 
+	<dependency>
+		<groupId>org.geotools</groupId>
+		<artifactId>gt-shapefile</artifactId>
+		<version>${geotools.version}</version>
+	</dependency>
 	<dependency>
 		<groupId>org.geotools</groupId>
 		<artifactId>gt-jdbc</artifactId>
@@ -358,6 +363,11 @@
     <groupId>commons-codec</groupId>
     <artifactId>commons-codec</artifactId>
     <version>1.9</version>
+   </dependency>
+   <dependency>
+     <groupId>commons-httpclient</groupId>
+     <artifactId>commons-httpclient</artifactId>
+     <version>3.1</version>
    </dependency>
    <dependency>
     <groupId>commons-lang</groupId>
@@ -470,11 +480,12 @@
     <artifactId>spring-security-ldap</artifactId>
     <version>${spring.security.version}</version>
    </dependency>
-   <dependency>
+   <!-- dependency>
     <groupId>org.springframework.ldap</groupId>
     <artifactId>spring-ldap-test</artifactId>
     <version>1.3.2.RELEASE</version>
-   </dependency>
+   </dependency -->
+   
     <!-- Jetty runner dependencies -->
    <dependency>
     <groupId>org.eclipse.jetty</groupId>
@@ -551,24 +562,14 @@
     <profile>
       <id>boundless</id>
       <properties>
-        <geotools.version>15.1</geotools.version>
-        <geoserver.version>2.9.1</geoserver.version>
+        <geotools.version>15.2</geotools.version>
+        <geoserver.version>2.9.2</geoserver.version>
       </properties>
       <dependencies>
         <dependency>
           <groupId>org.geoserver.community</groupId>
           <artifactId>gs-geogig</artifactId>
           <version>2.9-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-          <groupId>org.locationtech.geogig</groupId>
-          <artifactId>geogig-bdbje</artifactId>
-          <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-          <groupId>com.sleepycat</groupId>
-          <artifactId>je</artifactId>
-          <version>5.0.84</version>
         </dependency>
         <dependency>
           <groupId>org.apache.httpcomponents</groupId>
