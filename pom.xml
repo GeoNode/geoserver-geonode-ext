@@ -270,6 +270,11 @@
 
 	<dependency>
 		<groupId>org.geotools</groupId>
+		<artifactId>gt-shapefile</artifactId>
+		<version>${geotools.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.geotools</groupId>
 		<artifactId>gt-jdbc</artifactId>
 		<version>${geotools.version}</version>
 	</dependency>
@@ -358,6 +363,11 @@
     <groupId>commons-codec</groupId>
     <artifactId>commons-codec</artifactId>
     <version>1.9</version>
+   </dependency>
+   <dependency>
+     <groupId>commons-httpclient</groupId>
+     <artifactId>commons-httpclient</artifactId>
+     <version>3.1</version>
    </dependency>
    <dependency>
     <groupId>commons-lang</groupId>
@@ -552,8 +562,8 @@
     <profile>
       <id>boundless</id>
       <properties>
-        <geotools.version>15.1</geotools.version>
-        <geoserver.version>2.9.1</geoserver.version>
+        <geotools.version>15.2</geotools.version>
+        <geoserver.version>2.9.2</geoserver.version>
       </properties>
       <dependencies>
         <dependency>
