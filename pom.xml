@@ -35,6 +35,12 @@
 			</releases>
 		</repository>
 
+               <repository>
+                       <id>repo.locationtech.org</id>
+                       <name>GeoGig Repository</name>
+                       <url>https://repo.locationtech.org/content/repositories/geogig/</url>
+               </repository>
+
 		<repository>
 			<id>boundless</id>
 			<name>Boundless Maven Repository</name>
