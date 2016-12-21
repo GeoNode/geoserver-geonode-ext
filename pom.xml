@@ -35,11 +35,11 @@
 			</releases>
 		</repository>
 
-               <repository>
-                       <id>repo.locationtech.org</id>
-                       <name>GeoGig Repository</name>
-                       <url>https://repo.locationtech.org/content/repositories/geogig/</url>
-               </repository>
+    <repository>
+      <id>repo.locationtech.org</id>
+      <name>GeoGig Repository</name>
+      <url>https://repo.locationtech.org/content/repositories/geogig/</url>
+    </repository>
 
 		<repository>
 			<id>boundless</id>
@@ -171,10 +171,10 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- This was discontinued from the opengeo repo for geoserver version 
-			2.5. If someone is able to get a 2.5.1 version deployed repo.opengeo.org 
-			this can be enabled again. Commented out by ingenieroariel on May 29, 2014. 
-			<dependency> <groupId>org.opengeo.data.csv</groupId> <artifactId>csv</artifactId> 
+		<!-- This was discontinued from the opengeo repo for geoserver version
+			2.5. If someone is able to get a 2.5.1 version deployed repo.opengeo.org
+			this can be enabled again. Commented out by ingenieroariel on May 29, 2014.
+			<dependency> <groupId>org.opengeo.data.csv</groupId> <artifactId>csv</artifactId>
 			<version>${geoserver.version}</version> <scope>runtime</scope> </dependency> -->
 		<dependency>
 			<groupId>org.geoserver.extension</groupId>
@@ -217,7 +217,7 @@
 			<classifier>jdk15</classifier>
 		</dependency>
 
-		<!-- This dependency is temporary in order to hold a fake process while 
+		<!-- This dependency is temporary in order to hold a fake process while
 			developing the REST process wrapper -->
 		<dependency>
 			<groupId>org.geotools</groupId>
@@ -330,7 +330,7 @@
 		</dependency>
 		<!-- dependency>
 			<groupId>org.hibernatespatial</groupId>
-			<artifactId>hibernate-spatial-postgis</artifactId> 
+			<artifactId>hibernate-spatial-postgis</artifactId>
 			<version>${hibernate-spatial-version}</version>
 		</dependency -->
 		<dependency>
@@ -365,14 +365,14 @@
 		</dependency>
 
 		<dependency>
-			<!-- required by gs-geogig but declares it as provided to avoid gt version 
+			<!-- required by gs-geogig but declares it as provided to avoid gt version
 				clashes -->
 			<groupId>org.geotools.jdbc</groupId>
 			<artifactId>gt-jdbc-spatialite</artifactId>
 			<version>${geotools.version}</version>
 		</dependency>
 		<dependency>
-			<!-- required by gs-geogig but declares it as provided to avoid gt version 
+			<!-- required by gs-geogig but declares it as provided to avoid gt version
 				clashes -->
 			<groupId>org.geotools</groupId>
 			<artifactId>gt-geopkg</artifactId>
@@ -400,6 +400,19 @@
 			<artifactId>gs-h2</artifactId>
 			<version>${geoserver.version}</version>
 		</dependency>
+
+		<!-- required for maploom -->
+    <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-math3</artifactId>
+        <version>3.6.1</version>
+    </dependency>
+		<dependency>
+			<groupId>org.geoserver.script</groupId>
+			<artifactId>gs-script-py</artifactId>
+			<version>${geoserver.version}</version>
+		</dependency>
+
 
 		<!-- test dependencies -->
 		<dependency>
@@ -446,7 +459,7 @@
 			<version>2.5.2</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- dependency> <groupId>org.easymock</groupId> <artifactId>easymockclassextension</artifactId> 
+		<!-- dependency> <groupId>org.easymock</groupId> <artifactId>easymockclassextension</artifactId>
 			<version>2.5.2</version> <scope>test</scope> </dependency -->
 
 		<dependency>
@@ -919,9 +932,9 @@
 					<verbose>false</verbose>
 					<injectAllReactorProjects>true</injectAllReactorProjects>
 					<runOnlyOnce>true</runOnlyOnce>
-					<!-- In order to use native git (3+ times faster) add the following 
-						in ~/.m2/settings.xml <profiles> <profile> <id>gitNative</id> <properties> 
-						<git.commit.useNative>true</git.commit.useNative> </properties> </profile> 
+					<!-- In order to use native git (3+ times faster) add the following
+						in ~/.m2/settings.xml <profiles> <profile> <id>gitNative</id> <properties>
+						<git.commit.useNative>true</git.commit.useNative> </properties> </profile>
 						<profiles> <activeProfiles> <activeProfile>gitNative</activeProfile> </activeProfiles> -->
 					<useNativeGit>${git.commit.useNative}</useNativeGit>
 				</configuration>
