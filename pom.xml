@@ -674,6 +674,55 @@
 				</dependency>
 			</dependencies>
 		</profile>
+		<profile>
+			<id>boundless</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>org.apache.httpcomponents</groupId>
+					<artifactId>httpcore</artifactId>
+					<version>4.2.5</version>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.directory.server</groupId>
+					<artifactId>apacheds-all</artifactId>
+					<version>1.5.5</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.easymock</groupId>
+					<artifactId>easymockclassextension</artifactId>
+					<version>2.5.2</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-server</artifactId>
+					<version>${jetty.version}</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-jndi</artifactId>
+					<version>${jetty.version}</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-plus</artifactId>
+					<version>${jetty.version}</version>
+					<scope>provided</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.eclipse.jetty</groupId>
+					<artifactId>jetty-util</artifactId>
+					<version>${jetty.version}</version>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
 	</profiles>
 	<build>
 		<plugins>
