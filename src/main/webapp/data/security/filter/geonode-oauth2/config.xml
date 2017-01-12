@@ -23,7 +23,7 @@
   <!-- GeoNode logoutUri -->
   <logoutUri>http://localhost:8000/account/logout/</logoutUri>
   
-  <scopes>read,write,groups</scopes>
+  <scopes>write</scopes>
   <enableRedirectAuthenticationEntryPoint>false</enableRedirectAuthenticationEntryPoint>
   <forceAccessTokenUriHttps>false</forceAccessTokenUriHttps>
   <forceUserAuthorizationUriHttps>false</forceUserAuthorizationUriHttps>
