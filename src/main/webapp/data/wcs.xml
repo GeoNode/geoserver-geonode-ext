@@ -4,9 +4,7 @@
   <name>My GeoServer WCS</name>
   <title>My GeoServer WCS</title>
   <maintainer>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10311</maintainer>
-  <abstrct>
-This is a description of your Web Coverage Server.
-     </abstrct>
+  <abstrct>This is a description of your Web Coverage Server.</abstrct>
   <accessConstraints>NONE</accessConstraints>
   <fees>NONE</fees>
   <versions>
@@ -36,6 +34,7 @@ This is a description of your Web Coverage Server.
   <verbose>false</verbose>
   <gmlPrefixing>false</gmlPrefixing>
   <latLon>false</latLon>
-  <maxInputMemory>0</maxInputMemory>
-  <maxOutputMemory>0</maxOutputMemory>
+  <maxInputMemory>600000</maxInputMemory>
+  <maxOutputMemory>600000</maxOutputMemory>
+  <overviewPolicy>NEAREST</overviewPolicy>
 </wcs>

@@ -12,9 +12,9 @@
   <schemaBaseURL>http://schemas.opengis.net</schemaBaseURL>
   <verbose>false</verbose>
   <connectionTimeout>30.0</connectionTimeout>
-  <resourceExpirationTimeout>300</resourceExpirationTimeout>
-  <maxSynchronousProcesses>8</maxSynchronousProcesses>
-  <maxAsynchronousProcesses>8</maxAsynchronousProcesses>
+  <resourceExpirationTimeout>1200</resourceExpirationTimeout>
+  <maxSynchronousProcesses>10</maxSynchronousProcesses>
+  <maxAsynchronousProcesses>10</maxAsynchronousProcesses>
   <processGroups>
     <processGroup>
       <factoryClass>org.geonode.process.batchdownload.BatchDownloadFactory</factoryClass>
@@ -40,8 +40,14 @@
       <factoryClass>org.geotools.process.vector.VectorProcessFactory</factoryClass>
       <enabled>true</enabled>
     </processGroup>
+    <processGroup>
+      <factoryClass>org.geotools.process.geometry.PolygonLabelProcess</factoryClass>
+      <enabled>true</enabled>
+    </processGroup>
   </processGroups>
   <maxComplexInputSize>0</maxComplexInputSize>
-  <maxSynchronousExecutionTime>0</maxSynchronousExecutionTime>
-  <maxAsynchronousExecutionTime>0</maxAsynchronousExecutionTime>
+  <maxSynchronousExecutionTime>1200</maxSynchronousExecutionTime>
+  <maxSynchronousTotalTime>1200</maxSynchronousTotalTime>
+  <maxAsynchronousExecutionTime>1200</maxAsynchronousExecutionTime>
+  <maxAsynchronousTotalTime>1200</maxAsynchronousTotalTime>
 </wps>

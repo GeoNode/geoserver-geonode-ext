@@ -5,7 +5,7 @@
   <TMSEnabled>true</TMSEnabled>
   <securityEnabled>false</securityEnabled>
   <innerCachingEnabled>false</innerCachingEnabled>
-  <persistenceEnabled>false</persistenceEnabled>
+  <persistenceEnabled>true</persistenceEnabled>
   <cacheProviderClass>class org.geowebcache.storage.blobstore.memory.guava.GuavaCacheProvider</cacheProviderClass>
   <cacheConfigurations>
     <entry>
@@ -29,18 +29,22 @@
   </defaultCachingGridSetIds>
   <defaultCoverageCacheFormats>
     <string>image/png</string>
+    <string>image/vnd.jpeg-png</string>
     <string>image/jpeg</string>
     <string>image/gif</string>
     <string>image/png8</string>
   </defaultCoverageCacheFormats>
   <defaultVectorCacheFormats>
+    <string>application/json;type=utfgrid</string>
     <string>image/png</string>
+    <string>image/vnd.jpeg-png</string>
     <string>image/jpeg</string>
     <string>image/gif</string>
     <string>image/png8</string>
   </defaultVectorCacheFormats>
   <defaultOtherCacheFormats>
     <string>image/png</string>
+    <string>image/vnd.jpeg-png</string>
     <string>image/jpeg</string>
     <string>image/gif</string>
     <string>image/png8</string>
