@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE Configure PUBLIC "-//Mort Bay Consulting//DTD Configure//EN" "http://jetty.mortbay.org/configure.dtd">
+
+<Configure class="org.eclipse.jetty.webapp.WebAppContext">
+
+   <!-- Add an EnvEntry only valid for this webapp               -->
+   <New id="geofence-ovr" class="org.eclipse.jetty.plus.jndi.EnvEntry">
+     <Arg>geofence-ovr</Arg>
+     <Arg type="java.lang.String">file:geofence/geofence-datasource-ovr.properties</Arg>
+     <Arg type="boolean">true</Arg>
+   </New>
+
+  <!-- Add an override for a global EnvEntry                           -->
+   <New id="GEOSERVER_DATA_DIR" class="org.eclipse.jetty.plus.jndi.EnvEntry">
+     <Arg>GEOSERVER_DATA_DIR</Arg>
+     <Arg type="java.lang.Double">data</Arg>
+     <Arg type="boolean">true</Arg>
+   </New>
+
+</Configure>

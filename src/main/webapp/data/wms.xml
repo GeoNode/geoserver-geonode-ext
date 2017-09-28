@@ -2,11 +2,9 @@
   <id>wms</id>
   <enabled>true</enabled>
   <name>My GeoServer WMS</name>
-  <title>My GeoServer WMS</title>
+  <title>GeoNode Local GeoServer</title>
   <maintainer>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10311</maintainer>
-  <abstrct>
-This is a description of your Web Map Server.
-     </abstrct>
+  <abstrct>This is a description of your Web Map Server.</abstrct>
   <accessConstraints>NONE</accessConstraints>
   <fees>NONE</fees>
   <versions>
@@ -28,10 +26,35 @@ This is a description of your Web Map Server.
   <schemaBaseURL>http://schemas.opengis.net</schemaBaseURL>
   <verbose>false</verbose>
   <metadata>
+    <entry key="kmlSuperoverlayMode">auto</entry>
+    <entry key="kmlReflectorMode">refresh</entry>
+    <entry key="loopContinuously">false</entry>
     <entry key="svgAntiAlias">true</entry>
+    <entry key="kmlPlacemark">false</entry>
+    <entry key="kmlKmscore">40</entry>
+    <entry key="mapWrapping">true</entry>
+    <entry key="maxAnimatorRenderingTime">300</entry>
+    <entry key="pngCompression">25</entry>
+    <entry key="jpegCompression">25</entry>
+    <entry key="advancedProjectionHandling">true</entry>
+    <entry key="maxAllowedFrames">600000</entry>
+    <entry key="kmlAttr">true</entry>
     <entry key="svgRenderer">Batik</entry>
+    <entry key="disposalMethod">none</entry>
+    <entry key="maxRenderingSize">600000</entry>
+    <entry key="scalehintMapunitsPixel">false</entry>
+    <entry key="framesDelay">1000</entry>
   </metadata>
-  <watermark class="org.geoserver.wms.WatermarkInfoImpl">
+  <srs>
+    <string>4326</string>
+    <string>3785</string>
+    <string>3857</string>
+    <string>900913</string>
+    <string>32647</string>
+    <string>32736</string>
+  </srs>
+  <bboxForEachCRS>true</bboxForEachCRS>
+  <watermark>
     <enabled>false</enabled>
     <position>BOT_RIGHT</position>
     <transparency>0</transparency>
@@ -39,6 +62,7 @@ This is a description of your Web Map Server.
   <interpolation>Nearest</interpolation>
   <getFeatureInfoMimeTypeCheckingEnabled>false</getFeatureInfoMimeTypeCheckingEnabled>
   <getMapMimeTypeCheckingEnabled>false</getMapMimeTypeCheckingEnabled>
+  <dynamicStylingDisabled>false</dynamicStylingDisabled>
   <maxBuffer>25</maxBuffer>
   <maxRequestMemory>65536</maxRequestMemory>
   <maxRenderingTime>60</maxRenderingTime>

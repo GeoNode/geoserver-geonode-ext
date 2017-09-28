@@ -1,6 +1,5 @@
 <security>
-  <!-- roleServiceName>geonode REST role service</roleServiceName -->
-  <roleServiceName>default</roleServiceName>
+  <roleServiceName>geonode REST role service</roleServiceName>
   <authProviderNames>
     <string>default</string>
     <string>geofence</string>
@@ -39,4 +38,13 @@
     <className>org.geoserver.security.rememberme.GeoServerTokenBasedRememberMeServices</className>
     <key>geoserver</key>
   </rememberMeService>
+  <bruteForcePrevention>
+    <enabled>true</enabled>
+    <minDelaySeconds>1</minDelaySeconds>
+    <maxDelaySeconds>5</maxDelaySeconds>
+    <maxBlockedThreads>100</maxBlockedThreads>
+    <whitelistedMasks>
+      <string>127.0.0.1</string>
+    </whitelistedMasks>
+  </bruteForcePrevention>
 </security>
