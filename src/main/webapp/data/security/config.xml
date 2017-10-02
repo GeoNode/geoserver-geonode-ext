@@ -1,5 +1,6 @@
 <security>
-  <roleServiceName>geonode REST role service</roleServiceName>
+  <!-- roleServiceName>geonode REST role service</roleServiceName -->
+  <roleServiceName>default</roleServiceName>
   <authProviderNames>
     <string>default</string>
     <string>geofence</string>
