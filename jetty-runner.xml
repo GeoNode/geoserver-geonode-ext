@@ -3,7 +3,7 @@
 
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
     <Set name="contextPath">/geoserver</Set>
-    <Set name="war"><SystemProperty name="jetty.home" default="./"/>target/geoserver</Set>
+    <Set name="war"><SystemProperty name="jetty.home" default="./geoserver/web-app"/>target/geoserver</Set>
     <Call name="setAttribute">
       <Arg>org.eclipse.jetty.server.webapp.WebInfIncludeJarPattern</Arg>
       <Arg>WONTMATCH</Arg>

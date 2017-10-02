@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<assembly>
+	<id>data</id>
+	<baseDirectory>./</baseDirectory>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<fileSets>
+		<fileSet>
+			<directory>../data/${geoserver.data.dir}/</directory>
+			<outputDirectory>/data/</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>

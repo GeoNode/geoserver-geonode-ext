@@ -1,0 +1,4 @@
+<logging>
+  <level>DEFAULT_LOGGING.properties</level>
+  <stdOutLogging>true</stdOutLogging>
+</logging>

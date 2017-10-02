@@ -3,4 +3,7 @@
 .settings
 target/
 .spw
-/bin/
+bin/
+
+*.bak
+geoserver.log
