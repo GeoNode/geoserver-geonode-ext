@@ -25,6 +25,10 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+        <repository>
+            <id>JBoss repo</id>
+            <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+        </repository>
 		<repository>
 			<id>geosolutions</id>
 			<name>geosolutions repository</name>
@@ -47,6 +51,31 @@
 		</repository>
 	</repositories>
 
+    <distributionManagement>
+      <!-- repository>
+       <id>boundless</id>
+       <name>Boundless Release Repository</name>
+       <url>https://repo.boundlessgeo.com/release/</url>
+       <uniqueVersion>false</uniqueVersion>
+      </repository>
+      <snapshotRepository>
+       <id>boundless</id>
+       <uniqueVersion>false</uniqueVersion>
+       <name>Boundless Snapshot Repository</name>
+       <url>https://repo.boundlessgeo.com/snapshot/</url>
+      </snapshotRepository -->
+        <downloadUrl>http://maven.geo-solutions.it</downloadUrl>
+        <repository>
+          <uniqueVersion>false</uniqueVersion>
+          <id>geosolutions</id>
+          <url>ftp://maven.geo-solutions.it/</url>
+        </repository>
+        <site>
+          <id>demo.geosolutions</id>
+          <url>scp://demo.geo-solutions.it/var/www/share/github/gsman</url>
+        </site>
+    </distributionManagement>
+ 
 	<dependencyManagement>
 		<dependencies>
 			<!-- geoserver-geonode-ext extensions -->
@@ -75,6 +104,16 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+            <dependency>
+                <groupId>org.geoserver</groupId>
+                <artifactId>gs-rest</artifactId>
+				<version>${gs.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver</groupId>
+                <artifactId>gs-restconfig</artifactId>
+				<version>${gs.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>org.geoserver.web</groupId>
 				<artifactId>gs-web-app</artifactId>
@@ -116,10 +155,21 @@
 				<artifactId>gs-backup-restore-web</artifactId>
 				<version>${gs.community.version}</version>
 			</dependency>
+			<!-- dependency>
+				<groupId>org.geoserver.community</groupId>
+                <artifactId>gs-sldservice</artifactId>
+				<version>${gs.community.version}</version>
+			</dependency -->
+			<dependency>
+                <groupId>org.opengeo</groupId>
+                <artifactId>geonode-geoserver-ext-sldservice</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
 			<!-- hibernate dependencies -->
 			<dependency>
 				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate</artifactId>
+				<artifactId>hibernate-core</artifactId>
 				<version>${hibernate-version}</version>
 			</dependency>
 			<dependency>
@@ -164,6 +214,11 @@
 				<artifactId>gs-monitor-hibernate</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-status-monitoring</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 			<dependency>
 				<groupId>org.geoserver.extension</groupId>
 				<artifactId>gs-inspire</artifactId>
@@ -224,7 +279,7 @@
 			<dependency>
 				<groupId>org.opengeo.geoserver</groupId>
 				<artifactId>printng</artifactId> 
-				<version>2.11.0</version>
+				<version>${project.version}</version>
                 <scope>runtime</scope>
 				<exclusions>
 					<exclusion>
@@ -298,6 +353,11 @@
                 <artifactId>geofence-services-impl</artifactId>
                 <version>${gf.version}</version>
             </dependency>
+			<dependency>
+                <groupId>org.opengeo</groupId>
+                <artifactId>geonode-geoserver-ext-geofence</artifactId>
+				<version>${project.version}</version>
+			</dependency>
             <dependency>
 				<groupId>org.opengeo</groupId>
 				<artifactId>geonode-geoserver-ext-geofence-server</artifactId>
@@ -324,7 +384,6 @@
         <gf.version>3.2-SNAPSHOT</gf.version>
 		<jetty.servlet.api.version>3.1.0</jetty.servlet.api.version>
 
-		<!-- hibernate.version>3.2.6.ga</hibernate.version -->
         <hibernate-version>3.6.0.Final</hibernate-version>
         <hibernate-annotations-version>3.3.1.GA</hibernate-annotations-version>
 		<hibernate-generic-dao-version>1.1.0</hibernate-generic-dao-version>
@@ -385,8 +444,10 @@
 		<extensions>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-webdav</artifactId>
-				<version>1.0-beta-2</version>
+                <!-- artifactId>wagon-webdav</artifactId>
+                <version>1.0-beta-2</version -->
+                <artifactId>wagon-ftp</artifactId>
+                <version>2.6</version>
 			</extension>
 		</extensions>
 	</build>

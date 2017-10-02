@@ -1,5 +1,5 @@
 <urlProvider>
-  <id>3db530e7:15edc976316:-7ff6</id>
+  <id>-54fbcd7b:1402c24f6bc:-7ffc</id>
   <name>default</name>
   <className>org.geoserver.security.password.URLMasterPasswordProvider</className>
   <readOnly>false</readOnly>

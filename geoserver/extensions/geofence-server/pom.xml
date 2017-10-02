@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -42,11 +43,19 @@
                 <artifactId>hibernate-spatial</artifactId>
                 <version>${hibernate-spatial-version}</version>
         </dependency>
+
         <dependency>
-                <groupId>org.hibernatespatial</groupId>
-                <artifactId>hibernate-spatial-h2-geodb</artifactId>
-                <version>${hibernate-spatial-h2-version}</version>
+            <groupId>org.hibernatespatial</groupId>
+            <artifactId>hibernate-spatial-h2-geodb</artifactId>
+            <version>${hibernate-spatial-h2-version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.opengeo</groupId>
+            <artifactId>geodb</artifactId>
+            <version>0.8</version>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-expression</artifactId>
@@ -83,10 +92,21 @@
             <artifactId>geofence-services-impl</artifactId>
         </dependency>
 
-        <dependency>
+        <!-- dependency>
           <groupId>org.geoserver.community</groupId>
           <artifactId>gs-geofence</artifactId>
           <version>${project.version}</version>
+          <exclusions>
+            <exclusion>
+              <groupId>org.geoserver.geofence</groupId>
+              <artifactId>geofence-model</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency -->
+
+        <dependency>
+          <groupId>org.opengeo</groupId>
+          <artifactId>geonode-geoserver-ext-geofence</artifactId>
           <exclusions>
             <exclusion>
               <groupId>org.geoserver.geofence</groupId>
@@ -144,14 +164,22 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
+        <!-- dependency>
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-geofence</artifactId>
             <version>${project.version}</version>
             <classifier>tests</classifier>
             <scope>test</scope>
-        </dependency>
+        </dependency -->
 
+        <dependency>
+            <groupId>org.opengeo</groupId>
+            <artifactId>geonode-geoserver-ext-geofence</artifactId>
+            <version>${project.version}</version>
+            <classifier>tests</classifier>
+            <scope>test</scope>
+        </dependency>
+        
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>

@@ -1,5 +1,5 @@
 <roleFilter>
-  <id>3db530e7:15edc976316:-7fe5</id>
+  <id>-54fbcd7b:1402c24f6bc:-7feb</id>
   <name>roleFilter</name>
   <className>org.geoserver.security.filter.GeoServerRoleFilter</className>
   <httpResponseHeaderAttrForIncludedRoles>roles</httpResponseHeaderAttrForIncludedRoles>

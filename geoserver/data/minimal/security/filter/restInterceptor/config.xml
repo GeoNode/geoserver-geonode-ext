@@ -1,5 +1,5 @@
 <securityInterceptor>
-  <id>3db530e7:15edc976316:-7fea</id>
+  <id>-54fbcd7b:1402c24f6bc:-7ff0</id>
   <name>restInterceptor</name>
   <className>org.geoserver.security.filter.GeoServerSecurityInterceptorFilter</className>
   <allowIfAllAbstainDecisions>false</allowIfAllAbstainDecisions>
