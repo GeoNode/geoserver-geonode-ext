@@ -4,20 +4,20 @@
  * This code is licensed under the GPL 2.0 license, available at the root
  * application directory.
  */
-package org.geoserver.sldservice.utils.classifier;
+package org.geoserver.sldservice.rest;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.List;
 import java.awt.Color;
+import java.util.List;
+
 import org.geoserver.sldservice.utils.classifier.impl.BlueColorRamp;
 import org.geoserver.sldservice.utils.classifier.impl.GrayColorRamp;
 import org.geoserver.sldservice.utils.classifier.impl.JetColorRamp;
 import org.geoserver.sldservice.utils.classifier.impl.RedColorRamp;
-import org.geoserver.test.GeoServerSystemTestSupport;
 import org.junit.Test;
 
-public class ColorRampTest extends GeoServerSystemTestSupport {
+public class ColorRampTest extends SLDServiceBaseTest {
 
 	protected static int minColorInt = 49;
 	protected static int maxColorInt = 224;
@@ -83,6 +83,11 @@ public class ColorRampTest extends GeoServerSystemTestSupport {
 		List<Color> reverseColors = jetRamp.getRamp();
 		assertEquals("Incorrect value for last reverse color", new Color(0, 0, 255), reverseColors.get(9));
 		assertEquals("Incorrect value for 1st reverse color", new Color(255, 0, 0), reverseColors.get(0));
+	}
+
+	@Override
+	protected String getServiceUrl() {
+		return null;
 	}
 
 }

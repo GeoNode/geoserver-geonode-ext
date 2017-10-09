@@ -4,26 +4,21 @@
  * This code is licensed under the GPL 2.0 license, available at the root
  * application directory.
  */
-package org.geoserver.sldservice.utils.classifier;
+package org.geoserver.sldservice.rest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.IOException;
 import java.io.StringReader;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
-import org.custommonkey.xmlunit.SimpleNamespaceContext;
-import org.custommonkey.xmlunit.XMLUnit;
-import org.custommonkey.xmlunit.XpathEngine;
-import org.geoserver.catalog.Catalog;
 import org.geoserver.catalog.ResourcePool;
 import org.geoserver.catalog.impl.FeatureTypeInfoImpl;
 import org.geoserver.data.test.SystemTestData;
-import org.geoserver.security.AccessMode;
-import org.geoserver.test.GeoServerSystemTestSupport;
+import org.geoserver.rest.catalog.CatalogRESTTestSupport;
 import org.geotools.factory.CommonFactoryFinder;
 import org.geotools.feature.simple.SimpleFeatureTypeBuilder;
 import org.geotools.styling.FeatureTypeStyle;
@@ -34,9 +29,10 @@ import org.geotools.styling.Style;
 import org.geotools.styling.StyleBuilder;
 import org.geotools.styling.StyledLayer;
 import org.geotools.styling.StyledLayerDescriptor;
+import org.junit.After;
 import org.junit.Before;
 
-public abstract class SLDServiceBaseTest extends GeoServerSystemTestSupport {
+public abstract class SLDServiceBaseTest extends CatalogRESTTestSupport {
 
 	protected Map<String, Object> attributes = new HashMap<String, Object>();
 	protected Object responseEntity;
@@ -51,51 +47,18 @@ public abstract class SLDServiceBaseTest extends GeoServerSystemTestSupport {
 
 	protected static final String COVERAGE_LAYER = "coverage_layer";
 
-    protected static Catalog catalog;
-    protected static XpathEngine xp;
-
-    @Override
-    protected void onSetUp(SystemTestData testData) throws Exception {
-        super.onSetUp(testData);
-
-        //addUser("admin", "geoxserver", null, Arrays.asList("ROLE_ADMINISTRATOR"));
-        addLayerAccessRule("*", "*", AccessMode.READ, "*");
-        addLayerAccessRule("*", "*", AccessMode.WRITE, "*");
-
-        catalog = getCatalog();
-
-        testData.addWorkspace(testData.WCS_PREFIX, testData.WCS_URI, catalog);
-        testData.addDefaultRasterLayer(testData.TASMANIA_DEM, catalog);
-        testData.addDefaultRasterLayer(testData.TASMANIA_BM, catalog);
-        testData.addDefaultRasterLayer(testData.ROTATED_CAD, catalog);
-        testData.addDefaultRasterLayer(testData.WORLD, catalog);
-        testData.addDefaultRasterLayer(testData.MULTIBAND,catalog);
-
-        Map<String, String> namespaces = new HashMap<>();
-        namespaces.put("html", "http://www.w3.org/1999/xhtml");
-        namespaces.put("sld", "http://www.opengis.net/sld");
-        namespaces.put("ogc", "http://www.opengis.net/ogc");
-        namespaces.put("atom", "http://www.w3.org/2005/Atom");
-        
-        XMLUnit.setXpathNamespaceContext(new SimpleNamespaceContext(namespaces));
-        xp = XMLUnit.newXpathEngine();        
-    }
-
-    protected final void setUpUsers(Properties props) {
-    }
-
-    protected final void setUpLayerRoles(Properties properties) {
-    }
-
-    @Before
-    public void login() throws Exception {
-        login("admin", "geoserver", "ROLE_ADMINISTRATOR");
-    }
-
-    private Class<?> getGeometryType() {
-		// TODO Auto-generated method stub
-		return null;
+	@Before
+	public void setCoverageData() throws IOException {
+		getTestData().addWorkspace(getTestData().WCS_PREFIX, getTestData().WCS_URI, getCatalog());
+		getTestData().addDefaultRasterLayer(getTestData().WORLD, getCatalog());
 	}
+
+	@After
+    public void restoreLayers() throws IOException {
+        revertLayer(SystemTestData.BASIC_POLYGONS);
+        removeWorkspace(getTestData().WCS_PREFIX);
+        removeLayer(getTestData().WCS_PREFIX, getTestData().WORLD.getLocalPart());
+    }
 
 	protected Rule[] checkSLD(String resultXml) {
 		sldParser.setInput(new StringReader(resultXml));

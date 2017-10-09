@@ -4,7 +4,7 @@
  * This code is licensed under the GPL 2.0 license, available at the root
  * application directory.
  */
-package org.geoserver.sldservice.utils.classifier;
+package org.geoserver.sldservice.rest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -13,6 +13,7 @@ import static org.junit.Assert.assertTrue;
 import java.awt.Color;
 import java.util.List;
 
+import org.geoserver.sldservice.utils.classifier.RulesBuilder;
 import org.geoserver.sldservice.utils.classifier.impl.BlueColorRamp;
 import org.geotools.styling.LineSymbolizer;
 import org.geotools.styling.PolygonSymbolizer;

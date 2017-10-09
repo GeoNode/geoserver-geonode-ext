@@ -25,10 +25,10 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-        <repository>
+        <!-- repository>
             <id>JBoss repo</id>
             <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-        </repository>
+        </repository -->
 		<repository>
 			<id>geosolutions</id>
 			<name>geosolutions repository</name>
@@ -42,10 +42,10 @@
 			<name>GeoGig Repository</name>
 			<url>https://repo.locationtech.org/content/repositories/geogig/</url>
 		</repository>
-		<repository>
+		<!-- repository>
 			<id>org.mapfish</id>
 			<url>http://dev.mapfish.org/maven/repository</url>
-		</repository>
+		</repository -->
 	</repositories>
 
     <distributionManagement>
@@ -349,6 +349,20 @@
                 <groupId>org.geoserver.geofence</groupId>
                 <artifactId>geofence-services-impl</artifactId>
                 <version>${gf.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.postgis</groupId>
+						<artifactId>postgis-jdbc</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.postgis</groupId>
+						<artifactId>postgis-stubs</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+					</exclusion>
+				</exclusions>
             </dependency>
 			<dependency>
                 <groupId>org.opengeo</groupId>
@@ -365,6 +379,19 @@
 			<dependency>
 				<groupId>org.geoserver.community</groupId>
 				<artifactId>gs-geogig</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+            
+            <!-- Other GeoServer Extensions -->
+			<dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-css</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
+			<dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-ysld</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 

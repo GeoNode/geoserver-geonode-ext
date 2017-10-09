@@ -194,6 +194,18 @@
 <!--             <groupId>org.geoserver.community</groupId> -->
 <!--             <artifactId>gs-geogig</artifactId>  -->
 <!-- 		</dependency> -->
+
+        <!-- Other GeoServer Extensions -->
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-css</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-ysld</artifactId>
+        </dependency>
+
 	</dependencies>
 	<build>
 		<plugins>

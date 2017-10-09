@@ -90,6 +90,20 @@
         <dependency>
             <groupId>org.geoserver.geofence</groupId>
             <artifactId>geofence-services-impl</artifactId>
+				<exclusions>
+					<exclusion>
+						<groupId>org.postgis</groupId>
+						<artifactId>postgis-jdbc</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.postgis</groupId>
+						<artifactId>postgis-stubs</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>postgresql</groupId>
+						<artifactId>postgresql</artifactId>
+					</exclusion>
+				</exclusions>
         </dependency>
 
         <!-- dependency>
