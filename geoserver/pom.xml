@@ -368,7 +368,6 @@
                 <groupId>org.geotools.jdbc</groupId>
                 <artifactId>gt-jdbc-postgis</artifactId>
                 <version>${gt.version}</version>
-                <scope>provided</scope>
             </dependency>
 			<dependency>
                 <groupId>org.opengeo</groupId>
