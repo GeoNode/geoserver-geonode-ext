@@ -67,6 +67,11 @@
 			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
 
+        <dependency>
+            <groupId>org.geotools.jdbc</groupId>
+            <artifactId>gt-jdbc-postgis</artifactId>
+        </dependency>
+
         <!-- test dependencies -->
         <dependency>
             <groupId>org.geoserver</groupId>

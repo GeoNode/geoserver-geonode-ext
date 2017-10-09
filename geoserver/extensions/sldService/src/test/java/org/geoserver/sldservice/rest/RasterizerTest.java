@@ -40,8 +40,11 @@ public class RasterizerTest extends SLDServiceBaseTest {
 			applicationContext.addBeanFactoryPostProcessor(postProcessor);
 		}
 		applicationContext.refresh();
+
+		getTestData().addWorkspace(getTestData().WCS_PREFIX, getTestData().WCS_URI, getCatalog());
+		getTestData().addDefaultRasterLayer(getTestData().WORLD, getCatalog());
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see org.geoserver.test.GeoServerSystemTestSupport#onTearDown(org.geoserver.data.test.SystemTestData)
 	 */
@@ -53,7 +56,7 @@ public class RasterizerTest extends SLDServiceBaseTest {
 
 	@Test
 	public void testRasterizeWithNoParams() throws Exception {
-		LayerInfo l = catalog.getLayerByName("wcs:World");
+		LayerInfo l = getCatalog().getLayerByName("wcs:World");
         assertEquals( "raster", l.getDefaultStyle().getName() );
         final String restPath = RestBaseController.ROOT_PATH + "/sldservice/wcs:World/"+getServiceUrl()+".xml";
         MockHttpServletResponse response = getAsServletResponse(restPath);

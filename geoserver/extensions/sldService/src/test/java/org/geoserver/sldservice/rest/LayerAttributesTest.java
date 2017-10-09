@@ -26,7 +26,7 @@ public class LayerAttributesTest extends SLDServiceBaseTest {
 
 	@Test
 	public void testListAttributesForFeatureXml() throws Exception {
-		LayerInfo l = catalog.getLayerByName( "cite:Buildings" );
+		LayerInfo l = getCatalog().getLayerByName( "cite:Buildings" );
         assertEquals( "Buildings", l.getDefaultStyle().getName() );
         final String restPath = RestBaseController.ROOT_PATH + "/sldservice/cite:Buildings/"+getServiceUrl()+".xml";
         MockHttpServletResponse response = getAsServletResponse(restPath);
@@ -43,7 +43,7 @@ public class LayerAttributesTest extends SLDServiceBaseTest {
 
 	@Test
 	public void testListAttributesForFeatureJson() throws Exception {
-        LayerInfo l = catalog.getLayerByName( "cite:Buildings" );
+        LayerInfo l = getCatalog().getLayerByName( "cite:Buildings" );
         assertEquals( "Buildings", l.getDefaultStyle().getName() );
         final String restPath = RestBaseController.ROOT_PATH + "/sldservice/cite:Buildings/"+getServiceUrl()+".json";
 		MockHttpServletResponse response = getAsServletResponse(restPath);
@@ -63,7 +63,7 @@ public class LayerAttributesTest extends SLDServiceBaseTest {
 
 	@Test
 	public void testListAttributesForCoverageIsEmpty() throws Exception {
-		LayerInfo l = catalog.getLayerByName("World");
+		LayerInfo l = getCatalog().getLayerByName("World");
         assertEquals( "raster", l.getDefaultStyle().getName() );
         final String restPath = RestBaseController.ROOT_PATH + "/sldservice/wcs:World/"+getServiceUrl()+".xml";
         MockHttpServletResponse response = getAsServletResponse(restPath);

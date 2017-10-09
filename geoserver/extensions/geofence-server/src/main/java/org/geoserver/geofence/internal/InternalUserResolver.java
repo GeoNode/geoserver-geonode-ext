@@ -37,7 +37,7 @@ import org.springframework.core.env.Environment;
 @PropertySource("classpath*:application.properties")
 public class InternalUserResolver implements UserResolver {
     
-    private static final String DEFAULT_USER_GROUP_SERVICE_KEY = "org.geoserver.rest.DefaultUserGroupServiceName";
+    public static final String DEFAULT_USER_GROUP_SERVICE_KEY = "org.geoserver.rest.DefaultUserGroupServiceName";
 
 	private Logger logger = Logging.getLogger(InternalUserResolver.class);
     
