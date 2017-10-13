@@ -49,18 +49,18 @@
 	</repositories>
 
     <distributionManagement>
-      <!-- repository>
-       <id>boundless</id>
-       <name>Boundless Release Repository</name>
-       <url>https://repo.boundlessgeo.com/release/</url>
-       <uniqueVersion>false</uniqueVersion>
-      </repository>
-      <snapshotRepository>
-       <id>boundless</id>
-       <uniqueVersion>false</uniqueVersion>
-       <name>Boundless Snapshot Repository</name>
-       <url>https://repo.boundlessgeo.com/snapshot/</url>
-      </snapshotRepository -->
+        <!-- repository>
+         <id>boundless</id>
+         <name>Boundless Release Repository</name>
+         <url>https://repo.boundlessgeo.com/release/</url>
+         <uniqueVersion>false</uniqueVersion>
+        </repository>
+        <snapshotRepository>
+         <id>boundless</id>
+         <uniqueVersion>false</uniqueVersion>
+         <name>Boundless Snapshot Repository</name>
+         <url>https://repo.boundlessgeo.com/snapshot/</url>
+        </snapshotRepository -->
         <downloadUrl>http://maven.geo-solutions.it</downloadUrl>
         <repository>
           <uniqueVersion>false</uniqueVersion>
@@ -329,7 +329,7 @@
 			</dependency>
 
 			<!-- GeoFence Dependencies -->
-			<!-- dependency>
+			<dependency>
 				<groupId>org.geoserver.community</groupId>
 				<artifactId>gs-geofence</artifactId>
 				<version>${project.version}</version>
@@ -344,7 +344,7 @@
 						<artifactId>log4j-slf4j-impl</artifactId>
 					</exclusion>
 				</exclusions>
-			</dependency -->
+			</dependency>
             <dependency>
                 <groupId>org.geoserver.geofence</groupId>
                 <artifactId>geofence-services-impl</artifactId>
@@ -369,16 +369,6 @@
                 <artifactId>gt-jdbc-postgis</artifactId>
                 <version>${gt.version}</version>
             </dependency>
-			<dependency>
-                <groupId>org.opengeo</groupId>
-                <artifactId>geonode-geoserver-ext-geofence</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-            <dependency>
-				<groupId>org.opengeo</groupId>
-				<artifactId>geonode-geoserver-ext-geofence-server</artifactId>
-				<version>${project.version}</version>
-			</dependency>
 
 			<!-- Updated geogit to geogig -->
 			<dependency>

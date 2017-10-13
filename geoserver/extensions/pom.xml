@@ -11,8 +11,6 @@
   <name>Extensions</name>
   <modules>
     <module>sldService</module>
-    <module>geofence</module>
-    <module>geofence-server</module>
     <module>wps-batchdownload</module>
   </modules>
 </project>

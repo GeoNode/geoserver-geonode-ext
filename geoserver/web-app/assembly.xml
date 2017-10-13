@@ -10,8 +10,6 @@
 			<unpack>false</unpack>
 			<includes>
 				<include>org.opengeo:geonode-geoserver-ext-web-app</include>
-                <include>org.opengeo:geonode-geoserver-ext-geofence</include>
-                <include>org.opengeo:geonode-geoserver-ext-geofence-server</include>
 				<include>org.opengeo:geonode-geoserver-ext-wps-batchdownload</include>
 			</includes>
 			<useTransitiveDependencies>false</useTransitiveDependencies>
