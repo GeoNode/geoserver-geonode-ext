@@ -47,14 +47,11 @@ public class GeoFenceController extends AbstractCatalogController {
     @Autowired
     private GeoFenceConfigurationManager configManager;
 
-    public GeoFenceController(Catalog catalog)
-    {
+    public GeoFenceController(Catalog catalog) {
         super(catalog);
     }
 
-    @GetMapping(
-            path = "/info",
-            produces = {MediaType.TEXT_PLAIN_VALUE})
+    @GetMapping(path = "/info", produces = { MediaType.TEXT_PLAIN_VALUE })
     public String getInfo() {
         return configManager.getConfiguration().getInstanceName();
     }

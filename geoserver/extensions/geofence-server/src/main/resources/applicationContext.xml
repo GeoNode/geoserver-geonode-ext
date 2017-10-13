@@ -19,7 +19,8 @@
     <!-- =============== Property override ============================== -->
     <!-- ================================================================ -->
     <bean id="geofence-server-configurer" class="org.geoserver.geofence.config.GeoFencePropertyPlaceholderConfigurer">
-        <property name="order" value="101"/>
+
+        <property name="order" value="99"/>
         
         <constructor-arg ref="dataDirectory"/>
 

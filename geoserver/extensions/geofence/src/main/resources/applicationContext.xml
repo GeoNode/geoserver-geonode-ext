@@ -56,6 +56,8 @@
                   <property name="grantWriteToWorkspacesToAuthenticatedUsers" value="${grantWriteToWorkspacesToAuthenticatedUsers:False}"/>
                   <property name="useRolesToFilter" value="${useRolesToFilter:False}"/>
                   <property name="acceptedRoles" value="${acceptedRoles:}"/>
+                  <property name="gwcContextSuffix" value="gwc.context.suffix:gwc}"/>
+                  <property name="defaultUserGroupServiceName" value="${org.geoserver.rest.DefaultUserGroupServiceName:default}"/>
             </bean>
         </property>
 

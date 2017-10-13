@@ -23,7 +23,6 @@ package org.geoserver.geofence.config;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import org.geoserver.geofence.GeofenceAccessManager;
 import org.geoserver.geofence.cache.CacheConfiguration;
 import org.geoserver.geofence.cache.CachedRuleReader;
 import org.geotools.util.logging.Logging;
@@ -48,14 +47,13 @@ public class GeoFenceConfigurationController {
         this.cachedRuleReader = cachedRuleReader;
     }
 
-
     /**
      * Updates the configuration.
      *
-     * Sets the config into the manager and forces the classes needing to refresh to do so.
-     * Then stores the config to disk.
+     * Sets the config into the manager and forces the classes needing to refresh to do so. Then stores the config to disk.
      */
-    public void storeConfiguration(GeoFenceConfiguration gfConfig, CacheConfiguration cacheConfig) throws IOException {
+    public void storeConfiguration(GeoFenceConfiguration gfConfig, CacheConfiguration cacheConfig)
+            throws IOException {
 
         // set the probe configuration. the access manager performs a getCOnfiguration wheneven needed
         configurationManager.setConfiguration(gfConfig);
