@@ -185,10 +185,10 @@
 		</dependency>
 
 		<!-- Updated geogit to geogig -->
-		<!-- dependency>
+		<dependency>
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-geogig</artifactId>
-		</dependency -->
+		</dependency>
 
 		<!-- Other GeoServer Extensions -->
 		<dependency>
