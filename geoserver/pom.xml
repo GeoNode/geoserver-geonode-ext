@@ -248,6 +248,16 @@
 				<artifactId>gs-excel</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-querylayer</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+            <dependency>
+				<groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-gdal</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 
 			<dependency>
 				<groupId>org.geoserver.importer</groupId>
@@ -270,6 +280,16 @@
 			<dependency>
 				<groupId>org.geoserver.extension</groupId>
 				<artifactId>gs-wps-core</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+            <dependency>
+				<groupId>org.geoserver.community</groupId>
+                <artifactId>gs-wps-download</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+            <dependency>
+				<groupId>org.geoserver.community</groupId>
+                <artifactId>gs-kmlppio</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 
@@ -378,6 +398,12 @@
 			</dependency>
             
             <!-- Other GeoServer Extensions -->
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-dyndimension</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+
 			<dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-css</artifactId>
