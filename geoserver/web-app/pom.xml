@@ -201,10 +201,10 @@
 		</dependency>
 
 		<!-- Updated geogit to geogig -->
-		<dependency>
-            <groupId>org.geoserver.community</groupId>
-            <artifactId>gs-geogig</artifactId>
-		</dependency>
+<!-- 		<dependency> -->
+<!--             <groupId>org.geoserver.community</groupId> -->
+<!--             <artifactId>gs-geogig</artifactId> -->
+<!-- 		</dependency> -->
 
 		<!-- Other GeoServer Extensions -->
         <dependency>
