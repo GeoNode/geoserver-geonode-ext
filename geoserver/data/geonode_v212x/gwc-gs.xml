@@ -19,7 +19,7 @@
     </entry>
   </cacheConfigurations>
   <cacheLayersByDefault>true</cacheLayersByDefault>
-  <cacheNonDefaultStyles>false</cacheNonDefaultStyles>
+  <cacheNonDefaultStyles>true</cacheNonDefaultStyles>
   <metaTilingX>2</metaTilingX>
   <metaTilingY>2</metaTilingY>
   <gutter>0</gutter>
