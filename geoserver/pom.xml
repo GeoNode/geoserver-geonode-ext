@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.opengeo</groupId>
-	<artifactId>geonode-geoserver-ext</artifactId>
-	<packaging>pom</packaging>
-	<version>2.12-SNAPSHOT</version>
-	<name>GeoNode GeoServer Extensions</name>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.opengeo</groupId>
+    <artifactId>geonode-geoserver-ext</artifactId>
+    <packaging>pom</packaging>
+    <version>2.12-SNAPSHOT</version>
+    <name>GeoNode GeoServer Extensions</name>
 
-	<repositories>
-		<repository>
-			<id>boundless</id>
-			<name>Boundless Maven Repository</name>
-			<url>http://repo.boundlessgeo.com/main</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>osgeo</id>
-			<name>Open Source Geospatial Foundation Repository</name>
-			<url>http://download.osgeo.org/webdav/geotools/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
+    <repositories>
+        <repository>
+            <id>boundless</id>
+            <name>Boundless Maven Repository</name>
+            <url>http://repo.boundlessgeo.com/main</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>osgeo</id>
+            <name>Open Source Geospatial Foundation Repository</name>
+            <url>http://download.osgeo.org/webdav/geotools/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <!-- repository>
             <id>JBoss repo</id>
             <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
         </repository -->
-		<repository>
-			<id>geosolutions</id>
-			<name>geosolutions repository</name>
-			<url>http://maven.geo-solutions.it/</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>repo.locationtech.org</id>
-			<name>GeoGig Repository</name>
-			<url>https://repo.locationtech.org/content/repositories/geogig/</url>
-		</repository>
-		<!-- repository>
-			<id>org.mapfish</id>
-			<url>http://dev.mapfish.org/maven/repository</url>
-		</repository -->
-	</repositories>
+        <repository>
+            <id>geosolutions</id>
+            <name>geosolutions repository</name>
+            <url>http://maven.geo-solutions.it/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>repo.locationtech.org</id>
+            <name>GeoGig Repository</name>
+            <url>https://repo.locationtech.org/content/repositories/geogig/</url>
+        </repository>
+        <!-- repository>
+            <id>org.mapfish</id>
+            <url>http://dev.mapfish.org/maven/repository</url>
+        </repository -->
+    </repositories>
 
     <distributionManagement>
         <!-- repository>
@@ -73,316 +73,315 @@
         </site>
     </distributionManagement>
  
-	<dependencyManagement>
-		<dependencies>
-			<!-- geoserver-geonode-ext extensions -->
-			<dependency>
-				<groupId>org.opengeo</groupId>
-				<artifactId>geonode-geoserver-ext-wps-batchdownload</artifactId>
-				<version>${gs.version}</version>
-			</dependency>
-			<!-- importing geoserver dependencies management -->
-			<dependency>
-				<groupId>org.geoserver</groupId>
-				<artifactId>geoserver</artifactId>
-				<type>pom</type>
-				<scope>import</scope>
-				<version>${gs.version}</version>
-			</dependency>
-			<!-- geoserver dependencies -->
-			<dependency>
-				<groupId>org.geoserver</groupId>
-				<artifactId>gs-main</artifactId>
-				<version>${gs.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>javax.servlet</groupId>
-						<artifactId>javax.servlet-api</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
+    <dependencyManagement>
+        <dependencies>
+            <!-- geoserver-geonode-ext extensions -->
+            <dependency>
+                <groupId>org.opengeo</groupId>
+                <artifactId>geonode-geoserver-ext-wps-batchdownload</artifactId>
+                <version>${gs.version}</version>
+            </dependency>
+            <!-- importing geoserver dependencies management -->
+            <dependency>
+                <groupId>org.geoserver</groupId>
+                <artifactId>geoserver</artifactId>
+                <type>pom</type>
+                <scope>import</scope>
+                <version>${gs.version}</version>
+            </dependency>
+            <!-- geoserver dependencies -->
+            <dependency>
+                <groupId>org.geoserver</groupId>
+                <artifactId>gs-main</artifactId>
+                <version>${gs.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>javax.servlet-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <dependency>
                 <groupId>org.geoserver</groupId>
                 <artifactId>gs-rest</artifactId>
-				<version>${gs.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver</groupId>
                 <artifactId>gs-restconfig</artifactId>
-				<version>${gs.version}</version>
+                <version>${gs.version}</version>
             </dependency>
-			<dependency>
-				<groupId>org.geoserver.web</groupId>
-				<artifactId>gs-web-app</artifactId>
-				<version>${gs.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.web</groupId>
-				<artifactId>gs-web-wms</artifactId>
-				<version>${gs.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-jms-geoserver</artifactId>
-				<version>${gs.community.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-jms-geoserver</artifactId>
-				<classifier>tests</classifier>
-				<version>${gs.community.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community.backuprestore</groupId>
-				<artifactId>gs-backup-restore-core</artifactId>
-				<version>${gs.community.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community.backuprestore</groupId>
-				<artifactId>gs-backup-restore-extension</artifactId>
-				<version>${gs.community.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community.backuprestore</groupId>
-				<artifactId>gs-backup-restore-rest</artifactId>
-				<version>${gs.community.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community.backuprestore</groupId>
-				<artifactId>gs-backup-restore-web</artifactId>
-				<version>${gs.community.version}</version>
-			</dependency>
-			<!-- dependency>
-				<groupId>org.geoserver.community</groupId>
+            <dependency>
+                <groupId>org.geoserver.web</groupId>
+                <artifactId>gs-web-app</artifactId>
+                <version>${gs.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.web</groupId>
+                <artifactId>gs-web-wms</artifactId>
+                <version>${gs.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-jms-geoserver</artifactId>
+                <version>${gs.community.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-jms-geoserver</artifactId>
+                <classifier>tests</classifier>
+                <version>${gs.community.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community.backuprestore</groupId>
+                <artifactId>gs-backup-restore-core</artifactId>
+                <version>${gs.community.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community.backuprestore</groupId>
+                <artifactId>gs-backup-restore-extension</artifactId>
+                <version>${gs.community.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community.backuprestore</groupId>
+                <artifactId>gs-backup-restore-rest</artifactId>
+                <version>${gs.community.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community.backuprestore</groupId>
+                <artifactId>gs-backup-restore-web</artifactId>
+                <version>${gs.community.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-sldservice</artifactId>
-				<version>${gs.community.version}</version>
-			</dependency -->
-			<dependency>
-                <groupId>org.opengeo</groupId>
-                <artifactId>geonode-geoserver-ext-sldservice</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+                <version>${gs.community.version}</version>
+            </dependency>
 
-			<!-- hibernate dependencies -->
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-core</artifactId>
-				<version>${hibernate-version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.hibernate</groupId>
-				<artifactId>hibernate-annotations</artifactId>
-				<version>${hibernate-annotations-version}</version>
-			</dependency>
-			<!-- other dependencies -->
-			<dependency>
-				<groupId>javax.servlet</groupId>
-				<artifactId>javax.servlet-api</artifactId>
-				<version>${jetty.servlet.api.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>c3p0</groupId>
-				<artifactId>c3p0</artifactId>
-				<version>${c3p0.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework</groupId>
-				<artifactId>spring-orm</artifactId>
-				<version>${spring.orm.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.google.code.gson</groupId>
-				<artifactId>gson</artifactId>
-				<version>${gson.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.apache.httpcomponents</groupId>
-				<artifactId>httpclient</artifactId>
-				<version>${http.client.version}</version>
-			</dependency>
-			<!-- geoserver plugins -->
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
-				<artifactId>gs-monitor-core</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
-				<artifactId>gs-monitor-hibernate</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+            <!-- hibernate dependencies -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <version>${hibernate-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-annotations</artifactId>
+                <version>${hibernate-annotations-version}</version>
+            </dependency>
+            <!-- other dependencies -->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${jetty.servlet.api.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>c3p0</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>${c3p0.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-orm</artifactId>
+                <version>${spring.orm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${http.client.version}</version>
+            </dependency>
+            <!-- geoserver plugins -->
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-monitor-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-monitor-hibernate</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-status-monitoring</artifactId>
                 <version>${project.version}</version>
             </dependency>
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
-				<artifactId>gs-inspire</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
-				<artifactId>gs-control-flow</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-inspire</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-control-flow</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
-				<artifactId>gs-printing</artifactId>
-				<version>${project.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>xerces</groupId>
-						<artifactId>xercesImpl</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
-				<artifactId>gs-web-wps</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
-				<artifactId>gs-excel</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-printing</artifactId>
+                <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>xerces</groupId>
+                        <artifactId>xercesImpl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-web-wps</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-excel</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-querylayer</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
-				<groupId>org.geoserver.extension</groupId>
+                <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-gdal</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+                <version>${project.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>org.geoserver.importer</groupId>
-				<artifactId>gs-importer-core</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.geoserver.importer</groupId>
-				<artifactId>gs-importer-web</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.geoserver.importer</groupId>
-				<artifactId>gs-importer-rest</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-
-			<dependency>
-				<groupId>org.geoserver.extension</groupId>
-				<artifactId>gs-wps-core</artifactId>
-				<version>${project.version}</version>
-			</dependency>
             <dependency>
-				<groupId>org.geoserver.community</groupId>
+                <groupId>org.geoserver.importer</groupId>
+                <artifactId>gs-importer-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.geoserver.importer</groupId>
+                <artifactId>gs-importer-web</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.geoserver.importer</groupId>
+                <artifactId>gs-importer-rest</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.geoserver.extension</groupId>
+                <artifactId>gs-wps-core</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-wps-download</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+                <version>${project.version}</version>
+            </dependency>
             <dependency>
-				<groupId>org.geoserver.community</groupId>
+                <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-kmlppio</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+                <version>${project.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>org.opengeo.geoserver</groupId>
-				<artifactId>printng</artifactId> 
-				<version>${project.version}</version>
+            <dependency>
+                <groupId>org.opengeo.geoserver</groupId>
+                <artifactId>printng</artifactId> 
+                <version>${project.version}</version>
                 <scope>runtime</scope>
-				<exclusions>
-					<exclusion>
-						<groupId>javax.servlet</groupId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
                         <artifactId>javax.servlet-api</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
+                    </exclusion>
+                </exclusions>
+            </dependency>
 
-			<!-- OAuth2 Security Extension -->
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-sec-oauth2</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-sec-oauth2-geonode</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+            <!-- OAuth2 Security Extension -->
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-sec-oauth2</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-sec-oauth2-geonode</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
-			<!-- Notification Extension -->
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-notification</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-notification-common</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-notification-geonode</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+            <!-- Notification Extension -->
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-notification</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-notification-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-notification-geonode</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
-			<dependency>
-				<groupId>org.springframework.security.oauth</groupId>
-				<artifactId>spring-security-oauth2</artifactId>
-				<version>${spring-security-oauth2.version}</version>
-			</dependency>
+            <dependency>
+                <groupId>org.springframework.security.oauth</groupId>
+                <artifactId>spring-security-oauth2</artifactId>
+                <version>${spring-security-oauth2.version}</version>
+            </dependency>
 
-			<!-- AuthKey and REST Role Service Security Extension -->
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-authkey</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+            <!-- AuthKey and REST Role Service Security Extension -->
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-authkey</artifactId>
+                <version>${project.version}</version>
+            </dependency>
 
-			<!-- GeoFence Dependencies -->
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-geofence</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-geofence-server</artifactId>
-				<version>${project.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.apache.logging.log4j</groupId>
-						<artifactId>log4j-slf4j-impl</artifactId>
-					</exclusion>
-				</exclusions>
-			</dependency>
+            <!-- GeoFence Dependencies -->
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-geofence</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-geofence-server</artifactId>
+                <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>log4j-slf4j-impl</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>cglib</groupId>
+                        <artifactId>cglib</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <dependency>
                 <groupId>org.geoserver.geofence</groupId>
                 <artifactId>geofence-services-impl</artifactId>
                 <version>${gf.version}</version>
-				<exclusions>
-					<exclusion>
-						<groupId>org.postgis</groupId>
-						<artifactId>postgis-jdbc</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>org.postgis</groupId>
-						<artifactId>postgis-stubs</artifactId>
-					</exclusion>
-					<exclusion>
-						<groupId>postgresql</groupId>
-						<artifactId>postgresql</artifactId>
-					</exclusion>
-				</exclusions>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.postgis</groupId>
+                        <artifactId>postgis-jdbc</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.postgis</groupId>
+                        <artifactId>postgis-stubs</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>postgresql</groupId>
+                        <artifactId>postgresql</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.geotools.jdbc</groupId>
@@ -390,110 +389,110 @@
                 <version>${gt.version}</version>
             </dependency>
 
-			<!-- Updated geogit to geogig -->
-			<dependency>
-				<groupId>org.geoserver.community</groupId>
-				<artifactId>gs-geogig</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+            <!-- Updated geogit to geogig -->
+            <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-geogig</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             
             <!-- Other GeoServer Extensions -->
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-dyndimension</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+                <version>${project.version}</version>
+            </dependency>
 
-			<dependency>
+            <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-css</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+                <version>${project.version}</version>
+            </dependency>
 
-			<dependency>
+            <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-ysld</artifactId>
-				<version>${project.version}</version>
-			</dependency>
+                <version>${project.version}</version>
+            </dependency>
 
-		</dependencies>
-	</dependencyManagement>
-	<properties>
+        </dependencies>
+    </dependencyManagement>
+    <properties>
         <jetty.version>9.2.13.v20150730</jetty.version>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<geoserver.data.dir>geonode_v212x</geoserver.data.dir>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <geoserver.data.dir>geonode_v212x</geoserver.data.dir>
         <gt.version>18-SNAPSHOT</gt.version>
-		<gs.version>2.12-SNAPSHOT</gs.version>
-		<gs.community.version>2.12-SNAPSHOT</gs.community.version>
+        <gs.version>2.12-SNAPSHOT</gs.version>
+        <gs.community.version>2.12-SNAPSHOT</gs.community.version>
         <gf.version>3.2-SNAPSHOT</gf.version>
-		<jetty.servlet.api.version>3.1.0</jetty.servlet.api.version>
+        <jetty.servlet.api.version>3.1.0</jetty.servlet.api.version>
 
         <hibernate-version>3.6.0.Final</hibernate-version>
         <hibernate-annotations-version>3.3.1.GA</hibernate-annotations-version>
-		<hibernate-generic-dao-version>1.1.0</hibernate-generic-dao-version>
-		<hibernate-spatial-version>1.1.1</hibernate-spatial-version>
-		<hibernate-spatial-h2-version>1.1.1</hibernate-spatial-h2-version>
+        <hibernate-generic-dao-version>1.1.0</hibernate-generic-dao-version>
+        <hibernate-spatial-version>1.1.1</hibernate-spatial-version>
+        <hibernate-spatial-h2-version>1.1.1</hibernate-spatial-h2-version>
 
-		<spring-security-oauth2.version>2.0.11.RELEASE</spring-security-oauth2.version>
-		<c3p0.version>0.9.0.4</c3p0.version>
-		<spring.orm.version>3.1.1.RELEASE</spring.orm.version>
-		<gson.version>2.3.1</gson.version>
-		<http.client.version>4.5.3</http.client.version>
-	</properties>
-	<modules>
-		<module>extensions</module>
-		<module>web-app</module>
-	</modules>
-	<build>
-		<resources>
-			<resource>
-				<directory>${basedir}/src/main/java</directory>
-				<includes>
-					<!-- we need to this to include the wicket html files -->
-					<include>**/*.html</include>
-				</includes>
-			</resource>
-			<resource>
-				<!-- without this the service configuration will not be included -->
-				<directory>${basedir}/src/main/resources</directory>
-				<includes>
-					<include>**/*</include>
-				</includes>
-			</resource>
-		</resources>
-		<plugins>
-			<plugin>
-				<!-- injects git information like current branch and commit id as maven 
-					properties -->
-				<groupId>pl.project13.maven</groupId>
-				<artifactId>git-commit-id-plugin</artifactId>
-				<version>2.1.13</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>revision</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<prefix>build</prefix>
-					<failOnNoGitDirectory>false</failOnNoGitDirectory>
-					<skipPoms>false</skipPoms>
-					<injectAllReactorProjects>true</injectAllReactorProjects>
-					<runOnlyOnce>true</runOnlyOnce>
-					<useNativeGit>false</useNativeGit>
-				</configuration>
-			</plugin>
-		</plugins>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
+        <spring-security-oauth2.version>2.0.11.RELEASE</spring-security-oauth2.version>
+        <c3p0.version>0.9.0.4</c3p0.version>
+        <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
+        <gson.version>2.3.1</gson.version>
+        <http.client.version>4.5.3</http.client.version>
+    </properties>
+    <modules>
+        <module>extensions</module>
+        <module>web-app</module>
+    </modules>
+    <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/java</directory>
+                <includes>
+                    <!-- we need to this to include the wicket html files -->
+                    <include>**/*.html</include>
+                </includes>
+            </resource>
+            <resource>
+                <!-- without this the service configuration will not be included -->
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <!-- injects git information like current branch and commit id as maven 
+                    properties -->
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>2.1.13</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <prefix>build</prefix>
+                    <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                    <skipPoms>false</skipPoms>
+                    <injectAllReactorProjects>true</injectAllReactorProjects>
+                    <runOnlyOnce>true</runOnlyOnce>
+                    <useNativeGit>false</useNativeGit>
+                </configuration>
+            </plugin>
+        </plugins>
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
                 <!-- artifactId>wagon-webdav</artifactId>
                 <version>1.0-beta-2</version -->
                 <artifactId>wagon-ftp</artifactId>
                 <version>2.6</version>
-			</extension>
-		</extensions>
-	</build>
+            </extension>
+        </extensions>
+    </build>
 </project>

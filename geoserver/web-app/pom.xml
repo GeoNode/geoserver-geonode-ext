@@ -1,144 +1,140 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.opengeo</groupId>
-		<artifactId>geonode-geoserver-ext</artifactId>
-		<version>2.12-SNAPSHOT</version>
-	</parent>
-	<groupId>org.opengeo</groupId>
-	<artifactId>geonode-geoserver-ext-web-app</artifactId>
-	<name>Web Application (WAR)</name>
-	<dependencies>
-		<!-- geoserver-geonode-ext extensions -->
-		<dependency>
-			<groupId>org.opengeo</groupId>
-			<artifactId>geonode-geoserver-ext-wps-batchdownload</artifactId>
-		</dependency>
-		<!-- import the base geoserver war dependencies -->
-		<dependency>
-			<groupId>org.geoserver.web</groupId>
-			<artifactId>gs-web-app</artifactId>
-		</dependency>
-		<!-- dependencies need to run geoserver from an ide or command line -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-jndi</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse.jetty</groupId>
-			<artifactId>jetty-plus</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- geoserver plugins -->
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-monitor-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-monitor-hibernate</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.community</groupId>
-			<artifactId>gs-status-monitoring</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-inspire</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-control-flow</artifactId>
-		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.geoserver.community</groupId> -->
-		<!-- <artifactId>gs-jms-geoserver</artifactId> -->
-		<!-- </dependency> -->
-		<dependency>
-			<groupId>org.geoserver.community.backuprestore</groupId>
-			<artifactId>gs-backup-restore-extension</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.community.backuprestore</groupId>
-			<artifactId>gs-backup-restore-rest</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.community.backuprestore</groupId>
-			<artifactId>gs-backup-restore-web</artifactId>
-		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.geoserver.community</groupId> -->
-		<!-- <artifactId>gs-sldservice</artifactId> -->
-		<!-- </dependency> -->
-		<dependency>
-			<groupId>org.opengeo</groupId>
-			<artifactId>geonode-geoserver-ext-sldservice</artifactId>
-		</dependency>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.opengeo</groupId>
+        <artifactId>geonode-geoserver-ext</artifactId>
+        <version>2.12-SNAPSHOT</version>
+    </parent>
+    <groupId>org.opengeo</groupId>
+    <artifactId>geonode-geoserver-ext-web-app</artifactId>
+    <name>Web Application (WAR)</name>
+    <dependencies>
+        <!-- geoserver-geonode-ext extensions -->
+        <dependency>
+            <groupId>org.opengeo</groupId>
+            <artifactId>geonode-geoserver-ext-wps-batchdownload</artifactId>
+        </dependency>
+        <!-- import the base geoserver war dependencies -->
+        <dependency>
+            <groupId>org.geoserver.web</groupId>
+            <artifactId>gs-web-app</artifactId>
+        </dependency>
+        <!-- dependencies need to run geoserver from an ide or command line -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-jndi</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-plus</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- geoserver plugins -->
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-monitor-core</artifactId>
+        </dependency>
+        <!-- dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-monitor-hibernate</artifactId>
+        </dependency -->
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-status-monitoring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-inspire</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-control-flow</artifactId>
+        </dependency>
+        <!-- <dependency> -->
+        <!-- <groupId>org.geoserver.community</groupId> -->
+        <!-- <artifactId>gs-jms-geoserver</artifactId> -->
+        <!-- </dependency> -->
+        <dependency>
+            <groupId>org.geoserver.community.backuprestore</groupId>
+            <artifactId>gs-backup-restore-extension</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community.backuprestore</groupId>
+            <artifactId>gs-backup-restore-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community.backuprestore</groupId>
+            <artifactId>gs-backup-restore-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-sldservice</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-printing</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>xerces</groupId>
-					<artifactId>xercesImpl</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-web-wps</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-excel</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-printing</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>xerces</groupId>
+                    <artifactId>xercesImpl</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-web-wps</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-excel</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-querylayer</artifactId>
-		</dependency>
+        </dependency>
         <dependency>
             <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-gdal</artifactId>
         </dependency>
 
-		<dependency>
-			<groupId>org.geoserver.importer</groupId>
-			<artifactId>gs-importer-core</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.geoserver.importer</groupId>
+            <artifactId>gs-importer-core</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.geoserver.importer</groupId>
-			<artifactId>gs-importer-web</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.geoserver.importer</groupId>
+            <artifactId>gs-importer-web</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.geoserver.importer</groupId>
-			<artifactId>gs-importer-rest</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.geoserver.importer</groupId>
+            <artifactId>gs-importer-rest</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-wps-core</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-wps-core</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-wps-download</artifactId>
@@ -148,48 +144,48 @@
             <artifactId>gs-kmlppio</artifactId>
         </dependency>
 
-		<dependency>
-			<groupId>org.opengeo.geoserver</groupId>
-			<artifactId>printng</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.opengeo.geoserver</groupId>
+            <artifactId>printng</artifactId>
+        </dependency>
 
-		<!-- OAuth2 Security Extension -->
-		<dependency>
-			<groupId>org.geoserver.community</groupId>
-			<artifactId>gs-sec-oauth2</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.community</groupId>
-			<artifactId>gs-sec-oauth2-geonode</artifactId>
-		</dependency>
+        <!-- OAuth2 Security Extension -->
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-sec-oauth2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-sec-oauth2-geonode</artifactId>
+        </dependency>
 
-		<!-- Notification Extension -->
-		<dependency>
-			<groupId>org.geoserver.community</groupId>
-			<artifactId>gs-notification</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.community</groupId>
-			<artifactId>gs-notification-common</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.geoserver.community</groupId>
-			<artifactId>gs-notification-geonode</artifactId>
-		</dependency>
+        <!-- Notification Extension -->
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-notification</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-notification-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-notification-geonode</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.springframework.security.oauth</groupId>
-			<artifactId>spring-security-oauth2</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.springframework.security.oauth</groupId>
+            <artifactId>spring-security-oauth2</artifactId>
+        </dependency>
 
-		<!-- AuthKey and REST Role Service Security Extension -->
-		<dependency>
-			<groupId>org.geoserver.community</groupId>
-			<artifactId>gs-authkey</artifactId>
-		</dependency>
+        <!-- AuthKey and REST Role Service Security Extension -->
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-authkey</artifactId>
+        </dependency>
 
-		<!-- GeoFence Dependencies -->
-		<dependency>
+        <!-- GeoFence Dependencies -->
+        <dependency>
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-geofence-server</artifactId>
             <exclusions>
@@ -197,258 +193,262 @@
                     <groupId>org.apache.logging.log4j</groupId>
                     <artifactId>log4j-slf4j-impl</artifactId>
                 </exclusion>
+                <exclusion>
+                    <groupId>cglib</groupId>
+                    <artifactId>cglib</artifactId>
+                </exclusion>
             </exclusions>
-		</dependency>
+        </dependency>
 
-		<!-- Updated geogit to geogig -->
-<!-- 		<dependency> -->
+        <!-- Updated geogit to geogig -->
+<!--        <dependency> -->
 <!--             <groupId>org.geoserver.community</groupId> -->
 <!--             <artifactId>gs-geogig</artifactId> -->
-<!-- 		</dependency> -->
+<!--        </dependency> -->
 
-		<!-- Other GeoServer Extensions -->
+        <!-- Other GeoServer Extensions -->
         <dependency>
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-dyndimension</artifactId>
         </dependency>
 
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-css</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-css</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>org.geoserver.extension</groupId>
-			<artifactId>gs-ysld</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>org.geoserver.extension</groupId>
+            <artifactId>gs-ysld</artifactId>
+        </dependency>
 
-	</dependencies>
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<descriptors>
-						<descriptor>assembly.xml</descriptor>
-						<descriptor>data.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>single</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>assembly.xml</descriptor>
+                        <descriptor>data.xml</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.12.3</version>
-				<configuration>
-					<argLine>-XX:MaxPermSize=256m</argLine>
-				</configuration>
-			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.12.3</version>
+                <configuration>
+                    <argLine>-XX:MaxPermSize=256m</argLine>
+                </configuration>
+            </plugin>
 
-			<plugin>
-				<!-- substitute the original geoserver version in the properties files -->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-antrun-plugin</artifactId>
-				<version>1.6</version>
-				<executions>
-					<execution>
-						<id>repack</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<!-- unzip the original geoserver web core jar -->
-								<unzip src="${org.geoserver.web:gs-web-core:jar}" dest="${project.build.directory}/gs-web-core" />
-								<!-- replace geoserver version with the current branch name -->
-								<replaceregexp>
-									<regexp pattern="version\s*=.*" />
-									<substitution expression="version=${build.branch}" />
-									<fileset dir="${project.build.directory}/gs-web-core">
-										<include name="GeoServerApplication*.properties" />
-									</fileset>
-								</replaceregexp>
-								<!-- replace geoserver build revision with current git commit id -->
-								<replaceregexp>
-									<regexp pattern="build.revision\s*=.*" />
-									<substitution expression="build.revision=${build.commit.id}" />
-									<fileset dir="${project.build.directory}/gs-web-core">
-										<include name="GeoServerApplication*.properties" />
-									</fileset>
-								</replaceregexp>
-								<!-- replace geoserver build date with this build date -->
-								<replaceregexp>
-									<regexp pattern="build.date\s*=.*" />
-									<substitution expression="build.date=${maven.build.timestamp}" />
-									<fileset dir="${project.build.directory}/gs-web-core">
-										<include name="GeoServerApplication*.properties" />
-									</fileset>
-								</replaceregexp>
-								<!-- recreate the modified jar -->
-								<zip basedir="${project.build.directory}/gs-web-core"
-									destfile="${project.build.directory}/custom-gs-web-core.jar" />
-							</target>
-						</configuration>
-					</execution>
-					<execution>
-						<id>data</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>run</goal>
-						</goals>
-						<configuration>
-							<target>
-								<copy todir="${project.build.directory}/data">
-									<fileset dir="../data/${geoserver.data.dir}/" />
-								</copy>
-							</target>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <!-- substitute the original geoserver version in the properties files -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <id>repack</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <!-- unzip the original geoserver web core jar -->
+                                <unzip src="${org.geoserver.web:gs-web-core:jar}" dest="${project.build.directory}/gs-web-core" />
+                                <!-- replace geoserver version with the current branch name -->
+                                <replaceregexp>
+                                    <regexp pattern="version\s*=.*" />
+                                    <substitution expression="version=${build.branch}" />
+                                    <fileset dir="${project.build.directory}/gs-web-core">
+                                        <include name="GeoServerApplication*.properties" />
+                                    </fileset>
+                                </replaceregexp>
+                                <!-- replace geoserver build revision with current git commit id -->
+                                <replaceregexp>
+                                    <regexp pattern="build.revision\s*=.*" />
+                                    <substitution expression="build.revision=${build.commit.id}" />
+                                    <fileset dir="${project.build.directory}/gs-web-core">
+                                        <include name="GeoServerApplication*.properties" />
+                                    </fileset>
+                                </replaceregexp>
+                                <!-- replace geoserver build date with this build date -->
+                                <replaceregexp>
+                                    <regexp pattern="build.date\s*=.*" />
+                                    <substitution expression="build.date=${maven.build.timestamp}" />
+                                    <fileset dir="${project.build.directory}/gs-web-core">
+                                        <include name="GeoServerApplication*.properties" />
+                                    </fileset>
+                                </replaceregexp>
+                                <!-- recreate the modified jar -->
+                                <zip basedir="${project.build.directory}/gs-web-core"
+                                    destfile="${project.build.directory}/custom-gs-web-core.jar" />
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>data</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy todir="${project.build.directory}/data">
+                                    <fileset dir="../data/${geoserver.data.dir}/" />
+                                </copy>
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
 
-			<!-- creates the geoserver war -->
-			<plugin>
-				<!-- groupId>org.mortbay.jetty</groupId> <artifactId>maven-jetty-plugin</artifactId> 
-					<version>6.1.22</version -->
-				<groupId>org.eclipse.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>${jetty.version}</version>
-				<configuration>
-					<systemProperties>
-						<systemProperty>
-							<name>GEOSERVER_DATA_DIR</name>
-							<value>target/data/</value>
-						</systemProperty>
-						<systemProperty>
-							<name>geofence.dir</name>
-							<value>target/data/geofence/</value>
-						</systemProperty>
-						<systemProperty>
-							<name>geofence-ovr</name>
-							<value>geofence-datasource-ovr.properties</value>
-						</systemProperty>
-					</systemProperties>
-					<contextPath>/geoserver</contextPath>
-					<webApp>
-						<contextPath>/geoserver</contextPath>
-					</webApp>
-					<connectors>
-						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-							<port>${jetty.port}</port>
-							<maxIdleTime>10000</maxIdleTime>
-						</connector>
-					</connectors>
-					<stopPort>${jetty.stopPort}</stopPort>
-					<stopKey>GEOSERVER_JETTY_STOPKEY</stopKey>
-					<daemon>false</daemon>
-					<!-- Make sure it's not looking for annotations everywhere -->
-					<!-- contextXml>${project.build.testOutputDirectory}/jetty-context.xml</contextXml -->
-				</configuration>
-			</plugin>
+            <!-- creates the geoserver war -->
+            <plugin>
+                <!-- groupId>org.mortbay.jetty</groupId> <artifactId>maven-jetty-plugin</artifactId> 
+                    <version>6.1.22</version -->
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
+                <configuration>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>GEOSERVER_DATA_DIR</name>
+                            <value>target/data/</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>geofence.dir</name>
+                            <value>target/data/geofence/</value>
+                        </systemProperty>
+                        <systemProperty>
+                            <name>geofence-ovr</name>
+                            <value>geofence-datasource-ovr.properties</value>
+                        </systemProperty>
+                    </systemProperties>
+                    <contextPath>/geoserver</contextPath>
+                    <webApp>
+                        <contextPath>/geoserver</contextPath>
+                    </webApp>
+                    <connectors>
+                        <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                            <port>${jetty.port}</port>
+                            <maxIdleTime>10000</maxIdleTime>
+                        </connector>
+                    </connectors>
+                    <stopPort>${jetty.stopPort}</stopPort>
+                    <stopKey>GEOSERVER_JETTY_STOPKEY</stopKey>
+                    <daemon>false</daemon>
+                    <!-- Make sure it's not looking for annotations everywhere -->
+                    <!-- contextXml>${project.build.testOutputDirectory}/jetty-context.xml</contextXml -->
+                </configuration>
+            </plugin>
 
-			<!-- eclipse ide integration -->
-			<plugin>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.10</version>
-				<configuration>
-					<downloadSources>false</downloadSources>
-					<additionalProjectnatures>
-						<projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-					</additionalProjectnatures>
-				</configuration>
-			</plugin>
+            <!-- eclipse ide integration -->
+            <plugin>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.10</version>
+                <configuration>
+                    <downloadSources>false</downloadSources>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                </configuration>
+            </plugin>
 
-			<plugin>
-				<inherited>true</inherited>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<warName>geoserver</warName>
-					<!-- add our modified geoserver web core jar -->
-					<webResources>
-						<resource>
-							<directory>${project.build.directory}</directory>
-							<targetPath>WEB-INF/lib</targetPath>
-							<includes>
-								<include>custom-gs-web-core.jar</include>
-							</includes>
-						</resource>
-						<resource>
-							<directory>${project.build.directory}/data</directory>
-							<targetPath>./data</targetPath>
-						</resource>
-					</webResources>
-					<webappDirectory>${project.build.directory}/geoserver</webappDirectory>
-					<packagingExcludes>WEB-INF/lib/servlet-api*.jar</packagingExcludes>
-					<packagingExcludes>WEB-INF/lib/javax.servlet-api*.jar</packagingExcludes>
-					<packagingExcludes>**/data/</packagingExcludes>
-					<!-- exclude the original geoserver web core jar -->
-					<packagingExcludes>WEB-INF/lib/gs-web-core*.jar</packagingExcludes>
-					<packagingExcludes>**/gs-web-app*.jar</packagingExcludes>
-					<archive>
-						<manifest>
-							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-							<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-						</manifest>
-						<manifestEntries>
-							<GeoServerModule>core</GeoServerModule>
-							<Application-Name>${project.build.finalname}</Application-Name>
-							<Project-Version>${project.version}</Project-Version>
-							<Iteration-Name>${iteration}</Iteration-Name>
-							<Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
-							<Git-Revision>${build.commit.id}</Git-Revision>
-						</manifestEntries>
-					</archive>
-				</configuration>
-				<executions>
-					<execution>
-						<phase>package</phase>
-						<goals>
-							<goal>war</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+            <plugin>
+                <inherited>true</inherited>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <warName>geoserver</warName>
+                    <!-- add our modified geoserver web core jar -->
+                    <webResources>
+                        <resource>
+                            <directory>${project.build.directory}</directory>
+                            <targetPath>WEB-INF/lib</targetPath>
+                            <includes>
+                                <include>custom-gs-web-core.jar</include>
+                            </includes>
+                        </resource>
+                        <resource>
+                            <directory>${project.build.directory}/data</directory>
+                            <targetPath>./data</targetPath>
+                        </resource>
+                    </webResources>
+                    <webappDirectory>${project.build.directory}/geoserver</webappDirectory>
+                    <packagingExcludes>WEB-INF/lib/servlet-api*.jar</packagingExcludes>
+                    <packagingExcludes>WEB-INF/lib/javax.servlet-api*.jar</packagingExcludes>
+                    <packagingExcludes>**/data/</packagingExcludes>
+                    <!-- exclude the original geoserver web core jar -->
+                    <packagingExcludes>WEB-INF/lib/gs-web-core*.jar</packagingExcludes>
+                    <packagingExcludes>**/gs-web-app*.jar</packagingExcludes>
+                    <archive>
+                        <manifest>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <GeoServerModule>core</GeoServerModule>
+                            <Application-Name>${project.build.finalname}</Application-Name>
+                            <Project-Version>${project.version}</Project-Version>
+                            <Iteration-Name>${iteration}</Iteration-Name>
+                            <Build-Timestamp>${maven.build.timestamp}</Build-Timestamp>
+                            <Git-Revision>${build.commit.id}</Git-Revision>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>war</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>build-helper-maven-plugin</artifactId>
-				<version>1.8</version>
-				<executions>
-					<execution>
-						<id>attach-war</id>
-						<phase>package</phase>
-						<goals>
-							<goal>attach-artifact</goal>
-						</goals>
-						<configuration>
-							<artifacts>
-								<artifact>
-									<file>${project.build.directory}/geoserver.war</file>
-									<type>war</type>
-								</artifact>
-							</artifacts>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
-	<properties>
-		<webappSourceDirectory>${basedir}/src/main/webapp</webappSourceDirectory>
-		<jetty.port>8080</jetty.port>
-		<jetty.run.daemon>false</jetty.run.daemon>
-	</properties>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>attach-war</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>${project.build.directory}/geoserver.war</file>
+                                    <type>war</type>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <webappSourceDirectory>${basedir}/src/main/webapp</webappSourceDirectory>
+        <jetty.port>8080</jetty.port>
+        <jetty.run.daemon>false</jetty.run.daemon>
+    </properties>
 </project>

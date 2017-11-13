@@ -1,7 +1,10 @@
 #===========================================================================
 # allowed DPIs
 #===========================================================================
-dpis: [75, 150, 300]
+dpis:
+  - 96
+  - 150
+  - 300
 
 #===========================================================================
 # the allowed scales
@@ -28,6 +31,8 @@ scales:
   - 279540572
   - 559081145
 
+outputFilename: 'GeoNode-Map-${date}.pdf'
+
 #===========================================================================
 # the list of allowed ips
 #===========================================================================
@@ -35,7 +40,22 @@ hosts:
   - !localMatch
     dummy: true
   - !dnsMatch
-    host: otile1.mqcdn.com 
+    host: localhost
+    port: 80
+  - !dnsMatch
+    host: labs.metacarta.com
+    port: 80
+  - !dnsMatch
+    host: terraservice.net
+    port: 80
+  - !dnsMatch
+    host: tile.openstreetmap.org
+    port: 80
+  - !dnsMatch
+    host: www.geocat.ch
+    port: 80
+  - !dnsMatch
+    host: otile1.mqcdn.com
     port: 80
   - !dnsMatch
     host: otile2.mqcdn.com
@@ -47,7 +67,7 @@ hosts:
     host: otile4.mqcdn.com
     port: 80
   - !dnsMatch
-    host: otile5.mqcdn.com 
+    host: otile5.mqcdn.com
     port: 80
   - !dnsMatch
     host: a.tile.openstreetmap.org
@@ -61,18 +81,43 @@ hosts:
   - !dnsMatch
     host: d.tile.openstreetmap.org
     port: 80
+  - !dnsMatch
+    host: a.tile.openstreetmap.fr
+    port: 80
+  - !dnsMatch
+    host: b.tile.openstreetmap.fr
+    port: 80
+  - !dnsMatch
+    host: c.tile.openstreetmap.fr
+    port: 80
+  - !dnsMatch
+    host: d.tile.openstreetmap.fr
+    port: 80
+  - !dnsMatch
+    host: en.unesco.org
+    port: 80
+  - !dnsMatch
+    host: en.unesco.org/tiles
+    port: 80
+  - !dnsMatch
+    host: en.unesco.org/tiles/geodata
+    port: 80
+  - !dnsMatch
+    host: a.tile.openstreetmap.fr/hot
+    port: 80
+  - !dnsMatch
+    host: api.mapbox.com
+    port: 80
+  - !dnsMatch
+    host: api.mapbox.com/styles/v1/mapbox/satellite-streets-v9/tiles
+    port: 80
+  - !dnsMatch
+    host: api.mapbox.com/styles/v1/mapbox/streets-v9/tiles
+    port: 80
 
 layouts:
-  Legal:
-    mainPage:
-      pageSize: LEGAL
-      items:
-        - !map
-          spacingAfter: 30
-          width: 440
-          height: 483
   #===========================================================================
-  A4 portrait:
+  A4 :
   #===========================================================================
     metaData:
       title: '${mapTitle}'
@@ -80,121 +125,179 @@ layouts:
       subject: 'Simple layout'
       keywords: 'map,print'
       creator: 'GeoNode'
-
-    #titlePage:
-    #  pageSize: A4
-    #  items:
-    #    - !text
-    #      spacingAfter: 150
-    #    - !text
-    #      font: Helvetica
-    #      fontSize: 40
-    #      spacingAfter: 100
-    #      align: center
-    #      text: '${layout}'
-    #    - !image
-    #      maxWidth: 160
-    #      maxHeight: 160
-    #      spacingAfter: 100
-    #      align: center
-    #      url: http://trac.mapfish.org/trac/mapfish/attachment/ticket/3/logo_v8_sphere.svg?format=raw
-
-      footer: &commonFooter
-        height: 30
-        items:
-          - !columns
-            config:
-              cells:
-                - paddingBottom: 5   
-            items:
-              #- !text
-              #  backgroundColor: #FF0000
-              #  align: left
-              #  text: a red box
-              - !text
-                align: center 
-                text: 'Page ${pageNum}'
-              #- !image
-              #  align: center
-              #  maxWidth: 100
-              #  maxHeight: 30
-              #  spacingAfter: 200
-              #  url: 'http://geoserver.org/download/attachments/10158143/pbGS-Bttn228x68.png'
-
-    #-------------------------------------------------------------------------
     mainPage:
-      pageSize: A4
       rotation: true
-#      header:
-#        height: 50
-#        items:
-#          - !text
-#            font: Helvetica
-#            fontSize: 30
-#            align: right
-#            text: '${layout}'
+      pageSize: 842 595
+      landscape: false
       items:
-        - !text
-          text: '${mapTitle}'
-          fontSize: 30
-          spacingAfter: 30
-        - !map
-          spacingAfter: 30
-          width: 440
-          height: 483
         - !columns
-          # columns can have an absolute position. In that case, they need the 3 following fields:
-          absoluteX: 410
-          absoluteY: 310
-          width: 100
+          absoluteX: 30
+          absoluteY: 575
+          width: 782
           items:
+            - !image
+              maxWidth: 782
+              url: '/${configDir}/print_header.png'
+            - !text
+              font: Helvetica
+              fontSize: 24
+              fontColor: #0874B8
+              spacingAfter: 100
+              align: center
+              text: '${mapTitle}'
+        - !map
+          width: 592
+          height: 400
+          absoluteX:30
+          absoluteY:475
+        #legend panel
+        - !columns
+          config:
+            borderWidth: 1
+            cells:
+              - borderWidth: 1
+                borderWidthLeft: 1
+                borderColor: black
+                padding: 2
+                backgroundColor: white
+                vertAlign: bottom
+          widths: [170]
+          absoluteX: 642
+          absoluteY: 475
+          width: 175
+          height: 500
+          items:
+            - !legends
+              horizontalAlignment: left
+              iconMaxWidth: 150
+              iconMaxHeight: 0
+              layerSpace: 5
+              layerFontSize: 6
+              classIndentation: 5
+              classFontSize: 6
+              classSpace: 4
+              backgroundColor: #ffffff
+              failOnBrokenUrl: true
+        - !columns
+          absoluteX: 590
+          absoluteY: 140
+          width: 40
+          items:
+            - !image
+              maxWidth: 40
+              maxHeight: 40
+              url: 'file://${configDir}/Arrow_North_CFCF.svg'
+              rotation: '${rotation}'
+        - !columns
+          absoluteX: 30
+          absoluteY: 55
+          width: 782
+          widths: [140, 500, 140]
+          items:
+            - !columns
+              nbColumns: 1
+              items:
+                - !text
+                  width: 424
+                  text: '(c) example.com'
+                  fontEncoding: Cp1252
+                  fontSize: 5
+                  align: justified
+                  vertAlign: middle
+                - !text
+                  width: 424
+                  text: '${now MM.dd.yyyy}'
+                  fontEncoding: Cp1252
+                  fontSize: 5
+                  align: left
+                  vertAlign: middle
+            - !text
+              align: center
+              vertAlign: middle
+              fontSize: 6
+              text: '${comment}'
             - !scalebar
-              type: bar
-              maxSize: 100
-              barBgColor: white
-              fontSize: 8
               align: right
-        - !text
-          text: '${comment}'
-          spacingAfter: 30
-        - !attributes
-          source: data
-          spacingAfter: 30
-          columnDefs:
-            id:
-              columnWeight: 2
-              header: !text
-                text: ID
-                backgroundColor: #A0A0A0
-              cell: !text
-                text: '${id}'
-            name:
-              columnWeight: 5
-              header: !text
-                text: Name
-                backgroundColor: #A0A0A0
-              cell: !columns
-                config:
-                  cells:
-                    - backgroundColor: '${nameBackgroundColor}'
-                      borderWidth: 1
-                      borderColor: '${nameBorderColor}'
-                items:
-                  - !text
-                    text: '${name}'
-            icon:
-              columnWeight: 2
-              header: !text
-                text: Symbol
-                backgroundColor: #A0A0A0
-              cell: !image
-                align: center
-                maxWidth: 15
-                maxHeight: 15
-                url: 'http://www.mapfish.org/svn/mapfish/trunk/MapFish/client/mfbase/mapfish/img/${icon}.png'
-        - !text
-          font: Helvetica
-          fontSize: 9
-          align: right
-          text: '1:${scale} ${now MM.dd.yyyy}'
-      footer: *commonFooter
+              vertAlign: middle
+              maxSize: 200
+              type: 'bar sub'
+              intervals: 5
+
+  #===========================================================================
+  Wide :
+  #===========================================================================
+    metaData:
+      title: '${mapTitle}'
+      author: 'GeoNode'
+      subject: 'Simple layout'
+      keywords: 'map,print'
+      creator: 'GeoNode'
+    mainPage:
+      rotation: true
+      pageSize: 842 595
+      landscape: false
+      items:
+        - !columns
+          absoluteX: 30
+          absoluteY: 575
+          width: 782
+          items:
+            - !image
+              maxWidth: 782
+              url: '/${configDir}/print_header.png'
+            - !text
+              font: Helvetica
+              fontSize: 24
+              fontColor: #0874B8
+              spacingAfter: 100
+              align: center
+              text: '${mapTitle}'
+        - !map
+          width: 780
+          height: 400
+          absoluteX:30
+          absoluteY:475
+        - !columns
+          absoluteX: 750
+          absoluteY: 140
+          width: 40
+          items:
+            - !image
+              maxWidth: 40
+              maxHeight: 40
+              url: 'file://${configDir}/Arrow_North_CFCF.svg'
+              rotation: '${rotation}'
+        - !columns
+          absoluteX: 30
+          absoluteY: 55
+          width: 782
+          widths: [140, 500, 140]
+          items:
+            - !columns
+              nbColumns: 1
+              items:
+                - !text
+                  width: 424
+                  text: '(c) example.com'
+                  fontEncoding: Cp1252
+                  fontSize: 5
+                  align: justified
+                  vertAlign: middle
+                - !text
+                  width: 424
+                  text: '${now MM.dd.yyyy}'
+                  fontEncoding: Cp1252
+                  fontSize: 5
+                  align: left
+                  vertAlign: middle
+            - !text
+              align: center
+              vertAlign: middle
+              fontSize: 6
+              text: '${comment}'
+            - !scalebar
+              align: right
+              vertAlign: middle
+              maxSize: 200
+              type: 'bar sub'
+              intervals: 5

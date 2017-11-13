@@ -1,18 +1,18 @@
 <assembly>
-	<id>geoserver-plugin</id>
-	<formats>
-		<format>zip</format>
-	</formats>
-	<includeBaseDirectory>false</includeBaseDirectory>
-	<dependencySets>
-		<dependencySet>
-			<outputDirectory>.</outputDirectory>
-			<unpack>false</unpack>
-			<includes>
-				<include>org.opengeo:geonode-geoserver-ext-web-app</include>
-				<include>org.opengeo:geonode-geoserver-ext-wps-batchdownload</include>
-			</includes>
-			<useTransitiveDependencies>false</useTransitiveDependencies>
-		</dependencySet>
-	</dependencySets>
+    <id>geoserver-plugin</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory>.</outputDirectory>
+            <unpack>false</unpack>
+            <includes>
+                <include>org.opengeo:geonode-geoserver-ext-web-app</include>
+                <include>org.opengeo:geonode-geoserver-ext-wps-batchdownload</include>
+            </includes>
+            <useTransitiveDependencies>false</useTransitiveDependencies>
+        </dependencySet>
+    </dependencySets>
 </assembly>

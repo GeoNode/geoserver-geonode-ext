@@ -10,7 +10,6 @@
   <packaging>pom</packaging>
   <name>Extensions</name>
   <modules>
-    <module>sldService</module>
     <module>wps-batchdownload</module>
   </modules>
 </project>
