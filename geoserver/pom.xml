@@ -78,6 +78,11 @@
             <!-- geoserver-geonode-ext extensions -->
             <dependency>
                 <groupId>org.opengeo</groupId>
+                <artifactId>geonode-geoserver-ext-printng</artifactId>
+                <version>${gs.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.opengeo</groupId>
                 <artifactId>geonode-geoserver-ext-wps-batchdownload</artifactId>
                 <version>${gs.version}</version>
             </dependency>
@@ -194,6 +199,16 @@
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>${http.client.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>17.0</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ccil.cowan.tagsoup</groupId>
+                <artifactId>tagsoup</artifactId>
+                <version>1.2.1</version>
             </dependency>
             <!-- geoserver plugins -->
             <dependency>
@@ -415,6 +430,23 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.mockrunner</groupId>
+                <artifactId>mockrunner</artifactId>
+                <version>0.3.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-all</artifactId>
+                <version>1.8.5</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.hamcrest</groupId>
+                        <artifactId>hamcrest-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <properties>

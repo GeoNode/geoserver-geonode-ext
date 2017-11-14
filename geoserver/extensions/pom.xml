@@ -10,6 +10,7 @@
   <packaging>pom</packaging>
   <name>Extensions</name>
   <modules>
+    <module>printng</module>
     <module>wps-batchdownload</module>
   </modules>
 </project>
