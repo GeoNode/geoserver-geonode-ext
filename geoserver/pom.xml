@@ -210,6 +210,19 @@
                 <artifactId>tagsoup</artifactId>
                 <version>1.2.1</version>
             </dependency>
+
+            <dependency>
+                <groupId>org.mapfish.print</groupId>
+                <artifactId>print-lib</artifactId>
+                <version>2.1.2</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-httpclient</groupId>
+                        <artifactId>commons-httpclient</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
             <!-- geoserver plugins -->
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
