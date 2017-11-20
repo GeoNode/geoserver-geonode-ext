@@ -277,7 +277,7 @@
                                 <!-- replace geoserver version with the current branch name -->
                                 <replaceregexp>
                                     <regexp pattern="version\s*=.*" />
-                                    <substitution expression="version=${build.branch}" />
+                                    <substitution expression="version=${project.version}" />
                                     <fileset dir="${project.build.directory}/gs-web-core">
                                         <include name="GeoServerApplication*.properties" />
                                     </fileset>
