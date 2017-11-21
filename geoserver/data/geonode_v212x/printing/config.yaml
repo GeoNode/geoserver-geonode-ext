@@ -39,6 +39,8 @@ outputFilename: 'GeoNode-Map-${date}.pdf'
 hosts:
   - !localMatch
     dummy: true
+  - !acceptAll
+    dummy: true
   - !dnsMatch
     host: localhost
     port: 80
