@@ -51,8 +51,8 @@
       <artifactId>freemarker</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.mapfish.print</groupId>
-      <artifactId>print-lib</artifactId>
+      <groupId>org.geonode.print</groupId>
+      <artifactId>mapfish-print-lib</artifactId>
       <exclusions>
         <exclusion>
             <groupId>commons-httpclient</groupId>
@@ -134,13 +134,13 @@
     <plugins>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <!-- requires user interaction -->
-            <exclude>**/AcceptanceTest.java</exclude>
-          </excludes>
-        </configuration>
-      </plugin>
+           <configuration>
+             <excludes>
+                <!-- requires user interaction -->
+                <exclude>**/AcceptanceTest.java</exclude>
+             </excludes>
+             </configuration>
+        </plugin>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
