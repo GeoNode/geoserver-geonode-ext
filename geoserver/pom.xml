@@ -259,6 +259,10 @@
                         <groupId>xerces</groupId>
                         <artifactId>xercesImpl</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.mapfish.print</groupId>
+                        <artifactId>print-lib</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
