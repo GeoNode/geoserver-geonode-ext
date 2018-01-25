@@ -9,13 +9,19 @@
     <name>GeoNode GeoServer Extensions</name>
 
     <repositories>
-        <repository>
+          <repository>
             <id>boundless</id>
             <name>Boundless Maven Repository</name>
-            <url>http://repo.boundlessgeo.com/main</url>
+            <url>https://repo.boundlessgeo.com/main/</url>
+            <!-- contains snapshot and release (including third-party-dependences)               -->
+            <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
+            <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
         </repository>
         <repository>
             <id>osgeo</id>
