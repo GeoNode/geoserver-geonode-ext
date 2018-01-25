@@ -11,5 +11,8 @@
   <usersRESTEndpoint>/api/users</usersRESTEndpoint>
   <rolesJSONPath>$.groups</rolesJSONPath>
   <adminRoleJSONPath>$.adminRole</adminRoleJSONPath>
-  <usersJSONPath>$.users[0].groups</usersJSONPath>
+  <usersJSONPath>$.users[?(@.username=='${username}')].groups</usersJSONPath>
+  <cacheConcurrencyLevel>4</cacheConcurrencyLevel>
+  <cacheMaximumSize>60000</cacheMaximumSize>
+  <cacheExpirationTime>60000</cacheExpirationTime>
 </authKeyRESTRoleService>
