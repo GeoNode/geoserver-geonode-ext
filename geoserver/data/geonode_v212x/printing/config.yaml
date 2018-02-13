@@ -19,27 +19,27 @@ scales:
   - 35.0
   - 70.0
   - 150.0
-  - 250.0
-  - 500.0
-  - 1000.0
-  - 2000.0
-  - 4000.0
-  - 8000.0
-  - 15000.0
+  - 273.0
+  - 546.0
+  - 1093.0
+  - 2187.5
+  - 4375.0
+  - 8750.0
+  - 17500.0
   - 35000.0
   - 70000.0
-  - 150000.0
-  - 250000.0
-  - 500000.0
-  - 1000000.0
-  - 2000000.0
-  - 4000000.0
-  - 10000000.0
-  - 15000000.0
+  - 138000.0
+  - 273437.5
+  - 546875.0
+  - 1093750.0
+  - 2187500.0
+  - 4375000.0
+  - 8750000.0
+  - 17500000.0
   - 35000000.0
-  - 75000000.0
-  - 150000000.0
-  - 250000000.0
+  - 70000000.0
+  - 140000000.0
+  - 280000000.0
 
 outputFilename: 'GeoNode-Map-${date}.pdf'
 
@@ -141,30 +141,32 @@ layouts:
       keywords: 'map,print'
       creator: 'GeoNode'
     mainPage:
-      rotation: false
-      pageSize: 842 595
+      rotation: true
+      pageSize: 802 555
       landscape: false
       items:
         - !columns
           absoluteX: 30
-          absoluteY: 575
-          width: 782
+          absoluteY: 535
+          width: 752
+          widths: [260, 522]
           items:
             - !image
-              maxWidth: 782
+              maxWidth: 752
               url: '/${configDir}/print_header.png'
             - !text
               font: Helvetica
-              fontSize: 24
+              fontSize: 22
               fontColor: #0874B8
               spacingAfter: 100
-              align: center
+              align: left
               text: '${mapTitle}'
+              maxLength: 100
         - !map
-          width: 592
-          height: 400
+          width: 500
+          height: 320
           absoluteX:30
-          absoluteY:475
+          absoluteY:435
         #legend panel
         - !columns
           config:
@@ -177,9 +179,9 @@ layouts:
                 backgroundColor: white
                 vertAlign: bottom
           widths: [170]
-          absoluteX: 642
-          absoluteY: 475
-          width: 175
+          absoluteX: 542
+          absoluteY: 435
+          width: 235
           height: 500
           items:
             - !legends
@@ -193,9 +195,10 @@ layouts:
               classSpace: 4
               backgroundColor: #ffffff
               failOnBrokenUrl: true
+              overflow: false
         - !columns
-          absoluteX: 590
-          absoluteY: 140
+          absoluteX: 475
+          absoluteY: 165
           width: 40
           items:
             - !image
@@ -204,37 +207,62 @@ layouts:
               url: 'file://${configDir}/Arrow_North_CFCF.svg'
               rotation: '${rotation}'
         - !columns
+          absoluteX: 395
+          absoluteY: 430
+          width: 40
+          items:
+            - !image
+              maxWidth: 100
+              maxHeight: 100
+              url: 'file://${configDir}/logo-geonode.png'
+        - !columns
+          config:
+            borderWidth: 0
+            cells:
+              - borderWidth: 0
+                borderWidthLeft: 1
+                borderColor: white
+                padding: 2
           absoluteX: 30
-          absoluteY: 55
-          width: 782
-          widths: [140, 500, 140]
+          absoluteY: 95
+          width: 752
+          widths: [138, 455, 98]
           items:
             - !columns
+              config:
+                borderWidth: 4
+                cells:
+                  - borderWidth: 2
+                    borderWidthLeft: 1
+                    borderColor: white
+                    padding: 3
               nbColumns: 1
               items:
                 - !text
-                  width: 424
+                  width: 420
                   text: '(c) example.com'
                   fontEncoding: Cp1252
-                  fontSize: 5
+                  fontSize: 7
                   align: justified
-                  vertAlign: middle
+                  vertAlign: top
+                  spacingAfter: 2
                 - !text
-                  width: 424
+                  width: 420
                   text: '${now MM.dd.yyyy}'
                   fontEncoding: Cp1252
                   fontSize: 5
                   align: left
-                  vertAlign: middle
+                  vertAlign: bottom
             - !text
-              align: center
-              vertAlign: middle
-              fontSize: 6
+              align: justified
+              vertAlign: top
+              fontSize: 8
               text: '${comment}'
+              maxLength: 1200
             - !scalebar
               align: right
               vertAlign: middle
-              maxSize: 200
+              maxSize: 108
               type: 'bar sub'
               intervals: 5
 
@@ -249,32 +277,34 @@ layouts:
       creator: 'GeoNode'
     mainPage:
       rotation: true
-      pageSize: 842 595
+      pageSize: 802 555
       landscape: false
       items:
         - !columns
           absoluteX: 30
-          absoluteY: 575
-          width: 782
+          absoluteY: 535
+          width: 752
+          widths: [260, 522]
           items:
             - !image
-              maxWidth: 782
+              maxWidth: 752
               url: '/${configDir}/print_header.png'
             - !text
               font: Helvetica
-              fontSize: 24
+              fontSize: 22
               fontColor: #0874B8
               spacingAfter: 100
-              align: center
+              align: left
               text: '${mapTitle}'
+              maxLength: 100
         - !map
-          width: 780
-          height: 400
+          width: 752
+          height: 320
           absoluteX:30
-          absoluteY:475
+          absoluteY:435
         - !columns
-          absoluteX: 750
-          absoluteY: 140
+          absoluteX: 745
+          absoluteY: 165
           width: 40
           items:
             - !image
@@ -283,36 +313,61 @@ layouts:
               url: 'file://${configDir}/Arrow_North_CFCF.svg'
               rotation: '${rotation}'
         - !columns
+          absoluteX: 675
+          absoluteY: 430
+          width: 40
+          items:
+            - !image
+              maxWidth: 100
+              maxHeight: 100
+              url: 'file://${configDir}/logo-geonode.png'
+        - !columns
+          config:
+            borderWidth: 0
+            cells:
+              - borderWidth: 0
+                borderWidthLeft: 1
+                borderColor: white
+                padding: 2
           absoluteX: 30
-          absoluteY: 55
-          width: 782
-          widths: [140, 500, 140]
+          absoluteY: 95
+          width: 752
+          widths: [138, 485, 98]
           items:
             - !columns
+              config:
+                borderWidth: 4
+                cells:
+                  - borderWidth: 2
+                    borderWidthLeft: 1
+                    borderColor: white
+                    padding: 3
               nbColumns: 1
               items:
                 - !text
-                  width: 424
+                  width: 420
                   text: '(c) example.com'
                   fontEncoding: Cp1252
-                  fontSize: 5
+                  fontSize: 7
                   align: justified
-                  vertAlign: middle
+                  vertAlign: top
+                  spacingAfter: 2
                 - !text
-                  width: 424
+                  width: 420
                   text: '${now MM.dd.yyyy}'
                   fontEncoding: Cp1252
                   fontSize: 5
                   align: left
-                  vertAlign: middle
+                  vertAlign: bottom
             - !text
-              align: center
-              vertAlign: middle
-              fontSize: 6
+              align: justified
+              vertAlign: top
+              fontSize: 8
               text: '${comment}'
+              maxLength: 1200
             - !scalebar
               align: right
               vertAlign: middle
-              maxSize: 200
+              maxSize: 108
               type: 'bar sub'
               intervals: 5
