@@ -9,14 +9,14 @@
     <name>GeoNode GeoServer Extensions</name>
 
     <repositories>
-        <repository>
+        <!-- repository>
             <id>boundless</id>
             <name>Boundless Maven Repository</name>
             <url>http://repo.boundlessgeo.com/main</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </repository>
+        </repository -->
         <repository>
             <id>osgeo</id>
             <name>Open Source Geospatial Foundation Repository</name>
