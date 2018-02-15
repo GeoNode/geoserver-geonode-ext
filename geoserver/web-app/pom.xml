@@ -56,10 +56,10 @@
             <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-monitor-core</artifactId>
         </dependency>
-        <dependency>
+        <!-- dependency>
             <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-monitor-hibernate</artifactId>
-        </dependency>
+        </dependency -->
         <dependency>
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-status-monitoring</artifactId>
@@ -165,6 +165,14 @@
         <dependency>
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-sec-oauth2-geonode</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-sec-oauth2-google</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-sec-oauth2-github</artifactId>
         </dependency>
 
         <!-- Notification Extension -->

@@ -39,6 +39,7 @@ public class AcceptanceTest {
 
     @Test
     public void testMapRenderPNG() throws Exception {
+        // show(render("leaflet-sample.html", new ImageWriter("png")));
         show(render("basic.html", new ImageWriter("png")));
     }
 
