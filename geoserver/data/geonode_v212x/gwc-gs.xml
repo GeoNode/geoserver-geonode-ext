@@ -20,8 +20,8 @@
   </cacheConfigurations>
   <cacheLayersByDefault>true</cacheLayersByDefault>
   <cacheNonDefaultStyles>true</cacheNonDefaultStyles>
-  <metaTilingX>2</metaTilingX>
-  <metaTilingY>2</metaTilingY>
+  <metaTilingX>4</metaTilingX>
+  <metaTilingY>4</metaTilingY>
   <gutter>0</gutter>
   <defaultCachingGridSetIds>
     <string>EPSG:4326</string>
@@ -43,11 +43,6 @@
     <string>image/png8</string>
   </defaultVectorCacheFormats>
   <defaultOtherCacheFormats>
-    <string>application/json;type=utfgrid</string>
     <string>image/png</string>
-    <string>image/vnd.jpeg-png</string>
-    <string>image/jpeg</string>
-    <string>image/gif</string>
-    <string>image/png8</string>
   </defaultOtherCacheFormats>
 </GeoServerGWCConfig>
