@@ -4,14 +4,13 @@
   <className>org.geoserver.security.GeoServerRestRoleService</className>
   <adminGroup>ROLE_ADMIN</adminGroup>
   <groupAdminGroup>ROLE_ADMIN</groupAdminGroup>
-  <!-- GeoNode Base URL -->
   <baseUrl>http://localhost:8000</baseUrl>
   <rolesRESTEndpoint>/api/roles</rolesRESTEndpoint>
   <adminRoleRESTEndpoint>/api/adminRole</adminRoleRESTEndpoint>
   <usersRESTEndpoint>/api/users</usersRESTEndpoint>
   <rolesJSONPath>$.groups</rolesJSONPath>
   <adminRoleJSONPath>$.adminRole</adminRoleJSONPath>
-  <usersJSONPath>$.users[?(@.username=='${username}')].groups</usersJSONPath>
+  <usersJSONPath>$.users[?(@.username==&apos;${username}&apos;)].groups</usersJSONPath>
   <cacheConcurrencyLevel>4</cacheConcurrencyLevel>
   <cacheMaximumSize>60000</cacheMaximumSize>
   <cacheExpirationTime>60000</cacheExpirationTime>

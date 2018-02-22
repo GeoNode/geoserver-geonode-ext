@@ -4,13 +4,11 @@
   <name>My GeoServer WFS</name>
   <title>My GeoServer WFS</title>
   <maintainer>http://jira.codehaus.org/secure/BrowseProject.jspa?id=10311</maintainer>
-  <abstrct>
-This is a description of your Web Feature Server.
-
-The GeoServer is a full transactional Web Feature Server, you may wish to limit
-GeoServer to a Basic service level to prevent modificaiton of your geographic
-data.
-     </abstrct>
+  <abstrct>This is a description of your Web Feature Server.&#xd;
+&#xd;
+The GeoServer is a full transactional Web Feature Server, you may wish to limit&#xd;
+GeoServer to a Basic service level to prevent modificaiton of your geographic&#xd;
+data.</abstrct>
   <accessConstraints>NONE</accessConstraints>
   <fees>NONE</fees>
   <versions>
@@ -34,6 +32,9 @@ data.
   <onlineResource>http://geoserver.sourceforge.net/html/index.php</onlineResource>
   <schemaBaseURL>http://schemas.opengis.net</schemaBaseURL>
   <verbose>false</verbose>
+  <metadata>
+    <entry key="SHAPE-ZIP_DEFAULT_PRJ_IS_ESRI">false</entry>
+  </metadata>
   <gml>
     <entry>
       <version>V_20</version>
