@@ -44,4 +44,5 @@
   <xmlPostRequestLogBufferSize>1024</xmlPostRequestLogBufferSize>
   <xmlExternalEntitiesEnabled>false</xmlExternalEntitiesEnabled>
   <webUIMode>DEFAULT</webUIMode>
+  <resourceErrorHandling>SKIP_MISCONFIGURED_LAYERS</resourceErrorHandling>
 </global>
