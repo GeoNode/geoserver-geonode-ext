@@ -27,6 +27,17 @@
     <filters name="gwc" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="restInterceptor" exceptionTranslationName="exception" path="/gwc/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
       <filter>basic</filter>
       <filter>geonode-oauth2</filter>
+      <filter>anonymous</filter>
+    </filters>
+    <filters name="geofence-rest" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="restInterceptor" exceptionTranslationName="exception" path="/geofence/rest/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
+      <filter>basic</filter>
+      <filter>geonode-oauth2</filter>
+      <filter>anonymous</filter>
+    </filters>
+    <filters name="geofence" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="interceptor" exceptionTranslationName="exception" path="/geofence/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
+      <filter>basic</filter>
+      <filter>geonode-oauth2</filter>
+      <filter>anonymous</filter>
     </filters>
     <filters name="default" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="interceptor" exceptionTranslationName="exception" path="/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
       <filter>basic</filter>
