@@ -62,7 +62,6 @@
                 <include>org.springframework.batch:spring-batch-integration</include>
                 <include>org.springframework.batch:spring-batch-test</include>
                 <include>org.hamcrest:hamcrest-library</include>
-                <include>commons-fileupload:commons-fileupload</include>
                 <include>org.jyaml:jyaml</include>
                 <include>com.github.oshi:oshi-core</include>
                 <include>net.java.dev.jna:jna-platform</include>
@@ -134,8 +133,20 @@
                 <include>com.codahale.metrics:metrics-log4j</include>
                 <include>org.apache.httpcomponents:httpclient</include>
                 <include>org.apache.httpcomponents:httpcore</include>
-                <include>commons-logging:commons-logging</include>
+                <include>commons-beanutils:commons-beanutils</include>
+                <include>commons-codec</include>
+                <include>commons-collections</include>
+                <include>commons-collections4</include>
+                <include>commons-dbcp</include>
+                <include>commons-exec</include>
+                <include>commons-fileupload:commons-fileupload</include>
+                <include>commons-httpclient</include>
                 <include>commons-io:commons-io</include>
+                <include>commons-jxpath</include>
+                <include>commons-lang</include>
+                <include>commons-logging:commons-logging</include>
+                <include>commons-pool</include>
+                <include>commons-vfs2</include>
                 <include>com.google.guava:guava</include>
                 <include>org.ccil.cowan.tagsoup:tagsoup</include>
                 <include>com.github.virtuald:curvesapi</include>
