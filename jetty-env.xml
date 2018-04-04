@@ -6,7 +6,7 @@
 	<!-- Add an EnvEntry only valid for this webapp -->
 	<New id="geofence_dir" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>geofence.dir</Arg>
-		<Arg type="java.lang.String">data/geonode_v212x/geofence/</Arg>
+		<Arg type="java.lang.String">data/geonode_v213x/geofence/</Arg>
 	</New>
 							
 	<New id="geofence-ovr" class="org.eclipse.jetty.plus.jndi.EnvEntry">
@@ -17,7 +17,7 @@
 	<!-- Add an override for a global EnvEntry -->
 	<New id="GEOSERVER_DATA_DIR" class="org.eclipse.jetty.plus.jndi.EnvEntry">
 		<Arg>GEOSERVER_DATA_DIR</Arg>
-		<Arg type="java.lang.Double">data/geonode_v212x</Arg>
+		<Arg type="java.lang.Double">data/geonode_v213x</Arg>
 	</New>
 
 </Configure>

@@ -5,7 +5,7 @@
     <groupId>org.opengeo</groupId>
     <artifactId>geonode-geoserver-ext</artifactId>
     <packaging>pom</packaging>
-    <version>2.12-SNAPSHOT</version>
+    <version>2.13-SNAPSHOT</version>
     <name>GeoNode GeoServer Extensions</name>
 
     <repositories>
@@ -483,10 +483,10 @@
         <jetty.version>9.2.13.v20150730</jetty.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <geoserver.data.dir>geonode_v212x</geoserver.data.dir>
-        <gt.version>18-SNAPSHOT</gt.version>
-        <gs.version>2.12-SNAPSHOT</gs.version>
-        <gs.community.version>2.12-SNAPSHOT</gs.community.version>
+        <geoserver.data.dir>geonode_v213x</geoserver.data.dir>
+        <gt.version>19-SNAPSHOT</gt.version>
+        <gs.version>2.13-SNAPSHOT</gs.version>
+        <gs.community.version>2.13-SNAPSHOT</gs.community.version>
         <gf.version>3.2-SNAPSHOT</gf.version>
         <jetty.servlet.api.version>3.1.0</jetty.servlet.api.version>
 
