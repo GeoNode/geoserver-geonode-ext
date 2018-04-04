@@ -19,6 +19,7 @@ import java.util.concurrent.ExecutorCompletionService;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,6 +41,7 @@ import org.apache.http.impl.client.BasicCookieStore;
 import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.util.EntityUtils;
 import org.geoserver.printng.api.PrintSpec;
 import org.geotools.util.logging.Logging;
 import org.w3c.dom.Element;
@@ -63,16 +65,67 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
     private final File cacheDir;
 
     private final static Logger logger = Logging.getLogger(PrintUserAgentCallback.class);
-
+    private static final int MONITOR_JOIN_TIMEOUT_MILLISECONDS = 1000;
+    private static final int MONITOR_IDLE_TIMEOUT_SECONDS = 30;
+    private static final int MAX_CONNECTIONS_PER_ROUTE = 40;
+    private static final int MAX_CONNECTIONS_TOTAL = 500;
+    
+    /**
+     * Monitor to manage old connections in the shared, static Http Connection Pool.
+     * Implementation inspired by the blog post at http://www.baeldung.com/httpclient-connection-management
+     */
+    private static class IdleConnectionMonitorThread extends Thread {
+        private final PoolingHttpClientConnectionManager connMgr;
+        private volatile boolean shutdown = false;
+        
+        public IdleConnectionMonitorThread(PoolingHttpClientConnectionManager connMgr) {
+            super();
+            this.connMgr = connMgr;
+        }
+        @Override
+        public void run() {
+            try {
+                while (!this.shutdown){
+                    synchronized (this) {
+                        wait(MONITOR_IDLE_TIMEOUT_SECONDS * 2 * 1000);
+                        this.connMgr.closeExpiredConnections();
+                        this.connMgr.closeIdleConnections(MONITOR_IDLE_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+                        logger.fine(this.connMgr.getTotalStats().toString());
+                    }                   
+                }
+            } catch(InterruptedException ex) {
+                shutdown();
+            }
+        }
+        public void shutdown() {
+            this.shutdown = true;
+            synchronized(this) {
+                notifyAll();
+                logger.info("Shutting down the " + PrintUserAgentCallback.class + " Http Connection Pool");
+                this.connMgr.shutdown();
+                this.connMgr.close();
+            }
+        }
+    }
+    
+    
     private final static HttpClient httpClient;
 
     static {
         final PoolingHttpClientConnectionManager connMgr = new PoolingHttpClientConnectionManager();
-        connMgr.setDefaultMaxPerRoute(40);
-        connMgr.setMaxTotal(500);
+        connMgr.setDefaultMaxPerRoute(MAX_CONNECTIONS_PER_ROUTE);
+        connMgr.setMaxTotal(MAX_CONNECTIONS_TOTAL);
 
-        httpClient = HttpClientBuilder.create().setConnectionManager(connMgr).useSystemProperties()
-                .build();
+        httpClient = HttpClientBuilder.create().setConnectionManager(connMgr).useSystemProperties().build();
+        
+        IdleConnectionMonitorThread staleMonitor = new IdleConnectionMonitorThread(connMgr);
+        staleMonitor.start();
+        try {
+            staleMonitor.join(MONITOR_JOIN_TIMEOUT_MILLISECONDS);
+        }
+        catch(InterruptedException ex) {
+            logger.log(Level.WARNING, "Unexpected interruption during connection pool monitor setup" , ex);
+        }
     }
 
     public PrintUserAgentCallback(PrintSpec spec, UserAgentCallback callback) {
@@ -137,17 +190,6 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
     }
 
     public void preload() throws IOException {
-        try {
-            doPreload();
-        } finally {
-            // closing connection objects not good enough, need to shutdown
-            // pool to release sockets. due to the lifecycle of returned input
-            // streams, this is not possible on a per URL-resolution basis
-            // connections.shutdown();
-        }
-    }
-
-    public void doPreload() throws IOException {
         MessageDigest digest;
         try {
             digest = MessageDigest.getInstance("SHA-256");
@@ -183,38 +225,42 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
         }
         if (!imagesToResolve.isEmpty()) {
             ExecutorService threadPool = Executors.newFixedThreadPool(2);
-            ExecutorCompletionService<File> executor = new ExecutorCompletionService<File>(threadPool);
-            List<Future<File>> futures = new ArrayList<Future<File>>(imagesToResolve.size());
-            for (int i = 0; i < imagesToResolve.size(); i++) {
-                final String href = imagesToResolve.get(i);
-                final File dest = cacheDestination.get(i);
-                futures.add(executor.submit(new Callable<File>() {
-                    public File call() throws Exception {
-                        return resolve(href, dest);
-                    }
-                }));
-            }
-            for (int i = 0; i < futures.size(); i++) {
-                String resource = imagesToResolve.get(i);
-                File result = null;
-                try {
-                    result = futures.get(i).get();
-                } catch (InterruptedException ex) {
-                    // this shouldn't happen, but could
-                    break;
-                } catch (ExecutionException ex) {
-                    // the execution exception just wraps the original
-                    throw new RuntimeException("Error resolving image resource " + resource, ex.getCause());
+            try {
+                ExecutorCompletionService<File> executor = new ExecutorCompletionService<File>(threadPool);
+                List<Future<File>> futures = new ArrayList<Future<File>>(imagesToResolve.size());
+                for (int i = 0; i < imagesToResolve.size(); i++) {
+                    final String href = imagesToResolve.get(i);
+                    final File dest = cacheDestination.get(i);
+                    futures.add(executor.submit(new Callable<File>() {
+                        public File call() throws Exception {
+                            return resolve(href, dest);
+                        }
+                    }));
                 }
-                if (result != null) {
+                for (int i = 0; i < futures.size(); i++) {
+                    String resource = imagesToResolve.get(i);
+                    File result = null;
                     try {
-                        cache(resource, callback.getImageResource(result.toURI().toString()));
-                    } catch (Exception ex) {
-                        throw new RuntimeException("Error reading resource " + resource, ex);
+                        result = futures.get(i).get();
+                    } catch (InterruptedException ex) {
+                        // this shouldn't happen, but could
+                        break;
+                    } catch (ExecutionException ex) {
+                        // the execution exception just wraps the original
+                        throw new RuntimeException("Error resolving image resource " + resource, ex.getCause());
+                    }
+                    if (result != null) {
+                        try {
+                            cache(resource, callback.getImageResource(result.toURI().toString()));
+                        } catch (Exception ex) {
+                            throw new RuntimeException("Error reading resource " + resource, ex);
+                        }
                     }
                 }
             }
-            threadPool.shutdown();
+            finally {
+                threadPool.shutdown();
+            }
         }
     }
     
@@ -230,8 +276,6 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
             }
         } catch (Exception ex) {
             logger.log(Level.WARNING, "Error resolving : " + uriSpec, ex);
-        } finally {
-            httpClient.getConnectionManager().shutdown();
         }
         return is;
     }
@@ -283,9 +327,10 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
         if (response.getStatusLine().getStatusCode() == 200) {
             is = response.getEntity().getContent();
         } else {
-            logger.warning("Error fetching : " + uri + ", status is : "
-                    + response.getStatusLine().getStatusCode());
-            logger.log(Level.FINE, "Response : {0}", response.getEntity());
+            logger.warning("Error fetching : " + uri + ", status is : " + response.getStatusLine().getStatusCode());
+            if (response.getEntity() != null) {
+                logger.log(Level.FINE, "Response : {0}", EntityUtils.toString(response.getEntity()));
+            }
         }
         return is;
     }
