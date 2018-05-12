@@ -7,8 +7,8 @@
 		<genericProcessor>
 			<geonodeEncoder />
 			<topicSender>
-				<username></username>
-				<password></password>
+				<username>guest</username>
+				<password>guest</password>
 				<host>localhost</host>
 				<port>5672</port>
 				<virtualHost>/</virtualHost>
@@ -24,8 +24,8 @@
 		<genericProcessor>
 			<geonodeEncoder />
 			<topicSender>
-				<username></username>
-				<password></password>
+				<username>guest</username>
+				<password>guest</password>
 				<host>localhost</host>
 				<port>5672</port>
 				<virtualHost>/</virtualHost>
