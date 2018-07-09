@@ -40,8 +40,8 @@
       <filter>anonymous</filter>
     </filters>
     <filters name="default" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="interceptor" exceptionTranslationName="exception" path="/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
-      <filter>basic</filter>
       <filter>geonode-oauth2</filter>
+      <filter>basic</filter>
       <filter>anonymous</filter>
     </filters>
   </filterChain>
