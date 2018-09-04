@@ -43,13 +43,24 @@
                 <include>org.geoserver.community:gs-dyndimension</include>
                 <include>org.geoserver.extension:gs-css</include>
                 <include>org.geoserver.extension:gs-ysld</include>
+                <include>org.geowebcache:gwc-core</include>
+                <include>org.geowebcache:gwc-georss</include>
+                <include>org.geowebcache:gwc-gmaps</include>
+                <include>org.geowebcache:gwc-kml</include>
+                <include>org.geowebcache:gwc-rest</include>
+                <include>org.geowebcache:gwc-tms</include>
+                <include>org.geowebcache:gwc-ve</include>
+                <include>org.geowebcache:gwc-wms</include>
+                <include>org.geowebcache:gwc-wmts</include>
+                <include>org.geowebcache:gwc-diskquota-jdbc</include>
+                <include>org.geowebcache:gwc-aws-s3</include>
                 <include>org.geonode.print:mapfish-print-lib</include>
                 <include>org.ccil.cowan.tagsoup:tagsoup</include>
                 <include>org.apache.pdfbox:pdfbox</include>
                 <include>org.apache.pdfbox:fontbox</include>
                 <include>org.apache.pdfbox:jempbox</include>
                 <include>org.jyaml:jyaml</include>
-                <include>com.vividsolutions:jts</include>
+                <include>org.locationtech:jts</include>
                 <include>org.mapfish.geo:mapfish-geo-lib</include>
                 <include>com.itextpdf:itextpdf</include>
                 <include>com.lowagie:itext</include>

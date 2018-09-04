@@ -6,8 +6,8 @@ import junit.framework.TestCase;
 import net.sf.json.JSONObject;
 import net.sf.json.test.JSONAssert;
 
-import com.vividsolutions.jts.geom.Geometry;
-import com.vividsolutions.jts.io.WKTReader;
+import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.io.WKTReader;
 
 /**
  * Unit test suite for the {@link GeoJSONSerializer} that exercises writing GeoJSON objects as
