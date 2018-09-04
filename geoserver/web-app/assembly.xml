@@ -62,6 +62,7 @@
                 <include>org.jyaml:jyaml</include>
                 <include>org.locationtech:jts</include>
                 <include>org.mapfish.geo:mapfish-geo-lib</include>
+                <include>cglib:cglib-nodep</include>
                 <include>com.itextpdf:itextpdf</include>
                 <include>com.lowagie:itext</include>
                 <include>org.opengeo:geodb</include>
