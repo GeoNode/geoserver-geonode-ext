@@ -19,17 +19,17 @@
     <filters name="webLogout" class="org.geoserver.security.LogoutFilterChain" path="/j_spring_security_logout,/j_spring_security_logout/,/j_spring_oauth2_geonode_logout,/j_spring_oauth2_geonode_logout/" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
       <filter>formLogout</filter>
     </filters>
+    <filters name="geofence-rest" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="restInterceptor" exceptionTranslationName="exception" path="/rest/geofence/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
+      <filter>basic</filter>
+      <filter>geonode-oauth2</filter>
+      <filter>anonymous</filter>
+    </filters>
     <filters name="rest" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="restInterceptor" exceptionTranslationName="exception" path="/rest/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
       <filter>basic</filter>
       <filter>geonode-oauth2</filter>
       <filter>anonymous</filter>
     </filters>
     <filters name="gwc" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="restInterceptor" exceptionTranslationName="exception" path="/gwc/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
-      <filter>basic</filter>
-      <filter>geonode-oauth2</filter>
-      <filter>anonymous</filter>
-    </filters>
-    <filters name="geofence-rest" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="restInterceptor" exceptionTranslationName="exception" path="/geofence/rest/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
       <filter>basic</filter>
       <filter>geonode-oauth2</filter>
       <filter>anonymous</filter>
