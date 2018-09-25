@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class ParsedDocumentTest {
 
-    @Test
+    /* @Test
     public void testParseWithTagSoup() throws IOException {
         String input = "<div>foobar</div>";
         ParsedDocument parser = ParsedDocument.parse(input);
@@ -23,7 +23,7 @@ public class ParsedDocumentTest {
         String result = stringWriter.getBuffer().toString();
         String exp = "<?xml version=\"1.0\"?>\n<html><body><div>foobar</div></body></html>";
         assertEquals("Invalid document parse", exp, result);
-    }
+    } */
 
     @Test
     public void testParseNoTagSoup() throws IOException {
