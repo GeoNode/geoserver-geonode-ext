@@ -32,14 +32,14 @@
             <id>JBoss repo</id>
             <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
         </repository>
-        <repository>
+        <!-- repository>
             <id>geosolutions</id>
             <name>geosolutions repository</name>
             <url>http://maven.geo-solutions.it/</url>
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
-        </repository>
+        </repository -->
         <repository>
             <id>repo.locationtech.org</id>
             <name>GeoGig Repository</name>
