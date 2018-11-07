@@ -513,6 +513,10 @@
                         <groupId>cglib</groupId>
                         <artifactId>cglib</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>asm</groupId>
+                        <artifactId>asm</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
