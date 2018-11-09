@@ -5,7 +5,7 @@
  */
 package org.geoserver.filters;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -20,7 +20,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 
 import org.junit.Test;
-
 import org.springframework.mock.web.MockHttpServletResponse;
 
 public class GZIPResponseStreamTest  {

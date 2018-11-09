@@ -8,10 +8,10 @@ import org.geonode.process.storage.Folder;
 import org.geonode.process.storage.Resource;
 import org.geonode.process.storage.StorageManager;
 import org.geotools.data.Parameter;
+import org.geotools.data.util.NullProgressListener;
 import org.geotools.process.Process;
 import org.geotools.process.ProcessException;
 import org.geotools.text.Text;
-import org.geotools.util.NullProgressListener;
 import org.geotools.util.logging.Logging;
 import org.opengis.util.ProgressListener;
 

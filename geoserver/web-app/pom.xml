@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.opengeo</groupId>
         <artifactId>geonode-geoserver-ext</artifactId>
-        <version>2.14-SNAPSHOT</version>
+        <version>2.15-SNAPSHOT</version>
     </parent>
     <groupId>org.opengeo</groupId>
     <artifactId>geonode-geoserver-ext-web-app</artifactId>
@@ -97,7 +97,7 @@
             <artifactId>gs-backup-restore-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.geoserver.community</groupId>
+            <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-sldservice</artifactId>
         </dependency>
 
@@ -210,7 +210,7 @@
 
         <!-- GeoFence Dependencies -->
         <dependency>
-            <groupId>org.geoserver.community</groupId>
+            <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-geofence-server</artifactId>
             <exclusions>
                 <exclusion>

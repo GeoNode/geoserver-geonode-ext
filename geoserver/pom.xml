@@ -5,7 +5,7 @@
     <groupId>org.opengeo</groupId>
     <artifactId>geonode-geoserver-ext</artifactId>
     <packaging>pom</packaging>
-    <version>2.14-SNAPSHOT</version>
+    <version>2.15-SNAPSHOT</version>
     <name>GeoNode GeoServer Extensions</name>
 
     <repositories>
@@ -171,9 +171,9 @@
                 <version>${gs.community.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.geoserver.community</groupId>
+                <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-sldservice</artifactId>
-                <version>${gs.community.version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <!-- hibernate dependencies -->
@@ -496,12 +496,12 @@
 
             <!-- GeoFence Dependencies -->
             <dependency>
-                <groupId>org.geoserver.community</groupId>
+                <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-geofence</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.geoserver.community</groupId>
+                <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-geofence-server</artifactId>
                 <version>${project.version}</version>
                 <exclusions>
@@ -678,7 +678,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>${servlet-api.version}</version>
+                <version>${jetty.servlet-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>oro</groupId>
@@ -877,16 +877,17 @@
     </dependencyManagement>
 
     <properties>
-        <geoserver.data.dir>geonode_v214x</geoserver.data.dir>
+        <geoserver.data.dir>geonode_v215x</geoserver.data.dir>
 
-        <servlet-api.version>3.1.0</servlet-api.version>
-        <jetty.version>9.2.13.v20150730</jetty.version>
+        <servlet-api.version>3.0.1</servlet-api.version>
+        <jetty.version>9.4.12.v20180830</jetty.version>
+        <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <gt.version>20-SNAPSHOT</gt.version>
-        <gs.version>2.14-SNAPSHOT</gs.version>
-        <gs.community.version>2.14-SNAPSHOT</gs.community.version>
-        <gwc.version>1.14-SNAPSHOT</gwc.version>
+        <gt.version>21-SNAPSHOT</gt.version>
+        <gs.version>2.15-SNAPSHOT</gs.version>
+        <gs.community.version>2.15-SNAPSHOT</gs.community.version>
+        <gwc.version>1.15-SNAPSHOT</gwc.version>
         <jts.version>1.16.0</jts.version>
         <gf.version>3.4.2</gf.version>
         <geodb.version>0.9</geodb.version>
@@ -898,8 +899,8 @@
         <hibernate-spatial-version>1.1.3.1</hibernate-spatial-version>
         <hibernate-spatial-h2-version>1.1.3.1</hibernate-spatial-h2-version>
         <c3p0.version>0.9.0.4</c3p0.version>
-        <spring.version>4.3.18.RELEASE</spring.version>
-        <spring.security.version>4.2.7.RELEASE</spring.security.version>
+        <spring.version>5.1.1.RELEASE</spring.version>
+        <spring.security.version>5.1.1.RELEASE</spring.security.version>
         <spring-security-oauth2.version>2.0.11.RELEASE</spring-security-oauth2.version>
         <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
         <gson.version>2.3.1</gson.version>
