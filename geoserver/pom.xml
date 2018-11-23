@@ -83,6 +83,12 @@
                 <groupId>org.opengeo</groupId>
                 <artifactId>geonode-geoserver-ext-printng</artifactId>
                 <version>${gs.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.xmlgraphics</groupId>
+                        <artifactId>batik-transcoder</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.opengeo</groupId>
@@ -322,6 +328,10 @@
                     <exclusion>
                         <groupId>commons-httpclient</groupId>
                         <artifactId>commons-httpclient</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.xmlgraphics</groupId>
+                        <artifactId>batik-transcoder</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>

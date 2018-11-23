@@ -2,29 +2,29 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] GeoNode GeoServer Extensions
-[INFO] Extensions
-[INFO] GeoServer Printing Extension
-[INFO] GeoNode Geoserver Ext BatchDownload Process
-[INFO] Web Application (WAR)
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building GeoNode GeoServer Extensions 2.14-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
+[INFO] GeoNode GeoServer Extensions                                       [pom]
+[INFO] Extensions                                                         [pom]
+[INFO] GeoServer Printing Extension                                       [jar]
+[INFO] GeoNode Geoserver Ext BatchDownload Process                        [jar]
+[INFO] Web Application (WAR)                                              [jar]
+[INFO] 
+[INFO] -----------------< org.opengeo:geonode-geoserver-ext >------------------
+[INFO] Building GeoNode GeoServer Extensions 2.14-SNAPSHOT                [1/5]
+[INFO] --------------------------------[ pom ]---------------------------------
 [INFO] 
 [INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext ---
 [INFO] org.opengeo:geonode-geoserver-ext:pom:2.14-SNAPSHOT
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building Extensions 2.14-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] ------------< org.opengeo:geonode-geoserver-ext-extensions >------------
+[INFO] Building Extensions 2.14-SNAPSHOT                                  [2/5]
+[INFO] --------------------------------[ pom ]---------------------------------
 [INFO] 
 [INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext-extensions ---
 [INFO] org.opengeo:geonode-geoserver-ext-extensions:pom:2.14-SNAPSHOT
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building GeoServer Printing Extension 2.14-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] -------------< org.opengeo:geonode-geoserver-ext-printng >--------------
+[INFO] Building GeoServer Printing Extension 2.14-SNAPSHOT                [3/5]
+[INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext-printng ---
 [INFO] org.opengeo:geonode-geoserver-ext-printng:jar:2.14-SNAPSHOT
@@ -60,38 +60,38 @@
 [INFO] |  |  |  \- it.geosolutions.imageio-ext:imageio-ext-utilities:jar:1.1.27:compile
 [INFO] |  |  +- org.jaitools:jt-zonalstats:jar:1.5.0:compile
 [INFO] |  |  +- org.jaitools:jt-utils:jar:1.5.0:compile
-[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.2:compile
-[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.2:compile
+[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.3:compile
+[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.3:compile
 [INFO] |  +- org.geotools:gt-data:jar:20-SNAPSHOT:provided
 [INFO] |  +- org.geotools:gt-jdbc:jar:20-SNAPSHOT:provided
 [INFO] |  |  \- commons-dbcp:commons-dbcp:jar:1.4:provided
@@ -119,7 +119,7 @@
 [INFO] |  +- com.thoughtworks.xstream:xstream:jar:1.4.10:provided
 [INFO] |  |  \- xmlpull:xmlpull:jar:1.1.3.1:provided
 [INFO] |  +- com.google.code.findbugs:jsr305:jar:2.0.3:compile
-[INFO] |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.2:provided
+[INFO] |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.3:provided
 [INFO] |  +- org.geotools:gt-imagemosaic:jar:20-SNAPSHOT:provided
 [INFO] |  |  +- org.geotools:gt-shapefile:jar:20-SNAPSHOT:provided
 [INFO] |  |  +- org.geotools:gt-geotiff:jar:20-SNAPSHOT:provided
@@ -177,28 +177,8 @@
 [INFO] |  +- org.apache.pdfbox:pdfbox:jar:1.6.0:compile
 [INFO] |  |  +- org.apache.pdfbox:fontbox:jar:1.6.0:compile
 [INFO] |  |  \- org.apache.pdfbox:jempbox:jar:1.6.0:compile
-[INFO] |  +- org.apache.xmlgraphics:batik-transcoder:jar:1.7:compile
-[INFO] |  |  +- org.apache.xmlgraphics:fop:jar:0.94:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:xmlgraphics-commons:jar:1.2:compile
-[INFO] |  |  |  +- org.apache.avalon.framework:avalon-framework-api:jar:4.3.1:compile
-[INFO] |  |  |  \- org.apache.avalon.framework:avalon-framework-impl:jar:4.3.1:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-awt-util:jar:1.7:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-bridge:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-anim:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-css:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-ext:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-parser:jar:1.7:compile
-[INFO] |  |  |  \- org.apache.xmlgraphics:batik-script:jar:1.7:compile
-[INFO] |  |  |     \- org.apache.xmlgraphics:batik-js:jar:1.7:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-dom:jar:1.7:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-gvt:jar:1.7:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-svg-dom:jar:1.7:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-svggen:jar:1.7:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-util:jar:1.7:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-xml:jar:1.7:compile
-[INFO] |  |  +- xml-apis:xml-apis:jar:1.4.01:compile
-[INFO] |  |  \- xml-apis:xml-apis-ext:jar:1.3.04:compile
 [INFO] |  +- xerces:xercesImpl:jar:2.11.0:compile
+[INFO] |  |  \- xml-apis:xml-apis:jar:1.4.01:compile
 [INFO] |  +- com.itextpdf:itextpdf:jar:5.4.4:compile
 [INFO] |  +- org.json:json:jar:20080701:compile
 [INFO] |  +- org.springframework:spring-web:jar:4.3.18.RELEASE:compile
@@ -243,10 +223,10 @@
 [INFO] |  \- org.objenesis:objenesis:jar:1.2:test
 [INFO] +- org.easymock:easymockclassextension:jar:2.5.2:test
 [INFO] \- javax.servlet:javax.servlet-api:jar:3.1.0:provided
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building GeoNode Geoserver Ext BatchDownload Process 2.14-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --------< org.opengeo:geonode-geoserver-ext-wps-batchdownload >---------
+[INFO] Building GeoNode Geoserver Ext BatchDownload Process 2.14-SNAPSHOT [4/5]
+[INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext-wps-batchdownload ---
 [INFO] org.opengeo:geonode-geoserver-ext-wps-batchdownload:jar:2.14-SNAPSHOT
@@ -297,38 +277,38 @@
 [INFO] |  |  |  \- it.geosolutions.imageio-ext:imageio-ext-utilities:jar:1.1.27:compile
 [INFO] |  |  +- org.jaitools:jt-zonalstats:jar:1.5.0:compile
 [INFO] |  |  +- org.jaitools:jt-utils:jar:1.5.0:compile
-[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.2:compile
-[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.2:compile
+[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.3:compile
+[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.3:compile
 [INFO] |  +- org.geotools:gt-data:jar:20-SNAPSHOT:compile
 [INFO] |  +- org.geotools:gt-jdbc:jar:20-SNAPSHOT:compile
 [INFO] |  +- org.geotools:gt-wfs-ng:jar:20-SNAPSHOT:compile
@@ -366,7 +346,7 @@
 [INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
 [INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
 [INFO] |  +- com.google.code.findbugs:jsr305:jar:2.0.3:compile
-[INFO] |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.2:compile
+[INFO] |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.3:compile
 [INFO] |  +- org.geotools:gt-imagemosaic:jar:20-SNAPSHOT:compile
 [INFO] |  |  +- org.geotools:gt-shapefile:jar:20-SNAPSHOT:compile
 [INFO] |  |  +- org.geotools:gt-transform:jar:20-SNAPSHOT:compile
@@ -426,8 +406,8 @@
 [INFO] |  |  +- org.jaitools:jt-contour:jar:1.5.0:compile
 [INFO] |  |  |  \- org.jaitools:jt-attributeop:jar:1.5.0:compile
 [INFO] |  |  +- org.jaitools:jt-vectorize:jar:1.5.0:compile
-[INFO] |  |  \- it.geosolutions.jaiext.jiffle:jt-jiffle-op:jar:1.1.2:compile
-[INFO] |  |     \- it.geosolutions.jaiext.jiffle:jt-jiffle-language:jar:1.1.2:compile
+[INFO] |  |  \- it.geosolutions.jaiext.jiffle:jt-jiffle-op:jar:1.1.3:compile
+[INFO] |  |     \- it.geosolutions.jaiext.jiffle:jt-jiffle-language:jar:1.1.3:compile
 [INFO] |  |        +- org.antlr:antlr4-runtime:jar:4.7.1:compile
 [INFO] |  |        \- org.codehaus.janino:janino:jar:3.0.8:compile
 [INFO] |  |           \- org.codehaus.janino:commons-compiler:jar:3.0.8:compile
@@ -456,10 +436,10 @@
 [INFO] +- junit:junit:jar:4.11:test
 [INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
 [INFO] \- xmlunit:xmlunit:jar:1.3:compile
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building Web Application (WAR) 2.14-SNAPSHOT
-[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] -------------< org.opengeo:geonode-geoserver-ext-web-app >--------------
+[INFO] Building Web Application (WAR) 2.14-SNAPSHOT                       [5/5]
+[INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext-web-app ---
 [INFO] org.opengeo:geonode-geoserver-ext-web-app:jar:2.14-SNAPSHOT
@@ -493,26 +473,6 @@
 [INFO] |  |  |  +- org.apache.pdfbox:fontbox:jar:1.6.0:compile
 [INFO] |  |  |  \- org.apache.pdfbox:jempbox:jar:1.6.0:compile
 [INFO] |  |  +- javax.media:jai_imageio:jar:1.1:compile
-[INFO] |  |  +- org.apache.xmlgraphics:batik-transcoder:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:fop:jar:0.94:compile
-[INFO] |  |  |  |  +- org.apache.xmlgraphics:xmlgraphics-commons:jar:1.2:compile
-[INFO] |  |  |  |  +- org.apache.avalon.framework:avalon-framework-api:jar:4.3.1:compile
-[INFO] |  |  |  |  \- org.apache.avalon.framework:avalon-framework-impl:jar:4.3.1:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-awt-util:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-bridge:jar:1.7:compile
-[INFO] |  |  |  |  +- org.apache.xmlgraphics:batik-anim:jar:1.7:compile
-[INFO] |  |  |  |  +- org.apache.xmlgraphics:batik-css:jar:1.7:compile
-[INFO] |  |  |  |  +- org.apache.xmlgraphics:batik-ext:jar:1.7:compile
-[INFO] |  |  |  |  +- org.apache.xmlgraphics:batik-parser:jar:1.7:compile
-[INFO] |  |  |  |  \- org.apache.xmlgraphics:batik-script:jar:1.7:compile
-[INFO] |  |  |  |     \- org.apache.xmlgraphics:batik-js:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-dom:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-gvt:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-svg-dom:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-svggen:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-util:jar:1.7:compile
-[INFO] |  |  |  +- org.apache.xmlgraphics:batik-xml:jar:1.7:compile
-[INFO] |  |  |  \- xml-apis:xml-apis-ext:jar:1.3.04:compile
 [INFO] |  |  +- com.itextpdf:itextpdf:jar:5.4.4:compile
 [INFO] |  |  +- org.json:json:jar:20080701:compile
 [INFO] |  |  +- xalan:xalan:jar:2.7.0:compile
@@ -553,7 +513,7 @@
 [INFO] |  |  +- org.geotools:gt-wms:jar:20-SNAPSHOT:compile
 [INFO] |  |  +- org.springframework:spring-aop:jar:4.3.18.RELEASE:compile
 [INFO] |  |  +- org.springframework:spring-jdbc:jar:4.3.18.RELEASE:compile
-[INFO] |  |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.2:compile
+[INFO] |  |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.3:compile
 [INFO] |  |  +- org.jasypt:jasypt:jar:1.9.2:compile
 [INFO] |  |  +- org.jasypt:jasypt-springsecurity3:jar:1.9.2:compile
 [INFO] |  |  +- org.bouncycastle:bcprov-jdk15on:jar:1.60:compile
@@ -566,6 +526,24 @@
 [INFO] |  |        \- org.geotools.ogc:net.opengis.wmts:jar:20-SNAPSHOT:compile
 [INFO] |  +- org.geoserver:gs-wms:jar:2.14-SNAPSHOT:compile
 [INFO] |  |  +- org.geotools:gt-svg:jar:20-SNAPSHOT:compile
+[INFO] |  |  |  \- org.apache.xmlgraphics:batik-transcoder:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-anim:jar:1.10:compile
+[INFO] |  |  |     |  +- org.apache.xmlgraphics:batik-css:jar:1.10:compile
+[INFO] |  |  |     |  +- org.apache.xmlgraphics:batik-ext:jar:1.10:compile
+[INFO] |  |  |     |  +- org.apache.xmlgraphics:batik-parser:jar:1.10:compile
+[INFO] |  |  |     |  \- org.apache.xmlgraphics:batik-svg-dom:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-awt-util:jar:1.10:compile
+[INFO] |  |  |     |  \- org.apache.xmlgraphics:xmlgraphics-commons:jar:2.2:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-bridge:jar:1.10:compile
+[INFO] |  |  |     |  \- org.apache.xmlgraphics:batik-script:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-dom:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-gvt:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-svggen:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-util:jar:1.10:compile
+[INFO] |  |  |     |  +- org.apache.xmlgraphics:batik-constants:jar:1.10:compile
+[INFO] |  |  |     |  \- org.apache.xmlgraphics:batik-i18n:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-xml:jar:1.10:compile
+[INFO] |  |  |     \- xml-apis:xml-apis-ext:jar:1.3.04:compile
 [INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-png:jar:1.1.27:compile
 [INFO] |  |  +- ar.com.hjg:pngj:jar:2.0.1:compile
 [INFO] |  |  \- org.springframework:spring-context-support:jar:4.3.18.RELEASE:compile
@@ -657,7 +635,7 @@
 [INFO] |  \- org.geotools:gt-main:jar:20-SNAPSHOT:compile
 [INFO] +- org.geoserver:gs-gwc:jar:2.14-SNAPSHOT:compile
 [INFO] |  +- org.geowebcache:gwc-core:jar:1.14-SNAPSHOT:compile
-[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.2:compile
+[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.3:compile
 [INFO] |  |  \- org.owasp.encoder:encoder:jar:1.1:compile
 [INFO] |  +- org.geowebcache:gwc-georss:jar:1.14-SNAPSHOT:compile
 [INFO] |  |  +- stax:stax-api:jar:1.0.1:compile
@@ -745,6 +723,7 @@
 [INFO] |  \- xom:xom:jar:1.1:compile
 [INFO] |     +- xerces:xmlParserAPIs:jar:2.6.2:compile
 [INFO] |     \- jaxen:jaxen:jar:1.1-beta-8:compile
+[INFO] +- org.geoserver.community:gs-wmts-multi-dimensional:jar:2.14-SNAPSHOT:compile
 [INFO] +- org.geoserver.extension:gs-printing:jar:2.14-SNAPSHOT:compile
 [INFO] |  \- xml-apis:xml-apis-xerces:jar:2.7.1:compile
 [INFO] +- org.geoserver.extension:gs-web-wps:jar:2.14-SNAPSHOT:compile
@@ -818,8 +797,8 @@
 [INFO] |  |  +- org.jaitools:jt-contour:jar:1.5.0:compile
 [INFO] |  |  |  \- org.jaitools:jt-attributeop:jar:1.5.0:compile
 [INFO] |  |  +- org.jaitools:jt-vectorize:jar:1.5.0:compile
-[INFO] |  |  \- it.geosolutions.jaiext.jiffle:jt-jiffle-op:jar:1.1.2:compile
-[INFO] |  |     \- it.geosolutions.jaiext.jiffle:jt-jiffle-language:jar:1.1.2:compile
+[INFO] |  |  \- it.geosolutions.jaiext.jiffle:jt-jiffle-op:jar:1.1.3:compile
+[INFO] |  |     \- it.geosolutions.jaiext.jiffle:jt-jiffle-language:jar:1.1.3:compile
 [INFO] |  |        +- org.antlr:antlr4-runtime:jar:4.7.1:compile
 [INFO] |  |        \- org.codehaus.janino:janino:jar:3.0.8:compile
 [INFO] |  |           \- org.codehaus.janino:commons-compiler:jar:3.0.8:compile
@@ -828,37 +807,37 @@
 [INFO] |  \- org.geotools:gt-grid:jar:20-SNAPSHOT:compile
 [INFO] +- org.geoserver.community:gs-wps-download:jar:2.14-SNAPSHOT:compile
 [INFO] |  +- org.geotools:gt-coverage:jar:20-SNAPSHOT:compile
-[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.2:compile
-[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.2:compile
-[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.2:compile
+[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.3:compile
+[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.3:compile
+[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.3:compile
 [INFO] |  +- org.jcodec:jcodec:jar:0.2.2-bof2:compile
 [INFO] |  \- org.jcodec:jcodec-javase:jar:0.2.2:compile
 [INFO] +- org.geoserver.community:gs-kmlppio:jar:2.14-SNAPSHOT:compile
@@ -923,17 +902,16 @@
 [INFO] |  \- com.google.code.findbugs:jsr305:jar:2.0.3:compile
 [INFO] \- cglib:cglib-nodep:jar:2.2:compile
 [INFO] ------------------------------------------------------------------------
-[INFO] Reactor Summary:
+[INFO] Reactor Summary for GeoNode GeoServer Extensions 2.14-SNAPSHOT:
 [INFO] 
-[INFO] GeoNode GeoServer Extensions ....................... SUCCESS [  1.156 s]
-[INFO] Extensions ......................................... SUCCESS [  0.004 s]
-[INFO] GeoServer Printing Extension ....................... SUCCESS [  2.570 s]
-[INFO] GeoNode Geoserver Ext BatchDownload Process ........ SUCCESS [  1.072 s]
-[INFO] Web Application (WAR) .............................. SUCCESS [  4.075 s]
+[INFO] GeoNode GeoServer Extensions ....................... SUCCESS [  0.724 s]
+[INFO] Extensions ......................................... SUCCESS [  0.006 s]
+[INFO] GeoServer Printing Extension ....................... SUCCESS [  1.221 s]
+[INFO] GeoNode Geoserver Ext BatchDownload Process ........ SUCCESS [  0.453 s]
+[INFO] Web Application (WAR) .............................. SUCCESS [  2.167 s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 9.452 s
-[INFO] Finished at: 2018-11-07T14:40:19+01:00
-[INFO] Final Memory: 32M/296M
+[INFO] Total time:  5.019 s
+[INFO] Finished at: 2018-11-23T17:37:54+01:00
 [INFO] ------------------------------------------------------------------------
