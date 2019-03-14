@@ -48,10 +48,15 @@ disableScaleLocking: true
 brokenUrlPlaceholder: 'default'
 # brokenUrlPlaceholder: 'throw'
 
+connectionTimeout: 2000
+socketTimeout: 2000
+
 #===========================================================================
 # the list of allowed ips
 #===========================================================================
 hosts:
+  - !ipMatch
+    ip: 127.0.0.1
   - !localMatch
     dummy: true
   - !acceptAll
@@ -210,15 +215,6 @@ layouts:
               url: 'file://${configDir}/Arrow_North_CFCF.svg'
               rotation: '${rotation}'
         - !columns
-          absoluteX: 395
-          absoluteY: 430
-          width: 40
-          items:
-            - !image
-              maxWidth: 100
-              maxHeight: 100
-              url: 'file://${configDir}/logo-geonode.png'
-        - !columns
           config:
             borderWidth: 0
             cells:
@@ -269,111 +265,6 @@ layouts:
               type: 'bar sub'
               intervals: 5
 
-  #===========================================================================
-  Wide :
-  #===========================================================================
-    metaData:
-      title: '${mapTitle}'
-      author: 'GeoNode'
-      subject: 'Simple layout'
-      keywords: 'map,print'
-      creator: 'GeoNode'
-    mainPage:
-      rotation: true
-      pageSize: 802 555
-      landscape: false
-      items:
-        - !columns
-          absoluteX: 30
-          absoluteY: 535
-          width: 752
-          widths: [260, 522]
-          items:
-            - !image
-              maxWidth: 752
-              url: '/${configDir}/print_header.png'
-            - !text
-              font: Helvetica
-              fontSize: 22
-              fontColor: #0874B8
-              spacingAfter: 100
-              align: left
-              text: '${mapTitle}'
-              maxLength: 100
-        - !map
-          width: 752
-          height: 320
-          absoluteX:30
-          absoluteY:435
-        - !columns
-          absoluteX: 745
-          absoluteY: 165
-          width: 40
-          items:
-            - !image
-              maxWidth: 40
-              maxHeight: 40
-              url: 'file://${configDir}/Arrow_North_CFCF.svg'
-              rotation: '${rotation}'
-        - !columns
-          absoluteX: 675
-          absoluteY: 430
-          width: 40
-          items:
-            - !image
-              maxWidth: 100
-              maxHeight: 100
-              url: 'file://${configDir}/logo-geonode.png'
-        - !columns
-          config:
-            borderWidth: 0
-            cells:
-              - borderWidth: 0
-                borderWidthLeft: 1
-                borderColor: white
-                padding: 2
-          absoluteX: 30
-          absoluteY: 95
-          width: 752
-          widths: [138, 485, 98]
-          items:
-            - !columns
-              config:
-                borderWidth: 4
-                cells:
-                  - borderWidth: 2
-                    borderWidthLeft: 1
-                    borderColor: white
-                    padding: 3
-              nbColumns: 1
-              items:
-                - !text
-                  width: 420
-                  text: '(c) example.com'
-                  fontEncoding: Cp1252
-                  fontSize: 7
-                  align: justified
-                  vertAlign: top
-                  spacingAfter: 2
-                - !text
-                  width: 420
-                  text: '${now MM.dd.yyyy}'
-                  fontEncoding: Cp1252
-                  fontSize: 5
-                  align: left
-                  vertAlign: bottom
-            - !text
-              align: justified
-              vertAlign: top
-              fontSize: 8
-              text: '${comment}'
-              maxLength: 1200
-            - !scalebar
-              align: right
-              vertAlign: middle
-              maxSize: 108
-              type: 'bar sub'
-              intervals: 5
   #mapstore2 layout
   #=======A4 landscape with legend============================================
   A4_landscape :
