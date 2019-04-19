@@ -11,18 +11,6 @@
     <artifactId>geonode-geoserver-ext-web-app</artifactId>
     <name>Web Application (WAR)</name>
     <dependencies>
-        <dependency>
-          <groupId>javax.xml.bind</groupId>
-          <artifactId>jaxb-api</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>org.glassfish.jaxb</groupId>
-          <artifactId>jaxb-core</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>org.glassfish.jaxb</groupId>
-          <artifactId>jaxb-runtime</artifactId>
-        </dependency>
         <!-- geoserver-geonode-ext extensions -->
         <dependency>
             <groupId>org.opengeo</groupId>
