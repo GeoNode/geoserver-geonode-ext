@@ -144,6 +144,8 @@
                 <include>org.hamcrest:hamcrest-library</include>
                 <include>org.jyaml:jyaml</include>
                 <include>com.github.oshi:oshi-core</include>
+                <include>com.jayway.jsonpath:json-path</include>
+                <include>net.minidev:json-smart</include>
                 <include>net.minidev:accessors-smart</include>
                 <include>net.java.dev.jna:jna-platform</include>
                 <include>net.java.dev.jna:jna</include>
