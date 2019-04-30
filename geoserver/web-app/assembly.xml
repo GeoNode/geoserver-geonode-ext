@@ -12,6 +12,7 @@
                 <include>org.opengeo:geonode-geoserver-ext-web-app</include>
                 <include>org.opengeo:geonode-geoserver-ext-printng</include>
                 <include>org.opengeo:geonode-geoserver-ext-wps-batchdownload</include>
+                <include>org.opengeo:geonode-geoserver-ext-web-app</include>
                 <include>org.geoserver.extension:gs-monitor-core</include>
                 <include>org.geoserver.extension:gs-inspire</include>
                 <include>org.geoserver.extension:gs-control-flow</include>
