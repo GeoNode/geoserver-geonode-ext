@@ -39,6 +39,7 @@
                 <include>org.geoserver.community:gs-notification-geonode</include>
                 <include>org.springframework.security.oauth:spring-security-oauth2</include>
                 <include>org.geoserver.community:gs-authkey</include>
+                <include>org.geoserver.community:gs-geofence</include>
                 <include>org.geoserver.community:gs-geofence-server</include>
                 <include>org.geoserver.community:gs-dyndimension</include>
                 <include>org.geoserver.extension:gs-css</include>
