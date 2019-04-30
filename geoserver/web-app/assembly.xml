@@ -110,11 +110,13 @@
                 <include>org.apache.commons:commons-exec</include>
                 <include>org.apache.commons:commons-lang3</include>
                 <include>org.apache.commons:commons-vfs2</include>
-                <include>org.antlr:antlr4-runtime</include>
+                <include>antlr:antlr*</include>
+                <include>org.antlr:antlr*</include>
                 <include>org.apache.pdfbox:pdfbox</include>
                 <include>org.apache.pdfbox:fontbox</include>
                 <include>org.apache.pdfbox:jempbox</include>
                 <include>org.apache.poi:poi*</include>
+                <include>org.apache.wicket:wicket-datetime</include>
                 <include>org.jyaml:jyaml</include>
                 <include>org.locationtech:jts</include>
                 <include>org.mapfish.geo:mapfish-geo-lib</include>
@@ -142,6 +144,7 @@
                 <include>org.hamcrest:hamcrest-library</include>
                 <include>org.jyaml:jyaml</include>
                 <include>com.github.oshi:oshi-core</include>
+                <include>net.minidev:accessors-smart</include>
                 <include>net.java.dev.jna:jna-platform</include>
                 <include>net.java.dev.jna:jna</include>
                 <include>org.threeten:threetenbp</include>
@@ -231,6 +234,7 @@
                 <include>xalan:xalan</include>
                 <include>xalan:serializer</include>
                 <include>xerces:xercesImpl</include>
+                <include>xerces:xmlParserAPIs</include>
                 <include>xml-apis:xml-apis*</include>
                 <include>xom:xom</include>
             </includes>
