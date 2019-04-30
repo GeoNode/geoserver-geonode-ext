@@ -165,6 +165,7 @@
                 <include>org.geotools.xsd:gt-xsd*</include>
                 <include>org.geotools:gt-csv</include>
                 <include>org.geotools:gt-css</include>
+                <include>org.geotools:gt-brewer</include>
                 <include>org.geotools:gt-process*</include>
                 <include>org.geotools.ogc:net.opengis*</include>
                 <include>org.geotools.ogc:net.opengis.wps*</include>
@@ -175,6 +176,7 @@
                 <include>jfree:jfreechart</include>
                 <include>jfree:jcommon</include>
                 <include>jaxen:jaxen</include>
+                <include>regexp:regexp</include>
                 <include>org.yaml:snakeyaml</include>
                 <include>com.google.code.findbugs</include>
                 <include>com.googlecode.efficient-java-matrix-library:core</include>
