@@ -270,6 +270,7 @@
                     <descriptors>
                         <descriptor>assembly.xml</descriptor>
                         <descriptor>data.xml</descriptor>
+                        <descriptor>data_osgeolive.xml</descriptor>
                     </descriptors>
                 </configuration>
                 <executions>
@@ -347,6 +348,20 @@
                             <target>
                                 <copy todir="${project.build.directory}/data">
                                     <fileset dir="../data/${geoserver.data.dir}/" />
+                                </copy>
+                            </target>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>data_osgeolive</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy todir="${project.build.directory}/data_osgeolive">
+                                    <fileset dir="../data/${osgeolive.data.dir}/" />
                                 </copy>
                             </target>
                         </configuration>
@@ -431,6 +446,7 @@
                     <packagingExcludes>WEB-INF/lib/servlet-api*.jar</packagingExcludes>
                     <packagingExcludes>WEB-INF/lib/javax.servlet-api*.jar</packagingExcludes>
                     <packagingExcludes>data/</packagingExcludes>
+                    <packagingExcludes>data_osgeolive/</packagingExcludes>
                     <!-- exclude the original geoserver web core jar -->
                     <packagingExcludes>WEB-INF/lib/gs-web-core*.jar</packagingExcludes>
                     <packagingExcludes>**/gs-web-app*.jar</packagingExcludes>
