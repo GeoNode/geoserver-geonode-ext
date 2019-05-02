@@ -248,6 +248,10 @@
             <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-css</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.parboiled</groupId>
+            <artifactId>parboiled-java</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.geoserver.extension</groupId>
