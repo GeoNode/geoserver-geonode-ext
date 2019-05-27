@@ -17,10 +17,6 @@
   <maxAsynchronousProcesses>10</maxAsynchronousProcesses>
   <processGroups>
     <processGroup>
-      <factoryClass>org.geonode.process.batchdownload.BatchDownloadFactory</factoryClass>
-      <enabled>true</enabled>
-    </processGroup>
-    <processGroup>
       <factoryClass>org.geoserver.wps.DeprecatedProcessFactory</factoryClass>
       <enabled>true</enabled>
     </processGroup>

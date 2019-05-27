@@ -16,10 +16,6 @@
             <groupId>org.opengeo</groupId>
             <artifactId>geonode-geoserver-ext-printng</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.opengeo</groupId>
-            <artifactId>geonode-geoserver-ext-wps-batchdownload</artifactId>
-        </dependency>
         <!-- import the base geoserver war dependencies -->
         <dependency>
             <groupId>org.geoserver.web</groupId>
@@ -154,10 +150,6 @@
         <dependency>
             <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-wps-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.geoserver.community</groupId>
-            <artifactId>gs-wps-download</artifactId>
         </dependency>
         <dependency>
             <groupId>org.geoserver.community</groupId>
