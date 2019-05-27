@@ -1,0 +1,1176 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] GeoNode GeoServer Extensions                                       [pom]
+[INFO] Extensions                                                         [pom]
+[INFO] GeoServer Printing Extension                                       [jar]
+[INFO] GeoNode Geoserver Ext BatchDownload Process                        [jar]
+[INFO] Web Application (WAR)                                              [jar]
+[INFO] 
+[INFO] -----------------< org.opengeo:geonode-geoserver-ext >------------------
+[INFO] Building GeoNode GeoServer Extensions 2.14.2                       [1/5]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext ---
+[INFO] org.opengeo:geonode-geoserver-ext:pom:2.14.2
+[INFO] 
+[INFO] ------------< org.opengeo:geonode-geoserver-ext-extensions >------------
+[INFO] Building Extensions 2.14.2                                         [2/5]
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext-extensions ---
+[INFO] org.opengeo:geonode-geoserver-ext-extensions:pom:2.14.2
+[INFO] 
+[INFO] -------------< org.opengeo:geonode-geoserver-ext-printng >--------------
+[INFO] Building GeoServer Printing Extension 2.14.2                       [3/5]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext-printng ---
+[INFO] org.opengeo:geonode-geoserver-ext-printng:jar:2.14.2
+[INFO] +- org.geoserver:gs-main:jar:2.14.2:provided
+[INFO] |  +- org.geoserver:gs-ows:jar:2.14.2:provided
+[INFO] |  |  +- org.geotools.ogc:net.opengis.ows:jar:20.2:provided
+[INFO] |  |  |  +- org.geotools.ogc:org.w3.xlink:jar:20.2:provided
+[INFO] |  |  |  +- org.eclipse.emf:org.eclipse.emf.common:jar:2.12.0:provided
+[INFO] |  |  |  +- org.eclipse.emf:org.eclipse.emf.ecore:jar:2.12.0:provided
+[INFO] |  |  |  \- org.eclipse.emf:org.eclipse.emf.ecore.xmi:jar:2.12.0:provided
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-ows:jar:20.2:provided
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-core:jar:20.2:provided
+[INFO] |  |  |  +- picocontainer:picocontainer:jar:1.2:provided
+[INFO] |  |  |  +- commons-jxpath:commons-jxpath:jar:1.3:provided
+[INFO] |  |  |  \- org.eclipse.xsd:org.eclipse.xsd:jar:2.12.0:provided
+[INFO] |  |  \- xpp3:xpp3:jar:1.1.3.4.O:provided
+[INFO] |  +- net.sf.json-lib:json-lib:jar:jdk15:2.4:provided
+[INFO] |  |  +- commons-beanutils:commons-beanutils:jar:1.9.2:provided
+[INFO] |  |  +- commons-collections:commons-collections:jar:3.2.2:provided
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.5:provided
+[INFO] |  |  \- net.sf.ezmorph:ezmorph:jar:1.0.6:provided
+[INFO] |  +- commons-beanutils:commons-beanutils:jar:noclassprop:1.9.2:provided
+[INFO] |  +- commons-fileupload:commons-fileupload:jar:1.3.3:provided
+[INFO] |  +- org.geotools:gt-cql:jar:20.2:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.geotools:gt-coverage:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-referencing:jar:20.2:compile
+[INFO] |  |  |  +- org.ejml:ejml-ddense:jar:0.34:compile
+[INFO] |  |  |  |  \- org.ejml:ejml-core:jar:0.34:compile
+[INFO] |  |  |  +- jgridshift:jgridshift:jar:1.0:compile
+[INFO] |  |  |  \- net.sf.geographiclib:GeographicLib-Java:jar:1.49:compile
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-tiff:jar:1.1.28:compile
+[INFO] |  |  |  \- it.geosolutions.imageio-ext:imageio-ext-utilities:jar:1.1.28:compile
+[INFO] |  |  +- org.jaitools:jt-zonalstats:jar:1.5.0:compile
+[INFO] |  |  +- org.jaitools:jt-utils:jar:1.5.0:compile
+[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.6:compile
+[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.6:compile
+[INFO] |  +- org.geotools:gt-data:jar:20.2:provided
+[INFO] |  +- org.geotools:gt-jdbc:jar:20.2:provided
+[INFO] |  |  \- commons-dbcp:commons-dbcp:jar:1.4:provided
+[INFO] |  +- org.geotools:gt-wfs-ng:jar:20.2:provided
+[INFO] |  |  +- org.geotools:gt-complex:jar:20.2:provided
+[INFO] |  |  |  \- org.geotools:gt-app-schema-resolver:jar:20.2:provided
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-gml3:jar:20.2:provided
+[INFO] |  |  |  \- org.geotools.xsd:gt-xsd-gml2:jar:20.2:provided
+[INFO] |  |  +- org.geotools:gt-xml:jar:20.2:provided
+[INFO] |  |  |  \- org.apache.xml:xml-commons-resolver:jar:1.2:provided
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-wfs:jar:20.2:provided
+[INFO] |  |  |  \- org.geotools.xsd:gt-xsd-fes:jar:20.2:provided
+[INFO] |  |  +- org.geotools.ogc:net.opengis.wfs:jar:20.2:provided
+[INFO] |  |  |  \- org.geotools.ogc:net.opengis.fes:jar:20.2:provided
+[INFO] |  |  \- xpp3:xpp3_min:jar:1.1.4c:provided
+[INFO] |  +- org.geotools:gt-property:jar:20.2:provided
+[INFO] |  +- org.geotools:gt-epsg-hsql:jar:20.2:compile
+[INFO] |  |  \- org.hsqldb:hsqldb:jar:2.4.1:compile
+[INFO] |  +- org.geotools:gt-wms:jar:20.2:provided
+[INFO] |  +- org.geotools.xsd:gt-xsd-sld:jar:20.2:provided
+[INFO] |  |  \- org.geotools.xsd:gt-xsd-filter:jar:20.2:provided
+[INFO] |  +- org.springframework:spring-aop:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-jdbc:jar:4.3.18.RELEASE:provided
+[INFO] |  |  \- org.springframework:spring-tx:jar:4.3.18.RELEASE:provided
+[INFO] |  +- com.thoughtworks.xstream:xstream:jar:1.4.10:provided
+[INFO] |  |  \- xmlpull:xmlpull:jar:1.1.3.1:provided
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:2.0.3:compile
+[INFO] |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.6:provided
+[INFO] |  +- org.geotools:gt-imagemosaic:jar:20.2:provided
+[INFO] |  |  +- org.geotools:gt-shapefile:jar:20.2:provided
+[INFO] |  |  +- org.geotools:gt-geotiff:jar:20.2:provided
+[INFO] |  |  +- org.geotools:gt-transform:jar:20.2:provided
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-streams:jar:1.1.28:compile
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-geocore:jar:1.1.28:compile
+[INFO] |  |  +- org.geotools:gt-image:jar:20.2:provided
+[INFO] |  |  +- org.jaitools:jt-vectorbinarize:jar:1.5.0:provided
+[INFO] |  |  \- net.sf.ehcache:ehcache:jar:2.10.3:provided
+[INFO] |  +- org.springframework.security:spring-security-core:jar:4.2.7.RELEASE:provided
+[INFO] |  |  +- aopalliance:aopalliance:jar:1.0:provided
+[INFO] |  |  \- org.springframework:spring-expression:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-web:jar:4.2.7.RELEASE:provided
+[INFO] |  +- org.springframework.security:spring-security-config:jar:4.2.7.RELEASE:provided
+[INFO] |  +- org.jasypt:jasypt:jar:1.9.2:provided
+[INFO] |  +- org.jasypt:jasypt-springsecurity3:jar:1.9.2:provided
+[INFO] |  +- org.bouncycastle:bcprov-jdk15on:jar:1.60:provided
+[INFO] |  +- org.codehaus.jettison:jettison:jar:1.0.1:provided
+[INFO] |  |  \- stax:stax-api:jar:1.0.1:provided
+[INFO] |  +- org.geotools:gt-wmts:jar:20.2:provided
+[INFO] |  |  +- org.geotools:gt-tile-client:jar:20.2:provided
+[INFO] |  |  |  \- org.geotools:gt-swing:jar:20.2:provided
+[INFO] |  |  |     \- com.miglayout:miglayout:jar:swing:3.7:provided
+[INFO] |  |  \- org.geotools.xsd:gt-xsd-wmts:jar:20.2:provided
+[INFO] |  |     \- org.geotools.ogc:net.opengis.wmts:jar:20.2:provided
+[INFO] |  +- org.springframework:spring-beans:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.geotools:gt-api:jar:20.2:compile
+[INFO] |  \- org.geotools:gt-main:jar:20.2:compile
+[INFO] |     \- org.jdom:jdom2:jar:2.0.6:compile
+[INFO] +- org.geoserver:gs-rest:jar:2.14.2:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.9.5:compile
+[INFO] +- org.geoserver:gs-platform:jar:2.14.2:provided
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.7:provided
+[INFO] |  +- commons-codec:commons-codec:jar:1.9:compile
+[INFO] |  +- com.h2database:h2:jar:1.1.119:provided
+[INFO] |  +- javax.media:jai_core:jar:1.1.3:compile
+[INFO] |  +- javax.media:jai_codec:jar:1.1.3:compile
+[INFO] |  \- javax.media:jai_imageio:jar:1.1:compile
+[INFO] +- org.geotools:gt-metadata:jar:20.2:compile
+[INFO] +- org.xhtmlrenderer:core-renderer:jar:R8-SNAPSHOT:compile
+[INFO] +- com.lowagie:itext:jar:2.1.5:compile
+[INFO] |  +- bouncycastle:bcmail-jdk14:jar:138:compile
+[INFO] |  \- bouncycastle:bcprov-jdk14:jar:138:compile
+[INFO] +- org.freemarker:freemarker:jar:2.3.18:compile
+[INFO] +- org.geonode.print:mapfish-print-lib:jar:2.1.3-SNAPSHOT:compile
+[INFO] |  +- org.geotools:gt-render:jar:20.2:compile
+[INFO] |  |  \- com.conversantmedia:disruptor:jar:1.2.13:compile
+[INFO] |  +- org.jyaml:jyaml:jar:1.3:compile
+[INFO] |  +- org.locationtech.jts:jts-core:jar:1.16.0:compile
+[INFO] |  +- org.mapfish.geo:mapfish-geo-lib:jar:1.2.0:compile
+[INFO] |  |  \- com.vividsolutions:jts:jar:1.8:compile
+[INFO] |  +- org.apache.pdfbox:pdfbox:jar:1.6.0:compile
+[INFO] |  |  +- org.apache.pdfbox:fontbox:jar:1.6.0:compile
+[INFO] |  |  \- org.apache.pdfbox:jempbox:jar:1.6.0:compile
+[INFO] |  +- xerces:xercesImpl:jar:2.11.0:compile
+[INFO] |  |  \- xml-apis:xml-apis:jar:1.4.01:compile
+[INFO] |  +- com.itextpdf:itextpdf:jar:5.4.4:compile
+[INFO] |  +- org.json:json:jar:20080701:compile
+[INFO] |  +- org.springframework:spring-web:jar:4.3.18.RELEASE:compile
+[INFO] |  +- xalan:xalan:jar:2.7.0:compile
+[INFO] |  +- com.codahale.metrics:metrics-core:jar:3.0.2:compile
+[INFO] |  |  \- org.slf4j:slf4j-api:jar:1.6.4:compile
+[INFO] |  +- com.codahale.metrics:metrics-servlet:jar:3.0.2:compile
+[INFO] |  +- com.codahale.metrics:metrics-httpclient:jar:3.0.2:compile
+[INFO] |  +- com.codahale.metrics:metrics-servlets:jar:3.0.2:compile
+[INFO] |  |  +- com.codahale.metrics:metrics-healthchecks:jar:3.0.2:compile
+[INFO] |  |  +- com.codahale.metrics:metrics-json:jar:3.0.2:compile
+[INFO] |  |  +- com.codahale.metrics:metrics-jvm:jar:3.0.2:compile
+[INFO] |  |  \- com.fasterxml.jackson.core:jackson-databind:jar:2.9.5:compile
+[INFO] |  |     \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.5:compile
+[INFO] |  \- com.codahale.metrics:metrics-log4j:jar:3.0.2:compile
+[INFO] +- org.apache.httpcomponents:httpclient:jar:4.5.5:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.10:compile
+[INFO] |  \- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] +- commons-io:commons-io:jar:2.6:compile
+[INFO] +- com.google.guava:guava:jar:25.1-jre:compile
+[INFO] |  +- org.checkerframework:checker-qual:jar:2.0.0:compile
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.1.3:compile
+[INFO] |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] +- org.ccil.cowan.tagsoup:tagsoup:jar:1.2.1:compile
+[INFO] +- org.geoserver:gs-main:jar:tests:2.14.2:test
+[INFO] +- junit:junit:jar:4.11:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.springframework:spring-test:jar:4.3.18.RELEASE:compile
+[INFO] +- com.mockrunner:mockrunner:jar:0.3.1:test
+[INFO] +- org.mockito:mockito-all:jar:1.8.5:test
+[INFO] +- org.geotools:gt-opengis:jar:20.2:test
+[INFO] |  +- commons-pool:commons-pool:jar:1.5.4:compile
+[INFO] |  \- systems.uom:systems-common-java8:jar:0.7.2:test
+[INFO] |     +- tec.uom:uom-se:jar:1.0.8:test
+[INFO] |     |  +- javax.measure:unit-api:jar:1.0:test
+[INFO] |     |  \- tec.uom.lib:uom-lib-common:jar:1.0.2:test
+[INFO] |     +- si.uom:si-quantity:jar:0.7.1:test
+[INFO] |     \- si.uom:si-units-java8:jar:0.7.1:test
+[INFO] +- org.easymock:easymock:jar:3.1:test
+[INFO] |  +- cglib:cglib-nodep:jar:2.2:test
+[INFO] |  \- org.objenesis:objenesis:jar:1.2:test
+[INFO] +- org.easymock:easymockclassextension:jar:2.5.2:test
+[INFO] \- javax.servlet:javax.servlet-api:jar:3.1.0:provided
+[INFO] 
+[INFO] --------< org.opengeo:geonode-geoserver-ext-wps-batchdownload >---------
+[INFO] Building GeoNode Geoserver Ext BatchDownload Process 2.14.2        [4/5]
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext-wps-batchdownload ---
+[INFO] org.opengeo:geonode-geoserver-ext-wps-batchdownload:jar:2.14.2
+[INFO] +- org.geoserver:gs-ows:jar:2.14.2:compile
+[INFO] |  +- org.springframework.security:spring-security-core:jar:4.2.7.RELEASE:compile
+[INFO] |  |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  |  \- org.springframework:spring-expression:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.7:compile
+[INFO] |  +- commons-fileupload:commons-fileupload:jar:1.3.3:compile
+[INFO] |  +- org.geoserver:gs-platform:jar:2.14.2:compile
+[INFO] |  |  +- javax.media:jai_core:jar:1.1.3:compile
+[INFO] |  |  +- javax.media:jai_codec:jar:1.1.3:compile
+[INFO] |  |  \- javax.media:jai_imageio:jar:1.1:compile
+[INFO] |  +- org.geotools.ogc:net.opengis.ows:jar:20.2:compile
+[INFO] |  |  +- org.geotools.ogc:org.w3.xlink:jar:20.2:compile
+[INFO] |  |  +- org.eclipse.emf:org.eclipse.emf.common:jar:2.12.0:compile
+[INFO] |  |  +- org.eclipse.emf:org.eclipse.emf.ecore:jar:2.12.0:compile
+[INFO] |  |  \- org.eclipse.emf:org.eclipse.emf.ecore.xmi:jar:2.12.0:compile
+[INFO] |  +- org.geotools.xsd:gt-xsd-ows:jar:20.2:compile
+[INFO] |  |  \- org.geotools.xsd:gt-xsd-filter:jar:20.2:compile
+[INFO] |  |     \- org.geotools.xsd:gt-xsd-gml2:jar:20.2:compile
+[INFO] |  +- org.geotools.xsd:gt-xsd-core:jar:20.2:compile
+[INFO] |  |  +- picocontainer:picocontainer:jar:1.2:compile
+[INFO] |  |  +- commons-jxpath:commons-jxpath:jar:1.3:compile
+[INFO] |  |  \- org.eclipse.xsd:org.eclipse.xsd:jar:2.12.0:compile
+[INFO] |  +- xpp3:xpp3:jar:1.1.3.4.O:compile
+[INFO] |  +- org.springframework:spring-beans:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:4.3.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-web:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.geotools:gt-api:jar:20.2:compile
+[INFO] |  |  +- org.locationtech.jts:jts-core:jar:1.16.0:compile
+[INFO] |  |  \- org.geotools:gt-referencing:jar:20.2:compile
+[INFO] |  |     +- org.ejml:ejml-ddense:jar:0.34:compile
+[INFO] |  |     |  \- org.ejml:ejml-core:jar:0.34:compile
+[INFO] |  |     +- jgridshift:jgridshift:jar:1.0:compile
+[INFO] |  |     \- net.sf.geographiclib:GeographicLib-Java:jar:1.49:compile
+[INFO] |  \- org.geotools:gt-main:jar:20.2:compile
+[INFO] +- org.geoserver:gs-main:jar:2.14.2:compile
+[INFO] |  +- commons-beanutils:commons-beanutils:jar:noclassprop:1.9.2:compile
+[INFO] |  +- commons-httpclient:commons-httpclient:jar:3.1:compile
+[INFO] |  +- org.freemarker:freemarker:jar:2.3.18:compile
+[INFO] |  +- org.geotools:gt-cql:jar:20.2:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- org.geotools:gt-coverage:jar:20.2:compile
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-tiff:jar:1.1.28:compile
+[INFO] |  |  |  \- it.geosolutions.imageio-ext:imageio-ext-utilities:jar:1.1.28:compile
+[INFO] |  |  +- org.jaitools:jt-zonalstats:jar:1.5.0:compile
+[INFO] |  |  +- org.jaitools:jt-utils:jar:1.5.0:compile
+[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.6:compile
+[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.6:compile
+[INFO] |  +- org.geotools:gt-data:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-jdbc:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-wfs-ng:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-complex:jar:20.2:compile
+[INFO] |  |  |  \- org.geotools:gt-app-schema-resolver:jar:20.2:compile
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-gml3:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-xml:jar:20.2:compile
+[INFO] |  |  |  \- org.apache.xml:xml-commons-resolver:jar:1.2:compile
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-wfs:jar:20.2:compile
+[INFO] |  |  |  \- org.geotools.xsd:gt-xsd-fes:jar:20.2:compile
+[INFO] |  |  +- org.geotools.ogc:net.opengis.wfs:jar:20.2:compile
+[INFO] |  |  |  \- org.geotools.ogc:net.opengis.fes:jar:20.2:compile
+[INFO] |  |  \- xpp3:xpp3_min:jar:1.1.4c:compile
+[INFO] |  +- org.geotools:gt-metadata:jar:20.2:compile
+[INFO] |  |  \- org.geotools:gt-opengis:jar:20.2:compile
+[INFO] |  |     \- systems.uom:systems-common-java8:jar:0.7.2:compile
+[INFO] |  |        +- tec.uom:uom-se:jar:1.0.8:compile
+[INFO] |  |        |  +- javax.measure:unit-api:jar:1.0:compile
+[INFO] |  |        |  \- tec.uom.lib:uom-lib-common:jar:1.0.2:compile
+[INFO] |  |        +- si.uom:si-quantity:jar:0.7.1:compile
+[INFO] |  |        \- si.uom:si-units-java8:jar:0.7.1:compile
+[INFO] |  +- org.geotools:gt-property:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-epsg-hsql:jar:20.2:compile
+[INFO] |  |  \- org.hsqldb:hsqldb:jar:2.4.1:compile
+[INFO] |  +- org.geotools:gt-wms:jar:20.2:compile
+[INFO] |  +- org.geotools.xsd:gt-xsd-sld:jar:20.2:compile
+[INFO] |  +- org.springframework:spring-aop:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-jdbc:jar:4.3.18.RELEASE:compile
+[INFO] |  |  \- org.springframework:spring-tx:jar:4.3.18.RELEASE:compile
+[INFO] |  +- com.thoughtworks.xstream:xstream:jar:1.4.10:compile
+[INFO] |  |  \- xmlpull:xmlpull:jar:1.1.3.1:compile
+[INFO] |  +- com.google.guava:guava:jar:25.1-jre:compile
+[INFO] |  |  +- org.checkerframework:checker-qual:jar:2.0.0:compile
+[INFO] |  |  +- com.google.errorprone:error_prone_annotations:jar:2.1.3:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:2.0.3:compile
+[INFO] |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.6:compile
+[INFO] |  +- org.geotools:gt-imagemosaic:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-shapefile:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-transform:jar:20.2:compile
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-streams:jar:1.1.28:compile
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-geocore:jar:1.1.28:compile
+[INFO] |  |  +- org.geotools:gt-image:jar:20.2:compile
+[INFO] |  |  +- org.jaitools:jt-vectorbinarize:jar:1.5.0:compile
+[INFO] |  |  \- net.sf.ehcache:ehcache:jar:2.10.3:compile
+[INFO] |  |     \- org.slf4j:slf4j-api:jar:1.6.4:compile
+[INFO] |  +- org.springframework.security:spring-security-web:jar:4.2.7.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-config:jar:4.2.7.RELEASE:compile
+[INFO] |  +- org.jasypt:jasypt:jar:1.9.2:compile
+[INFO] |  +- org.jasypt:jasypt-springsecurity3:jar:1.9.2:compile
+[INFO] |  +- org.bouncycastle:bcprov-jdk15on:jar:1.60:compile
+[INFO] |  +- org.codehaus.jettison:jettison:jar:1.0.1:compile
+[INFO] |  |  \- stax:stax-api:jar:1.0.1:compile
+[INFO] |  \- org.geotools:gt-wmts:jar:20.2:compile
+[INFO] |     +- org.geotools:gt-tile-client:jar:20.2:compile
+[INFO] |     |  \- org.geotools:gt-swing:jar:20.2:compile
+[INFO] |     |     \- com.miglayout:miglayout:jar:swing:3.7:compile
+[INFO] |     \- org.geotools.xsd:gt-xsd-wmts:jar:20.2:compile
+[INFO] |        \- org.geotools.ogc:net.opengis.wmts:jar:20.2:compile
+[INFO] +- org.geoserver:gs-wms:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-wfs:jar:2.14.2:compile
+[INFO] |  |  \- cglib:cglib-nodep:jar:2.2:compile
+[INFO] |  +- org.geotools:gt-render:jar:20.2:compile
+[INFO] |  |  \- com.conversantmedia:disruptor:jar:1.2.13:compile
+[INFO] |  +- org.geotools:gt-svg:jar:20.2:compile
+[INFO] |  |  \- org.apache.xmlgraphics:batik-transcoder:jar:1.10:compile
+[INFO] |  |     +- org.apache.xmlgraphics:batik-anim:jar:1.10:compile
+[INFO] |  |     |  +- org.apache.xmlgraphics:batik-css:jar:1.10:compile
+[INFO] |  |     |  +- org.apache.xmlgraphics:batik-ext:jar:1.10:compile
+[INFO] |  |     |  +- org.apache.xmlgraphics:batik-parser:jar:1.10:compile
+[INFO] |  |     |  \- org.apache.xmlgraphics:batik-svg-dom:jar:1.10:compile
+[INFO] |  |     +- org.apache.xmlgraphics:batik-awt-util:jar:1.10:compile
+[INFO] |  |     |  \- org.apache.xmlgraphics:xmlgraphics-commons:jar:2.2:compile
+[INFO] |  |     +- org.apache.xmlgraphics:batik-bridge:jar:1.10:compile
+[INFO] |  |     |  \- org.apache.xmlgraphics:batik-script:jar:1.10:compile
+[INFO] |  |     +- org.apache.xmlgraphics:batik-dom:jar:1.10:compile
+[INFO] |  |     |  \- xml-apis:xml-apis:jar:1.4.01:compile
+[INFO] |  |     +- org.apache.xmlgraphics:batik-gvt:jar:1.10:compile
+[INFO] |  |     +- org.apache.xmlgraphics:batik-svggen:jar:1.10:compile
+[INFO] |  |     +- org.apache.xmlgraphics:batik-util:jar:1.10:compile
+[INFO] |  |     |  +- org.apache.xmlgraphics:batik-constants:jar:1.10:compile
+[INFO] |  |     |  \- org.apache.xmlgraphics:batik-i18n:jar:1.10:compile
+[INFO] |  |     +- org.apache.xmlgraphics:batik-xml:jar:1.10:compile
+[INFO] |  |     \- xml-apis:xml-apis-ext:jar:1.3.04:compile
+[INFO] |  +- org.geotools:gt-geotiff:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-process:jar:20.2:compile
+[INFO] |  +- com.lowagie:itext:jar:2.1.5:compile
+[INFO] |  +- it.geosolutions.imageio-ext:imageio-ext-png:jar:1.1.28:compile
+[INFO] |  +- com.h2database:h2:jar:1.1.119:compile
+[INFO] |  +- ar.com.hjg:pngj:jar:2.0.1:compile
+[INFO] |  +- org.springframework:spring-context-support:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.geotools:gt-process-raster:jar:20.2:compile
+[INFO] |  |  +- org.jaitools:jt-rangelookup:jar:1.5.0:compile
+[INFO] |  |  +- org.jaitools:jt-contour:jar:1.5.0:compile
+[INFO] |  |  |  \- org.jaitools:jt-attributeop:jar:1.5.0:compile
+[INFO] |  |  +- org.jaitools:jt-vectorize:jar:1.5.0:compile
+[INFO] |  |  \- it.geosolutions.jaiext.jiffle:jt-jiffle-op:jar:1.1.6:compile
+[INFO] |  |     \- it.geosolutions.jaiext.jiffle:jt-jiffle-language:jar:1.1.6:compile
+[INFO] |  |        +- org.antlr:antlr4-runtime:jar:4.7.1:compile
+[INFO] |  |        \- org.codehaus.janino:janino:jar:3.0.8:compile
+[INFO] |  |           \- org.codehaus.janino:commons-compiler:jar:3.0.8:compile
+[INFO] |  \- org.geotools:gt-process-feature:jar:20.2:compile
+[INFO] |     \- org.geotools:gt-grid:jar:20.2:compile
+[INFO] +- org.geoserver:gs-rest:jar:2.14.2:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.9.5:compile
+[INFO] +- org.jdom:jdom2:jar:2.0.5:compile
+[INFO] +- commons-dbcp:commons-dbcp:jar:1.4:compile
+[INFO] |  \- commons-pool:commons-pool:jar:1.5.4:compile
+[INFO] +- org.apache.httpcomponents:httpclient:jar:4.5.5:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.10:compile
+[INFO] |  +- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] |  \- commons-codec:commons-codec:jar:1.9:compile
+[INFO] +- com.google.code.gson:gson:jar:2.3.1:compile
+[INFO] +- commons-io:commons-io:jar:2.6:compile
+[INFO] +- net.sf.json-lib:json-lib:jar:jdk15:2.4:compile
+[INFO] |  +- commons-beanutils:commons-beanutils:jar:1.9.2:provided
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.5:compile
+[INFO] |  \- net.sf.ezmorph:ezmorph:jar:1.0.6:compile
+[INFO] +- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO] +- org.geoserver:gs-main:jar:tests:2.14.2:test
+[INFO] +- org.geoserver:gs-wms:jar:tests:2.14.2:test
+[INFO] +- org.springframework:spring-test:jar:4.3.18.RELEASE:test
+[INFO] +- junit:junit:jar:4.11:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] \- xmlunit:xmlunit:jar:1.3:compile
+[INFO] 
+[INFO] -------------< org.opengeo:geonode-geoserver-ext-web-app >--------------
+[INFO] Building Web Application (WAR) 2.14.2                              [5/5]
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/maven-metadata.xml
+Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/maven-metadata.xml
+Progress (1): 992 B                   Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/maven-metadata.xml (992 B at 980 B/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/gt-jdbc-postgis-20-20190430.115832-240.pom
+Progress (1): 2.7 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/gt-jdbc-postgis-20-20190430.115832-240.pom (2.7 kB at 7.3 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/maven-metadata.xml
+Progress (1): 599 B                   Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/maven-metadata.xml (599 B at 1.5 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/gt-jdbc-20-20190430.115829-240.pom
+Progress (1): 3.4 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc/20-SNAPSHOT/gt-jdbc-20-20190430.115829-240.pom (3.4 kB at 9.0 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geotools/plugin/20-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geotools/plugin/20-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geotools/plugin/20-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geotools/plugin/20-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geotools/plugin/20-SNAPSHOT/maven-metadata.xml
+Progress (1): 593 B                   Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geotools/plugin/20-SNAPSHOT/maven-metadata.xml (593 B at 2.0 kB/s)
+Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geotools/plugin/20-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geotools/plugin/20-SNAPSHOT/plugin-20-20190430.115754-240.pom
+Progress (1): 2.9 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geotools/plugin/20-SNAPSHOT/plugin-20-20190430.115754-240.pom (2.9 kB at 7.4 kB/s)
+Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geotools/modules/20-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geotools/modules/20-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geotools/geotools/20-SNAPSHOT/maven-metadata.xml
+Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geotools/geotools/20-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-core/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-core/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.1 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-core/1.14-SNAPSHOT/gwc-core-1.14-20190430.123726-267.pom
+Progress (1): 4.1/5.6 kBProgress (1): 5.6 kB                        Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-core/1.14-SNAPSHOT/gwc-core-1.14-20190430.123726-267.pom (5.6 kB at 15 kB/s)
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/geowebcache/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/geowebcache/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/geowebcache/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/geowebcache/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/geowebcache/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 818 B                   Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/geowebcache/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/geowebcache/1.14-SNAPSHOT/maven-metadata.xml (818 B at 2.0 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/geowebcache/1.14-SNAPSHOT/geowebcache-1.14-20190430.123720-267.pom
+Progress (1): 4.1/20 kBProgress (1): 7.4/20 kBProgress (1): 12/20 kB Progress (1): 16/20 kBProgress (1): 20 kB                      Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/geowebcache/1.14-SNAPSHOT/geowebcache-1.14-20190430.123720-267.pom (20 kB at 35 kB/s)
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-georss/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-georss/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-georss/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-georss/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-georss/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-georss/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-georss/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.1 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-georss/1.14-SNAPSHOT/gwc-georss-1.14-20190430.123740-266.pom
+Progress (1): 1.9 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-georss/1.14-SNAPSHOT/gwc-georss-1.14-20190430.123740-266.pom (1.9 kB at 4.5 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.1 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/gwc-gmaps-1.14-20190430.123741-266.pom
+Progress (1): 1.7 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/gwc-gmaps-1.14-20190430.123741-266.pom (1.7 kB at 4.3 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-kml/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-kml/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-kml/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-kml/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-kml/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-kml/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-kml/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.1 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-kml/1.14-SNAPSHOT/gwc-kml-1.14-20190430.123742-266.pom
+Progress (1): 1.2 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-kml/1.14-SNAPSHOT/gwc-kml-1.14-20190430.123742-266.pom (1.2 kB at 3.2 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-rest/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-rest/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-rest/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-rest/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-rest/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-rest/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-rest/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.0 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-rest/1.14-SNAPSHOT/gwc-rest-1.14-20190430.123743-266.pom
+Progress (1): 2.6 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-rest/1.14-SNAPSHOT/gwc-rest-1.14-20190430.123743-266.pom (2.6 kB at 7.2 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-tms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-tms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-tms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-tms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-tms/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-tms/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-tms/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.2 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-tms/1.14-SNAPSHOT/gwc-tms-1.14-20190430.123744-266.pom
+Progress (1): 1.7 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-tms/1.14-SNAPSHOT/gwc-tms-1.14-20190430.123744-266.pom (1.7 kB at 4.6 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-ve/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-ve/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-ve/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-ve/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-ve/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-ve/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-ve/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.2 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-ve/1.14-SNAPSHOT/gwc-ve-1.14-20190430.123745-266.pom
+Progress (1): 1.2 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-ve/1.14-SNAPSHOT/gwc-ve-1.14-20190430.123745-266.pom (1.2 kB at 3.0 kB/s)
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-wms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-wms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-wms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-wms/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wms/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.2 kB/s)
+Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-wms/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wms/1.14-SNAPSHOT/gwc-wms-1.14-20190430.123751-266.pom
+Progress (1): 2.6 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wms/1.14-SNAPSHOT/gwc-wms-1.14-20190430.123751-266.pom (2.6 kB at 6.8 kB/s)
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.2 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/gwc-wmts-1.14-20190430.123752-266.pom
+Progress (1): 2.0 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/gwc-wmts-1.14-20190430.123752-266.pom (2.0 kB at 5.0 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.2 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/gwc-diskquota-jdbc-1.14-20190430.123756-266.pom
+Progress (1): 2.5 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/gwc-diskquota-jdbc-1.14-20190430.123756-266.pom (2.5 kB at 6.6 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 820 B                   Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/maven-metadata.xml (820 B at 2.2 kB/s)
+Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/gwc-diskquota-1.14-20190430.123753-266.pom
+Progress (1): 818 B                   Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota/1.14-SNAPSHOT/gwc-diskquota-1.14-20190430.123753-266.pom (818 B at 2.1 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.3 kB/s)
+Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/gwc-diskquota-core-1.14-20190430.123754-266.pom
+Progress (1): 2.1 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/gwc-diskquota-core-1.14-20190430.123754-266.pom (2.1 kB at 4.6 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/community/gs-notification/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/community/gs-notification/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/community/gs-notification/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/community/gs-notification/2.14-SNAPSHOT/maven-metadata.xml (1.4 kB at 14 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/community/gs-notification/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification/2.14-SNAPSHOT/maven-metadata.xml (1.4 kB at 3.4 kB/s)
+Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/community/gs-notification/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification/2.14-SNAPSHOT/gs-notification-2.14-20190501.223933-726.pom
+Progress (1): 2.8 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification/2.14-SNAPSHOT/gs-notification-2.14-20190501.223933-726.pom (2.8 kB at 7.6 kB/s)
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/community/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/community/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/community/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 808 B                   Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/community/2.14-SNAPSHOT/maven-metadata.xml (808 B at 12 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/community/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 814 B                   Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/community/2.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/2.14-SNAPSHOT/maven-metadata.xml (814 B at 2.1 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/2.14-SNAPSHOT/community-2.14-20190501.223713-726.pom
+Progress (1): 4.1/17 kBProgress (1): 7.4/17 kBProgress (1): 12/17 kB Progress (1): 16/17 kBProgress (1): 17 kB                      Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/2.14-SNAPSHOT/community-2.14-20190501.223713-726.pom (17 kB at 33 kB/s)
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/geoserver/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geoserver/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/geoserver/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/geoserver/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 808 B                   Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/geoserver/2.14-SNAPSHOT/maven-metadata.xml (808 B at 7.2 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/geoserver/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 814 B                   Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/geoserver/2.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geoserver/2.14-SNAPSHOT/maven-metadata.xml (814 B at 1.9 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geoserver/2.14-SNAPSHOT/geoserver-2.14-20190501.223535-726.pom
+Progress (1): 4.1/69 kBProgress (1): 7.4/69 kBProgress (1): 12/69 kB Progress (1): 16/69 kBProgress (1): 20/69 kBProgress (1): 24/69 kBProgress (1): 28/69 kBProgress (1): 32/69 kBProgress (1): 36/69 kBProgress (1): 40/69 kBProgress (1): 44/69 kBProgress (1): 48/69 kBProgress (1): 53/69 kBProgress (1): 57/69 kBProgress (1): 61/69 kBProgress (1): 65/69 kBProgress (1): 69 kB                      Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geoserver/2.14-SNAPSHOT/geoserver-2.14-20190501.223535-726.pom (69 kB at 73 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 17 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.1 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/gs-notification-common-2.14-20190501.223852-726.pom
+Progress (1): 851 B                   Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/gs-notification-common-2.14-20190501.223852-726.pom (851 B at 2.3 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.1/1.2 kBProgress (1): 1.2 kB                        Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 17 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/maven-metadata.xml
+Progress (1): 1.2 kB                    Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/maven-metadata.xml (1.2 kB at 3.1 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/gs-notification-geonode-2.14-20190501.223853-726.pom
+Progress (1): 1.1 kB                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/gs-notification-geonode-2.14-20190501.223853-726.pom (1.1 kB at 2.9 kB/s)
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/geofence/geofence-services-api/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/geofence/geofence-services-api/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geofence/geofence-services-api/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/geofence/geofence-services-api/3.3-SNAPSHOT/maven-metadata.xml
+Progress (1): 999 B                   Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/geofence/geofence-services-api/3.3-SNAPSHOT/maven-metadata.xml (999 B at 14 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/geofence/geofence-services-api/3.3-SNAPSHOT/maven-metadata.xml
+Progress (1): 999 B                   Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/geofence/geofence-services-api/3.3-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geofence/geofence-services-api/3.3-SNAPSHOT/maven-metadata.xml (999 B at 2.5 kB/s)
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/geofence/geofence-core/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/geofence/geofence-core/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/geofence/geofence-core/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geofence/geofence-core/3.3-SNAPSHOT/maven-metadata.xml
+Progress (1): 608 B                   Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/geofence/geofence-core/3.3-SNAPSHOT/maven-metadata.xml (608 B at 8.2 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/geofence/geofence-core/3.3-SNAPSHOT/maven-metadata.xml
+Progress (1): 608 B                   Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/geofence/geofence-core/3.3-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geofence/geofence-core/3.3-SNAPSHOT/maven-metadata.xml (608 B at 1.5 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geofence/geofence-root/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/geofence/geofence-root/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/geofence/geofence-root/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/geofence/geofence-root/3.3-SNAPSHOT/maven-metadata.xml
+Progress (1): 608 B                   Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/geofence/geofence-root/3.3-SNAPSHOT/maven-metadata.xml (608 B at 6.3 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/geofence/geofence-root/3.3-SNAPSHOT/maven-metadata.xml
+Progress (1): 608 B                   Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/geofence/geofence-root/3.3-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geofence/geofence-root/3.3-SNAPSHOT/maven-metadata.xml (608 B at 1.5 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geofence/geofence/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from osgeo: http://download.osgeo.org/webdav/geotools/org/geoserver/geofence/geofence/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from geosolutions: http://maven.geo-solutions.it/org/geoserver/geofence/geofence/3.3-SNAPSHOT/maven-metadata.xml
+Downloading from JBoss repo: http://repository.jboss.org/nexus/content/groups/public-jboss/org/geoserver/geofence/geofence/3.3-SNAPSHOT/maven-metadata.xml
+Progress (1): 603 B                   Downloaded from geosolutions: http://maven.geo-solutions.it/org/geoserver/geofence/geofence/3.3-SNAPSHOT/maven-metadata.xml (603 B at 8.9 kB/s)
+Downloading from repo.locationtech.org: https://repo.locationtech.org/content/repositories/geogig/org/geoserver/geofence/geofence/3.3-SNAPSHOT/maven-metadata.xml
+Progress (1): 603 B                   Downloading from org.mapfish: http://dev.mapfish.org/maven/repository/org/geoserver/geofence/geofence/3.3-SNAPSHOT/maven-metadata.xml
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/geofence/geofence/3.3-SNAPSHOT/maven-metadata.xml (603 B at 1.5 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/gt-jdbc-postgis-20-20190430.115832-240.jar
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-kml/1.14-SNAPSHOT/gwc-kml-1.14-20190430.123742-266.jar
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/gwc-gmaps-1.14-20190430.123741-266.jar
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-georss/1.14-SNAPSHOT/gwc-georss-1.14-20190430.123740-266.jar
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-core/1.14-SNAPSHOT/gwc-core-1.14-20190430.123726-267.jar
+Progress (1): 4.1/63 kBProgress (1): 7.4/63 kBProgress (1): 12/63 kB Progress (1): 16/63 kBProgress (1): 20/63 kBProgress (1): 24/63 kBProgress (1): 28/63 kBProgress (1): 32/63 kBProgress (1): 36/63 kBProgress (1): 40/63 kBProgress (1): 44/63 kBProgress (1): 48/63 kBProgress (2): 48/63 kB | 4.1/36 kBProgress (2): 48/63 kB | 7.4/36 kBProgress (2): 48/63 kB | 12/36 kB Progress (2): 48/63 kB | 16/36 kBProgress (3): 48/63 kB | 16/36 kB | 4.1/22 kBProgress (3): 48/63 kB | 16/36 kB | 7.5/22 kBProgress (3): 48/63 kB | 16/36 kB | 12/22 kB Progress (3): 48/63 kB | 16/36 kB | 16/22 kBProgress (4): 48/63 kB | 16/36 kB | 16/22 kB | 4.1/8.7 kBProgress (4): 48/63 kB | 16/36 kB | 16/22 kB | 7.5/8.7 kBProgress (4): 48/63 kB | 16/36 kB | 16/22 kB | 8.7 kB    Progress (4): 48/63 kB | 16/36 kB | 20/22 kB | 8.7 kBProgress (4): 48/63 kB | 16/36 kB | 22 kB | 8.7 kB   Progress (4): 52/63 kB | 16/36 kB | 22 kB | 8.7 kBProgress (4): 57/63 kB | 16/36 kB | 22 kB | 8.7 kBProgress (4): 61/63 kB | 16/36 kB | 22 kB | 8.7 kBProgress (4): 63 kB | 16/36 kB | 22 kB | 8.7 kB   Progress (4): 63 kB | 20/36 kB | 22 kB | 8.7 kBProgress (4): 63 kB | 24/36 kB | 22 kB | 8.7 kBProgress (4): 63 kB | 28/36 kB | 22 kB | 8.7 kBProgress (4): 63 kB | 32/36 kB | 22 kB | 8.7 kBProgress (4): 63 kB | 36 kB | 22 kB | 8.7 kB   Progress (5): 63 kB | 36 kB | 22 kB | 8.7 kB | 0/1.2 MBProgress (5): 63 kB | 36 kB | 22 kB | 8.7 kB | 0/1.2 MBProgress (5): 63 kB | 36 kB | 22 kB | 8.7 kB | 0/1.2 MBProgress (5): 63 kB | 36 kB | 22 kB | 8.7 kB | 0/1.2 MB                                                       Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-gmaps/1.14-SNAPSHOT/gwc-gmaps-1.14-20190430.123741-266.jar (8.7 kB at 10 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-rest/1.14-SNAPSHOT/gwc-rest-1.14-20190430.123743-266.jar
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-kml/1.14-SNAPSHOT/gwc-kml-1.14-20190430.123742-266.jar (22 kB at 26 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-tms/1.14-SNAPSHOT/gwc-tms-1.14-20190430.123744-266.jar
+Progress (3): 63 kB | 36 kB | 0/1.2 MBProgress (3): 63 kB | 36 kB | 0/1.2 MBProgress (3): 63 kB | 36 kB | 0/1.2 MBProgress (3): 63 kB | 36 kB | 0/1.2 MB                                      Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geotools/jdbc/gt-jdbc-postgis/20-SNAPSHOT/gt-jdbc-postgis-20-20190430.115832-240.jar (63 kB at 68 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-ve/1.14-SNAPSHOT/gwc-ve-1.14-20190430.123745-266.jar
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-georss/1.14-SNAPSHOT/gwc-georss-1.14-20190430.123740-266.jar (36 kB at 37 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wms/1.14-SNAPSHOT/gwc-wms-1.14-20190430.123751-266.jar
+Progress (1): 0/1.2 MBProgress (1): 0/1.2 MBProgress (1): 0/1.2 MBProgress (1): 0/1.2 MBProgress (2): 0/1.2 MB | 4.1/71 kBProgress (2): 0/1.2 MB | 7.5/71 kBProgress (2): 0/1.2 MB | 12/71 kB Progress (2): 0/1.2 MB | 16/71 kBProgress (3): 0/1.2 MB | 16/71 kB | 4.1/12 kBProgress (3): 0/1.2 MB | 16/71 kB | 7.5/12 kBProgress (3): 0/1.2 MB | 16/71 kB | 12/12 kB Progress (3): 0/1.2 MB | 16/71 kB | 12 kB   Progress (3): 0.1/1.2 MB | 16/71 kB | 12 kBProgress (3): 0.1/1.2 MB | 16/71 kB | 12 kBProgress (3): 0.1/1.2 MB | 16/71 kB | 12 kBProgress (3): 0.1/1.2 MB | 16/71 kB | 12 kBProgress (4): 0.1/1.2 MB | 16/71 kB | 12 kB | 4.1/5.5 kBProgress (4): 0.1/1.2 MB | 16/71 kB | 12 kB | 5.5 kB    Progress (4): 0.1/1.2 MB | 20/71 kB | 12 kB | 5.5 kBProgress (4): 0.1/1.2 MB | 24/71 kB | 12 kB | 5.5 kBProgress (4): 0.1/1.2 MB | 28/71 kB | 12 kB | 5.5 kBProgress (4): 0.1/1.2 MB | 32/71 kB | 12 kB | 5.5 kB                                                    Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-tms/1.14-SNAPSHOT/gwc-tms-1.14-20190430.123744-266.jar (12 kB at 9.5 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/gwc-wmts-1.14-20190430.123752-266.jar
+Progress (3): 0.1/1.2 MB | 32/71 kB | 5.5 kBProgress (3): 0.1/1.2 MB | 32/71 kB | 5.5 kBProgress (3): 0.1/1.2 MB | 32/71 kB | 5.5 kBProgress (3): 0.1/1.2 MB | 32/71 kB | 5.5 kB                                            Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-ve/1.14-SNAPSHOT/gwc-ve-1.14-20190430.123745-266.jar (5.5 kB at 4.2 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/gwc-diskquota-jdbc-1.14-20190430.123756-266.jar
+Progress (2): 0.1/1.2 MB | 36/71 kBProgress (2): 0.1/1.2 MB | 40/71 kBProgress (2): 0.1/1.2 MB | 44/71 kBProgress (2): 0.1/1.2 MB | 48/71 kBProgress (3): 0.1/1.2 MB | 48/71 kB | 4.1/69 kBProgress (3): 0.1/1.2 MB | 48/71 kB | 7.5/69 kBProgress (3): 0.1/1.2 MB | 48/71 kB | 12/69 kB Progress (3): 0.1/1.2 MB | 48/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 53/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 57/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 61/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 65/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 65/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 65/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 65/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 65/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 69/71 kB | 16/69 kBProgress (3): 0.1/1.2 MB | 71 kB | 16/69 kB   Progress (3): 0.1/1.2 MB | 71 kB | 20/69 kBProgress (3): 0.1/1.2 MB | 71 kB | 24/69 kBProgress (3): 0.1/1.2 MB | 71 kB | 28/69 kBProgress (3): 0.1/1.2 MB | 71 kB | 32/69 kBProgress (3): 0.1/1.2 MB | 71 kB | 32/69 kBProgress (3): 0.1/1.2 MB | 71 kB | 32/69 kBProgress (3): 0.1/1.2 MB | 71 kB | 32/69 kBProgress (3): 0.1/1.2 MB | 71 kB | 32/69 kBProgress (4): 0.1/1.2 MB | 71 kB | 32/69 kB | 4.1/34 kBProgress (4): 0.1/1.2 MB | 71 kB | 32/69 kB | 7.5/34 kBProgress (4): 0.1/1.2 MB | 71 kB | 32/69 kB | 12/34 kB Progress (4): 0.1/1.2 MB | 71 kB | 32/69 kB | 16/34 kBProgress (4): 0.1/1.2 MB | 71 kB | 36/69 kB | 16/34 kBProgress (4): 0.1/1.2 MB | 71 kB | 40/69 kB | 16/34 kBProgress (4): 0.1/1.2 MB | 71 kB | 44/69 kB | 16/34 kBProgress (4): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kB | 4.1/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kB | 7.4/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kB | 12/57 kB Progress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 16/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 20/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 24/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 28/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 32/34 kB | 16/57 kBProgress (5): 0.1/1.2 MB | 71 kB | 48/69 kB | 34 kB | 16/57 kB                                                                 Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-rest/1.14-SNAPSHOT/gwc-rest-1.14-20190430.123743-266.jar (71 kB at 42 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/gwc-diskquota-core-1.14-20190430.123754-266.jar
+Progress (4): 0.1/1.2 MB | 53/69 kB | 34 kB | 16/57 kBProgress (4): 0.1/1.2 MB | 57/69 kB | 34 kB | 16/57 kBProgress (4): 0.1/1.2 MB | 61/69 kB | 34 kB | 16/57 kBProgress (4): 0.1/1.2 MB | 65/69 kB | 34 kB | 16/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 16/57 kB   Progress (4): 0.1/1.2 MB | 69 kB | 34 kB | 20/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 24/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 28/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 32/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 32/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 32/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 32/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 32/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 36/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 40/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 44/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 48/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 52/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 57/57 kBProgress (4): 0.1/1.2 MB | 69 kB | 34 kB | 57 kB                                                   Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wmts/1.14-SNAPSHOT/gwc-wmts-1.14-20190430.123752-266.jar (34 kB at 17 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification/2.14-SNAPSHOT/gs-notification-2.14-20190501.223933-726.jar
+Progress (3): 0.2/1.2 MB | 69 kB | 57 kBProgress (3): 0.2/1.2 MB | 69 kB | 57 kBProgress (3): 0.2/1.2 MB | 69 kB | 57 kBProgress (3): 0.2/1.2 MB | 69 kB | 57 kBProgress (3): 0.2/1.2 MB | 69 kB | 57 kBProgress (3): 0.2/1.2 MB | 69 kB | 57 kBProgress (3): 0.2/1.2 MB | 69 kB | 57 kBProgress (3): 0.2/1.2 MB | 69 kB | 57 kB                                        Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-jdbc/1.14-SNAPSHOT/gwc-diskquota-jdbc-1.14-20190430.123756-266.jar (57 kB at 25 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/gs-notification-common-2.14-20190501.223852-726.jar
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-wms/1.14-SNAPSHOT/gwc-wms-1.14-20190430.123751-266.jar (69 kB at 29 kB/s)
+Downloading from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/gs-notification-geonode-2.14-20190501.223853-726.jar
+Progress (2): 0.2/1.2 MB | 4.1/21 kBProgress (2): 0.2/1.2 MB | 7.4/21 kBProgress (2): 0.2/1.2 MB | 12/21 kB Progress (2): 0.2/1.2 MB | 16/21 kBProgress (3): 0.2/1.2 MB | 16/21 kB | 4.1/94 kBProgress (3): 0.2/1.2 MB | 16/21 kB | 7.4/94 kBProgress (3): 0.2/1.2 MB | 16/21 kB | 12/94 kB Progress (3): 0.2/1.2 MB | 16/21 kB | 16/94 kBProgress (3): 0.2/1.2 MB | 16/21 kB | 16/94 kBProgress (3): 0.2/1.2 MB | 16/21 kB | 16/94 kBProgress (3): 0.2/1.2 MB | 16/21 kB | 16/94 kBProgress (3): 0.2/1.2 MB | 16/21 kB | 16/94 kBProgress (4): 0.2/1.2 MB | 16/21 kB | 16/94 kB | 4.1/18 kBProgress (4): 0.2/1.2 MB | 16/21 kB | 16/94 kB | 7.4/18 kBProgress (4): 0.2/1.2 MB | 16/21 kB | 16/94 kB | 12/18 kB Progress (4): 0.2/1.2 MB | 16/21 kB | 16/94 kB | 16/18 kBProgress (4): 0.2/1.2 MB | 16/21 kB | 16/94 kB | 18 kB   Progress (4): 0.2/1.2 MB | 20/21 kB | 16/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 16/94 kB | 18 kB   Progress (4): 0.2/1.2 MB | 21 kB | 20/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 20/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 24/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 24/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 28/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 28/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 32/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 32/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 36/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 40/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 44/94 kB | 18 kBProgress (4): 0.2/1.2 MB | 21 kB | 48/94 kB | 18 kB                                                   Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-geonode/2.14-SNAPSHOT/gs-notification-geonode-2.14-20190501.223853-726.jar (18 kB at 6.0 kB/s)
+Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification-common/2.14-SNAPSHOT/gs-notification-common-2.14-20190501.223852-726.jar (21 kB at 7.2 kB/s)
+Progress (2): 0.2/1.2 MB | 48/94 kBProgress (2): 0.2/1.2 MB | 48/94 kBProgress (2): 0.2/1.2 MB | 48/94 kBProgress (2): 0.2/1.2 MB | 48/94 kBProgress (3): 0.2/1.2 MB | 48/94 kB | 4.1/24 kBProgress (3): 0.2/1.2 MB | 48/94 kB | 7.4/24 kBProgress (3): 0.2/1.2 MB | 48/94 kB | 12/24 kB Progress (3): 0.2/1.2 MB | 48/94 kB | 16/24 kBProgress (3): 0.2/1.2 MB | 48/94 kB | 20/24 kBProgress (3): 0.2/1.2 MB | 48/94 kB | 24 kB   Progress (3): 0.2/1.2 MB | 52/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 57/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 61/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 65/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 65/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 65/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 65/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 65/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 69/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 73/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 77/94 kB | 24 kBProgress (3): 0.2/1.2 MB | 81/94 kB | 24 kB                                           Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geoserver/community/gs-notification/2.14-SNAPSHOT/gs-notification-2.14-20190501.223933-726.jar (24 kB at 7.0 kB/s)
+Progress (2): 0.2/1.2 MB | 85/94 kBProgress (2): 0.2/1.2 MB | 89/94 kBProgress (2): 0.2/1.2 MB | 93/94 kBProgress (2): 0.2/1.2 MB | 94 kB   Progress (2): 0.2/1.2 MB | 94 kBProgress (2): 0.3/1.2 MB | 94 kBProgress (2): 0.3/1.2 MB | 94 kBProgress (2): 0.3/1.2 MB | 94 kB                                Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-diskquota-core/1.14-SNAPSHOT/gwc-diskquota-core-1.14-20190430.123754-266.jar (94 kB at 26 kB/s)
+Progress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.3/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.4/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.5/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.6/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.7/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.8/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 0.9/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.0/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.1/1.2 MBProgress (1): 1.2/1.2 MBProgress (1): 1.2/1.2 MBProgress (1): 1.2 MB                        Downloaded from boundless: https://repo.boundlessgeo.com/main/org/geowebcache/gwc-core/1.14-SNAPSHOT/gwc-core-1.14-20190430.123726-267.jar (1.2 MB at 96 kB/s)
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ geonode-geoserver-ext-web-app ---
+[INFO] org.opengeo:geonode-geoserver-ext-web-app:jar:2.14.2
+[INFO] +- org.opengeo:geonode-geoserver-ext-printng:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-rest:jar:2.14.2:compile
+[INFO] |  +- org.geotools:gt-metadata:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-opengis:jar:20.2:compile
+[INFO] |  |  |  \- systems.uom:systems-common-java8:jar:0.7.2:compile
+[INFO] |  |  |     +- tec.uom:uom-se:jar:1.0.8:compile
+[INFO] |  |  |     |  +- javax.measure:unit-api:jar:1.0:compile
+[INFO] |  |  |     |  \- tec.uom.lib:uom-lib-common:jar:1.0.2:compile
+[INFO] |  |  |     +- si.uom:si-quantity:jar:0.7.1:compile
+[INFO] |  |  |     \- si.uom:si-units-java8:jar:0.7.1:compile
+[INFO] |  |  \- javax.media:jai_core:jar:1.1.3:compile
+[INFO] |  +- org.xhtmlrenderer:core-renderer:jar:R8-SNAPSHOT:compile
+[INFO] |  +- com.lowagie:itext:jar:2.1.5:compile
+[INFO] |  |  +- bouncycastle:bcmail-jdk14:jar:138:compile
+[INFO] |  |  \- bouncycastle:bcprov-jdk14:jar:138:compile
+[INFO] |  +- org.freemarker:freemarker:jar:2.3.18:compile
+[INFO] |  +- org.geonode.print:mapfish-print-lib:jar:2.1.3-SNAPSHOT:compile
+[INFO] |  |  +- org.geotools:gt-epsg-hsql:jar:20.2:compile
+[INFO] |  |  |  \- org.hsqldb:hsqldb:jar:2.4.1:compile
+[INFO] |  |  +- org.geotools:gt-render:jar:20.2:compile
+[INFO] |  |  |  \- com.conversantmedia:disruptor:jar:1.2.13:compile
+[INFO] |  |  +- org.jyaml:jyaml:jar:1.3:compile
+[INFO] |  |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  |  +- org.mapfish.geo:mapfish-geo-lib:jar:1.2.0:compile
+[INFO] |  |  |  \- com.vividsolutions:jts:jar:1.8:compile
+[INFO] |  |  +- javax.media:jai_codec:jar:1.1.3:compile
+[INFO] |  |  +- org.apache.pdfbox:pdfbox:jar:1.6.0:compile
+[INFO] |  |  |  +- org.apache.pdfbox:fontbox:jar:1.6.0:compile
+[INFO] |  |  |  \- org.apache.pdfbox:jempbox:jar:1.6.0:compile
+[INFO] |  |  +- javax.media:jai_imageio:jar:1.1:compile
+[INFO] |  |  +- com.itextpdf:itextpdf:jar:5.4.4:compile
+[INFO] |  |  +- org.json:json:jar:20080701:compile
+[INFO] |  |  +- xalan:xalan:jar:2.7.0:compile
+[INFO] |  |  +- com.codahale.metrics:metrics-core:jar:3.0.2:compile
+[INFO] |  |  +- com.codahale.metrics:metrics-servlet:jar:3.0.2:compile
+[INFO] |  |  +- com.codahale.metrics:metrics-httpclient:jar:3.0.2:compile
+[INFO] |  |  +- com.codahale.metrics:metrics-servlets:jar:3.0.2:compile
+[INFO] |  |  |  +- com.codahale.metrics:metrics-healthchecks:jar:3.0.2:compile
+[INFO] |  |  |  +- com.codahale.metrics:metrics-json:jar:3.0.2:compile
+[INFO] |  |  |  \- com.codahale.metrics:metrics-jvm:jar:3.0.2:compile
+[INFO] |  |  \- com.codahale.metrics:metrics-log4j:jar:3.0.2:compile
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.5.5:compile
+[INFO] |  |  \- commons-logging:commons-logging:jar:1.1.1:compile
+[INFO] |  +- commons-io:commons-io:jar:2.6:compile
+[INFO] |  +- com.google.guava:guava:jar:25.1-jre:compile
+[INFO] |  |  +- org.checkerframework:checker-qual:jar:2.0.0:compile
+[INFO] |  |  +- com.google.errorprone:error_prone_annotations:jar:2.1.3:compile
+[INFO] |  |  +- com.google.j2objc:j2objc-annotations:jar:1.1:compile
+[INFO] |  |  \- org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:compile
+[INFO] |  \- org.ccil.cowan.tagsoup:tagsoup:jar:1.2.1:compile
+[INFO] +- org.opengeo:geonode-geoserver-ext-wps-batchdownload:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-ows:jar:2.14.2:compile
+[INFO] |  |  +- org.geotools.ogc:net.opengis.ows:jar:20.2:compile
+[INFO] |  |  |  \- org.geotools.ogc:org.w3.xlink:jar:20.2:compile
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-ows:jar:20.2:compile
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-core:jar:20.2:compile
+[INFO] |  |  |  +- picocontainer:picocontainer:jar:1.2:compile
+[INFO] |  |  |  +- commons-jxpath:commons-jxpath:jar:1.3:compile
+[INFO] |  |  |  \- org.eclipse.xsd:org.eclipse.xsd:jar:2.12.0:compile
+[INFO] |  |  \- xpp3:xpp3:jar:1.1.3.4.O:compile
+[INFO] |  +- org.geoserver:gs-main:jar:2.14.2:compile
+[INFO] |  |  +- commons-beanutils:commons-beanutils:jar:noclassprop:1.9.2:compile
+[INFO] |  |  +- commons-httpclient:commons-httpclient:jar:3.1:compile
+[INFO] |  |  +- org.geotools:gt-cql:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-data:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-jdbc:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-property:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-wms:jar:20.2:compile
+[INFO] |  |  +- org.springframework:spring-aop:jar:4.3.18.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-jdbc:jar:4.3.18.RELEASE:compile
+[INFO] |  |  |  \- org.springframework:spring-tx:jar:4.3.18.RELEASE:compile
+[INFO] |  |  +- it.geosolutions.jaiext.concurrent-tile-cache:jt-concurrent-tile-cache:jar:1.1.6:compile
+[INFO] |  |  +- org.jasypt:jasypt:jar:1.9.2:compile
+[INFO] |  |  +- org.jasypt:jasypt-springsecurity3:jar:1.9.2:compile
+[INFO] |  |  +- org.bouncycastle:bcprov-jdk15on:jar:1.60:compile
+[INFO] |  |  +- org.codehaus.jettison:jettison:jar:1.0.1:compile
+[INFO] |  |  \- org.geotools:gt-wmts:jar:20.2:compile
+[INFO] |  |     +- org.geotools:gt-tile-client:jar:20.2:compile
+[INFO] |  |     |  \- org.geotools:gt-swing:jar:20.2:compile
+[INFO] |  |     |     \- com.miglayout:miglayout:jar:swing:3.7:compile
+[INFO] |  |     \- org.geotools.xsd:gt-xsd-wmts:jar:20.2:compile
+[INFO] |  |        \- org.geotools.ogc:net.opengis.wmts:jar:20.2:compile
+[INFO] |  +- org.geoserver:gs-wms:jar:2.14.2:compile
+[INFO] |  |  +- org.geotools:gt-svg:jar:20.2:compile
+[INFO] |  |  |  \- org.apache.xmlgraphics:batik-transcoder:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-anim:jar:1.10:compile
+[INFO] |  |  |     |  +- org.apache.xmlgraphics:batik-css:jar:1.10:compile
+[INFO] |  |  |     |  +- org.apache.xmlgraphics:batik-ext:jar:1.10:compile
+[INFO] |  |  |     |  +- org.apache.xmlgraphics:batik-parser:jar:1.10:compile
+[INFO] |  |  |     |  \- org.apache.xmlgraphics:batik-svg-dom:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-awt-util:jar:1.10:compile
+[INFO] |  |  |     |  \- org.apache.xmlgraphics:xmlgraphics-commons:jar:2.2:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-bridge:jar:1.10:compile
+[INFO] |  |  |     |  \- org.apache.xmlgraphics:batik-script:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-dom:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-gvt:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-svggen:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-util:jar:1.10:compile
+[INFO] |  |  |     |  +- org.apache.xmlgraphics:batik-constants:jar:1.10:compile
+[INFO] |  |  |     |  \- org.apache.xmlgraphics:batik-i18n:jar:1.10:compile
+[INFO] |  |  |     +- org.apache.xmlgraphics:batik-xml:jar:1.10:compile
+[INFO] |  |  |     \- xml-apis:xml-apis-ext:jar:1.3.04:compile
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-png:jar:1.1.28:compile
+[INFO] |  |  +- ar.com.hjg:pngj:jar:2.0.1:compile
+[INFO] |  |  \- org.springframework:spring-context-support:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.jdom:jdom2:jar:2.0.6:compile
+[INFO] |  +- commons-dbcp:commons-dbcp:jar:1.4:compile
+[INFO] |  |  \- commons-pool:commons-pool:jar:1.5.4:compile
+[INFO] |  +- com.google.code.gson:gson:jar:2.3.1:compile
+[INFO] |  +- net.sf.json-lib:json-lib:jar:jdk15:2.4:compile
+[INFO] |  |  +- commons-beanutils:commons-beanutils:jar:1.9.2:provided
+[INFO] |  |  +- commons-lang:commons-lang:jar:2.5:compile
+[INFO] |  |  \- net.sf.ezmorph:ezmorph:jar:1.0.6:compile
+[INFO] |  \- xmlunit:xmlunit:jar:1.3:compile
+[INFO] +- org.geoserver.web:gs-web-app:jar:2.14.2:compile
+[INFO] |  +- org.marlin:marlin:jar:0.7.5-Unsafe:compile
+[INFO] |  +- org.geoserver.web:gs-web-core:jar:2.14.2:compile
+[INFO] |  |  +- org.apache.wicket:wicket-core:jar:7.6.0:compile
+[INFO] |  |  +- org.apache.wicket:wicket-util:jar:7.6.0:compile
+[INFO] |  |  +- org.apache.wicket:wicket-request:jar:7.6.0:compile
+[INFO] |  |  +- org.wicketstuff:wicketstuff-select2:jar:7.6.0:compile
+[INFO] |  |  |  \- de.agilecoders.wicket.webjars:wicket-webjars:jar:0.5.3:compile
+[INFO] |  |  \- org.slf4j:slf4j-log4j12:jar:1.6.4:compile
+[INFO] |  +- org.geoserver.web:gs-web-wms:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.web:gs-web-wfs:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.web:gs-web-wcs:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.web:gs-web-demo:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.web:gs-web-sec-jdbc:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.web:gs-web-sec-ldap:jar:2.14.2:compile
+[INFO] |  |  \- org.springframework.security:spring-security-ldap:jar:4.2.7.RELEASE:compile
+[INFO] |  |     \- org.springframework.ldap:spring-ldap-core:jar:2.3.2.RELEASE:compile
+[INFO] |  +- org.geoserver.web:gs-web-rest:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-platform:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-wcs:jar:2.14.2:compile
+[INFO] |  |  \- org.geotools:gt-referencing:jar:20.2:compile
+[INFO] |  |     +- org.ejml:ejml-ddense:jar:0.34:compile
+[INFO] |  |     |  \- org.ejml:ejml-core:jar:0.34:compile
+[INFO] |  |     +- jgridshift:jgridshift:jar:1.0:compile
+[INFO] |  |     \- net.sf.geographiclib:GeographicLib-Java:jar:1.49:compile
+[INFO] |  +- org.geoserver:gs-wcs1_0:jar:2.14.2:compile
+[INFO] |  |  +- org.geotools.ogc:net.opengis.wcs:jar:20.2:compile
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-gml3:jar:20.2:compile
+[INFO] |  |  |  \- org.geotools.xsd:gt-xsd-gml2:jar:20.2:compile
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-filter:jar:20.2:compile
+[INFO] |  |  +- org.geotools.xsd:gt-xsd-wcs:jar:20.2:compile
+[INFO] |  |  +- javax.mail:mail:jar:1.4:compile
+[INFO] |  |  \- javax.activation:activation:jar:1.1:compile
+[INFO] |  +- org.geoserver:gs-wcs1_1:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-wcs2_0:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-wfs:jar:2.14.2:compile
+[INFO] |  |  +- org.geotools.ogc:net.opengis.wfs:jar:20.2:compile
+[INFO] |  |  |  \- org.geotools.ogc:net.opengis.fes:jar:20.2:compile
+[INFO] |  |  \- org.geotools.xsd:gt-xsd-wfs:jar:20.2:compile
+[INFO] |  +- org.geoserver:gs-kml:jar:2.14.2:compile
+[INFO] |  |  \- de.micromata.jak:JavaAPIforKml:jar:2.2.0:compile
+[INFO] |  +- org.geoserver:gs-restconfig:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-restconfig-wcs:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-restconfig-wfs:jar:2.14.2:compile
+[INFO] |  +- org.geoserver:gs-restconfig-wms:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.security:gs-sec-jdbc:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.security:gs-sec-ldap:jar:2.14.2:compile
+[INFO] |  +- org.geotools.jdbc:gt-jdbc-postgis:jar:20-SNAPSHOT:compile
+[INFO] |  |  \- org.postgresql:postgresql:jar:42.1.1:compile
+[INFO] |  +- org.geotools:gt-geopkg:jar:20.2:compile
+[INFO] |  |  +- org.xerial:sqlite-jdbc:jar:3.23.1:compile
+[INFO] |  |  \- org.geotools.xsd:gt-xsd-fes:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-wfs-ng:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-complex:jar:20.2:compile
+[INFO] |  |  |  \- org.geotools:gt-app-schema-resolver:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-xml:jar:20.2:compile
+[INFO] |  |  |  \- org.apache.xml:xml-commons-resolver:jar:1.2:compile
+[INFO] |  |  \- xpp3:xpp3_min:jar:1.1.4c:compile
+[INFO] |  +- org.geotools:gt-geotiff:jar:20.2:compile
+[INFO] |  |  \- it.geosolutions.imageio-ext:imageio-ext-tiff:jar:1.1.28:compile
+[INFO] |  |     \- it.geosolutions.imageio-ext:imageio-ext-utilities:jar:1.1.28:compile
+[INFO] |  +- org.geotools:gt-arcgrid:jar:20.2:compile
+[INFO] |  |  \- it.geosolutions.imageio-ext:imageio-ext-arcgrid:jar:1.1.28:compile
+[INFO] |  +- org.geotools:gt-imagemosaic:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-transform:jar:20.2:compile
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-streams:jar:1.1.28:compile
+[INFO] |  |  +- it.geosolutions.imageio-ext:imageio-ext-geocore:jar:1.1.28:compile
+[INFO] |  |  +- org.jaitools:jt-utils:jar:1.5.0:compile
+[INFO] |  |  +- org.jaitools:jt-vectorbinarize:jar:1.5.0:compile
+[INFO] |  |  \- net.sf.ehcache:ehcache:jar:2.10.3:compile
+[INFO] |  +- org.geotools:gt-image:jar:20.2:compile
+[INFO] |  +- org.springframework:spring-beans:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-core:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-webmvc:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.geotools:gt-api:jar:20.2:compile
+[INFO] |  \- org.geotools:gt-main:jar:20.2:compile
+[INFO] +- org.geoserver:gs-gwc:jar:2.14.2:compile
+[INFO] |  +- org.geowebcache:gwc-core:jar:1.14-SNAPSHOT:compile
+[INFO] |  |  +- it.geosolutions.jaiext.utilities:jt-utilities:jar:1.1.6:compile
+[INFO] |  |  \- org.owasp.encoder:encoder:jar:1.1:compile
+[INFO] |  +- org.geowebcache:gwc-georss:jar:1.14-SNAPSHOT:compile
+[INFO] |  |  +- stax:stax-api:jar:1.0.1:compile
+[INFO] |  |  \- stax:stax:jar:1.2.0:compile
+[INFO] |  +- org.geowebcache:gwc-gmaps:jar:1.14-SNAPSHOT:compile
+[INFO] |  +- org.geowebcache:gwc-kml:jar:1.14-SNAPSHOT:compile
+[INFO] |  +- org.geowebcache:gwc-rest:jar:1.14-SNAPSHOT:compile
+[INFO] |  |  \- org.json:org.json:jar:2.0:compile
+[INFO] |  +- org.geowebcache:gwc-tms:jar:1.14-SNAPSHOT:compile
+[INFO] |  +- org.geowebcache:gwc-ve:jar:1.14-SNAPSHOT:compile
+[INFO] |  +- org.geowebcache:gwc-wms:jar:1.14-SNAPSHOT:compile
+[INFO] |  +- org.geowebcache:gwc-wmts:jar:1.14-SNAPSHOT:compile
+[INFO] |  +- org.geowebcache:gwc-diskquota-jdbc:jar:1.14-SNAPSHOT:compile
+[INFO] |  |  \- org.geowebcache:gwc-diskquota-core:jar:1.14-SNAPSHOT:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-core:jar:2.9.5:compile
+[INFO] +- org.geoserver.web:gs-web-gwc:jar:2.14.2:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  \- org.apache.commons:commons-text:jar:1.4:compile
+[INFO] +- javax.servlet:javax.servlet-api:jar:3.1.0:test
+[INFO] +- org.eclipse.jetty:jetty-jndi:jar:9.2.13.v20150730:test
+[INFO] |  \- org.eclipse.jetty:jetty-util:jar:9.2.13.v20150730:test
+[INFO] +- org.eclipse.jetty:jetty-plus:jar:9.2.13.v20150730:test
+[INFO] |  \- org.eclipse.jetty:jetty-webapp:jar:9.2.13.v20150730:test
+[INFO] |     +- org.eclipse.jetty:jetty-xml:jar:9.2.13.v20150730:test
+[INFO] |     \- org.eclipse.jetty:jetty-servlet:jar:9.2.13.v20150730:test
+[INFO] |        \- org.eclipse.jetty:jetty-security:jar:9.2.13.v20150730:test
+[INFO] |           \- org.eclipse.jetty:jetty-server:jar:9.2.13.v20150730:test
+[INFO] |              +- org.eclipse.jetty:jetty-http:jar:9.2.13.v20150730:test
+[INFO] |              \- org.eclipse.jetty:jetty-io:jar:9.2.13.v20150730:test
+[INFO] +- org.springframework:spring-test:jar:4.3.18.RELEASE:test
+[INFO] +- junit:junit:jar:4.11:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:compile
+[INFO] +- org.geoserver.extension:gs-monitor-core:jar:2.14.2:compile
+[INFO] |  +- com.maxmind:geoip:jar:1.2.3:compile
+[INFO] |  +- jfree:jfreechart:jar:1.0.10:compile
+[INFO] |  |  \- jfree:jcommon:jar:1.0.13:compile
+[INFO] |  +- org.apache.wicket:wicket-datetime:jar:7.6.0:compile
+[INFO] |  |  \- org.slf4j:slf4j-api:jar:1.6.4:compile
+[INFO] |  \- org.apache.poi:poi:jar:3.17:compile
+[INFO] |     \- org.apache.commons:commons-collections4:jar:4.1:compile
+[INFO] +- org.geoserver.community:gs-status-monitoring:jar:2.14.2:compile
+[INFO] |  +- com.github.oshi:oshi-core:jar:3.4.3:compile
+[INFO] |  |  +- net.java.dev.jna:jna-platform:jar:4.4.0:compile
+[INFO] |  |  |  \- net.java.dev.jna:jna:jar:4.4.0:compile
+[INFO] |  |  \- org.threeten:threetenbp:jar:1.3.4:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.9.5:compile
+[INFO] |  \- joda-time:joda-time:jar:2.8.1:compile
+[INFO] +- org.geoserver.extension:gs-inspire:jar:2.14.2:compile
+[INFO] +- org.geoserver.extension:gs-control-flow:jar:2.14.2:compile
+[INFO] +- org.geoserver.community.backuprestore:gs-backup-restore-extension:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.community.backuprestore:gs-backup-restore-core:jar:2.14.2:compile
+[INFO] |  |  +- org.springframework.integration:spring-integration-core:jar:4.3.17.RELEASE:compile
+[INFO] |  |  |  \- org.springframework.retry:spring-retry:jar:1.1.3.RELEASE:compile
+[INFO] |  |  +- org.springframework:spring-messaging:jar:4.3.18.RELEASE:compile
+[INFO] |  |  +- org.springframework.batch:spring-batch-core:jar:3.0.7.RELEASE:compile
+[INFO] |  |  |  \- com.ibm.jbatch:com.ibm.jbatch-tck-spi:jar:1.0:compile
+[INFO] |  |  |     \- javax.batch:javax.batch-api:jar:1.0:compile
+[INFO] |  |  +- org.springframework.batch:spring-batch-infrastructure:jar:3.0.7.RELEASE:compile
+[INFO] |  |  +- org.springframework.batch:spring-batch-integration:jar:3.0.7.RELEASE:compile
+[INFO] |  |  \- org.springframework.batch:spring-batch-test:jar:3.0.7.RELEASE:compile
+[INFO] |  |     \- org.hamcrest:hamcrest-library:jar:1.3:compile
+[INFO] |  \- commons-fileupload:commons-fileupload:jar:1.3.3:compile
+[INFO] +- org.geoserver.community.backuprestore:gs-backup-restore-rest:jar:2.14.2:compile
+[INFO] +- org.geoserver.community.backuprestore:gs-backup-restore-web:jar:2.14.2:compile
+[INFO] |  \- org.ocpsoft.prettytime:prettytime:jar:1.0.8.Final:compile
+[INFO] +- org.geoserver.community:gs-sldservice:jar:2.14.2:compile
+[INFO] |  +- jdom:jdom:jar:1.0:compile
+[INFO] |  \- xom:xom:jar:1.1:compile
+[INFO] |     +- xerces:xmlParserAPIs:jar:2.6.2:compile
+[INFO] |     \- jaxen:jaxen:jar:1.1-beta-8:compile
+[INFO] +- org.geoserver.community:gs-wmts-multi-dimensional:jar:2.14.2:compile
+[INFO] +- org.geoserver.extension:gs-printing:jar:2.14.2:compile
+[INFO] |  \- xml-apis:xml-apis-xerces:jar:2.7.1:compile
+[INFO] +- org.geoserver.extension:gs-web-wps:jar:2.14.2:compile
+[INFO] |  +- org.geoserver.web:gs-web-sec-core:jar:2.14.2:compile
+[INFO] |  +- xalan:serializer:jar:2.7.2:compile
+[INFO] |  |  \- xml-apis:xml-apis:jar:1.4.01:compile
+[INFO] |  \- org.apache.wicket:wicket-extensions:jar:7.6.0:compile
+[INFO] +- org.geoserver.extension:gs-excel:jar:2.14.2:compile
+[INFO] |  \- org.apache.poi:poi-ooxml:jar:3.17:compile
+[INFO] |     +- org.apache.poi:poi-ooxml-schemas:jar:3.17:compile
+[INFO] |     |  \- org.apache.xmlbeans:xmlbeans:jar:2.6.0:compile
+[INFO] |     \- com.github.virtuald:curvesapi:jar:1.04:compile
+[INFO] +- org.geoserver.extension:gs-querylayer:jar:2.14.2:compile
+[INFO] +- org.geoserver.extension:gs-gdal:jar:2.14.2:compile
+[INFO] |  \- org.geotools:gt-imageio-ext-gdal:jar:20.2:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalarcbinarygrid:jar:1.1.28:compile
+[INFO] |     |  \- it.geosolutions.imageio-ext:imageio-ext-gdalframework:jar:1.1.28:compile
+[INFO] |     |     \- it.geosolutions.imageio-ext:imageio-ext-gdal-bindings:jar:1.9.2:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalmrsid:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalecw:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdaldted:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalkakadujp2:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalmrsidjp2:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalecwjp2:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalehdr:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalenvihdr:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalerdasimg:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalnitf:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalrpftoc:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalidrisi:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalvrt:jar:1.1.28:compile
+[INFO] |     +- it.geosolutions.imageio-ext:imageio-ext-gdalsrp:jar:1.1.28:compile
+[INFO] |     \- it.geosolutions.imageio-ext:imageio-ext-imagereadmt:jar:1.1.28:compile
+[INFO] +- org.geoserver.importer:gs-importer-core:jar:2.14.2:compile
+[INFO] |  +- org.geotools:gt-shapefile:jar:20.2:compile
+[INFO] |  +- org.geotools.jdbc:gt-jdbc-h2:jar:20.2:compile
+[INFO] |  +- org.geotools.jdbc:gt-jdbc-oracle:jar:20.2:compile
+[INFO] |  +- org.geotools.jdbc:gt-jdbc-sqlserver:jar:20.2:compile
+[INFO] |  |  \- net.sourceforge.jtds:jtds:jar:1.3.1:compile
+[INFO] |  +- org.geotools:gt-arcsde:jar:20.2:compile
+[INFO] |  |  +- org.geotools:gt-arcsde-common:jar:20.2:compile
+[INFO] |  |  |  \- com.ibm.icu:icu4j:jar:3.4.4:compile
+[INFO] |  |  \- jsqlparser:jsqlparser:jar:0.3.14:compile
+[INFO] |  +- org.geotools.xsd:gt-xsd-kml:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-csv:jar:20.2:compile
+[INFO] |  +- net.sourceforge.javacsv:javacsv:jar:2.0:compile
+[INFO] |  +- org.apache.commons:commons-exec:jar:1.3:compile
+[INFO] |  +- org.geotools:gt-geojson:jar:20.2:compile
+[INFO] |  |  \- com.googlecode.json-simple:json-simple:jar:1.1:compile
+[INFO] |  \- org.apache.commons:commons-vfs2:jar:2.0:compile
+[INFO] |     +- org.apache.maven.scm:maven-scm-api:jar:1.4:compile
+[INFO] |     |  \- org.codehaus.plexus:plexus-utils:jar:1.5.6:compile
+[INFO] |     \- org.apache.maven.scm:maven-scm-provider-svnexe:jar:1.4:compile
+[INFO] |        +- org.apache.maven.scm:maven-scm-provider-svn-commons:jar:1.4:compile
+[INFO] |        \- regexp:regexp:jar:1.3:compile
+[INFO] +- org.geoserver.importer:gs-importer-web:jar:2.14.2:compile
+[INFO] +- org.geoserver.importer:gs-importer-rest:jar:2.14.2:compile
+[INFO] |  \- org.restlet:org.restlet.ext.fileupload:jar:1.0.8:compile
+[INFO] |     \- org.restlet:org.restlet:jar:1.0.8:provided
+[INFO] +- org.geoserver.extension:gs-wps-core:jar:2.14.2:compile
+[INFO] |  +- org.geotools.ogc:net.opengis.wps:jar:20.2:compile
+[INFO] |  |  +- org.eclipse.emf:org.eclipse.emf.common:jar:2.12.0:compile
+[INFO] |  |  +- org.eclipse.emf:org.eclipse.emf.ecore:jar:2.12.0:compile
+[INFO] |  |  \- org.eclipse.emf:org.eclipse.emf.ecore.xmi:jar:2.12.0:compile
+[INFO] |  +- org.geotools.xsd:gt-xsd-wps:jar:20.2:compile
+[INFO] |  +- org.geotools.xsd:gt-xsd-sld:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-process:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-process-raster:jar:20.2:compile
+[INFO] |  |  +- org.jaitools:jt-zonalstats:jar:1.5.0:compile
+[INFO] |  |  +- org.jaitools:jt-rangelookup:jar:1.5.0:compile
+[INFO] |  |  +- org.jaitools:jt-contour:jar:1.5.0:compile
+[INFO] |  |  |  \- org.jaitools:jt-attributeop:jar:1.5.0:compile
+[INFO] |  |  +- org.jaitools:jt-vectorize:jar:1.5.0:compile
+[INFO] |  |  \- it.geosolutions.jaiext.jiffle:jt-jiffle-op:jar:1.1.6:compile
+[INFO] |  |     \- it.geosolutions.jaiext.jiffle:jt-jiffle-language:jar:1.1.6:compile
+[INFO] |  |        +- org.antlr:antlr4-runtime:jar:4.7.1:compile
+[INFO] |  |        \- org.codehaus.janino:janino:jar:3.0.8:compile
+[INFO] |  |           \- org.codehaus.janino:commons-compiler:jar:3.0.8:compile
+[INFO] |  +- org.geotools:gt-process-geometry:jar:20.2:compile
+[INFO] |  +- org.geotools:gt-process-feature:jar:20.2:compile
+[INFO] |  \- org.geotools:gt-grid:jar:20.2:compile
+[INFO] +- org.geoserver.community:gs-wps-download:jar:2.14.2:compile
+[INFO] |  +- org.geotools:gt-coverage:jar:20.2:compile
+[INFO] |  |  +- it.geosolutions.jaiext.affine:jt-affine:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.algebra:jt-algebra:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandmerge:jt-bandmerge:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandselect:jt-bandselect:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.bandcombine:jt-bandcombine:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.border:jt-border:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.buffer:jt-buffer:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.crop:jt-crop:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.iterators:jt-iterators:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.lookup:jt-lookup:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.mosaic:jt-mosaic:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.nullop:jt-nullop:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rescale:jt-rescale:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale:jt-scale:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.scale2:jt-scale2:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.stats:jt-stats:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.translate:jt-translate:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.warp:jt-warp:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.zonal:jt-zonal:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.binarize:jt-binarize:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.format:jt-format:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorconvert:jt-colorconvert:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.errordiffusion:jt-errordiffusion:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.orderdither:jt-orderdither:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.colorindexer:jt-colorindexer:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.imagefunction:jt-imagefunction:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.piecewise:jt-piecewise:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.classifier:jt-classifier:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.rlookup:jt-rlookup:jar:1.1.6:compile
+[INFO] |  |  +- it.geosolutions.jaiext.vectorbin:jt-vectorbin:jar:1.1.6:compile
+[INFO] |  |  \- it.geosolutions.jaiext.shadedrelief:jt-shadedrelief:jar:1.1.6:compile
+[INFO] |  +- org.jcodec:jcodec:jar:0.2.3:compile
+[INFO] |  \- org.jcodec:jcodec-javase:jar:0.2.3:compile
+[INFO] +- org.geoserver.community:gs-kmlppio:jar:2.14.2:compile
+[INFO] +- org.geoserver.community:gs-sec-oauth2-core:jar:2.14.2:compile
+[INFO] |  +- commons-codec:commons-codec:jar:1.9:compile
+[INFO] |  +- org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:compile
+[INFO] |  |  \- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO] |  \- com.fasterxml.jackson.core:jackson-annotations:jar:2.9.5:compile
+[INFO] +- org.geoserver.community:gs-sec-oauth2-geonode:jar:2.14.2:compile
+[INFO] +- org.geoserver.community:gs-notification:jar:2.14-SNAPSHOT:compile
+[INFO] |  +- com.rabbitmq:amqp-client:jar:4.0.0:compile
+[INFO] |  \- org.apache.commons:commons-lang3:jar:3.7:compile
+[INFO] +- org.geoserver.community:gs-notification-common:jar:2.14-SNAPSHOT:compile
+[INFO] |  \- com.thoughtworks.xstream:xstream:jar:1.4.10:compile
+[INFO] |     \- xmlpull:xmlpull:jar:1.1.3.1:compile
+[INFO] +- org.geoserver.community:gs-notification-geonode:jar:2.14-SNAPSHOT:compile
+[INFO] +- org.springframework.security.oauth:spring-security-oauth2:jar:2.0.11.RELEASE:compile
+[INFO] |  +- org.springframework.security:spring-security-core:jar:4.2.7.RELEASE:compile
+[INFO] |  |  \- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  +- org.springframework.security:spring-security-config:jar:4.2.7.RELEASE:compile
+[INFO] |  \- org.springframework.security:spring-security-web:jar:4.2.7.RELEASE:compile
+[INFO] +- org.geoserver.community:gs-authkey:jar:2.14.2:compile
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.2.0:compile
+[INFO] |  |  \- net.minidev:json-smart:jar:2.2.1:compile
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.1:compile
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.10:compile
+[INFO] |  +- org.easymock:easymock:jar:3.1:compile
+[INFO] |  |  \- org.objenesis:objenesis:jar:1.2:compile
+[INFO] |  \- org.easymock:easymockclassextension:jar:2.5.2:compile
+[INFO] +- org.geoserver.community:gs-geofence-server:jar:2.14.2:compile
+[INFO] |  +- com.googlecode.genericdao:dao:jar:1.1.0:compile
+[INFO] |  |  \- com.googlecode.genericdao:search:jar:1.1.0:compile
+[INFO] |  +- com.googlecode.genericdao:search-jpa-hibernate:jar:1.1.0:compile
+[INFO] |  |  \- com.googlecode.genericdao:search-hibernate:jar:1.1.0:compile
+[INFO] |  +- org.hibernate:hibernate-entitymanager:jar:3.6.9.Final:compile
+[INFO] |  |  +- javassist:javassist:jar:3.12.0.GA:compile
+[INFO] |  |  \- org.hibernate.javax.persistence:hibernate-jpa-2.0-api:jar:1.0.1.Final:compile
+[INFO] |  +- org.hibernate:hibernate-core:jar:3.6.9.Final:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- org.hibernate:hibernate-commons-annotations:jar:3.2.0.Final:compile
+[INFO] |  |  \- javax.transaction:jta:jar:1.1:compile
+[INFO] |  +- org.hibernatespatial:hibernate-spatial:jar:1.1.3.1:compile
+[INFO] |  +- org.hibernatespatial:hibernate-spatial-h2-geodb:jar:1.1.3.1:compile
+[INFO] |  +- org.springframework:spring-expression:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.springframework:spring-web:jar:4.3.18.RELEASE:compile
+[INFO] |  +- org.geoserver.geofence:geofence-services-impl:jar:3.4.2:compile
+[INFO] |  |  +- org.geoserver.geofence:geofence-model-internal:jar:3.4.2:compile
+[INFO] |  |  +- org.geoserver.geofence:geofence-persistence:jar:3.4.2:compile
+[INFO] |  |  |  +- org.springframework:spring-orm:jar:3.1.1.RELEASE:compile
+[INFO] |  |  |  +- org.hibernate:hibernate-ehcache:jar:3.6.9.Final:compile
+[INFO] |  |  |  |  \- net.sf.ehcache:ehcache-core:jar:2.4.3:compile
+[INFO] |  |  |  +- org.aspectj:aspectjrt:jar:1.5.4:compile
+[INFO] |  |  |  \- org.aspectj:aspectjweaver:jar:1.5.4:compile
+[INFO] |  |  \- org.geoserver.geofence:geofence-services-api:jar:3.4.2:compile
+[INFO] |  +- org.geoserver.community:gs-geofence:jar:2.14.2:compile
+[INFO] |  +- org.springframework:spring-oxm:jar:3.0.5.RELEASE:compile
+[INFO] |  +- xerces:xercesImpl:jar:2.11.0:compile
+[INFO] |  \- com.github.svenmeier.wicket-dnd:wicket-dnd:jar:0.7.3:compile
+[INFO] +- org.opengeo:geodb:jar:0.9:compile
+[INFO] |  +- com.h2database:h2:jar:1.1.119:compile
+[INFO] |  +- org.locationtech.jts:jts-core:jar:1.16.0:compile
+[INFO] |  \- net.sourceforge.hatbox:hatbox:jar:1.0.b10:compile
+[INFO] +- org.geoserver.community:gs-dyndimension:jar:2.14.2:compile
+[INFO] +- org.geoserver.extension:gs-css:jar:2.14.2:compile
+[INFO] |  \- org.geotools:gt-css:jar:20.2:compile
+[INFO] |     +- org.geotools:gt-brewer:jar:20.2:compile
+[INFO] |     \- org.parboiled:parboiled-java:jar:1.1.7:compile
+[INFO] |        +- org.parboiled:parboiled-core:jar:1.1.7:compile
+[INFO] |        +- org.ow2.asm:asm:jar:5.0.3:compile
+[INFO] |        +- org.ow2.asm:asm-tree:jar:5.0.3:compile
+[INFO] |        +- org.ow2.asm:asm-analysis:jar:5.0.3:compile
+[INFO] |        \- org.ow2.asm:asm-util:jar:5.0.3:compile
+[INFO] +- org.geoserver.extension:gs-ysld:jar:2.14.2:compile
+[INFO] |  +- org.geotools:gt-ysld:jar:20.2:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.13:compile
+[INFO] |  \- com.google.code.findbugs:jsr305:jar:2.0.3:compile
+[INFO] \- cglib:cglib-nodep:jar:2.2:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for GeoNode GeoServer Extensions 2.14.2:
+[INFO] 
+[INFO] GeoNode GeoServer Extensions ....................... SUCCESS [  0.736 s]
+[INFO] Extensions ......................................... SUCCESS [  0.006 s]
+[INFO] GeoServer Printing Extension ....................... SUCCESS [  1.935 s]
+[INFO] GeoNode Geoserver Ext BatchDownload Process ........ SUCCESS [  0.542 s]
+[INFO] Web Application (WAR) .............................. SUCCESS [ 51.069 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  54.853 s
+[INFO] Finished at: 2019-05-02T14:48:15+02:00
+[INFO] ------------------------------------------------------------------------
