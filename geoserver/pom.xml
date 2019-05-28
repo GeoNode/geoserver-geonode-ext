@@ -900,7 +900,7 @@
         <gs.community.version>2.14.3</gs.community.version>
         <gwc.version>1.14-SNAPSHOT</gwc.version>
         <jts.version>1.16.0</jts.version>
-        <gf.version>3.4.2</gf.version>
+        <gf.version>3.4.3</gf.version>
         <geodb.version>0.9</geodb.version>
         <jasypt.version>1.9.2</jasypt.version>
         <opengeo-geodb.version>0.9</opengeo-geodb.version>
