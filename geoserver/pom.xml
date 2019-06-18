@@ -478,17 +478,17 @@
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-notification</artifactId>
-                <version>${gs.community.version}</version>
+                <version>${gs.snapshot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-notification-common</artifactId>
-                <version>${gs.community.version}</version>
+                <version>${gs.snapshot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-notification-geonode</artifactId>
-                <version>${gs.community.version}</version>
+                <version>${gs.snapshot.version}</version>
             </dependency>
 
             <dependency>
@@ -501,7 +501,7 @@
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-authkey</artifactId>
-                <version>2.14-SNAPSHOT</version>
+                <version>${gs.snapshot.version}</version>
             </dependency>
 
             <!-- GeoFence Dependencies -->
@@ -898,6 +898,7 @@
         <gt.version>20.0</gt.version>
         <gs.version>2.14.3</gs.version>
         <gs.community.version>2.14.3</gs.community.version>
+        <gs.snapshot.version>2.14-SNAPSHOT</gs.snapshot.version>
         <gwc.version>1.14.0</gwc.version>
         <jts.version>1.16.0</jts.version>
         <gf.version>3.4.3</gf.version>
