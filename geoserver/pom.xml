@@ -345,7 +345,7 @@
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-monitor-hibernate</artifactId>
-                <version>2.14-SNAPSHOT</version>
+                <version>${gs.community.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>cglib</groupId>
@@ -356,12 +356,12 @@
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-status-monitoring</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-wmts-multi-dimensional</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
@@ -431,12 +431,12 @@
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-wps-download</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-kmlppio</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
 
             <!-- dependency>
@@ -456,39 +456,39 @@
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-sec-oauth2-core</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-sec-oauth2-geonode</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-sec-oauth2-google</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-sec-oauth2-github</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
 
             <!-- Notification Extension -->
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-notification</artifactId>
-                <version>2.14-SNAPSHOT</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-notification-common</artifactId>
-                <version>2.14-SNAPSHOT</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-notification-geonode</artifactId>
-                <version>2.14-SNAPSHOT</version>
+                <version>${gs.community.version}</version>
             </dependency>
 
             <dependency>
@@ -501,19 +501,19 @@
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-authkey</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
 
             <!-- GeoFence Dependencies -->
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-geofence</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-geofence-server</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.logging.log4j</groupId>
@@ -563,14 +563,14 @@
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-geogig</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             
             <!-- Other GeoServer Extensions -->
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-dyndimension</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
@@ -895,10 +895,10 @@
         <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <gt.version>20-SNAPSHOT</gt.version>
+        <gt.version>20.0</gt.version>
         <gs.version>2.14.3</gs.version>
-        <gs.community.version>2.14.3</gs.community.version>
-        <gwc.version>1.14-SNAPSHOT</gwc.version>
+        <gs.community.version>2.14-SNAPSHOT</gs.community.version>
+        <gwc.version>1.14.0</gwc.version>
         <jts.version>1.16.0</jts.version>
         <gf.version>3.4.3</gf.version>
         <geodb.version>0.9</geodb.version>
