@@ -17,34 +17,31 @@
   <maxAsynchronousProcesses>10</maxAsynchronousProcesses>
   <processGroups>
     <processGroup>
-      <factoryClass>org.geonode.process.batchdownload.BatchDownloadFactory</factoryClass>
-      <enabled>true</enabled>
-    </processGroup>
-    <processGroup>
       <factoryClass>org.geoserver.wps.DeprecatedProcessFactory</factoryClass>
-      <enabled>true</enabled>
+      <enabled>false</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geoserver.wps.jts.SpringBeanProcessFactory</factoryClass>
-      <enabled>true</enabled>
+      <enabled>false</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geotools.process.geometry.GeometryProcessFactory</factoryClass>
-      <enabled>true</enabled>
+      <enabled>false</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geotools.process.raster.RasterProcessFactory</factoryClass>
-      <enabled>true</enabled>
+      <enabled>false</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geotools.process.vector.VectorProcessFactory</factoryClass>
-      <enabled>true</enabled>
+      <enabled>false</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geotools.process.geometry.PolygonLabelProcess</factoryClass>
-      <enabled>true</enabled>
+      <enabled>false</enabled>
     </processGroup>
   </processGroups>
+  <catalogMode>HIDE</catalogMode>
   <maxComplexInputSize>0</maxComplexInputSize>
   <maxSynchronousExecutionTime>1200</maxSynchronousExecutionTime>
   <maxSynchronousTotalTime>1200</maxSynchronousTotalTime>
