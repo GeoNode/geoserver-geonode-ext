@@ -576,6 +576,17 @@
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-css</artifactId>
                 <version>${project.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.parboiled</groupId>
+                        <artifactId>parboiled-java</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.parboiled</groupId>
+                <artifactId>parboiled-java</artifactId>
+                <version>1.1.7</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
@@ -943,6 +954,17 @@
             </resource>
         </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <debug>true</debug>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
             <plugin>
                 <!-- injects git information like current branch and commit id as maven 
                     properties -->
