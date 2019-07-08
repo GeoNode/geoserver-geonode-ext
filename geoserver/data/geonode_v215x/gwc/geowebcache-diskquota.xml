@@ -1,5 +1,5 @@
 <gwcQuotaConfiguration>
-  <enabled>true</enabled>
+  <enabled>false</enabled>
   <cacheCleanUpFrequency>10</cacheCleanUpFrequency>
   <cacheCleanUpUnits>SECONDS</cacheCleanUpUnits>
   <maxConcurrentCleanUps>2</maxConcurrentCleanUps>
