@@ -18,27 +18,27 @@
   <processGroups>
     <processGroup>
       <factoryClass>org.geoserver.wps.DeprecatedProcessFactory</factoryClass>
-      <enabled>false</enabled>
+      <enabled>true</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geoserver.wps.jts.SpringBeanProcessFactory</factoryClass>
-      <enabled>false</enabled>
+      <enabled>true</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geotools.process.geometry.GeometryProcessFactory</factoryClass>
-      <enabled>false</enabled>
+      <enabled>true</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geotools.process.raster.RasterProcessFactory</factoryClass>
-      <enabled>false</enabled>
+      <enabled>true</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geotools.process.vector.VectorProcessFactory</factoryClass>
-      <enabled>false</enabled>
+      <enabled>true</enabled>
     </processGroup>
     <processGroup>
       <factoryClass>org.geotools.process.geometry.PolygonLabelProcess</factoryClass>
-      <enabled>false</enabled>
+      <enabled>true</enabled>
     </processGroup>
   </processGroups>
   <catalogMode>HIDE</catalogMode>
