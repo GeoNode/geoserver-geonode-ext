@@ -52,8 +52,9 @@
                 <include>com.github.virtuald:curvesapi</include>
                 <include>org.opengeo:geonode-geoserver-ext-printng</include>
                 <include>org.opengeo:geonode-geoserver-ext-web-app</include>
-                <include>org.geoserver.extension:gs-monitor-core</include>
                 <include>org.geoserver.extension:gs-inspire</include>
+                <include>org.geoserver.extension:gs-system-status</include>
+                <include>org.geoserver.extension:gs-monitor-core</include>
                 <include>org.geoserver.extension:gs-control-flow</include>
                 <include>org.geoserver.community.backuprestore:gs-backup-restore-core</include>
                 <include>org.geoserver.community.backuprestore:gs-backup-restore-extension</include>
