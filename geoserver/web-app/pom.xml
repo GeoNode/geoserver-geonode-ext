@@ -66,10 +66,6 @@
         </dependency -->
         <dependency>
             <groupId>org.geoserver.extension</groupId>
-            <artifactId>gs-system-status</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-inspire</artifactId>
         </dependency>
         <dependency>

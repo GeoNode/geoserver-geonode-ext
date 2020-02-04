@@ -355,11 +355,6 @@
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
-                <artifactId>gs-system-status</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-inspire</artifactId>
                 <version>${project.version}</version>
             </dependency>
