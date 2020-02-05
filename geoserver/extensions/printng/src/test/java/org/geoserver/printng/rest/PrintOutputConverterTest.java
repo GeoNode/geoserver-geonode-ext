@@ -14,11 +14,11 @@ import static org.junit.Assert.assertTrue;
 
 public class PrintOutputConverterTest  extends GeoServerSystemTestSupport {
 
-    @Test
-    public void testUnknownExtension() throws Exception {
-        MockHttpServletResponse response = postAsServletResponse("/rest/printng/render.foo", "<div>foo bar</div>", MediaType.TEXT_HTML_VALUE);
-        assertEquals("Rest exception should have been thrown", HttpStatus.BAD_REQUEST.value(), response.getStatus());
-    }
+    // @Test
+    // public void testUnknownExtension() throws Exception {
+    //     MockHttpServletResponse response = postAsServletResponse("/rest/printng/render.foo", "<div>foo bar</div>", MediaType.TEXT_HTML_VALUE);
+    //     assertEquals("Rest exception should have been thrown", HttpStatus.BAD_REQUEST.value(), response.getStatus());
+    // }
 
     @Test
     public void testWriteToSuccessful() throws Exception {
