@@ -73,18 +73,6 @@
  
     <dependencyManagement>
         <dependencies>
-            <!-- geoserver-geonode-ext extensions -->
-            <dependency>
-                <groupId>org.opengeo</groupId>
-                <artifactId>geonode-geoserver-ext-printng</artifactId>
-                <version>${gs.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.xmlgraphics</groupId>
-                        <artifactId>batik-transcoder</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
             <!-- importing geoserver dependencies management -->
             <dependency>
                 <groupId>org.geoserver</groupId>
@@ -428,19 +416,6 @@
                 <artifactId>gs-kmlppio</artifactId>
                 <version>${gs.community.version}</version>
             </dependency>
-
-            <!-- dependency>
-                <groupId>org.opengeo.geoserver</groupId>
-                <artifactId>printng</artifactId> 
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>javax.servlet-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency -->
 
             <!-- OAuth2 Security Extension -->
             <dependency>
@@ -893,7 +868,7 @@
         <gs.version>2.16-SNAPSHOT</gs.version>
         <gs.community.version>2.16-SNAPSHOT</gs.community.version>
         <gs.snapshot.version>2.16-SNAPSHOT</gs.snapshot.version>
-        <gwc.version>1.16.2</gwc.version>
+        <gwc.version>1.16-SNAPSHOT</gwc.version>
         <jts.version>1.16.1</jts.version>
         <gf.version>3.4.3</gf.version>
         <geodb.version>0.9</geodb.version>
@@ -916,7 +891,6 @@
         <mapfish-geo-lib.version>1.2.0</mapfish-geo-lib.version>
     </properties>
     <modules>
-        <module>extensions</module>
         <module>web-app</module>
     </modules>
     <build>
