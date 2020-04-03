@@ -473,12 +473,12 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-geofence</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.snapshot.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-geofence-server</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.snapshot.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.logging.log4j</groupId>
