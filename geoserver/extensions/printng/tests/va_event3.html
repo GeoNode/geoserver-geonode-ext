@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>PAGER - M 5.3 - COLORADO</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" media="all" type="text/css" href="http://earthquake.usgs.gov/template/css/reset.css"/>
+    <link rel="stylesheet" media="all" type="text/css" href="http://earthquake.usgs.gov/template/css/master.css"/>
+    
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/template/widgets/ui/ui.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/template/widgets/tabs/tabs.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/losspager_mmi.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/event_details.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/pager_alert.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/losspanel.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/alert_table.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/css/mmi.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/exposure_table.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/similar_events.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/cities_exposure_table.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/short_cities_table.css"/>
+    <link rel="stylesheet" type="text/css" href="http://earthquake.usgs.gov/earthquakes/pager/css/pager_hist_events_table.css"/>
+    <style type="text/css">
+        @page { 
+        size: 8.5in 11in;
+        margin: 0in; 
+        }
+        .tab-content-wrapper-active {
+    border-top: 0;
+        }
+        #pager_alert_header,
+        .pager_onepager,.pager_onepager_help, #pager_alert_comment {
+            display: none;
+        }
+        #pagerinfo {
+            font-size: smaller;
+        }
+        #pagerinfo .two img {
+            height: 103px;
+        }
+        #content #body {
+            display: block;
+            clear:none;
+            margin:0;
+            padding:0;
+        }
+        #pager_alert_panel {
+            border: 1px solid;
+            height: 150px;
+        }
+        #pager_alert_panel span {
+            position: relative;
+            z-index: 5;
+        }
+        #pager_alert_panel img {
+            position: relative;
+            height: 150px;
+            width: 300px;
+            top: -1.5em;
+            z-index: 0;
+        }
+        .short_cities_table {
+            font-size: smaller;
+        }
+        table.exposure_table td {
+            background-color: white !important;
+        }
+        table.exposure_table th, table.exposure_table td {
+            border: 1px solid black;
+        }
+        #detailed_info-content tbody {
+            border: 3px solid;
+        }
+        .disclaimer {
+            font-size: smaller;
+        }
+        .six {
+            width: 4in;
+        }
+        #main {
+            position: absolute;
+            top: .25em;
+            left: .25em;
+                display:block !important;
+    color:#000 !important;
+    background: #fff !important;
+    clear:none !important;
+    margin:0 !important;
+    padding:0 !important;
+    float:none !important;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <a id="startcontent"/>
+      <div id="main">
+        <h1>PAGER - M 5.3 - COLORADO</h1>
+        <div id="pagerinfo" class="column container contains-ten">
+          <div class="eight column">
+            <p class="pager_alert_disclaimer">
+              <strong>Alert level does not include impacts from earthquake-related hazards such as tsunamis, landslides, fires or liquefaction.</strong>
+            </p>
+            <p class="pager_summary_alert">Earthquake Shaking Alert Level: <span class="pager_alert_green">GREEN</span></p>
+            <a class="pager_onepager" href="onepager.pdf" title="OnePAGER PDF">Download Alert PDF</a>
+            <a class="pager_onepager_help" href="../../../onepager.php" title="onePAGER Information Page">What's this?</a>
+            <span class="pager_datetime">Tuesday, August 23rd, 2011 at 05:46:19 UTC (23:46:19 local)</span>
+            <span class="pager_location">Location: 37.1° N, 104.7° W</span>
+            <span class="pager_depth">Depth: 4km</span>
+            
+          </div>
+          <div class="two column">
+              <span class="pager_elapsed">Created: 8 hours, 57 minutes after earthquake.</span>
+            <!--<img title="Global Location" src="http://earthquake.usgs.gov/earthquakes/pager/events/us/c0005idz/location.png" alt="Global Location"/>-->
+          </div>
+        </div>
+        <div class="column container contains-ten" id="pager_alert_panel">
+          <h2 id="pager_alert_header">Alert Information</h2>
+          <div class="ten column" style="padding-top: 1em;text-size:1.1em;" id="pager_alert_comment">
+                        Green alert for shaking-related fatalities and economic losses.  There is a low likelihood of casualties and damage.
+                    </div>
+          <div class="five column" style="text-align: center;">
+            <div class="pager_alert_histogram">
+              <span class="pager_alert_img_header">Estimated Fatalities</span>
+              <a href="alertfatal.png">
+                <img src="http://earthquake.usgs.gov/earthquakes/pager/events/us/c0005idz/alertfatal_small.png" alt="Fatality Alert Level: GREEN" title="Fatality Alert Level Graph" class="five" style="display:block;"/>
+              </a>
+            </div>
+            <table class="pager_alert_table tabular" id="fatality_table" style="display: none; ">
+              <caption>ESTIMATED FATALITY ALERT: <span class="pager_alert_green" style="border:thin solid #000;padding:0.2em;">GREEN</span></caption>
+              <thead>
+                <tr>
+                  <th>ESTIMATED FATALITIES (LEVEL)</th>
+                  <th>Probability (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0 (GREEN)</td>
+                  <td class="pager_bar_cell"><div class="pager_alert_green pager_bar_graph" style="width:53%"> </div>71</td>
+                </tr>
+                <tr>
+                  <td> 1 to 9 (YELLOW)</td>
+                  <td class="pager_bar_cell"><div class="pager_alert_yellow pager_bar_graph" style="width:21%"> </div>28</td>
+                </tr>
+                <tr>
+                  <td> 10 to 99 (YELLOW)</td>
+                  <td class="pager_bar_cell">1</td>
+                </tr>
+                <tr>
+                  <td> 100 to 999 (ORANGE)</td>
+                  <td class="pager_bar_cell">0</td>
+                </tr>
+                <tr>
+                  <td> 1 to 10 thousand (RED)</td>
+                  <td class="pager_bar_cell">0</td>
+                </tr>
+                <tr>
+                  <td> 10 to 100 thousand (RED)</td>
+                  <td class="pager_bar_cell">0</td>
+                </tr>
+                <tr>
+                  <td>100 thousand + (RED)</td>
+                  <td class="pager_bar_cell">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="five column" style="text-align: center;">
+            <div class="pager_alert_histogram">
+              <span class="pager_alert_img_header">Estimated Economic Losses</span>
+              <a href="alertecon.png">
+                <img src="http://earthquake.usgs.gov/earthquakes/pager/events/us/c0005idz/alertecon_small.png" alt="Economic Alert Level: GREEN" title="Economic Alert Level Graph" class="five" style="display:block;"/>
+              </a>
+            </div>
+            <table class="pager_alert_table tabular" id="economic_table" style="display: none; ">
+              <caption>ESTIMATED ECONOMIC ALERT: <span class="pager_alert_green" style="border:thin solid #000;padding:0.2em;">GREEN</span></caption>
+              <thead>
+                <tr>
+                  <th>ESTIMATED VALUE IN USD (LEVEL)</th>
+                  <th>Probability (%)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> 0 to 1 million (GREEN)</td>
+                  <td class="pager_bar_cell"><div class="pager_alert_green pager_bar_graph" style="width:48%"> </div>65</td>
+                </tr>
+                <tr>
+                  <td> 1 to 10 million (YELLOW)</td>
+                  <td class="pager_bar_cell"><div class="pager_alert_yellow pager_bar_graph" style="width:22%"> </div>30</td>
+                </tr>
+                <tr>
+                  <td> 10 to 100 million (YELLOW)</td>
+                  <td class="pager_bar_cell"><div class="pager_alert_yellow pager_bar_graph" style="width:3%"> </div>4</td>
+                </tr>
+                <tr>
+                  <td> 100 million to 1 billion (ORANGE)</td>
+                  <td class="pager_bar_cell">0</td>
+                </tr>
+                <tr>
+                  <td> 1 to 10 billion (RED)</td>
+                  <td class="pager_bar_cell">0</td>
+                </tr>
+                <tr>
+                  <td> 10 to 100 billion (RED)</td>
+                  <td class="pager_bar_cell">0</td>
+                </tr>
+                <tr>
+                  <td>100 billion + (RED)</td>
+                  <td class="pager_bar_cell">0</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="column container contains-ten">
+          <div class="ten column">
+            <div id="detailed_info-content" >
+              <div id="summary-active" >
+                <div class="column container contains-ten">
+                  <div class="ten column">
+                    <table class="exposure_table tabular" title="Table showing population exposed to different estimated Modified Mercalli Intensity (MMI) levels and the possible damage at different intensity levels for resistant and vulnerable structures. (k = x1000)">
+                      <caption>Estimated Population Exposed to Earthquake Shaking</caption>
+                      <thead>
+                        <tr>
+                          <th scope="row" colspan="2">Estimated <abbr><a href="/learning/topics/mercalli.php" title="About Modified Mercalli Intensity">Modified Mercalli Intensity</a></abbr></th>
+                          <th scope="col" class="mmi mmiI">I</th>
+                          <th scope="col" class="mmi mmiIII">II-III</th>
+                          <th scope="col" class="mmi mmiIV">IV</th>
+                          <th scope="col" class="mmi mmiV">V</th>
+                          <th scope="col" class="mmi mmiVI">VI</th>
+                          <th scope="col" class="mmi mmiVII">VII</th>
+                          <th scope="col" class="mmi mmiVIII">VIII</th>
+                          <th scope="col" class="mmi mmiIX">IX</th>
+                          <th scope="col" class="mmi mmiX">X</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row" colspan="2"><abbr title="Estimated">Est.</abbr> Population Exposure</th>
+                          <td>---*</td>
+                          <td>543k*</td>
+                          <td>22k</td>
+                          <td>12k</td>
+                          <td>463</td>
+                          <td>0</td>
+                          <td>0</td>
+                          <td>0</td>
+                          <td>0</td>
+                        </tr>
+                        <tr>
+                          <th scope="row" colspan="2">Perceived Shaking</th>
+                          <td>Not Felt</td>
+                          <td>Weak</td>
+                          <td>Light</td>
+                          <td>Moderate</td>
+                          <td>Strong</td>
+                          <td>Very Strong</td>
+                          <td>Severe</td>
+                          <td>Violent</td>
+                          <td>Extreme</td>
+                        </tr>
+                        <tr>
+                          <th scope="row" rowspan="2">Potential Structure Damage</th>
+                          <th scope="row">Resistant</th>
+                          <td>none</td>
+                          <td>none</td>
+                          <td>none</td>
+                          <td>V. Light</td>
+                          <td>Light</td>
+                          <td>Moderate</td>
+                          <td>Moderate/Heavy</td>
+                          <td>Heavy</td>
+                          <td>V. Heavy</td>
+                        </tr>
+                        <tr>
+                          <th class="header">Vulnerable</th>
+                          <td>none</td>
+                          <td>none</td>
+                          <td>none</td>
+                          <td>Light</td>
+                          <td>Moderate</td>
+                          <td>Moderate/Heavy</td>
+                          <td>Heavy</td>
+                          <td>V. Heavy</td>
+                          <td>V. Heavy</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div class="disclaimer">*Estimated exposure only includes population within calculated shake map area</div>
+                  </div>
+                  <div class="six column">
+                    <span style="font-weight:bold">Population Exposure</span>
+                    <br/>
+                    <span style="font-size:x-small;font-style:italic;">Population per ~1 sq. km. from LandScan</span>
+                    <br/>
+                    <a href="exposure.png">
+                      <img height="300" width="300" src="http://earthquake.usgs.gov/earthquakes/pager/events/us/c0005idz/exposure_small.png" alt="Population Exposure Map" title="Map of Modified Mercalli Intensity (MMI) contours plotted over population per appx. 1 sq km. The regions of integer MMI values are separated by thick contour lines and labeled with Roman numerals. The total population exposure to a given MMI value is obtained by summing the population between the thick contour lines." class="six" style="border:thin solid #000;"/>
+                    </a>
+                  </div>
+                  <div class="four column" style="min-height:150px;">
+                    <h4 style="font-size:small;font-weight:bold;margin-bottom:0px;">Structure Information Summary</h4>
+                    <p style="font-size:0.8em;margin-top:5px;">
+                                            Overall, the population in this region resides in structures that are resistant to earthquake shaking, though some vulnerable structures exist.	</p>
+                    <h4 style="font-size:small;font-weight:bold;margin-bottom:0px;">Historical Earthquakes (with <abbr title="Modified Mercalli Intensity">MMI</abbr>)</h4>
+                    <p style="font-size:0.8em;margin-top:5px;"></p>
+                    <span style="font-size:small;font-weight:bold;display:block;">Selected Cities Exposed</span>
+                    <span style="font-size:x-small;font-style:italic;">from GeoNames Database of Cities with 1,000 or more residents.</span>
+                    <table class="short_cities_table tabular" title="Table of Modified Mercalli Intensity (MMI) estimates and populations for up to 11 settlements experiencing the greatest MMI within the map boundaries. The settlement name, location, and population are obtained from the freely-available GeoNames geographical database. (k = x1000)">
+                      <thead>
+                        <tr>
+                          <th class="mmi">MMI</th>
+                          <th class="cityname">City</th>
+                          <th class="population">Population</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="mmi mmiIV">IV</td>
+                          <td class="cityname mmiIV">Trinidad</td>
+                          <td class="population mmiIV">9k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiIV">IV</td>
+                          <td class="cityname mmiIV">Raton</td>
+                          <td class="population mmiIV">7k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiIII">III</td>
+                          <td class="cityname mmiIII">Canon City</td>
+                          <td class="population mmiIII">16k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiIII">III</td>
+                          <td class="cityname mmiIII">Alamosa</td>
+                          <td class="population mmiIII">9k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiIII">III</td>
+                          <td class="cityname mmiIII">Taos</td>
+                          <td class="population mmiIII">5k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiIII">III</td>
+                          <td class="cityname mmiIII">Walsenburg</td>
+                          <td class="population mmiIII">4k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiII">II</td>
+                          <td class="cityname mmiII">Pueblo</td>
+                          <td class="population mmiII">104k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiII">II</td>
+                          <td class="cityname mmiII">Santa Fe</td>
+                          <td class="population mmiII">69k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiII">II</td>
+                          <td class="cityname mmiII">Pueblo West</td>
+                          <td class="population mmiII">26k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiII">II</td>
+                          <td class="cityname mmiII">Las Vegas</td>
+                          <td class="population mmiII">14k</td>
+                        </tr>
+                        <tr>
+                          <td class="mmi mmiII">II</td>
+                          <td class="cityname mmiII">Los Alamos</td>
+                          <td class="population mmiII">12k</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p class="disclaimer" style="margin-top:-1em;">(k = x1,000)</p>
+                  </div>
+                  <div class="four column">
+                    
+                  </div>
+                </div>
+              </div>
+              
+              
+            </div>
+          </div>
+        </div>
+        <div class="ten column">
+          <p class="disclaimer" style="margin:0;padding:0">PAGER content is automatically generated, and only considers losses due to structural damage. Limitations of input data, shaking estimates, and loss models may add uncertainty.</p>
+        </div>
+      </div>
+      
+    </div>
+  </body>
+</html>

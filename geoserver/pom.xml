@@ -73,6 +73,18 @@
  
     <dependencyManagement>
         <dependencies>
+            <!-- geoserver-geonode-ext extensions -->
+            <dependency>
+                <groupId>org.opengeo</groupId>
+                <artifactId>geonode-geoserver-ext-printng</artifactId>
+                <version>${gs.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.xmlgraphics</groupId>
+                        <artifactId>batik-transcoder</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <!-- importing geoserver dependencies management -->
             <dependency>
                 <groupId>org.geoserver</groupId>
@@ -416,6 +428,19 @@
                 <artifactId>gs-kmlppio</artifactId>
                 <version>${gs.community.version}</version>
             </dependency>
+
+            <!-- dependency>
+                <groupId>org.opengeo.geoserver</groupId>
+                <artifactId>printng</artifactId> 
+                <version>${project.version}</version>
+                <scope>runtime</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>javax.servlet-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency -->
 
             <!-- OAuth2 Security Extension -->
             <dependency>
@@ -948,6 +973,7 @@
         <lint>deprecation</lint>
     </properties>
     <modules>
+        <module>extensions</module>
         <module>web-app</module>
     </modules>
     <build>

@@ -11,6 +11,11 @@
     <artifactId>geonode-geoserver-ext-web-app</artifactId>
     <name>Web Application (WAR)</name>
     <dependencies>
+        <!-- geoserver-geonode-ext extensions -->
+        <dependency>
+            <groupId>org.opengeo</groupId>
+            <artifactId>geonode-geoserver-ext-printng</artifactId>
+        </dependency>
         <!-- import the base geoserver war dependencies -->
         <dependency>
             <groupId>org.geoserver.web</groupId>
@@ -146,6 +151,11 @@
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-kmlppio</artifactId>
         </dependency>
+
+        <!-- dependency>
+            <groupId>org.opengeo.geoserver</groupId>
+            <artifactId>printng</artifactId>
+        </dependency -->
 
         <!-- OAuth2 Security Extension -->
         <dependency>
