@@ -10,9 +10,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
- * Attempt to configure the native size of the image from the document. This
- * currently supports a style attribute containing width and height that is
- * specified on the document body element or the first child.
+ * Attempt to configure the native size of the image from the document. This currently supports a
+ * style attribute containing width and height that is specified on the document body element or the
+ * first child.
  *
  * @author Ian Schneider <ischneider@opengeo.org>
  */
@@ -46,7 +46,8 @@ public class PrintSpecDocumentConfigurator extends PrintSpecConfigurator<Documen
                 }
             }
             if (nativeSize != null) {
-                messages.log(Level.FINE, "configuring render size from document to {0}", nativeSize);
+                messages.log(
+                        Level.FINE, "configuring render size from document to {0}", nativeSize);
                 spec.setWidth(nativeSize.width);
                 spec.setHeight(nativeSize.height);
             }

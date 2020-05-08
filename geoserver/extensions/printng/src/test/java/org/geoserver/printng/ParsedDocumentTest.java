@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
-
 import org.apache.xml.serialize.XMLSerializer;
 import org.geoserver.printng.spi.ParsedDocument;
 import org.junit.Test;

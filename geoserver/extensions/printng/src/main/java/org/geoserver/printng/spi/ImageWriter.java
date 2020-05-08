@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.OutputStream;
 import org.geoserver.printng.PrintSupport;
 import org.geoserver.printng.PrintUserAgentCallback;
-
 import org.geoserver.printng.api.PrintSpec;
 import org.geoserver.printng.api.PrintngWriter;
 import org.geotools.util.logging.Logging;
@@ -17,9 +16,9 @@ import org.xhtmlrenderer.swing.SwingReplacedElementFactory;
 import org.xhtmlrenderer.util.FSImageWriter;
 
 public class ImageWriter extends PrintngWriter {
-    
+
     private final String format;
-    
+
     public ImageWriter(String format) {
         this.format = format;
     }
@@ -53,7 +52,9 @@ public class ImageWriter extends PrintngWriter {
         if (spec.isOutputDimensionSet()
                 && image.getWidth() != spec.getOutputWidth()
                 && image.getHeight() != spec.getOutputHeight()) {
-            image = PrintSupport.niceImage(image, spec.getOutputWidth(), spec.getOutputHeight(), true);
+            image =
+                    PrintSupport.niceImage(
+                            image, spec.getOutputWidth(), spec.getOutputHeight(), true);
         }
         writer.write(image, out);
     }
@@ -61,13 +62,12 @@ public class ImageWriter extends PrintngWriter {
     @Override
     protected void configureInternal(SharedContext context, PrintUserAgentCallback callback) {
         /**
-         * The renderer internally uses a separate path to resolve image
-         * resources, so this makes it use any images loaded by the
-         * PrintUserAgentCallback
+         * The renderer internally uses a separate path to resolve image resources, so this makes it
+         * use any images loaded by the PrintUserAgentCallback
          */
-        context.setReplacedElementFactory(new SwingReplacedElementFactory(
-                ImageResourceLoader.NO_OP_REPAINT_LISTENER, callback.createImageResourceLoader()));
+        context.setReplacedElementFactory(
+                new SwingReplacedElementFactory(
+                        ImageResourceLoader.NO_OP_REPAINT_LISTENER,
+                        callback.createImageResourceLoader()));
     }
-    
-    
 }

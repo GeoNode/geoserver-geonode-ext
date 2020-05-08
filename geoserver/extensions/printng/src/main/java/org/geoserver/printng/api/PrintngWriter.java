@@ -6,7 +6,7 @@ import org.geoserver.printng.PrintUserAgentCallback;
 import org.xhtmlrenderer.layout.SharedContext;
 
 public abstract class PrintngWriter {
-    
+
     private PrintUserAgentCallback callback;
 
     public final void write(PrintSpec spec, OutputStream out) throws IOException {
@@ -18,7 +18,7 @@ public abstract class PrintngWriter {
     }
 
     public abstract String getExtension();
-    
+
     protected final void configure(SharedContext context, PrintSpec spec) throws IOException {
         String baseURL = spec.getBaseURL();
         if (baseURL != null && !baseURL.isEmpty()) {
@@ -36,8 +36,5 @@ public abstract class PrintngWriter {
 
     protected abstract void writeInternal(PrintSpec spec, OutputStream out) throws IOException;
 
-    protected void configureInternal(SharedContext context, PrintUserAgentCallback callback) {
-        
-    }
-
+    protected void configureInternal(SharedContext context, PrintUserAgentCallback callback) {}
 }

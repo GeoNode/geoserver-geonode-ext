@@ -29,22 +29,25 @@ public abstract class HTTPD {
     ThreadLocal<Handler> handler = new ThreadLocal<Handler>();
 
     /**
-     * Starts a HTTP server to given port.<p> Throws an IOException if the
-     * socket is already in use
+     * Starts a HTTP server to given port.
+     *
+     * <p>Throws an IOException if the socket is already in use
      */
     public HTTPD() {
         ss = openServer();
-        Thread thread = new Thread(new Runnable() {
-            public void run() {
-                try {
-                    while (!stop) {
-                        new Handler(ss.accept());
-                    }
-                } catch (IOException ioe) {
-                    // pass
-                }
-            }
-        });
+        Thread thread =
+                new Thread(
+                        new Runnable() {
+                            public void run() {
+                                try {
+                                    while (!stop) {
+                                        new Handler(ss.accept());
+                                    }
+                                } catch (IOException ioe) {
+                                    // pass
+                                }
+                            }
+                        });
         thread.setPriority(3);
         thread.setDaemon(true);
         thread.start();
@@ -75,7 +78,7 @@ public abstract class HTTPD {
     }
 
     protected abstract void serve(String uri, String method, Properties header, Properties parms);
-    
+
     protected void sendResponse(String status, String mime, Properties header, String data) {
         handler.get().sendResponse(status, mime, header, data);
     }
@@ -121,7 +124,9 @@ public abstract class HTTPD {
                     String line = in.readLine();
                     while (line != null && line.trim().length() > 0) {
                         int p = line.indexOf(':');
-                        header.put(line.substring(0, p).trim().toLowerCase(), line.substring(p + 1).trim());
+                        header.put(
+                                line.substring(0, p).trim().toLowerCase(),
+                                line.substring(p + 1).trim());
                         line = in.readLine();
                     }
                 }
@@ -138,8 +143,7 @@ public abstract class HTTPD {
 
         /**
          * Decodes parameters in percent-encoded URI-format ( e.g.
-         * "name=Jack%20Daniels&pass=Single%20Malt" ) and adds them to given
-         * Properties.
+         * "name=Jack%20Daniels&pass=Single%20Malt" ) and adds them to given Properties.
          */
         private void decodeParms(String parms, Properties p)
                 throws InterruptedException, UnsupportedEncodingException {
@@ -152,15 +156,14 @@ public abstract class HTTPD {
                 String e = st.nextToken();
                 int sep = e.indexOf('=');
                 if (sep >= 0) {
-                    p.put(URLDecoder.decode(e.substring(0, sep), "ASCII").trim(),
+                    p.put(
+                            URLDecoder.decode(e.substring(0, sep), "ASCII").trim(),
                             URLDecoder.decode(e.substring(sep + 1), "ASCII"));
                 }
             }
         }
 
-        /**
-         * Sends given response to the socket.
-         */
+        /** Sends given response to the socket. */
         protected void sendResponse(String status, String mime, Properties header, String data) {
             try {
                 OutputStream out = socket.getOutputStream();

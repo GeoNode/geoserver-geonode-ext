@@ -81,7 +81,7 @@
                 <include>org.geoserver.community:gs-notification</include>
                 <include>org.geoserver.community:gs-notification-common</include>
                 <include>org.geoserver.community:gs-notification-geonode</include>
-                <include>org.geoserver.community:gs-authkey</include>
+                <include>org.geoserver.extension:gs-authkey</include>
                 <include>org.geoserver.extension:gs-geofence</include>
                 <include>org.geoserver.extension:gs-geofence-server</include>
                 <include>org.geoserver.community:gs-dyndimension</include>

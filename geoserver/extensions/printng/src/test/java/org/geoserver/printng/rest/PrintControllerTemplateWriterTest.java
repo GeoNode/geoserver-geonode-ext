@@ -1,22 +1,21 @@
 package org.geoserver.printng.rest;
 
+import static org.junit.Assert.*;
+
+import freemarker.template.SimpleHash;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
-
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.geoserver.printng.GeoserverSupport;
-import org.junit.Test;
 import org.junit.AfterClass;
-import static org.junit.Assert.*;
-
-import freemarker.template.SimpleHash;
-import org.apache.commons.io.FileUtils;
+import org.junit.Test;
 
 public class PrintControllerTemplateWriterTest {
-    
+
     @AfterClass
     public static void cleanTempFiles() throws IOException {
         File templateDir = GeoserverSupport.getPrintngTemplateDirectory();
@@ -28,7 +27,7 @@ public class PrintControllerTemplateWriterTest {
 
     @Test
     public void testReaderNotFound() throws IOException {
-        try {        
+        try {
             PrintController.writeTemplate("doesnotexist", null);
             fail("Expecting IOException to be thrown");
         } catch (IOException e) {
@@ -37,7 +36,7 @@ public class PrintControllerTemplateWriterTest {
     }
 
     @Test
-    public void testReaderFound() throws IOException {        
+    public void testReaderFound() throws IOException {
         createTemplate("foo", new StringReader("<div>foobar</div>"));
 
         String result = PrintController.writeTemplate("foo", null);
@@ -75,5 +74,4 @@ public class PrintControllerTemplateWriterTest {
         IOUtils.copy(inputReader, fileWriter);
         fileWriter.close();
     }
-
 }

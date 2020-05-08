@@ -1,5 +1,7 @@
 package org.geoserver.printng.rest;
 
+import java.io.IOException;
+import java.util.Map;
 import org.geoserver.printng.api.PrintSpec;
 import org.geoserver.printng.api.PrintngWriter;
 import org.geoserver.printng.spi.*;
@@ -14,19 +16,19 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.util.Map;
-
-/**
- * Writes a {@link PrintSpec}
- */
+/** Writes a {@link PrintSpec} */
 @Component
 public class PrintOutputConverter extends BaseMessageConverter<PrintSpec> {
 
     @Autowired
     public PrintOutputConverter() {
-        super(MediaType.APPLICATION_PDF, MediaType.IMAGE_GIF, MediaType.IMAGE_JPEG, MediaType.IMAGE_PNG,
-                MediaType.APPLICATION_JSON, MediaType.TEXT_HTML);
+        super(
+                MediaType.APPLICATION_PDF,
+                MediaType.IMAGE_GIF,
+                MediaType.IMAGE_JPEG,
+                MediaType.IMAGE_PNG,
+                MediaType.APPLICATION_JSON,
+                MediaType.TEXT_HTML);
     }
 
     @Override
@@ -94,10 +96,12 @@ public class PrintOutputConverter extends BaseMessageConverter<PrintSpec> {
             if (queryMap != null) {
                 String[] format = queryMap.get("format");
                 if (format != null && format.length > 0) {
-                    return  new JSONWriter(getWriter(mediaType(format[0])), requestInfo.getBaseURL());
+                    return new JSONWriter(
+                            getWriter(mediaType(format[0])), requestInfo.getBaseURL());
                 }
             }
-            throw new RestException("json response requires additional 'format' parameter", HttpStatus.BAD_REQUEST);
+            throw new RestException(
+                    "json response requires additional 'format' parameter", HttpStatus.BAD_REQUEST);
         }
         String error = String.format("invalid format \"%s\"", contentType.getSubtype());
         throw new RestException(error, HttpStatus.BAD_REQUEST);
