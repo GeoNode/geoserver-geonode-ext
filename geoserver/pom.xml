@@ -21,72 +21,60 @@
   </license>
  </licenses>
 
- <repositories>
+    <repositories>
 
-  <repository>
-    <id>JBoss repo</id>
-    <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-  </repository>
+      <repository>
+        <id>JBoss repo</id>
+        <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+      </repository>
 
-  <repository>
-    <id>org.mapfish</id>
-    <url>http://dev.mapfish.org/maven/repository</url>
-  </repository>
+      <repository>
+        <id>org.mapfish</id>
+        <url>http://dev.mapfish.org/maven/repository</url>
+      </repository>
 
-  <repository>
-   <id>osgeo-releases</id>
-   <name>OSGeo Nexus Release Repository</name>
-   <url>https://repo.osgeo.org/repository/release/</url>
-   <!-- contains release (including third-party-dependences)               -->
-   <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
-   <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
-   <snapshots>
-     <enabled>false</enabled>
-   </snapshots>
-   <releases>
-     <enabled>true</enabled>
-   </releases>
-  </repository>
+      <repository>
+       <id>osgeo-releases</id>
+       <name>OSGeo Nexus Release Repository</name>
+       <url>https://repo.osgeo.org/repository/release/</url>
+       <!-- contains release (including third-party-dependences)               -->
+       <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
+       <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
+       <snapshots>
+         <enabled>false</enabled>
+       </snapshots>
+       <releases>
+         <enabled>true</enabled>
+       </releases>
+      </repository>
 
-  <repository>
-   <id>osgeo-snapshots</id>
-   <name>OSGeo Nexus Snapshot Repository</name>
-   <url>https://repo.osgeo.org/repository/snapshot/</url>
-   <!-- contains snapshots               -->
-   <snapshots>
-    <enabled>true</enabled>
-   </snapshots>
-   <releases>
-    <enabled>false</enabled>
-   </releases>
-  </repository>
-   
-   <repository>
-      <id>geosolutions</id>
-      <name>geosolutions repository</name>
-      <url>https://maven.geo-solutions.it/</url>
-      <snapshots>
+      <repository>
+       <id>osgeo-snapshots</id>
+       <name>OSGeo Nexus Snapshot Repository</name>
+       <url>https://repo.osgeo.org/repository/snapshot/</url>
+       <!-- contains snapshots               -->
+       <snapshots>
         <enabled>true</enabled>
-      </snapshots>
-     <releases>
-       <enabled>true</enabled>
-     </releases>
-    </repository>
- </repositories>
+       </snapshots>
+       <releases>
+        <enabled>false</enabled>
+       </releases>
+      </repository>
+       
+       <repository>
+          <id>geosolutions</id>
+          <name>geosolutions repository</name>
+          <url>https://maven.geo-solutions.it/</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+         <releases>
+           <enabled>true</enabled>
+         </releases>
+        </repository>
+    </repositories>
  
     <distributionManagement>
-        <!-- repository>
-         <id>boundless</id>
-         <name>Boundless Release Repository</name>
-         <url>https://repo.boundlessgeo.com/release/</url>
-         <uniqueVersion>false</uniqueVersion>
-        </repository>
-        <snapshotRepository>
-         <id>boundless</id>
-         <uniqueVersion>false</uniqueVersion>
-         <name>Boundless Snapshot Repository</name>
-         <url>https://repo.boundlessgeo.com/snapshot/</url>
-        </snapshotRepository -->
         <downloadUrl>http://maven.geo-solutions.it</downloadUrl>
         <repository>
           <uniqueVersion>false</uniqueVersion>
