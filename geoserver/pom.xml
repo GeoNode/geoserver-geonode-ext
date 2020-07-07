@@ -142,6 +142,12 @@
                 <groupId>org.geoserver.web</groupId>
                 <artifactId>gs-web-app</artifactId>
                 <version>${gs.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.geotools</groupId>
+                        <artifactId>gt-shapefile</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.web</groupId>
@@ -566,6 +572,11 @@
                 <artifactId>geodb</artifactId>
                 <version>${geodb.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-shapefile</artifactId>
+                <version>${gt.snapshot.version}</version>
+            </dependency>
             
             <!-- Other GeoServer Extensions -->
             <dependency>
@@ -913,6 +924,7 @@
 
         <gs.community.version>2.16-SNAPSHOT</gs.community.version>
         <gs.snapshot.version>2.16-SNAPSHOT</gs.snapshot.version>
+        <gt.snapshot.version>24-SNAPSHOT</gt.snapshot.version>
 
       <!-- GeoServer-EXT POM Properties -->
         <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
