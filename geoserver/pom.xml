@@ -5,7 +5,7 @@
     <groupId>org.opengeo</groupId>
     <artifactId>geonode-geoserver-ext</artifactId>
     <packaging>pom</packaging>
-    <version>2.17.0</version>
+    <version>2.17.1</version>
     <name>GeoNode GeoServer Extensions</name>
 
  <organization>
@@ -916,9 +916,9 @@
 
         <gf.version>3.4.3</gf.version>
 
-  <gs.version>2.17.0</gs.version>
-  <gt.version>23.0</gt.version>
-  <gwc.version>1.17.0</gwc.version>
+  <gs.version>2.17.1</gs.version>
+  <gt.version>23.1</gt.version>
+  <gwc.version>1.17.1</gwc.version>
 
         <gs.community.version>2.17-SNAPSHOT</gs.community.version>
         <gs.snapshot.version>2.17-SNAPSHOT</gs.snapshot.version>
