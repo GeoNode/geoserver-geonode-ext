@@ -1,20 +1,19 @@
 package org.geoserver.printng.rest;
 
-import static org.junit.Assert.*;
-import static testsupport.PrintTestSupport.map;
-
 import java.util.logging.Level;
 import org.geoserver.printng.api.PrintSpec;
+import org.geoserver.printng.rest.PrintSpecMapConfigurator;
 import org.geoserver.printng.spi.PrintSpecException;
 import org.junit.After;
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 import testsupport.PrintTestSupport.LogCollector;
+import static testsupport.PrintTestSupport.map;
 
 /**
- * While it is a cool idea to verify log messages, this fails when running the whole suite as log4j
- * logger adapters don't allow handlers to be added
- *
+ * While it is a cool idea to verify log messages, this fails when running
+ * the whole suite as log4j logger adapters don't allow handlers to be added
  * @author Ian Schneider <ischneider@opengeo.org>
  */
 public class PrintSpecMapConfiguratorTest {
@@ -70,7 +69,7 @@ public class PrintSpecMapConfiguratorTest {
         assertNotNull(spec.getCookie("a"));
         assertNotNull(spec.getCookie("d"));
         // @todo see note in class javadoc
-        //        assertEquals(2, records.records.size());
+//        assertEquals(2, records.records.size());
     }
 
     @Test
@@ -79,6 +78,6 @@ public class PrintSpecMapConfiguratorTest {
         assertNotNull(spec.getCredentials("a"));
         assertNotNull(spec.getCredentials("d"));
         // @todo see note in class javadoc
-        //        assertEquals(2, records.records.size());
+//        assertEquals(2, records.records.size());
     }
 }

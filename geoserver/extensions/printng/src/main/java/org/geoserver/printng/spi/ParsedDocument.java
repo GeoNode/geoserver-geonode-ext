@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -14,6 +15,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMResult;
 import javax.xml.transform.sax.SAXSource;
+
 import org.ccil.cowan.tagsoup.Parser;
 import org.geoserver.printng.PrintSupport;
 import org.geoserver.rest.RestException;
@@ -39,7 +41,7 @@ public class ParsedDocument {
     public static ParsedDocument parse(String src) throws IOException {
         return parse(new StringReader(src));
     }
-
+    
     public static ParsedDocument parse(String src, String baseURL) throws IOException {
         return new ParsedDocument(parseDocument(new StringReader(src), true), baseURL);
     }
@@ -53,8 +55,8 @@ public class ParsedDocument {
     }
 
     public static ParsedDocument parse(File src, boolean useTagSoup) throws IOException {
-        return new ParsedDocument(
-                parseDocument(new FileReader(src), useTagSoup), src.toURI().toURL().toString());
+        return new ParsedDocument(parseDocument(new FileReader(src), useTagSoup), 
+            src.toURI().toURL().toString());
     }
 
     public String getBaseURL() {
@@ -76,15 +78,14 @@ public class ParsedDocument {
             throw new RuntimeException(e);
         }
         // resolve any referenced dtds to internal cache
-        builder.setEntityResolver(
-                new EntityResolver() {
-                    public InputSource resolveEntity(String publicId, String systemId)
-                            throws SAXException, IOException {
-                        String[] parts = systemId.split("/");
-                        String resource = "dtds/" + parts[parts.length - 1];
-                        return new InputSource(getClass().getResourceAsStream(resource));
-                    }
-                });
+        builder.setEntityResolver(new EntityResolver() {
+            public InputSource resolveEntity(String publicId, String systemId) throws SAXException,
+                    IOException {
+                String[] parts = systemId.split("/");
+                String resource = "dtds/" + parts[parts.length - 1];
+                return new InputSource(getClass().getResourceAsStream(resource));
+            }
+        });
         Transformer transformer;
         try {
             transformer = TransformerFactory.newInstance().newTransformer();
@@ -108,13 +109,13 @@ public class ParsedDocument {
             throw new RestException(err, HttpStatus.BAD_REQUEST, e);
         }
     }
-
+    
     public String toString() {
         return PrintSupport.toString(dom);
     }
 
     public void addCssOverride(String cssOverride) {
-        if (cssOverride != null) {
+        if (cssOverride != null ) {
             boolean inserted = false;
             NodeList styles = dom.getElementsByTagName("link");
             for (int i = 0; i < styles.getLength(); i++) {
@@ -123,7 +124,7 @@ public class ParsedDocument {
                     inserted = true;
                 }
             }
-            if (!inserted) {
+            if (! inserted) {
                 Element style = dom.createElement("link");
                 style.setAttribute("rel", "stylesheet");
                 style.setAttribute("type", "text/css");

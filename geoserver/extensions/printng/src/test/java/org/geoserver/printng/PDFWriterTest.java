@@ -1,12 +1,12 @@
 package org.geoserver.printng;
 
-import static testsupport.PrintTestSupport.assertPDF;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+
 import org.geoserver.printng.api.PrintSpec;
-import org.geoserver.printng.spi.PDFWriter;
 import org.geoserver.printng.spi.ParsedDocument;
+import org.geoserver.printng.spi.PDFWriter;
+import static testsupport.PrintTestSupport.assertPDF;
 import org.junit.Test;
 
 public class PDFWriterTest {

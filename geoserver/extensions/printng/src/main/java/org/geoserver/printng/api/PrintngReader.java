@@ -6,4 +6,5 @@ import java.io.Reader;
 public interface PrintngReader {
 
     Reader reader() throws IOException;
+
 }

@@ -22,19 +22,15 @@ import org.junit.Test;
  * @author Ian Schneider <ischneider@opengeo.org>
  */
 public class AcceptanceTest {
-
+    
     static List<File> output = new ArrayList<File>();
 
     @AfterClass
     public static void cleanup() {
         if (Desktop.isDesktopSupported()) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "When done reviewing, press OK to cleanup",
-                    "Done",
-                    JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.showMessageDialog(null, "When done reviewing, press OK to cleanup", "Done", JOptionPane.PLAIN_MESSAGE);
         }
-        for (File f : output) {
+        for (File f: output) {
             if (!f.delete()) {
                 throw new RuntimeException("Error deleting file: " + f.getPath());
             }
@@ -70,9 +66,7 @@ public class AcceptanceTest {
     }
 
     private String getMap(String name) {
-        return new Scanner(getClass().getResourceAsStream("data/" + name))
-                .useDelimiter("\\Z")
-                .next();
+        return new Scanner(getClass().getResourceAsStream("data/" + name)).useDelimiter("\\Z").next();
     }
 
     private void show(File map) throws IOException {

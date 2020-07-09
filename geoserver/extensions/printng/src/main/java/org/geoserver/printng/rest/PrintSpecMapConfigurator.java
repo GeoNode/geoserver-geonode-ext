@@ -1,12 +1,15 @@
 package org.geoserver.printng.rest;
 
-import java.util.logging.Level;
 import org.geoserver.printng.api.PrintSpec;
 import org.geoserver.printng.api.PrintSpecConfigurator;
 import org.geoserver.printng.spi.PrintSpecException;
 import org.springframework.util.MultiValueMap;
 
+import java.util.Map;
+import java.util.logging.Level;
+
 /**
+ *
  * @author Torben Barsballe <tbarsballe@boundlessgeo.com>
  * @author Ian Schneider <ischneider@opengeo.org>
  */
@@ -29,8 +32,7 @@ public class PrintSpecMapConfigurator extends PrintSpecConfigurator<MultiValueMa
         return res;
     }
 
-    public static PrintSpec configure(PrintSpec spec, MultiValueMap<String, String> map)
-            throws PrintSpecException {
+    public static PrintSpec configure(PrintSpec spec, MultiValueMap<String, String> map) throws PrintSpecException {
         return new PrintSpecMapConfigurator(map).configure(spec);
     }
 

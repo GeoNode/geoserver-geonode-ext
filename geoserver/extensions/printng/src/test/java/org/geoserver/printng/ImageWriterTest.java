@@ -7,7 +7,9 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+
 import javax.imageio.ImageIO;
+
 import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Hex;
 import org.geoserver.printng.api.PrintSpec;
@@ -35,8 +37,8 @@ public class ImageWriterTest {
         checkImageWrite(input, "gif", "474946383961");
     }
 
-    private void checkImageWrite(String input, String format, String magic)
-            throws IOException, DecoderException {
+    private void checkImageWrite(String input, String format, String magic) throws IOException,
+            DecoderException {
         ParsedDocument parser = ParsedDocument.parse(input);
         PrintSpec printSpec = new PrintSpec(parser);
         printSpec.setWidth(100);
@@ -55,4 +57,5 @@ public class ImageWriterTest {
         System.arraycopy(bytes, 0, magicBytes, 0, nMagicBytes);
         assertArrayEquals("Invalid magic bytes", expectedBytes, magicBytes);
     }
+
 }

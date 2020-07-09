@@ -5,14 +5,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.geoserver.config.GeoServerDataDirectory;
 import org.geoserver.platform.GeoServerExtensions;
 
 /**
  * Provide support for geoserver but allow tests to run without it.
  *
- * <p>Note there is a hard-coded coupling of the output url mapping and the physical storage
- * location - don't change one without the other.
+ * Note there is a hard-coded coupling of the output url mapping and the
+ * physical storage location - don't change one without the other.
  *
  * @author Ian Schneider <ischneider@opengeo.org>
  */
@@ -23,8 +26,8 @@ public final class GeoserverSupport {
     }
 
     /**
-     * Compute the relative URI for the provided absolute file path. This does not include any
-     * context information (i.e. /geoserver/)
+     * Compute the relative URI for the provided absolute file path. This does
+     * not include any context information (i.e. /geoserver/)
      *
      * @param path Absolute path to output file
      * @return relative URI string
@@ -43,11 +46,13 @@ public final class GeoserverSupport {
      * @throws IOException
      */
     public static File getOutputFile(String ext) throws IOException {
-        return new File(getOutputDirectory(), UUID.randomUUID().toString() + "." + ext);
+        return new File(getOutputDirectory(),
+                UUID.randomUUID().toString() + "." + ext);
     }
 
     /**
-     * Get the 'output' directory - this is for temporary output to support the JSON response type.
+     * Get the 'output' directory - this is for temporary output to support the
+     * JSON response type.
      *
      * @return non-null File
      * @throws IOException
@@ -67,8 +72,8 @@ public final class GeoserverSupport {
     }
 
     /**
-     * Get a printng directory - this will be under $datadir/printng or in the system tempdir if
-     * geoserver is not running (unit test mode).
+     * Get a printng directory - this will be under $datadir/printng or in the
+     * system tempdir if geoserver is not running (unit test mode).
      *
      * @param path
      * @return non-null File
@@ -126,8 +131,9 @@ public final class GeoserverSupport {
     }
 
     /**
-     * @todo - if/when ever this type of activity has support from geoserver at a more formalized
-     *     level (a common task pool anyone?) either remove or fix to use that.
+     * @todo - if/when ever this type of activity has support from geoserver at
+     * a more formalized level (a common task pool anyone?) either remove or fix
+     * to use that.
      */
     private static void startCleaner() {
         final long period = 30 * 60 * 1000;
@@ -140,30 +146,28 @@ public final class GeoserverSupport {
             ex.printStackTrace();
             return;
         }
-        Thread t =
-                new Thread(
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                                while (true) {
-                                    try {
-                                        cleanDirectory(outputDir, period);
-                                    } catch (RuntimeException re) {
-                                        re.printStackTrace(System.err);
-                                    }
-                                    try {
-                                        cleanDirectory(PrintSupport.getGlobalCacheDir(), period);
-                                    } catch (RuntimeException re) {
-                                        re.printStackTrace(System.err);
-                                    }
-                                    try {
-                                        Thread.sleep(period);
-                                    } catch (InterruptedException ie) {
-                                        System.err.println("interrupt");
-                                    }
-                                }
-                            }
-                        });
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        cleanDirectory(outputDir, period);
+                    } catch (RuntimeException re) {
+                        re.printStackTrace(System.err);
+                    }
+                    try {
+                        cleanDirectory(PrintSupport.getGlobalCacheDir(), period);
+                    } catch (RuntimeException re) {
+                        re.printStackTrace(System.err);
+                    }
+                    try {
+                        Thread.sleep(period);
+                    } catch (InterruptedException ie) {
+                        System.err.println("interrupt");
+                    }
+                }
+            }
+        });
         t.setDaemon(true);
         t.setPriority(Thread.MIN_PRIORITY);
         t.start();

@@ -22,6 +22,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
@@ -52,9 +53,9 @@ import org.xhtmlrenderer.swing.NaiveUserAgent;
 
 /**
  * Extend the NaiveUserAgent with multi-threaded image resolution and optional caching.
- *
- * @todo interaction with the resolveAndOpenStream needs to be investigated as it's possible that
- *     after running preload(), the httpClient connection pool will be closed.
+ * @todo interaction with the resolveAndOpenStream needs to be investigated
+ *       as it's possible that after running preload(), the httpClient connection
+ *       pool will be closed.
  * @author Ian Schneider <ischneider@opengeo.org>
  */
 public class PrintUserAgentCallback extends NaiveUserAgent {
@@ -63,78 +64,67 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
     private final PrintSpec spec;
     private final File cacheDir;
 
-    private static final Logger logger = Logging.getLogger(PrintUserAgentCallback.class);
+    private final static Logger logger = Logging.getLogger(PrintUserAgentCallback.class);
     private static final int MONITOR_JOIN_TIMEOUT_MILLISECONDS = 1000;
     private static final int MONITOR_IDLE_TIMEOUT_SECONDS = 30;
     private static final int MAX_CONNECTIONS_PER_ROUTE = 40;
     private static final int MAX_CONNECTIONS_TOTAL = 500;
-
+    
     /**
-     * Monitor to manage old connections in the shared, static Http Connection Pool. Implementation
-     * inspired by the blog post at http://www.baeldung.com/httpclient-connection-management
+     * Monitor to manage old connections in the shared, static Http Connection Pool.
+     * Implementation inspired by the blog post at http://www.baeldung.com/httpclient-connection-management
      */
     private static class IdleConnectionMonitorThread extends Thread {
         private final PoolingHttpClientConnectionManager connMgr;
         private volatile boolean shutdown = false;
-
+        
         public IdleConnectionMonitorThread(PoolingHttpClientConnectionManager connMgr) {
             super();
             this.connMgr = connMgr;
         }
-
         @Override
         public void run() {
             try {
-                while (!this.shutdown) {
+                while (!this.shutdown){
                     synchronized (this) {
                         wait(MONITOR_IDLE_TIMEOUT_SECONDS * 2 * 1000);
                         this.connMgr.closeExpiredConnections();
-                        this.connMgr.closeIdleConnections(
-                                MONITOR_IDLE_TIMEOUT_SECONDS, TimeUnit.SECONDS);
+                        this.connMgr.closeIdleConnections(MONITOR_IDLE_TIMEOUT_SECONDS, TimeUnit.SECONDS);
                         logger.fine(this.connMgr.getTotalStats().toString());
-                    }
+                    }                   
                 }
-            } catch (InterruptedException ex) {
+            } catch(InterruptedException ex) {
                 shutdown();
             }
         }
-
         public void shutdown() {
             this.shutdown = true;
-            synchronized (this) {
+            synchronized(this) {
                 notifyAll();
-                logger.info(
-                        "Shutting down the "
-                                + PrintUserAgentCallback.class
-                                + " Http Connection Pool");
+                logger.info("Shutting down the " + PrintUserAgentCallback.class + " Http Connection Pool");
                 this.connMgr.shutdown();
                 this.connMgr.close();
             }
         }
     }
-
-    private static final HttpClient httpClient;
+    
+    
+    private final static HttpClient httpClient;
 
     static {
         final PoolingHttpClientConnectionManager connMgr = new PoolingHttpClientConnectionManager();
         connMgr.setDefaultMaxPerRoute(MAX_CONNECTIONS_PER_ROUTE);
         connMgr.setMaxTotal(MAX_CONNECTIONS_TOTAL);
 
-        httpClient =
-                HttpClientBuilder.create()
-                        .setConnectionManager(connMgr)
-                        .useSystemProperties()
-                        .build();
-
+        httpClient = HttpClientBuilder.create().setConnectionManager(connMgr).useSystemProperties().build();
+        
         IdleConnectionMonitorThread staleMonitor = new IdleConnectionMonitorThread(connMgr);
         staleMonitor.start();
         try {
             staleMonitor.join(MONITOR_JOIN_TIMEOUT_MILLISECONDS);
-        } catch (InterruptedException ex) {
-            logger.log(
-                    Level.WARNING,
-                    "Unexpected interruption during connection pool monitor setup",
-                    ex);
+        }
+        catch(InterruptedException ex) {
+            logger.log(Level.WARNING, "Unexpected interruption during connection pool monitor setup" , ex);
         }
     }
 
@@ -148,12 +138,11 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
         }
         setBaseURL(spec.getBaseURL());
     }
-
+    
     /**
-     * Create a ImageResourceLoader that resolves images using the internal cache - this is a
-     * workaround for image output rendering only.
-     *
-     * @return ImageResourceLoader
+     * Create a ImageResourceLoader that resolves images using the internal
+     * cache - this is a workaround for image output rendering only.
+     * @return ImageResourceLoader 
      */
     public ImageResourceLoader createImageResourceLoader() {
         return new ImageResourceLoader() {
@@ -170,6 +159,7 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
                 }
                 return resource;
             }
+            
         };
     }
 
@@ -236,19 +226,16 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
         if (!imagesToResolve.isEmpty()) {
             ExecutorService threadPool = Executors.newFixedThreadPool(2);
             try {
-                ExecutorCompletionService<File> executor =
-                        new ExecutorCompletionService<File>(threadPool);
+                ExecutorCompletionService<File> executor = new ExecutorCompletionService<File>(threadPool);
                 List<Future<File>> futures = new ArrayList<Future<File>>(imagesToResolve.size());
                 for (int i = 0; i < imagesToResolve.size(); i++) {
                     final String href = imagesToResolve.get(i);
                     final File dest = cacheDestination.get(i);
-                    futures.add(
-                            executor.submit(
-                                    new Callable<File>() {
-                                        public File call() throws Exception {
-                                            return resolve(href, dest);
-                                        }
-                                    }));
+                    futures.add(executor.submit(new Callable<File>() {
+                        public File call() throws Exception {
+                            return resolve(href, dest);
+                        }
+                    }));
                 }
                 for (int i = 0; i < futures.size(); i++) {
                     String resource = imagesToResolve.get(i);
@@ -260,8 +247,7 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
                         break;
                     } catch (ExecutionException ex) {
                         // the execution exception just wraps the original
-                        throw new RuntimeException(
-                                "Error resolving image resource " + resource, ex.getCause());
+                        throw new RuntimeException("Error resolving image resource " + resource, ex.getCause());
                     }
                     if (result != null) {
                         try {
@@ -271,16 +257,17 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
                         }
                     }
                 }
-            } finally {
+            }
+            finally {
                 threadPool.shutdown();
             }
         }
     }
-
+    
     @Override
     protected InputStream resolveAndOpenStream(String uriSpec) {
         InputStream is = null;
-        try {
+        try {        
             URI resolved = new URI(resolveURI(uriSpec));
             if (resolved.getScheme().equals("file")) {
                 is = resolved.toURL().openStream();
@@ -292,7 +279,7 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
         }
         return is;
     }
-
+    
     private InputStream resolveAndOpenRemoteStream(String uri) throws Exception {
         HttpGet get = new HttpGet(uri);
         InputStream is = null;
@@ -306,9 +293,8 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
                 logger.fine("setting credentials for " + host);
             }
             CredentialsProvider credsProvider = new BasicCredentialsProvider();
-            Credentials credentials =
-                    new UsernamePasswordCredentials(
-                            creds.getUserName(), new String(creds.getPassword()));
+            Credentials credentials = new UsernamePasswordCredentials(creds.getUserName(),
+                    new String(creds.getPassword()));
             credsProvider.setCredentials(AuthScope.ANY, credentials);
 
             AuthCache authCache = new BasicAuthCache();
@@ -341,14 +327,9 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
         if (response.getStatusLine().getStatusCode() == 200) {
             is = response.getEntity().getContent();
         } else {
-            logger.warning(
-                    "Error fetching : "
-                            + uri
-                            + ", status is : "
-                            + response.getStatusLine().getStatusCode());
+            logger.warning("Error fetching : " + uri + ", status is : " + response.getStatusLine().getStatusCode());
             if (response.getEntity() != null) {
-                logger.log(
-                        Level.FINE, "Response : {0}", EntityUtils.toString(response.getEntity()));
+                logger.log(Level.FINE, "Response : {0}", EntityUtils.toString(response.getEntity()));
             }
         }
         return is;
@@ -409,4 +390,5 @@ public class PrintUserAgentCallback extends NaiveUserAgent {
     private void cache(String resource, ImageResource imageResource) {
         cache.put(resource, new ImageResource(resource, imageResource.getImage()));
     }
+    
 }

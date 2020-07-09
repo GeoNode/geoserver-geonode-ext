@@ -1,11 +1,13 @@
 package org.geoserver.printng.spi;
 
-import com.lowagie.text.DocumentException;
 import java.io.IOException;
 import java.io.OutputStream;
+
 import org.geoserver.printng.api.PrintSpec;
 import org.geoserver.printng.api.PrintngWriter;
 import org.xhtmlrenderer.pdf.ITextRenderer;
+
+import com.lowagie.text.DocumentException;
 
 public class PDFWriter extends PrintngWriter {
 
@@ -26,4 +28,5 @@ public class PDFWriter extends PrintngWriter {
             throw new IOException("Error rendering PDF", ex);
         }
     }
+
 }

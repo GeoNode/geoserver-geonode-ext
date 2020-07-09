@@ -1,9 +1,6 @@
 package org.geoserver.printng.rest;
 
 import freemarker.template.SimpleHash;
-import java.io.IOException;
-import java.util.Map;
-import java.util.Set;
 import net.sf.json.JSONObject;
 import org.apache.commons.io.IOUtils;
 import org.geoserver.rest.converters.BaseMessageConverter;
@@ -15,9 +12,12 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.MultiValueMap;
 
+import java.io.IOException;
+import java.util.Map;
+import java.util.Set;
+
 /**
- * Converts a JSON object or HTTP form into a SimpleHash to be used as a model by a Freemarker
- * template
+ * Converts a JSON object or HTTP form into a SimpleHash to be used as a model by a Freemarker template
  */
 @Component
 public class FreemarkerModelConverter extends BaseMessageConverter<SimpleHash> {
@@ -26,10 +26,7 @@ public class FreemarkerModelConverter extends BaseMessageConverter<SimpleHash> {
 
     @Autowired
     public FreemarkerModelConverter() {
-        super(
-                MediaType.APPLICATION_JSON,
-                MediaType.TEXT_HTML,
-                MediaType.APPLICATION_FORM_URLENCODED);
+        super(MediaType.APPLICATION_JSON, MediaType.TEXT_HTML, MediaType.APPLICATION_FORM_URLENCODED);
         formConverter = new FormHttpMessageConverter();
     }
 
@@ -44,9 +41,7 @@ public class FreemarkerModelConverter extends BaseMessageConverter<SimpleHash> {
     }
 
     @Override
-    protected SimpleHash readInternal(
-            Class<? extends SimpleHash> clazz, HttpInputMessage inputMessage)
-            throws IOException, HttpMessageNotReadableException {
+    protected SimpleHash readInternal(Class<? extends SimpleHash> clazz,  HttpInputMessage inputMessage) throws IOException, HttpMessageNotReadableException {
 
         SimpleHash simpleHash = new SimpleHash();
 
@@ -84,4 +79,5 @@ public class FreemarkerModelConverter extends BaseMessageConverter<SimpleHash> {
             }
         }
     }
+
 }

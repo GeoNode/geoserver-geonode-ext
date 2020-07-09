@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
 import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Logger;
 import org.geoserver.printng.api.PrintSpec;
@@ -19,28 +20,25 @@ import org.geoserver.printng.spi.ParsedDocument;
 
 /**
  * Use this as an interactive test driver.
- *
+ * 
  * @author Ian Schneider <ischneider@opengeo.org>
  */
 public class HTMLToPDF {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args)
+            throws Exception {
         Logger.getLogger("").addAppender(new ConsoleAppender());
         int ppd = 20;
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         LinkedList<String> argList = new LinkedList<String>(Arrays.asList(args));
         boolean img = argList.removeFirstOccurrence("-img");
         boolean loop = argList.removeFirstOccurrence("-loop");
-        //        boolean cache = argList.removeFirstOccurrence("-cache");
+//        boolean cache = argList.removeFirstOccurrence("-cache");
         if (argList.removeFirstOccurrence("-loghttp")) {
-            System.setProperty(
-                    "org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
+            System.setProperty("org.apache.commons.logging.Log", "org.apache.commons.logging.impl.SimpleLog");
             System.setProperty("org.apache.commons.logging.simplelog.showdatetime", "true");
-            System.setProperty(
-                    "org.apache.commons.logging.simplelog.log.httpclient.wire.header", "debug");
-            System.setProperty(
-                    "org.apache.commons.logging.simplelog.log.org.apache.commons.httpclient",
-                    "debug");
+            System.setProperty("org.apache.commons.logging.simplelog.log.httpclient.wire.header", "debug");
+            System.setProperty("org.apache.commons.logging.simplelog.log.org.apache.commons.httpclient", "debug");
         }
         List<String> creds = null;
         List<String> cookie = null;
@@ -66,7 +64,7 @@ public class HTMLToPDF {
                 css = cssFile.getAbsolutePath();
             }
         }
-
+        
         File inputFile = new File(argList.pop());
         File outputFile;
         PrintngWriter writer;
@@ -120,4 +118,5 @@ public class HTMLToPDF {
             }
         }
     }
+
 }

@@ -18,20 +18,19 @@ import org.w3c.dom.Document;
 
 /**
  * Home of otherwise homeless static methods.
- *
+ * 
  * @author Ian Schneider <ischneider@opengeo.org>
  */
 public final class PrintSupport {
-
+    
     private PrintSupport() {}
 
     public static File getGlobalCacheDir() {
         return new File(System.getProperty("java.io.tmpdir"), "printng-cache");
     }
-
+    
     /**
      * Scale an image to a specified width/height.
-     *
      * @param im The image to scale
      * @param width The expected width
      * @param height The expected height
@@ -64,15 +63,14 @@ public final class PrintSupport {
         }
         Graphics2D g2 = scaled.createGraphics();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        g2.setRenderingHint(
-                RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
+        g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         AffineTransform trans = new AffineTransform();
         trans.scale(scale, scale);
 
         g2.drawRenderedImage(im, trans);
         return scaled;
     }
-
+    
     public static void write(Document dom, OutputStream out, boolean indent) {
         Transformer trans;
         try {
@@ -90,7 +88,7 @@ public final class PrintSupport {
             throw new RuntimeException(ex);
         }
     }
-
+    
     public static String toString(Document dom) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         write(dom, baos, true);

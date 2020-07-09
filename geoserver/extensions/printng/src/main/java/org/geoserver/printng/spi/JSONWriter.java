@@ -1,6 +1,5 @@
 package org.geoserver.printng.spi;
 
-import java.io.*;
 import org.geoserver.printng.GeoserverSupport;
 import org.geoserver.printng.api.PrintSpec;
 import org.geoserver.printng.api.PrintngWriter;
@@ -9,14 +8,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.http.HttpStatus;
 
+import java.io.*;
+
 /**
- * The JSON response is a single object that points to a URL where the client can retrieve the
- * rendered output.
- *
+ * The JSON response is a single object that points to a URL where the client
+ * can retrieve the rendered output.
+ * 
  * @author Ian Schneider <ischneider@opengeo.org>
  */
 public class JSONWriter extends PrintngWriter {
-
+    
     private final PrintngWriter delegate;
     private final String baseURL;
 
@@ -51,12 +52,12 @@ public class JSONWriter extends PrintngWriter {
         }
         if (error != null) {
             output.delete(); // try now, it will get cleaned up later otherwise
-
+            
             // the existing mapfish print protocol likes a 500
             throw new RestException(error.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    
     private String render(String output) {
         JSONObject resp = new JSONObject();
         try {

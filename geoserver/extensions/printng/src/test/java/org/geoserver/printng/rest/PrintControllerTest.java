@@ -4,23 +4,26 @@ import static testsupport.PrintTestSupport.assertPDF;
 import static testsupport.PrintTestSupport.assertPNG;
 import static testsupport.PrintTestSupport.assertTemplateExists;
 import static testsupport.PrintTestSupport.map;
-
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Iterator;
 import junit.framework.Test;
-import net.sf.json.JSONObject;
-import org.geoserver.printng.GeoserverSupport;
+
 import org.geoserver.printng.api.PrintSpec;
 import org.geoserver.test.GeoServerTestSupport;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
+
+import net.sf.json.JSONObject;
+import org.geoserver.printng.GeoserverSupport;
 import org.springframework.util.MultiValueMap;
+
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Put all tests that require full geoserver support here.
- *
+ * 
  * @author Ian Schneider <ischneider@opengeo.org>
  */
 public class PrintControllerTest extends GeoServerTestSupport {
@@ -54,7 +57,7 @@ public class PrintControllerTest extends GeoServerTestSupport {
         runPostTest();
         runJSONPostTest();
     }
-
+    
     public void testValidPngRenderSize() throws Exception {
         // specify native size in document
         path = "/rest/printng/render.png";
@@ -65,6 +68,7 @@ public class PrintControllerTest extends GeoServerTestSupport {
         runPostTest();
         runJSONPostTest();
 
+        
         // now scale the output
         width = 50;
         height = 50;
@@ -113,13 +117,12 @@ public class PrintControllerTest extends GeoServerTestSupport {
 
         // and with post body
         path = "/rest/printng/freemarker/foobar.html";
-        formData = new String[] {"msg", "BAR"};
+        formData = new String[]{"msg", "BAR"};
         resp = runPostTest();
         assertTrue(resp.getContentAsString().indexOf("BAR") > 0);
     }
 
-    private MockHttpServletResponse assertPostResponse(MockHttpServletResponse resp)
-            throws Exception {
+    private MockHttpServletResponse assertPostResponse(MockHttpServletResponse resp) throws Exception {
         assertEquals(status, resp.getStatus());
         String type = resp.getContentType();
         // mockrunner (in 0.3.1 and 0.3.6) does mimetypes wrong - this makes
@@ -144,13 +147,11 @@ public class PrintControllerTest extends GeoServerTestSupport {
         return resp;
     }
 
-    private String formText(MultiValueMap<String, String> form)
-            throws UnsupportedEncodingException {
+    private String formText(MultiValueMap<String, String> form) throws UnsupportedEncodingException {
         StringBuilder builder = new StringBuilder();
-        for (Iterator<String> nameIterator = form.keySet().iterator(); nameIterator.hasNext(); ) {
+        for (Iterator<String> nameIterator = form.keySet().iterator(); nameIterator.hasNext();) {
             String name = nameIterator.next();
-            for (Iterator<String> valueIterator = form.get(name).iterator();
-                    valueIterator.hasNext(); ) {
+            for (Iterator<String> valueIterator = form.get(name).iterator(); valueIterator.hasNext();) {
                 String value = valueIterator.next();
                 builder.append(URLEncoder.encode(name, "UTF-8"));
                 if (value != null) {
@@ -167,7 +168,6 @@ public class PrintControllerTest extends GeoServerTestSupport {
         }
         return builder.toString();
     }
-
     private MockHttpServletResponse runPostTest() throws Exception {
         if (formData != null) {
             body = formText(map(formData));
@@ -178,9 +178,8 @@ public class PrintControllerTest extends GeoServerTestSupport {
         }
     }
 
-    // Spring uses the parameter map to read form data
-    protected MockHttpServletResponse postFormAsServletResponse(
-            String path, String body, String contentType) throws Exception {
+    //Spring uses the parameter map to read form data
+    protected MockHttpServletResponse postFormAsServletResponse(String path, String body, String contentType) throws Exception {
         MockHttpServletRequest request = createRequest(path);
         request.setMethod("POST");
         request.setContentType(contentType);
@@ -190,16 +189,14 @@ public class PrintControllerTest extends GeoServerTestSupport {
         if (formData != null) {
             MultiValueMap<String, String> formMap = map(formData);
             for (String key : formMap.keySet()) {
-                request.setParameter(
-                        key, formMap.get(key).toArray(new String[formMap.get(key).size()]));
+                request.setParameter(key, formMap.get(key).toArray(new String[formMap.get(key).size()]));
             }
         }
 
         return dispatch(request);
     }
-
-    private MockHttpServletResponse assertJSONPostResponse(MockHttpServletResponse resp)
-            throws Exception {
+    
+    private MockHttpServletResponse assertJSONPostResponse(MockHttpServletResponse resp) throws Exception {
         assertEquals(status, resp.getStatus());
         String type = resp.getContentType().split(";")[0];
         assertEquals(MediaType.APPLICATION_JSON.toString(), type);
@@ -217,7 +214,7 @@ public class PrintControllerTest extends GeoServerTestSupport {
         allowEmptyContentType = false;
         return resp;
     }
-
+    
     private MockHttpServletResponse runJSONPostTest() throws Exception {
         if (formData != null) {
             body = formText(map(formData));
