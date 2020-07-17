@@ -55,11 +55,7 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- geotools plugins -->
-        <dependency>
-            <groupId>org.geotools</groupId>
-            <artifactId>gt-shapefile</artifactId>
-        </dependency>
+
         <!-- geoserver plugins -->
         <dependency>
             <groupId>org.geoserver.extension</groupId>
