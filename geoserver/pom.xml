@@ -140,12 +140,6 @@
                 <groupId>org.geoserver.web</groupId>
                 <artifactId>gs-web-app</artifactId>
                 <version>${gs.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.geotools</groupId>
-                        <artifactId>gt-shapefile</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.web</groupId>
@@ -569,11 +563,6 @@
                 <groupId>org.opengeo</groupId>
                 <artifactId>geodb</artifactId>
                 <version>${geodb.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.geotools</groupId>
-                <artifactId>gt-shapefile</artifactId>
-                <version>${gt.snapshot.version}</version>
             </dependency>
             
             <!-- Other GeoServer Extensions -->
