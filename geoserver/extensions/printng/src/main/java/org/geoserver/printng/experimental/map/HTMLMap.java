@@ -1,16 +1,17 @@
 package org.geoserver.printng.experimental.map;
 
-import com.vividsolutions.jts.geom.Envelope;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
 import org.geoserver.printng.experimental.map.HTMLMapLayer.Tile;
+import org.locationtech.jts.geom.Envelope;
 
 /**
  * A 'port' of OpenLayers.Map. Not trying to be complete.

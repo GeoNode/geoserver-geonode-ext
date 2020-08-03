@@ -2,14 +2,16 @@
  */
 package org.geoserver.printng.experimental.map;
 
-import com.vividsolutions.jts.geom.Envelope;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
+
+import org.locationtech.jts.geom.Envelope;
 
 /**
  * Analagous to OpenLayers.Layer.

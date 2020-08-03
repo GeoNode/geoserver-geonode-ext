@@ -119,6 +119,10 @@
                         <groupId>javax.servlet</groupId>
                         <artifactId>javax.servlet-api</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <groupId>org.geotools</groupId>
+                        <artifactId>gt-main</artifactId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
@@ -185,7 +189,7 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-sldservice</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.snapshot.version}</version>
             </dependency>
 
             <!-- hibernate dependencies -->
@@ -559,6 +563,7 @@
                 <artifactId>gt-jdbc-postgis</artifactId>
                 <version>${gt.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.opengeo</groupId>
                 <artifactId>geodb</artifactId>
@@ -566,6 +571,12 @@
             </dependency>
             
             <!-- Other GeoServer Extensions -->
+            <dependency>
+                <groupId>org.geotools</groupId>
+                <artifactId>gt-main</artifactId>
+                <version>${gt.snapshot.version}</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-dyndimension</artifactId>
@@ -905,13 +916,13 @@
 
         <gf.version>3.4.3</gf.version>
 
-  <gs.version>2.17.1</gs.version>
-  <gt.version>23.1</gt.version>
-  <gwc.version>1.17.1</gwc.version>
+        <gs.version>2.17.1</gs.version>
+        <gt.version>23.1</gt.version>
+        <gwc.version>1.17.1</gwc.version>
 
         <gs.community.version>2.17-SNAPSHOT</gs.community.version>
         <gs.snapshot.version>2.17-SNAPSHOT</gs.snapshot.version>
-        <gt.snapshot.version>24-SNAPSHOT</gt.snapshot.version>
+        <gt.snapshot.version>23-SNAPSHOT</gt.snapshot.version>
 
       <!-- GeoServer-EXT POM Properties -->
         <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
@@ -929,16 +940,16 @@
 
       <!-- Official GeoServer POM Properties -->
         <jts.version>1.16.1</jts.version>
-  <spring.version>5.1.13.RELEASE</spring.version>
-  <spring.security.version>5.1.8.RELEASE</spring.security.version>
+        <spring.version>5.1.13.RELEASE</spring.version>
+        <spring.security.version>5.1.8.RELEASE</spring.security.version>
         <servlet-api.version>3.0.1</servlet-api.version>
         <jetty.version>9.4.18.v20190429</jetty.version>
         <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
         <poi.version>4.0.0</poi.version>
         <wicket.version>7.6.0</wicket.version>
         <ant.version>1.8.4</ant.version>
-  <imageio-ext.version>1.3.2</imageio-ext.version>
-  <jaiext.version>1.1.14</jaiext.version>
+        <imageio-ext.version>1.3.2</imageio-ext.version>
+        <jaiext.version>1.1.14</jaiext.version>
         <java.awt.headless>true</java.awt.headless>
         <sun.java2d.d3d>true</sun.java2d.d3d>
         <jvm.opts></jvm.opts>
@@ -973,8 +984,8 @@
         <jackson2.version>2.10.1</jackson2.version>
         <compress-lzf.version>1.0.3</compress-lzf.version>
         <marlin.version>0.9.3</marlin.version>
-  <postgresql.jdbc.version>42.2.5</postgresql.jdbc.version>
-  <postgis.jdbc.version>1.3.3</postgis.jdbc.version>
+        <postgresql.jdbc.version>42.2.5</postgresql.jdbc.version>
+         <postgis.jdbc.version>1.3.3</postgis.jdbc.version>
         <solrj.version>7.2.1</solrj.version>
         <jacoco.version>0.8.1</jacoco.version>
         <hazelcast.version>3.11.1</hazelcast.version>
@@ -982,9 +993,9 @@
         <fmt.action>format</fmt.action>
         <fmt.skip>false</fmt.skip>
         <errorProneFlags></errorProneFlags>
-  <errorProne.version>2.3.4</errorProne.version>
-  <javac.version>9+181-r4173-1</javac.version>
-  <pmd.version>6.20.0</pmd.version>
+        <errorProne.version>2.3.4</errorProne.version>
+        <javac.version>9+181-r4173-1</javac.version>
+        <pmd.version>6.20.0</pmd.version>
         <checkstyle.skip>false</checkstyle.skip>
         <qa>false</qa>
         <lint>deprecation</lint>
