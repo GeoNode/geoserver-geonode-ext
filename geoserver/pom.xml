@@ -119,10 +119,6 @@
                         <groupId>javax.servlet</groupId>
                         <artifactId>javax.servlet-api</artifactId>
                     </exclusion>
-                    <exclusion>
-                        <groupId>org.geotools</groupId>
-                        <artifactId>gt-main</artifactId>
-                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
@@ -596,12 +592,6 @@
             
             <!-- Other GeoServer Extensions -->
             <dependency>
-                <groupId>org.geotools</groupId>
-                <artifactId>gt-main</artifactId>
-                <version>${gt.snapshot.version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.geoserver.community</groupId>
                 <artifactId>gs-dyndimension</artifactId>
                 <version>${gs.community.version}</version>
@@ -946,7 +936,6 @@
 
         <gs.community.version>2.17-SNAPSHOT</gs.community.version>
         <gs.snapshot.version>2.17-SNAPSHOT</gs.snapshot.version>
-        <gt.snapshot.version>23-SNAPSHOT</gt.snapshot.version>
 
       <!-- GeoServer-EXT POM Properties -->
         <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
@@ -963,7 +952,7 @@
         <mapfish-geo-lib.version>1.2.0</mapfish-geo-lib.version>
 
       <!-- Official GeoServer POM Properties -->
-        <jts.version>1.17.0</jts.version>
+        <jts.version>1.16.1</jts.version>
         <spring.version>5.1.13.RELEASE</spring.version>
         <spring.security.version>5.1.8.RELEASE</spring.security.version>
         <servlet-api.version>3.0.1</servlet-api.version>
