@@ -48,6 +48,7 @@ disableScaleLocking: true
 brokenUrlPlaceholder: 'default'
 # brokenUrlPlaceholder: 'throw'
 
+proxyBaseUrl: http://geoserver:8080/geoserver/pdf
 connectionTimeout: 2000
 socketTimeout: 2000
 
