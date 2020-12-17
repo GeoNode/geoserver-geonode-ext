@@ -181,7 +181,8 @@
                 <include>com.googlecode.efficient-java-matrix-library:core</include>
                 <include>jgridshift:jgridshift</include>
                 <include>net.sf.geographiclib:GeographicLib-Java</include>
-                <include>org.xhtmlrenderer:core-renderer</include>
+                <include>org.xhtmlrenderer:flying-saucer-core</include>
+                <include>org.xhtmlrenderer:flying-saucer-pdf</include>
                 <include>com.lowagie:itext</include>
                 <include>bouncycastle:bcmail-jdk14</include>
                 <include>bouncycastle:bcprov-jdk14</include>
