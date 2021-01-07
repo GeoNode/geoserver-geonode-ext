@@ -225,6 +225,16 @@
             <artifactId>geodb</artifactId>
         </dependency>
 
+        <!-- JTS dependency -->
+        <dependency>
+            <groupId>org.locationtech.jts</groupId>
+            <artifactId>jts-core</artifactId>
+        </dependency>
+        <!-- dependency>
+            <groupId>org.locationtech.jts</groupId>
+            <artifactId>jts-io-common</artifactId>
+        </dependency -->
+
         <!-- Other GeoServer Extensions -->
         <dependency>
             <groupId>org.geoserver.community</groupId>
