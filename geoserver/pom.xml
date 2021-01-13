@@ -5,7 +5,7 @@
     <groupId>org.opengeo</groupId>
     <artifactId>geonode-geoserver-ext</artifactId>
     <packaging>pom</packaging>
-    <version>2.17-SNAPSHOT</version>
+    <version>2.18-SNAPSHOT</version>
     <name>GeoNode GeoServer Extensions</name>
 
  <organization>
@@ -199,8 +199,18 @@
                 <artifactId>hibernate-annotations</artifactId>
                 <version>${hibernate-annotations-version}</version>
             </dependency>
+   <dependency>
+     <groupId>org.jdom</groupId>
+     <artifactId>jdom2</artifactId>
+     <version>2.0.6</version>
+   </dependency>
 
-            <!-- geowebcache dependencies -->
+   <dependency>
+     <groupId>com.google.code.gson</groupId>
+     <artifactId>gson</artifactId>
+     <version>2.3.1</version>
+   </dependency>
+
             <dependency>
                 <groupId>org.geowebcache</groupId>
                 <artifactId>gwc-core</artifactId>
@@ -845,6 +855,11 @@
                 <version>3.2.2</version>
             </dependency>
             <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-collections4</artifactId>
+    <version>4.2</version>
+   </dependency>
+   <dependency>
                 <groupId>commons-dbcp</groupId>
                 <artifactId>commons-dbcp</artifactId>
                 <version>1.4</version>
@@ -877,12 +892,12 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.5.11</version>
+    <version>4.5.13</version>
             </dependency>
             <dependency>
     <groupId>org.apache.httpcomponents</groupId>
     <artifactId>httpclient-cache</artifactId>
-    <version>4.5.11</version>
+    <version>4.5.13</version>
    </dependency>
    <dependency>
                 <groupId>org.springframework</groupId>
@@ -977,17 +992,17 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <geoserver.data.dir>geonode_v217x</geoserver.data.dir>
-        <osgeolive.data.dir>geonode_v217x_osgeolive</osgeolive.data.dir>
+        <geoserver.data.dir>geonode_v218x</geoserver.data.dir>
+        <osgeolive.data.dir>geonode_v218x_osgeolive</osgeolive.data.dir>
 
-        <gf.version>3.4.3</gf.version>
+        <gf.version>3.4.6</gf.version>
 
-        <gs.version>2.17-SNAPSHOT</gs.version>
-        <gt.version>23-SNAPSHOT</gt.version>
-        <gwc.version>1.17-SNAPSHOT</gwc.version>
+        <gs.version>2.18-SNAPSHOT</gs.version>
+        <gt.version>24-SNAPSHOT</gt.version>
+        <gwc.version>1.18-SNAPSHOT</gwc.version>
 
-        <gs.community.version>2.17-SNAPSHOT</gs.community.version>
-        <gs.snapshot.version>2.17-SNAPSHOT</gs.snapshot.version>
+        <gs.community.version>2.18-SNAPSHOT</gs.community.version>
+        <gs.snapshot.version>2.18-SNAPSHOT</gs.snapshot.version>
 
       <!-- GeoServer-EXT POM Properties -->
         <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
@@ -1007,7 +1022,7 @@
         <spring.version>5.1.16.RELEASE</spring.version>
         <spring.security.version>5.1.11.RELEASE</spring.security.version>
         <servlet-api.version>3.0.1</servlet-api.version>
-        <jetty.version>9.4.18.v20190429</jetty.version>
+  <jetty.version>9.4.35.v20201120</jetty.version>
         <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
         <poi.version>4.0.0</poi.version>
         <wicket.version>7.6.0</wicket.version>
@@ -1046,7 +1061,8 @@
         <git.commit.runOnlyOnce>true</git.commit.runOnlyOnce>
         <eclipse.emf.version>2.15.0</eclipse.emf.version>
         <jackson1.version>1.9.13</jackson1.version>
-        <jackson2.version>2.10.1</jackson2.version>
+  <jackson2.version>2.10.5</jackson2.version>
+  <jackson2.databind.version>2.10.5</jackson2.databind.version>
         <compress-lzf.version>1.0.3</compress-lzf.version>
         <marlin.version>0.9.3</marlin.version>
         <postgresql.jdbc.version>42.2.18</postgresql.jdbc.version>
