@@ -1,6 +1,7 @@
 <GeoServerGWCConfig>
   <version>1.1.0</version>
   <directWMSIntegrationEnabled>true</directWMSIntegrationEnabled>
+  <requireTiledParameter>true</requireTiledParameter>
   <WMSCEnabled>true</WMSCEnabled>
   <TMSEnabled>true</TMSEnabled>
   <securityEnabled>false</securityEnabled>
@@ -32,6 +33,7 @@
     <string>image/png</string>
     <string>image/vnd.jpeg-png</string>
     <string>image/jpeg</string>
+    <string>image/vnd.jpeg-png8</string>
     <string>image/gif</string>
     <string>image/png8</string>
   </defaultCoverageCacheFormats>
@@ -40,6 +42,7 @@
     <string>image/png</string>
     <string>image/vnd.jpeg-png</string>
     <string>image/jpeg</string>
+    <string>image/vnd.jpeg-png8</string>
     <string>image/gif</string>
     <string>image/png8</string>
   </defaultVectorCacheFormats>
@@ -48,7 +51,9 @@
     <string>image/png</string>
     <string>image/vnd.jpeg-png</string>
     <string>image/jpeg</string>
+    <string>image/vnd.jpeg-png8</string>
     <string>image/gif</string>
     <string>image/png8</string>
   </defaultOtherCacheFormats>
+  <lockProviderName>memoryLock</lockProviderName>
 </GeoServerGWCConfig>

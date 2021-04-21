@@ -1,72 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<gwcConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://geowebcache.org/schema/1.14.0 http://geowebcache.org/schema/1.14.0/geowebcache.xsd" xmlns="http://geowebcache.org/schema/1.14.0">
-  <version>1.14.0</version>
+<gwcConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://geowebcache.org/schema/1.17.0 http://geowebcache.org/schema/1.17.0/geowebcache.xsd" xmlns="http://geowebcache.org/schema/1.17.0">
+  <version>1.17.0</version>
   <backendTimeout>120</backendTimeout>
   <blobStores/>
   <gridSets>
     <gridSet>
-      <name>InspireCRS84Quad</name>
-      <description>Every layer offered by a INSPIRE WMTS should use the InspireCRS84Quad Matrix Set</description>
-      <srs>
-        <number>4326</number>
-      </srs>
-      <extent>
-        <coords>
-          <double>-180.0</double>
-          <double>-90.0</double>
-          <double>180.0</double>
-          <double>90.0</double>
-        </coords>
-      </extent>
-      <alignTopLeft>false</alignTopLeft>
-      <resolutions>
-        <double>0.703125</double>
-        <double>0.3515625</double>
-        <double>0.17578125</double>
-        <double>0.087890625</double>
-        <double>0.0439453125</double>
-        <double>0.02197265625</double>
-        <double>0.010986328125</double>
-        <double>0.0054931640625</double>
-        <double>0.00274658203125</double>
-        <double>0.001373291015625</double>
-        <double>6.866455078125E-4</double>
-        <double>3.433227539062E-4</double>
-        <double>1.716613769531E-4</double>
-        <double>8.58306884766E-5</double>
-        <double>4.29153442383E-5</double>
-        <double>2.14576721191E-5</double>
-        <double>1.07288360596E-5</double>
-        <double>5.3644180298E-6</double>
-      </resolutions>
-      <metersPerUnit>111319.49079327358</metersPerUnit>
-      <pixelSize>2.8E-4</pixelSize>
-      <scaleNames>
-        <string>InspireCRS84Quad:0</string>
-        <string>InspireCRS84Quad:1</string>
-        <string>InspireCRS84Quad:2</string>
-        <string>InspireCRS84Quad:3</string>
-        <string>InspireCRS84Quad:4</string>
-        <string>InspireCRS84Quad:5</string>
-        <string>InspireCRS84Quad:6</string>
-        <string>InspireCRS84Quad:7</string>
-        <string>InspireCRS84Quad:8</string>
-        <string>InspireCRS84Quad:9</string>
-        <string>InspireCRS84Quad:10</string>
-        <string>InspireCRS84Quad:11</string>
-        <string>InspireCRS84Quad:12</string>
-        <string>InspireCRS84Quad:13</string>
-        <string>InspireCRS84Quad:14</string>
-        <string>InspireCRS84Quad:15</string>
-        <string>InspireCRS84Quad:16</string>
-        <string>InspireCRS84Quad:17</string>
-      </scaleNames>
-      <tileHeight>256</tileHeight>
-      <tileWidth>256</tileWidth>
-      <yCoordinateFirst>false</yCoordinateFirst>
-    </gridSet>
-    <gridSet>
       <name>EPSG:3857</name>
+      <description>This well-known scale set has been defined to be compatible with Google Maps and Microsoft Live Map projections and zoom levels. Level 0 allows representing the whole world in a single 256x256 pixels. The next level represents the whole world in 2x2 tiles of 256x256 pixels and so on in powers of 2. Scale denominator is only accurate near the equator.</description>
       <srs>
         <number>3857</number>
       </srs>
@@ -102,6 +42,15 @@
         <double>0.2985821416974068</double>
         <double>0.1492910708487034</double>
         <double>0.0746455354243517</double>
+        <double>0.0373227677121758</double>
+        <double>0.0186613838560879</double>
+        <double>0.009330691928044</double>
+        <double>0.004665345964022</double>
+        <double>0.002332672982011</double>
+        <double>0.0011663364910055</double>
+        <double>5.831682455027E-4</double>
+        <double>2.915841227514E-4</double>
+        <double>1.457920613757E-4</double>
       </resolutions>
       <metersPerUnit>1.0</metersPerUnit>
       <pixelSize>2.8E-4</pixelSize>
@@ -128,6 +77,15 @@
         <string>EPSG:3857:19</string>
         <string>EPSG:3857:20</string>
         <string>EPSG:3857:21</string>
+        <string>EPSG:3857:22</string>
+        <string>EPSG:3857:23</string>
+        <string>EPSG:3857:24</string>
+        <string>EPSG:3857:25</string>
+        <string>EPSG:3857:26</string>
+        <string>EPSG:3857:27</string>
+        <string>EPSG:3857:28</string>
+        <string>EPSG:3857:29</string>
+        <string>EPSG:3857:30</string>
       </scaleNames>
       <tileHeight>256</tileHeight>
       <tileWidth>256</tileWidth>
