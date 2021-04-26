@@ -5,7 +5,7 @@
     <groupId>org.opengeo</groupId>
     <artifactId>geonode-geoserver-ext</artifactId>
     <packaging>pom</packaging>
-    <version>2.18-SNAPSHOT</version>
+    <version>2.18.3</version>
     <name>GeoNode GeoServer Extensions</name>
 
  <organization>
@@ -89,18 +89,6 @@
  
     <dependencyManagement>
         <dependencies>
-            <!-- geoserver-geonode-ext extensions -->
-            <dependency>
-                <groupId>org.opengeo</groupId>
-                <artifactId>geonode-geoserver-ext-printng</artifactId>
-                <version>${gs.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.apache.xmlgraphics</groupId>
-                        <artifactId>batik-transcoder</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
             <!-- importing geoserver dependencies management -->
             <dependency>
                 <groupId>org.geoserver</groupId>
@@ -185,7 +173,7 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-sldservice</artifactId>
-                <version>${gs.snapshot.version}</version>
+                <version>${gs.version}</version>
             </dependency>
 
             <!-- hibernate dependencies -->
@@ -516,19 +504,6 @@
                 <version>${gs.community.version}</version>
             </dependency>
 
-            <!-- dependency>
-                <groupId>org.opengeo.geoserver</groupId>
-                <artifactId>printng</artifactId> 
-                <version>${project.version}</version>
-                <scope>runtime</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>javax.servlet-api</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency -->
-
             <!-- OAuth2 Security Extension -->
             <dependency>
                 <groupId>org.geoserver.community</groupId>
@@ -585,12 +560,12 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-geofence</artifactId>
-                <version>${gs.snapshot.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-geofence-server</artifactId>
-                <version>${gs.snapshot.version}</version>
+                <version>${gs.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.apache.logging.log4j</groupId>
@@ -995,9 +970,9 @@
         <geoserver.data.dir>geonode_v218x</geoserver.data.dir>
         <osgeolive.data.dir>geonode_v218x_osgeolive</osgeolive.data.dir>
 
-        <gs.version>2.18-SNAPSHOT</gs.version>
-        <gt.version>24-SNAPSHOT</gt.version>
-        <gwc.version>1.18-SNAPSHOT</gwc.version>
+        <gs.version>2.18.3</gs.version>
+        <gt.version>24.3</gt.version>
+	<gwc.version>1.18.3</gwc.version>
 
         <gs.community.version>2.18-SNAPSHOT</gs.community.version>
         <gs.snapshot.version>2.18-SNAPSHOT</gs.snapshot.version>
@@ -1020,7 +995,7 @@
         <spring.version>5.1.20.RELEASE</spring.version>
         <spring.security.version>5.1.13.RELEASE</spring.security.version>
         <servlet-api.version>3.0.1</servlet-api.version>
-        <jetty.version>9.4.35.v20201120</jetty.version>
+	<jetty.version>9.4.18.v20190429</jetty.version>
         <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
         <poi.version>4.0.0</poi.version>
         <wicket.version>7.6.0</wicket.version>
@@ -1045,12 +1020,11 @@
         <image.tests>true</image.tests>
         <interactive.image>false</interactive.image>
         <windows.leniency>true</windows.leniency>
-        <gf.version>3.4.6.1</gf.version>
+        <gf.version>3.5.0</gf.version>
         <jasypt.version>1.9.2</jasypt.version>
         <hibernate-version>3.6.9.Final</hibernate-version>
         <hibernate-generic-dao-version>1.1.0</hibernate-generic-dao-version>
         <hibernate-spatial-version>1.1.3.2</hibernate-spatial-version>
-        <hibernate-spatial-h2-version>1.1.3.1</hibernate-spatial-h2-version>
         <opengeo-geodb.version>0.9</opengeo-geodb.version>
         <!-- NOTE: be careful if upgrading slf4j, check the netcdf and netcdf-out build correcly -->
         <slf4j.version>1.6.4</slf4j.version>
@@ -1072,6 +1046,8 @@
         <argLine>-Xmx${test.maxHeapSize} -enableassertions ${jvm.opts} -Djava.awt.headless=${java.awt.headless} -Dsun.java2d.d3d=${sun.java2d.d3d} -DremoteOwsTests=${remoteOwsTests} -DquietTests=${quietTests} -Dorg.geotools.image.test.enabled=${image.tests} -Dorg.geotools.image.test.interactive=${interactive.image} -Duser.timezone=${user.timezone} -Dwindows.leniency=${windows.leniency} -XX:+TieredCompilation -XX:TieredStopAtLevel=1</argLine>
         <fmt.action>format</fmt.action>
         <fmt.skip>false</fmt.skip>
+	<pom.fmt.action>sort</pom.fmt.action>
+        <pom.fmt.skip>${fmt.skip}</pom.fmt.skip>
         <errorProneFlags></errorProneFlags>
         <errorProne.version>2.3.4</errorProne.version>
         <javac.version>9+181-r4173-1</javac.version>
