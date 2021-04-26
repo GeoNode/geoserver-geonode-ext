@@ -171,6 +171,11 @@
                 <version>${gs.community.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.geoserver.community</groupId>
+                <artifactId>gs-web-service-auth</artifactId>
+                <version>${gs.community.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-sldservice</artifactId>
                 <version>${gs.version}</version>

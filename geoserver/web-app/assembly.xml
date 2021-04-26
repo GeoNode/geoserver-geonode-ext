@@ -59,6 +59,7 @@
                 <include>org.geoserver.community.backuprestore:gs-backup-restore-extension</include>
                 <include>org.geoserver.community.backuprestore:gs-backup-restore-rest</include>
                 <include>org.geoserver.community.backuprestore:gs-backup-restore-web</include>
+                <include>org.geoserver.community:gs-web-service-auth</include>
                 <include>org.geoserver.community:gs-status-monitoring</include>
                 <include>org.geoserver.extension:gs-sldservice</include>
                 <include>org.geoserver.extension:gs-web-wps</include>
