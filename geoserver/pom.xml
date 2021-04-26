@@ -1057,7 +1057,6 @@
         <lint>deprecation</lint>
     </properties>
     <modules>
-        <module>extensions</module>
         <module>web-app</module>
     </modules>
     <build>
