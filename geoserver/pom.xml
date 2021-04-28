@@ -972,8 +972,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-        <geoserver.data.dir>geonode_v218x</geoserver.data.dir>
-        <osgeolive.data.dir>geonode_v218x_osgeolive</osgeolive.data.dir>
+        <geoserver.data.dir>geonode_v2183</geoserver.data.dir>
+        <osgeolive.data.dir>geonode_v2183_osgeolive</osgeolive.data.dir>
 
         <gs.version>2.18.3</gs.version>
         <gt.version>24.3</gt.version>
