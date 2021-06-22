@@ -1,0 +1,381 @@
+<html>
+
+<style type="text/css" media="all">
+p
+{
+    padding: 0px;
+}
+body
+{
+    width:800px;
+    font-size: 8px; 
+}
+
+#header
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:800px;
+    height:180px;
+}
+
+#main-logo
+{
+    position:absolute;
+    top:0px;
+    left:0px;
+    width:178px;
+    height:72px;
+}
+#summary
+{
+    position:absolute;
+    top:60px;
+    left:0px;
+}
+#eq-shake
+{
+    position:absolute;
+    top:0px;
+    left:120px;
+    width:40px;
+}
+#color
+{
+    position:absolute;
+    top:0px;
+    left:200px;
+    width:40px;
+}
+#alert
+{
+    position:absolute;
+    top:0px;
+    left:250px;
+    width:40px;
+}
+
+#impact-scale-summary
+{
+    position:absolute;
+    top:0px;
+    left:200px;
+}
+#extra-logos
+{
+    position:absolute;
+    top:0px;
+    right:0px;
+    width:180px;
+    height:55px;
+}
+#version
+{
+    position:absolute;
+    top:60px;
+    right:0px;
+}
+
+#alert-levels
+{
+    position:absolute;
+    top:200px;
+    width:800px;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#est-fatalities
+{
+    position:absolute;
+    left:0px;
+    top:3px;
+    width:265px;
+}
+
+#alert-level-summary
+{
+    position:absolute;
+    left:265px;
+    top:3px;
+    width:265px;
+}
+
+#est-econ-losses
+{
+    position:absolute;
+    top:3px;
+    left:530px;
+    width:265px;
+}
+
+#est-pop-exposed
+{
+    position:absolute;
+    top:400px;
+    width:800px;
+}
+
+#map-panel
+{
+    position:absolute;
+    top:750px;
+    width:550px;
+}
+
+#commentary
+{
+    position:absolute;
+    top:750px;
+    left:550px;
+    width:250px;
+}
+
+#mmi-estimates
+{
+    position:absolute;
+    top:1000px;
+    left:550px;
+    width:250px;
+}
+
+#footer
+{
+    position:absolute;
+    top:1450px;
+    width:800px;
+}
+#notes
+{
+    width:550px;
+    
+}
+#url
+{
+   
+}
+#event-id
+{
+    position:absolute;
+    top:0px;
+    right:0px;
+}
+</style>
+
+<body>
+<div id='header'>
+
+<table border='0'>
+<tr>
+<td valign='top'>
+<div id='main-logo'>
+    <img src='http://www.usgs.gov/images/header_graphic_usgsIdentifier_white.jpg' width='178' height='72'/>
+</div>
+
+<div id='summary'>
+    <span><b>M 5.8, VIRGINIA</b></span><br/>
+    <span>Origin Time: Tue 2011-08-23 17:51:04 UTC (13:51:04 local)</span><br/>
+    <span>Location: 37.94oN 77.93oW Depth: 6 km</span>
+</div>
+</td>
+
+<td valign='top'>
+<div id='impact-scale-summary'>
+    <table border='0'>
+    <tr>
+    <td valign='top'><p id='eq-shake'><h2>Earthquake Shaking</h2></p></td>
+        <td valign='top'><p id='color'><img src='http://www.taggo.co.uk/images/orange-circle.gif' width='40' height='40'/></p></td>
+        <td valign='top'><p id='alert'><h2>Orange Alert</h2></p></td>
+    </tr></table>
+    </div>
+    </td>
+
+    <td valign='top' align='right'>
+    <div id='extra-logos'>
+        <img src='http://www.dairyafrica.com/images/USAID_logo.gif'/>
+    </div>
+
+    <div id='version'>
+        <br/>
+        <span>PAGER Version 1</span><br/>
+        <span>Created: 2 hours, 5 minutes after earthquake</span>
+    </div>
+    </td>
+    </tr>
+    </table>
+    
+</div>
+
+<div id='alert-levels'>
+
+    <table border='0' cellpadding='5'>
+    <tr>
+    <td valign='top'>
+    <div id='est-fatalities'>
+        <h3>Estimated Fatalities</h3>
+        <p><img src='https://img.skitch.com/20110824-d2pmq452uynhtyxyer3bpc3tu2.jpg'/></p>
+    </div>
+    </td>
+    
+    <td valign='top'>
+    <div id='alert-level-summary'>
+        <p>Orange alert level for economic losses. Significant damage is likely and the disaster is potentially widespread. Estimated economic losses are less than 1% of GDP of the United States. Past events with this alert level have required a regional or national level response. Green alert level for shaking-related fatalities. There is a low likelihood of casualties.</p>
+    </div>
+    </td>
+
+    <td valign='top' align='right'>
+    <div id='est-econ-losses'>
+        <h3>Estimated Economic Losses</h3>
+        <p><img src='https://img.skitch.com/20110824-ek2p46srmxipi2rbrbyd84rbsh.jpg'/></p>
+    </div>
+    </td>
+    </tr>
+    </table>
+
+</div>
+
+<div id='est-pop-exposed'>
+
+    <h3>Estimated Population Exposed to Earthquake Shaking</h3>
+    <table id='est-pop-exposed-table' border='1'>
+        <tr>
+            <th>ESTIMATED POPULATION EXPOSURE (k = x1000</th>
+            <th>- -*</th>
+            <th>19k*</th>
+            <th>9,627k*</th>
+            <th>2,285k</th>
+            <th>76k</th>
+            <th>23k</th>
+            <th>10k</th>
+            <th>0</th>
+            <th>0</th>
+        </tr>
+        <tr>
+            <td>ESTIMATED MODIFIED MERCALLI INTENSITY</td>
+            <td>I</td>
+            <td>II-II</td>
+            <td>IV</td>
+            <td>V</td>
+            <td>VI</td>
+            <td>VII</td>
+            <td>VIII</td>
+            <td>IX</td>
+            <td>X+</td>
+        </tr>
+        <tr>
+            <td>PERCEIVED SHAKING</td>
+            <td>Not felt</td>
+            <td>Weak</td>
+            <td>Light</td>
+            <td>Moderate</td>
+            <td>Strong</td>
+            <td>Very Strong</td>
+            <td>Severe</td>
+            <td>Violent</td>
+            <td>Extreme</td>
+        </tr>
+        <tr>
+            <td>Resistant Structures</td>
+            <td>none</td>
+            <td>none</td>
+            <td>none</td>
+            <td>V. light</td>
+            <td>Light</td>
+            <td>Moderate</td>
+            <td>Moderate/Heavy</td>
+            <td>Heavy</td>
+            <td>V. Heavy</td>
+        </tr>
+        <tr>
+            <td>Vulnerable Structures</td>
+            <td>none</td>
+            <td>none</td>
+            <td>none</td>
+            <td>Light</td>
+            <td>Moderate</td>
+            <td>Moderate/Heavy</td>
+            <td>Heavy</td>
+            <td>V. Heavy</td>
+            <td>V. Heavy</td>
+        </tr>
+    </table>
+    <p>*Estimated exposure only includes population within the map area</p>
+
+</div>
+
+<table border='0' cellpadding='5'>
+<tr>
+    <td width='68%'>
+        <div id='map-panel'>
+            <div id='map-header'>
+                <h3>Population Exposure</h3>
+                <p>population per ~1 sq. km from Landscan</p>
+            </div>
+
+            <div id='map-legend'>
+                <img src='https://img.skitch.com/20110824-twrbcs1m54efpaircbgwr33xai.jpg'/>
+            </div>
+
+            <div id='map'>
+                <img src='https://img.skitch.com/20110824-g67fdsdheiw6e9t14dtmrqeetc.jpg'/>
+            </div>
+
+            <div id='map-scale'>
+            </div>
+
+            <div id='map-inset'>
+            </div>        
+        </div>
+    </td>
+</tr>
+<tr>
+    <td width='32%'>
+        <div id='commentary'>
+            <p><b>Structures:</b></p>
+            <p>Overall, the population in this region resides in structures that are resistant to earthquake shaking, though some vulnerable structures exist.</p>
+            <p><b>Historical Earthquakes (with MMI levels):</b></p>
+            <p>There were no earthquakes with significant population exposure to shaking within a 400 km radius of this event.</p>
+        </div>
+        <div id='mmi-estimates'>
+            <div id='mmi-estimates-header'>
+                <h3>Selected City Exposure</h3>
+                <p>from GeoNames.org</p>
+            </div>
+            <div id='mmi-estimates-table'>
+                <table border='1'>
+                    <tr>
+                        <th>MMI</th>
+                        <th>City</th>
+                        <th>Population</th>
+                    </tr>
+                    <tr><td>VII</td><td>Louisa</td><td>2k</td></tr>
+                    <tr><td>VI</td><td>Gordonsville</td><td>2k</td></tr>
+                    <tr><td>VI</td><td>Newington</td><td>21k</td></tr>
+                    <tr><td>VI</td><td>Orange</td><td>4k</td></tr>
+                    <tr><td>VI</td><td>Weber City</td><td>1k</td></tr>
+                    <tr><td>VI</td><td>Lake Monticello</td><td>10k</td></tr>
+                    <tr><td>V</td><td>Virginia Beach</td><td>425k</td></tr>
+                    <tr><td>V</td><td>Washington</td><td>552k</td></tr>
+                    <tr><td>IV</td><td>Richmond</td><td>191k</td></tr>
+                    <tr><td>IV</td><td>Baltimore</td><td>611k</td></tr>
+                    <tr><td>IV</td><td>Annapolis</td><td>36k</td></tr>
+                </table>
+            </div>
+            <div id='mmi-estimates-footer'>
+                <p>bold cities appear on map</p>
+                <p>(k = x1000)</p>
+            </div>
+        </div>
+    </td>
+</tr>
+</table>
+
+<div id='footer'>
+    <span id='notes'>PAGER content is automatically generated, and only considers losses due to structural damage. Limitations of input data, shaking estimates, and loss models may add uncertainty.</span>
+    <span id='url'><a href='http://earthquake.usgs.gov/pager'>http://earthquake.usgs.gov/pager</a></span>
+    <span id='event-id'>Event ID: us082311a</span>
+</div>
+
+</body>
+</html>

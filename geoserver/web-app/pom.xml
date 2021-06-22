@@ -5,12 +5,17 @@
     <parent>
         <groupId>org.opengeo</groupId>
         <artifactId>geonode-geoserver-ext</artifactId>
-        <version>2.16-SNAPSHOT</version>
+        <version>2.18-SNAPSHOT</version>
     </parent>
     <groupId>org.opengeo</groupId>
     <artifactId>geonode-geoserver-ext-web-app</artifactId>
     <name>Web Application (WAR)</name>
     <dependencies>
+        <!-- geoserver-geonode-ext extensions -->
+        <dependency>
+            <groupId>org.opengeo</groupId>
+            <artifactId>geonode-geoserver-ext-printng</artifactId>
+        </dependency>
         <!-- import the base geoserver war dependencies -->
         <dependency>
             <groupId>org.geoserver.web</groupId>
@@ -50,6 +55,7 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+
         <!-- geoserver plugins -->
         <dependency>
             <groupId>org.geoserver.extension</groupId>
@@ -144,8 +150,17 @@
         </dependency>
         <dependency>
             <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-wps-download</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
             <artifactId>gs-kmlppio</artifactId>
         </dependency>
+
+        <!-- dependency>
+            <groupId>org.opengeo.geoserver</groupId>
+            <artifactId>printng</artifactId>
+        </dependency -->
 
         <!-- OAuth2 Security Extension -->
         <dependency>
@@ -165,20 +180,6 @@
             <artifactId>gs-sec-oauth2-github</artifactId>
         </dependency -->
 
-        <!-- Notification Extension -->
-        <dependency>
-            <groupId>org.geoserver.community</groupId>
-            <artifactId>gs-notification</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.geoserver.community</groupId>
-            <artifactId>gs-notification-common</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.geoserver.community</groupId>
-            <artifactId>gs-notification-geonode</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>org.springframework.security.oauth</groupId>
             <artifactId>spring-security-oauth2</artifactId>
@@ -186,7 +187,7 @@
 
         <!-- AuthKey and REST Role Service Security Extension -->
         <dependency>
-            <groupId>org.geoserver.community</groupId>
+            <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-authkey</artifactId>
         </dependency>
 
@@ -209,6 +210,16 @@
             <groupId>org.opengeo</groupId>
             <artifactId>geodb</artifactId>
         </dependency>
+
+        <!-- JTS dependency -->
+        <dependency>
+            <groupId>org.locationtech.jts</groupId>
+            <artifactId>jts-core</artifactId>
+        </dependency>
+        <!-- dependency>
+            <groupId>org.locationtech.jts</groupId>
+            <artifactId>jts-io-common</artifactId>
+        </dependency -->
 
         <!-- Other GeoServer Extensions -->
         <dependency>
@@ -236,9 +247,26 @@
         </dependency>
 
         <dependency>
-            <groupId>org.xhtmlrenderer</groupId>
-            <artifactId>core-renderer</artifactId>
-            <version>R8-SNAPSHOT</version>
+          <groupId>org.xhtmlrenderer</groupId>
+          <artifactId>flying-saucer-core</artifactId>
+          <version>9.1.20</version>
+          <exclusions>
+            <exclusion>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk14</artifactId>
+            </exclusion>
+          </exclusions>
+        </dependency>
+        <dependency>
+          <groupId>org.xhtmlrenderer</groupId>
+          <artifactId>flying-saucer-pdf</artifactId>
+          <version>9.1.20</version>
+          <exclusions>
+            <exclusion>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk14</artifactId>
+            </exclusion>
+          </exclusions>
         </dependency>
         <dependency>
             <groupId>com.lowagie</groupId>

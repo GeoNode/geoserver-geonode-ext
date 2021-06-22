@@ -50,6 +50,7 @@
                 <include>com.googlecode.genericdao:dao*</include>
                 <include>com.googlecode.genericdao:search*</include>
                 <include>com.github.virtuald:curvesapi</include>
+                <include>org.opengeo:geonode-geoserver-ext-printng</include>
                 <include>org.opengeo:geonode-geoserver-ext-web-app</include>
                 <include>org.geoserver.extension:gs-inspire</include>
                 <include>org.geoserver.extension:gs-system-status</include>
@@ -77,10 +78,7 @@
                 <include>org.geoserver.community:gs-sec-oauth2-geonode</include>
                 <include>org.geoserver.community:gs-sec-oauth2-google</include>
                 <include>org.geoserver.community:gs-sec-oauth2-github</include>
-                <include>org.geoserver.community:gs-notification</include>
-                <include>org.geoserver.community:gs-notification-common</include>
-                <include>org.geoserver.community:gs-notification-geonode</include>
-                <include>org.geoserver.community:gs-authkey</include>
+                <include>org.geoserver.extension:gs-authkey</include>
                 <include>org.geoserver.extension:gs-geofence</include>
                 <include>org.geoserver.extension:gs-geofence-server</include>
                 <include>org.geoserver.community:gs-dyndimension</include>
@@ -180,7 +178,8 @@
                 <include>com.googlecode.efficient-java-matrix-library:core</include>
                 <include>jgridshift:jgridshift</include>
                 <include>net.sf.geographiclib:GeographicLib-Java</include>
-                <include>org.xhtmlrenderer:core-renderer</include>
+                <include>org.xhtmlrenderer:flying-saucer-core</include>
+                <include>org.xhtmlrenderer:flying-saucer-pdf</include>
                 <include>com.lowagie:itext</include>
                 <include>bouncycastle:bcmail-jdk14</include>
                 <include>bouncycastle:bcprov-jdk14</include>

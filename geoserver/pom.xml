@@ -5,7 +5,7 @@
     <groupId>org.opengeo</groupId>
     <artifactId>geonode-geoserver-ext</artifactId>
     <packaging>pom</packaging>
-    <version>2.16-SNAPSHOT</version>
+    <version>2.18-SNAPSHOT</version>
     <name>GeoNode GeoServer Extensions</name>
 
  <organization>
@@ -21,62 +21,60 @@
   </license>
  </licenses>
 
- <repositories>
-  <repository>
-   <id>boundless</id>
-   <name>Boundless Maven Repository</name>
-   <url>https://repo.boundlessgeo.com/main/</url>
-   <!-- contains snapshot and release (including third-party-dependences)               -->
-   <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
-   <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
-   <snapshots>
-     <enabled>true</enabled>
-   </snapshots>
-   <releases>
-     <enabled>true</enabled>
-   </releases>
-  </repository>
-  
-  <repository>
-    <id>osgeo</id>
-    <name>Open Source Geospatial Foundation Repository</name>
-    <url>http://download.osgeo.org/webdav/geotools/</url>
-    <!-- release repository used by geotools (and third-party dependencies) -->
-  </repository>
-        <repository>
-            <id>JBoss repo</id>
-            <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-        </repository>
-   <repository>
-      <id>geosolutions</id>
-      <name>geosolutions repository</name>
-      <url>http://maven.geo-solutions.it/</url>
-      <snapshots>
+    <repositories>
+
+      <repository>
+        <id>JBoss repo</id>
+        <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
+      </repository>
+
+      <repository>
+        <id>org.mapfish</id>
+        <url>http://dev.mapfish.org/maven/repository</url>
+      </repository>
+
+      <repository>
+       <id>osgeo-releases</id>
+       <name>OSGeo Nexus Release Repository</name>
+       <url>https://repo.osgeo.org/repository/release/</url>
+       <!-- contains release (including third-party-dependences)               -->
+       <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
+       <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
+       <snapshots>
+         <enabled>false</enabled>
+       </snapshots>
+       <releases>
+         <enabled>true</enabled>
+       </releases>
+      </repository>
+
+      <repository>
+       <id>osgeo-snapshots</id>
+       <name>OSGeo Nexus Snapshot Repository</name>
+       <url>https://repo.osgeo.org/repository/snapshot/</url>
+       <!-- contains snapshots               -->
+       <snapshots>
         <enabled>true</enabled>
-      </snapshots>
-     <releases>
-       <enabled>true</enabled>
-     </releases>
-    </repository>
-        <repository>
-            <id>org.mapfish</id>
-            <url>http://dev.mapfish.org/maven/repository</url>
+       </snapshots>
+       <releases>
+        <enabled>false</enabled>
+       </releases>
+      </repository>
+       
+       <repository>
+          <id>geosolutions</id>
+          <name>geosolutions repository</name>
+          <url>https://maven.geo-solutions.it/</url>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+         <releases>
+           <enabled>true</enabled>
+         </releases>
         </repository>
     </repositories>
-
+ 
     <distributionManagement>
-        <!-- repository>
-         <id>boundless</id>
-         <name>Boundless Release Repository</name>
-         <url>https://repo.boundlessgeo.com/release/</url>
-         <uniqueVersion>false</uniqueVersion>
-        </repository>
-        <snapshotRepository>
-         <id>boundless</id>
-         <uniqueVersion>false</uniqueVersion>
-         <name>Boundless Snapshot Repository</name>
-         <url>https://repo.boundlessgeo.com/snapshot/</url>
-        </snapshotRepository -->
         <downloadUrl>http://maven.geo-solutions.it</downloadUrl>
         <repository>
           <uniqueVersion>false</uniqueVersion>
@@ -91,6 +89,18 @@
  
     <dependencyManagement>
         <dependencies>
+            <!-- geoserver-geonode-ext extensions -->
+            <dependency>
+                <groupId>org.opengeo</groupId>
+                <artifactId>geonode-geoserver-ext-printng</artifactId>
+                <version>${gs.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.xmlgraphics</groupId>
+                        <artifactId>batik-transcoder</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
             <!-- importing geoserver dependencies management -->
             <dependency>
                 <groupId>org.geoserver</groupId>
@@ -175,7 +185,7 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-sldservice</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.snapshot.version}</version>
             </dependency>
 
             <!-- hibernate dependencies -->
@@ -189,8 +199,18 @@
                 <artifactId>hibernate-annotations</artifactId>
                 <version>${hibernate-annotations-version}</version>
             </dependency>
+   <dependency>
+     <groupId>org.jdom</groupId>
+     <artifactId>jdom2</artifactId>
+     <version>2.0.6</version>
+   </dependency>
 
-            <!-- geowebcache dependencies -->
+   <dependency>
+     <groupId>com.google.code.gson</groupId>
+     <artifactId>gson</artifactId>
+     <version>2.3.1</version>
+   </dependency>
+
             <dependency>
                 <groupId>org.geowebcache</groupId>
                 <artifactId>gwc-core</artifactId>
@@ -302,6 +322,43 @@
                 <version>${gwc.version}</version>
             </dependency>
 
+            <!-- JAI dependency -->
+            <dependency>
+                <groupId>it.geosolutions.imageio-ext</groupId>
+                <artifactId>imageio-ext-png</artifactId>
+                <version>${imageio-ext.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>it.geosolutions.imageio-ext</groupId>
+                <artifactId>imageio-ext-turbojpeg</artifactId>
+                <version>${imageio-ext.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>no.ecc.vectortile</groupId>
+                <artifactId>java-vector-tile</artifactId>
+                <version>1.3.9</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.media</groupId>
+                <artifactId>jai_core</artifactId>
+                <version>1.1.3</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.media</groupId>
+                <artifactId>jai_codec</artifactId>
+                <version>1.1.3</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.media</groupId>
+                <artifactId>jai_imageio</artifactId>
+                <version>1.1</version>
+            </dependency>
+            <dependency>
+                <groupId>it.geosolutions.jaiext.concurrent-tile-cache</groupId>
+                <artifactId>jt-concurrent-tile-cache</artifactId>
+                <version>${jaiext.version}</version>
+            </dependency>
+
             <!-- JTS dependency -->
             <dependency>
                 <groupId>org.locationtech.jts</groupId>
@@ -314,8 +371,19 @@
                     </exclusion>
                 </exclusions>
             </dependency>
+            <dependency>
+                <groupId>org.locationtech.jts</groupId>
+                <artifactId>jts-io-common</artifactId>
+                <version>${jts.version}</version>
+                <exclusions>
+                    <exclusion>
+                       <groupId>xerces</groupId>
+                       <artifactId>xercesImpl</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
 
-            <!-- MapFisj Printing dependencies -->
+            <!-- MapFish Printing dependencies -->
             <dependency>
                 <groupId>org.geonode.print</groupId>
                 <artifactId>mapfish-print-lib</artifactId>
@@ -330,11 +398,6 @@
                         <artifactId>batik-transcoder</artifactId>
                     </exclusion>
                 </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.mapfish.geo</groupId>
-                <artifactId>mapfish-geo-lib</artifactId>
-                <version>${mapfish-geo-lib.version}</version>
             </dependency>
 
             <!-- geoserver plugins -->
@@ -408,16 +471,34 @@
                 <groupId>org.geoserver.importer</groupId>
                 <artifactId>gs-importer-core</artifactId>
                 <version>${project.version}</version>
+                <exclusions>
+                  <exclusion>
+                    <groupId>org.geotools</groupId>
+                    <artifactId>gt-arcsde</artifactId>
+                  </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.importer</groupId>
                 <artifactId>gs-importer-web</artifactId>
                 <version>${project.version}</version>
+                <exclusions>
+                  <exclusion>
+                    <groupId>org.geotools</groupId>
+                    <artifactId>gt-arcsde</artifactId>
+                  </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.importer</groupId>
                 <artifactId>gs-importer-rest</artifactId>
                 <version>${project.version}</version>
+                <exclusions>
+                  <exclusion>
+                    <groupId>org.geotools</groupId>
+                    <artifactId>gt-arcsde</artifactId>
+                  </exclusion>
+                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
@@ -434,6 +515,19 @@
                 <artifactId>gs-kmlppio</artifactId>
                 <version>${gs.community.version}</version>
             </dependency>
+
+            <!-- dependency>
+                <groupId>org.opengeo.geoserver</groupId>
+                <artifactId>printng</artifactId> 
+                <version>${project.version}</version>
+                <scope>runtime</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>javax.servlet-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency -->
 
             <!-- OAuth2 Security Extension -->
             <dependency>
@@ -457,23 +551,6 @@
                 <version>${gs.community.version}</version>
             </dependency>
 
-            <!-- Notification Extension -->
-            <dependency>
-                <groupId>org.geoserver.community</groupId>
-                <artifactId>gs-notification</artifactId>
-                <version>${gs.snapshot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.geoserver.community</groupId>
-                <artifactId>gs-notification-common</artifactId>
-                <version>${gs.snapshot.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.geoserver.community</groupId>
-                <artifactId>gs-notification-geonode</artifactId>
-                <version>${gs.snapshot.version}</version>
-            </dependency>
-
             <dependency>
                 <groupId>org.springframework.security.oauth</groupId>
                 <artifactId>spring-security-oauth2</artifactId>
@@ -482,9 +559,9 @@
 
             <!-- AuthKey and REST Role Service Security Extension -->
             <dependency>
-                <groupId>org.geoserver.community</groupId>
+                <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-authkey</artifactId>
-                <version>${gs.snapshot.version}</version>
+                <version>${project.version}</version>
             </dependency>
 
             <!-- GeoFence Dependencies -->
@@ -536,10 +613,17 @@
                 <artifactId>gt-jdbc-postgis</artifactId>
                 <version>${gt.version}</version>
             </dependency>
+
             <dependency>
                 <groupId>org.opengeo</groupId>
                 <artifactId>geodb</artifactId>
                 <version>${geodb.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.locationtech.jts</groupId>
+                        <artifactId>jts-core</artifactId>
+                    </exclusion>
+                </exclusions>
             </dependency>
             
             <!-- Other GeoServer Extensions -->
@@ -605,6 +689,12 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
+    <scope>test</scope>
+   </dependency>
+   <dependency>
+     <groupId>org.awaitility</groupId>
+     <artifactId>awaitility</artifactId>
+     <version>4.0.1</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -658,6 +748,11 @@
                 <version>2.7.2</version>
             </dependency>
             <dependency>
+     <groupId>xalan</groupId>
+     <artifactId>serializer</artifactId>
+     <version>2.7.2</version>
+   </dependency>
+   <dependency>
                 <groupId>xpp3</groupId>
                 <artifactId>xpp3</artifactId>
                 <version>1.1.3.4.O</version>
@@ -690,14 +785,7 @@
             <dependency>
                 <groupId>commons-beanutils</groupId>
                 <artifactId>commons-beanutils</artifactId>
-                <version>1.9.2</version>
-                <classifier>noclassprop</classifier>
-            </dependency>
-            <dependency>
-                <groupId>commons-beanutils</groupId>
-                <artifactId>commons-beanutils</artifactId>
-                <version>1.9.2</version>
-                <scope>provided</scope>
+                <version>1.9.4</version>
             </dependency>
             <dependency>
                 <groupId>commons-digester</groupId>
@@ -750,6 +838,11 @@
                 <version>3.2.2</version>
             </dependency>
             <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-collections4</artifactId>
+    <version>4.2</version>
+   </dependency>
+   <dependency>
                 <groupId>commons-dbcp</groupId>
                 <artifactId>commons-dbcp</artifactId>
                 <version>1.4</version>
@@ -782,9 +875,14 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.5.11</version>
+    <version>4.5.13</version>
             </dependency>
             <dependency>
+    <groupId>org.apache.httpcomponents</groupId>
+    <artifactId>httpclient-cache</artifactId>
+    <version>4.5.13</version>
+   </dependency>
+   <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
                 <version>${spring.version}</version>
@@ -874,41 +972,99 @@
     </dependencyManagement>
 
     <properties>
-        <geoserver.data.dir>geonode_v216x</geoserver.data.dir>
-        <osgeolive.data.dir>geonode_v216x_osgeolive</osgeolive.data.dir>
-
-        <servlet-api.version>3.0.1</servlet-api.version>
-        <jetty.version>9.4.18.v20190429</jetty.version>
-        <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <gt.version>22-SNAPSHOT</gt.version>
-        <gs.version>2.16-SNAPSHOT</gs.version>
-        <gs.community.version>2.16-SNAPSHOT</gs.community.version>
-        <gs.snapshot.version>2.16-SNAPSHOT</gs.snapshot.version>
-        <gwc.version>1.16-SNAPSHOT</gwc.version>
-        <jts.version>1.16.1</jts.version>
-        <gf.version>3.4.3</gf.version>
-        <geodb.version>0.9</geodb.version>
-        <jasypt.version>1.9.2</jasypt.version>
-        <opengeo-geodb.version>0.9</opengeo-geodb.version>
-        <hibernate-version>3.6.9.Final</hibernate-version>
-        <hibernate-annotations-version>3.3.1.GA</hibernate-annotations-version>
-        <hibernate-generic-dao-version>1.1.0</hibernate-generic-dao-version>
-        <hibernate-spatial-version>1.1.3.1</hibernate-spatial-version>
-        <hibernate-spatial-h2-version>1.1.3.1</hibernate-spatial-h2-version>
-        <c3p0.version>0.9.0.4</c3p0.version>
-        <spring.version>5.2.3.RELEASE</spring.version>
-        <spring.security.version>5.1.5.RELEASE</spring.security.version>
-        <spring-security-oauth2.version>2.0.18.RELEASE</spring-security-oauth2.version>
+
+        <geoserver.data.dir>geonode_v218x</geoserver.data.dir>
+        <osgeolive.data.dir>geonode_v218x_osgeolive</osgeolive.data.dir>
+
+        <gs.version>2.18-SNAPSHOT</gs.version>
+        <gt.version>24-SNAPSHOT</gt.version>
+        <gwc.version>1.18-SNAPSHOT</gwc.version>
+
+        <gs.community.version>2.18-SNAPSHOT</gs.community.version>
+        <gs.snapshot.version>2.18-SNAPSHOT</gs.snapshot.version>
+
+      <!-- GeoServer-EXT POM Properties -->
         <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
+        <spring-security-oauth2.version>2.0.18.RELEASE</spring-security-oauth2.version>
+
+        <hibernate-annotations-version>3.3.1.GA</hibernate-annotations-version>
+
+        <c3p0.version>0.9.0.4</c3p0.version>
+        <geodb.version>0.9</geodb.version>
         <gson.version>2.3.1</gson.version>
         <guava.version>25.1-jre</guava.version>
         <tagsoup.version>1.2.1</tagsoup.version>
-        <mapfish-print-lib.version>2.1.3-SNAPSHOT</mapfish-print-lib.version>
-        <mapfish-geo-lib.version>1.2.0</mapfish-geo-lib.version>
+        <mapfish-print-lib.version>2.1.5-SNAPSHOT</mapfish-print-lib.version>
+
+      <!-- Official GeoServer POM Properties -->
+        <jts.version>1.17.1</jts.version>
+        <spring.version>5.1.20.RELEASE</spring.version>
+        <spring.security.version>5.1.13.RELEASE</spring.security.version>
+        <servlet-api.version>3.0.1</servlet-api.version>
+        <jetty.version>9.4.35.v20201120</jetty.version>
+        <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
+        <poi.version>4.0.0</poi.version>
+        <wicket.version>7.6.0</wicket.version>
+        <ant.version>1.8.4</ant.version>
+        <imageio-ext.version>1.3.5</imageio-ext.version>
+        <jaiext.version>1.1.18</jaiext.version>
+        <java.awt.headless>true</java.awt.headless>
+        <sun.java2d.d3d>true</sun.java2d.d3d>
+        <jvm.opts></jvm.opts>
+        <jalopy.phase>disabled</jalopy.phase>
+        <jalopy.srcExcludesPattern>disabled</jalopy.srcExcludesPattern>
+        <test.maxHeapSize>512M</test.maxHeapSize>
+        <test.excludedGroups></test.excludedGroups>
+        <test.exclude.pattern>none</test.exclude.pattern>
+        <quietTests>true</quietTests>
+        <remoteOwsTests>false</remoteOwsTests>
+        <maven.build.timestamp.format>dd-MMM-yyyy HH:mm</maven.build.timestamp.format>
+        <build.timestamp>${maven.build.timestamp}</build.timestamp>
+        <build.hudsonId>-1</build.hudsonId>
+        <fork.javac>false</fork.javac>
+        <javac.maxHeapSize>256M</javac.maxHeapSize>
+        <image.tests>true</image.tests>
+        <interactive.image>false</interactive.image>
+        <windows.leniency>true</windows.leniency>
+        <gf.version>3.4.6.1</gf.version>
+        <jasypt.version>1.9.2</jasypt.version>
+        <hibernate-version>3.6.9.Final</hibernate-version>
+        <hibernate-generic-dao-version>1.1.0</hibernate-generic-dao-version>
+        <hibernate-spatial-version>1.1.3.2</hibernate-spatial-version>
+        <hibernate-spatial-h2-version>1.1.3.1</hibernate-spatial-h2-version>
+        <opengeo-geodb.version>0.9</opengeo-geodb.version>
+        <!-- NOTE: be careful if upgrading slf4j, check the netcdf and netcdf-out build correcly -->
+        <slf4j.version>1.6.4</slf4j.version>
+        <joda-time.version>2.8.1</joda-time.version>
+        <git.commit.useNative>false</git.commit.useNative>
+        <git.commit.runOnlyOnce>true</git.commit.runOnlyOnce>
+        <eclipse.emf.version>2.15.0</eclipse.emf.version>
+        <jackson1.version>1.9.13</jackson1.version>
+        <jackson2.version>2.10.5</jackson2.version>
+        <jackson2.databind.version>2.10.5</jackson2.databind.version>
+        <compress-lzf.version>1.0.3</compress-lzf.version>
+        <marlin.version>0.9.3</marlin.version>
+        <postgresql.jdbc.version>42.2.19</postgresql.jdbc.version>
+        <postgis.jdbc.version>1.3.3</postgis.jdbc.version>
+        <oracle.jdbc.version>19.10.0.0</oracle.jdbc.version>
+        <solrj.version>7.2.1</solrj.version>
+        <jacoco.version>0.8.1</jacoco.version>
+        <hazelcast.version>3.11.1</hazelcast.version>
+        <argLine>-Xmx${test.maxHeapSize} -enableassertions ${jvm.opts} -Djava.awt.headless=${java.awt.headless} -Dsun.java2d.d3d=${sun.java2d.d3d} -DremoteOwsTests=${remoteOwsTests} -DquietTests=${quietTests} -Dorg.geotools.image.test.enabled=${image.tests} -Dorg.geotools.image.test.interactive=${interactive.image} -Duser.timezone=${user.timezone} -Dwindows.leniency=${windows.leniency} -XX:+TieredCompilation -XX:TieredStopAtLevel=1</argLine>
+        <fmt.action>format</fmt.action>
+        <fmt.skip>false</fmt.skip>
+        <errorProneFlags></errorProneFlags>
+        <errorProne.version>2.3.4</errorProne.version>
+        <javac.version>9+181-r4173-1</javac.version>
+        <pmd.version>6.20.0</pmd.version>
+        <checkstyle.skip>false</checkstyle.skip>
+        <qa>false</qa>
+        <lint>deprecation</lint>
     </properties>
     <modules>
+        <module>extensions</module>
         <module>web-app</module>
     </modules>
     <build>
@@ -932,7 +1088,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.6.1</version>
+                <version>3.8.0</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
