@@ -93,6 +93,7 @@
     </gridSet>
     <gridSet>
       <name>EPSG:3857x2</name>
+      <description>This well-known scale set has been defined to be compatible with Google Maps and Microsoft Live Map projections and zoom levels. Level 0 allows representing the whole world in a single 512x512 pixels. The next level represents the whole world in 4x4 tiles of 512x512 pixels and so on in powers of 2. Scale denominator is only accurate near the equator.</description>
       <srs>
         <number>3857</number>
       </srs>
