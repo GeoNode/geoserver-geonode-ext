@@ -1077,6 +1077,8 @@
         <module>web-app</module>
     </modules>
     <build>
+        <finalName>${project.artifactId}</finalName>
+
         <resources>
             <resource>
                 <directory>${basedir}/src/main/java</directory>

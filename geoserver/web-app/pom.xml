@@ -325,6 +325,7 @@
                         <descriptor>data.xml</descriptor>
                         <descriptor>data_osgeolive.xml</descriptor>
                     </descriptors>
+                    <fileNameMapping>no-version</fileNameMapping>
                 </configuration>
                 <executions>
                     <execution>
@@ -517,6 +518,7 @@
                             <Git-Revision>${build.commit.id}</Git-Revision>
                         </manifestEntries>
                     </archive>
+                    
                 </configuration>
                 <executions>
                     <execution>
