@@ -78,9 +78,6 @@
                 <include>org.geoserver.community:gs-sec-oauth2-geonode</include>
                 <include>org.geoserver.community:gs-sec-oauth2-google</include>
                 <include>org.geoserver.community:gs-sec-oauth2-github</include>
-                <include>org.geoserver.community:gs-notification</include>
-                <include>org.geoserver.community:gs-notification-common</include>
-                <include>org.geoserver.community:gs-notification-geonode</include>
                 <include>org.geoserver.extension:gs-authkey</include>
                 <include>org.geoserver.extension:gs-geofence</include>
                 <include>org.geoserver.extension:gs-geofence-server</include>
