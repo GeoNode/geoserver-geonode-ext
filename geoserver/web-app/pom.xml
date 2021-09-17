@@ -155,6 +155,10 @@
             <groupId>org.geoserver.community</groupId>
             <artifactId>gs-kmlppio</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.geoserver.community</groupId>
+            <artifactId>gs-geopkg</artifactId>
+        </dependency> 
 
         <!-- OAuth2 Security Extension -->
         <dependency>
@@ -244,7 +248,7 @@
             <artifactId>parboiled-java</artifactId>
         </dependency>
 
-        <dependency>
+        <dependency>git commit
             <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-ysld</artifactId>
         </dependency>
