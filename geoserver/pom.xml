@@ -986,8 +986,8 @@
         <osgeolive.data.dir>geonode_v219x_osgeolive</osgeolive.data.dir>
 
         <gs.version>2.19-SNAPSHOT</gs.version>
-        <gt.version>24.3</gt.version>
-	    <gwc.version>1.18.3</gwc.version>
+        <gt.version>25-SNAPSHOT</gt.version>
+        <gwc.version>1.19-SNAPSHOT</gwc.version>
 
         <gs.community.version>2.19-SNAPSHOT</gs.community.version>
         <gs.snapshot.version>2.19-SNAPSHOT</gs.snapshot.version>
