@@ -248,7 +248,7 @@
             <artifactId>parboiled-java</artifactId>
         </dependency>
 
-        <dependency>git commit
+        <dependency>
             <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-ysld</artifactId>
         </dependency>
