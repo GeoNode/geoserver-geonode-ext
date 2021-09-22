@@ -93,7 +93,7 @@
             <artifactId>gs-sldservice</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.geoserver.community</groupId>
+            <groupId>org.geoserver.extension</groupId>
             <artifactId>gs-wmts-multi-dimensional</artifactId>
         </dependency>
 
