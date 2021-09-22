@@ -72,7 +72,7 @@
                 <include>org.geoserver.importer:gs-importer-web</include>
                 <include>org.geoserver.importer:gs-importer-rest</include>
                 <include>org.geoserver.extension:gs-wps-core</include>
-                <include>org.geoserver.community:gs-wps-download</include>
+                <include>org.geoserver.extension:gs-wps-download</include>
                 <include>org.geoserver.community:gs-kmlppio</include>
                 <include>org.geoserver.community:gs-sec-oauth2</include>
                 <include>org.geoserver.community:gs-sec-oauth2-core</include>
