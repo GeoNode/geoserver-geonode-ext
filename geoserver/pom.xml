@@ -393,7 +393,7 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-monitor-core</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
@@ -414,17 +414,17 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-inspire</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-control-flow</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-printing</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>xerces</groupId>
@@ -439,27 +439,27 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-web-wps</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-excel</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-querylayer</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-gdal</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.importer</groupId>
                 <artifactId>gs-importer-core</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
                 <exclusions>
                   <exclusion>
                     <groupId>org.geotools</groupId>
@@ -492,12 +492,12 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-wps-core</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-wps-download</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.community</groupId>
@@ -563,7 +563,7 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-authkey</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
 
             <!-- GeoFence Dependencies -->
@@ -637,7 +637,7 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-css</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.parboiled</groupId>
@@ -653,7 +653,7 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-ysld</artifactId>
-                <version>${project.version}</version>
+                <version>${gs.version}</version>
             </dependency>
 
             <!-- other dependencies -->
