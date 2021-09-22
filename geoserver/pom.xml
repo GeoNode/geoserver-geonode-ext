@@ -34,44 +34,44 @@
       </repository>
 
       <repository>
-       <id>osgeo-releases</id>
-       <name>OSGeo Nexus Release Repository</name>
-       <url>https://repo.osgeo.org/repository/release/</url>
-       <!-- contains release (including third-party-dependences)               -->
-       <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
-       <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
-       <snapshots>
-         <enabled>false</enabled>
-       </snapshots>
-       <releases>
-         <enabled>true</enabled>
-       </releases>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <!-- contains release (including third-party-dependences)               -->
+        <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
+        <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
+        <snapshots>
+            <enabled>false</enabled>
+        </snapshots>
+        <id>osgeo-releases</id>
+        <name>OSGeo Nexus Release Repository</name>
+        <url>https://repo.osgeo.org/repository/release/</url>
       </repository>
 
       <repository>
-       <id>osgeo-snapshots</id>
-       <name>OSGeo Nexus Snapshot Repository</name>
-       <url>https://repo.osgeo.org/repository/snapshot/</url>
-       <!-- contains snapshots               -->
-       <snapshots>
-        <enabled>true</enabled>
-       </snapshots>
-       <releases>
-        <enabled>false</enabled>
-       </releases>
-      </repository>
-       
-       <repository>
-          <id>geosolutions</id>
-          <name>geosolutions repository</name>
-          <url>https://maven.geo-solutions.it/</url>
-          <snapshots>
+        <releases>
+            <enabled>false</enabled>
+        </releases>
+        <!-- contains snapshots               -->
+        <snapshots>
             <enabled>true</enabled>
-          </snapshots>
-         <releases>
-           <enabled>true</enabled>
-         </releases>
-        </repository>
+        </snapshots>
+        <id>osgeo-snapshots</id>
+        <name>OSGeo Nexus Snapshot Repository</name>
+        <url>https://repo.osgeo.org/repository/snapshot/</url>
+      </repository>
+
+      <repository>
+        <releases>
+            <enabled>true</enabled>
+        </releases>
+        <snapshots>
+            <enabled>true</enabled>
+        </snapshots>
+        <id>geosolutions</id>
+        <name>geosolutions repository</name>
+        <url>https://maven.geo-solutions.it/</url>
+      </repository>
     </repositories>
  
     <distributionManagement>
