@@ -21,13 +21,15 @@
   </cacheConfigurations>
   <cacheLayersByDefault>true</cacheLayersByDefault>
   <cacheNonDefaultStyles>true</cacheNonDefaultStyles>
-  <metaTilingX>4</metaTilingX>
-  <metaTilingY>4</metaTilingY>
+  <metaTilingX>2</metaTilingX>
+  <metaTilingY>2</metaTilingY>
   <gutter>0</gutter>
   <defaultCachingGridSetIds>
     <string>EPSG:3857</string>
     <string>EPSG:4326</string>
+    <string>EPSG:900913x2</string>
     <string>EPSG:900913</string>
+    <string>EPSG:4326x2</string>
   </defaultCachingGridSetIds>
   <defaultCoverageCacheFormats>
     <string>image/png</string>
