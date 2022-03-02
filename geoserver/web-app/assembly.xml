@@ -105,7 +105,7 @@
                 <include>org.geowebcache:gwc-diskquota-core</include>
                 <include>org.geowebcache:gwc-diskquota-jdbc</include>
                 <include>org.geowebcache:gwc-aws-s3</include>
-                <include>org.geonode.print:mapfish-print-lib</include>
+                <include>org.mapfish.print:print-lib</include>
                 <include>org.ccil.cowan.tagsoup:tagsoup</include>
                 <include>org.apache.commons:commons-exec</include>
                 <include>org.apache.commons:commons-lang3</include>

@@ -20,59 +20,48 @@
    <url>http://www.gnu.org/copyleft/gpl.txt</url>
   </license>
  </licenses>
+ 
+  <repositories>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <!-- contains release (including third-party-dependences)               -->
+      <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
+      <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>osgeo-releases</id>
+      <name>OSGeo Nexus Release Repository</name>
+      <url>https://repo.osgeo.org/repository/release/</url>
+    </repository>
 
-    <repositories>
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <!-- contains snapshots               -->
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>osgeo-snapshots</id>
+      <name>OSGeo Nexus Snapshot Repository</name>
+      <url>https://repo.osgeo.org/repository/snapshot/</url>
+    </repository>
 
-      <repository>
-        <id>JBoss repo</id>
-        <url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-      </repository>
-
-      <repository>
-        <id>org.mapfish</id>
-        <url>http://dev.mapfish.org/maven/repository</url>
-      </repository>
-
-      <repository>
-        <releases>
-            <enabled>true</enabled>
-        </releases>
-        <!-- contains release (including third-party-dependences)               -->
-        <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
-        <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
-        <snapshots>
-            <enabled>false</enabled>
-        </snapshots>
-        <id>osgeo-releases</id>
-        <name>OSGeo Nexus Release Repository</name>
-        <url>https://repo.osgeo.org/repository/release/</url>
-      </repository>
-
-      <repository>
-        <releases>
-            <enabled>false</enabled>
-        </releases>
-        <!-- contains snapshots               -->
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-        <id>osgeo-snapshots</id>
-        <name>OSGeo Nexus Snapshot Repository</name>
-        <url>https://repo.osgeo.org/repository/snapshot/</url>
-      </repository>
-
-      <repository>
-        <releases>
-            <enabled>true</enabled>
-        </releases>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-        <id>geosolutions</id>
-        <name>geosolutions repository</name>
-        <url>https://maven.geo-solutions.it/</url>
-      </repository>
-    </repositories>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>geosolutions</id>
+      <name>geosolutions repository</name>
+      <url>https://maven.geo-solutions.it/</url>
+    </repository>
+  </repositories>
  
     <distributionManagement>
         <downloadUrl>http://maven.geo-solutions.it</downloadUrl>
@@ -86,7 +75,111 @@
           <url>scp://demo.geo-solutions.it/var/www/share/github/gsman</url>
         </site>
     </distributionManagement>
- 
+
+    <properties>
+        <geoserver.data.dir>geonode_v219x</geoserver.data.dir>
+        <osgeolive.data.dir>geonode_v219x_osgeolive</osgeolive.data.dir>
+
+        <gs.version>2.19.5</gs.version>
+        <gt.version>25.5</gt.version>
+        <gwc.version>1.19.2</gwc.version>
+
+        <gs.community.version>2.19-SNAPSHOT</gs.community.version>
+        <gs.snapshot.version>2.19-SNAPSHOT</gs.snapshot.version>
+
+      <!-- GeoServer-EXT POM Properties -->
+        <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
+        <spring-security-oauth2.version>2.0.18.RELEASE</spring-security-oauth2.version>
+
+        <hibernate-annotations-version>3.3.1.GA</hibernate-annotations-version>
+
+        <c3p0.version>0.9.0.4</c3p0.version>
+        <geodb.version>0.9</geodb.version>
+        <gson.version>2.3.1</gson.version>
+        <guava.version>25.1-jre</guava.version>
+        <tagsoup.version>1.2.1</tagsoup.version>
+
+      <!-- Official GeoServer POM Properties -->
+        <jts.version>1.18.1</jts.version>
+        <spring.version>5.1.20.RELEASE</spring.version>
+        <spring.security.version>5.1.13.RELEASE</spring.security.version>
+        <servlet-api.version>3.1.0</servlet-api.version>
+        <jetty.version>9.4.36.v20210114</jetty.version>
+        <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
+        <poi.version>4.0.0</poi.version>
+        <wicket.version>7.18.0</wicket.version>
+        <ant.version>1.10.9</ant.version>
+        <imageio-ext.version>1.3.10</imageio-ext.version>
+        <jaiext.version>1.1.20</jaiext.version>
+        <java.awt.headless>true</java.awt.headless>
+        <sun.java2d.d3d>true</sun.java2d.d3d>
+        <jvm.opts></jvm.opts>
+        <jalopy.phase>disabled</jalopy.phase>
+        <jalopy.srcExcludesPattern>disabled</jalopy.srcExcludesPattern>
+        <test.maxHeapSize>512M</test.maxHeapSize>
+        <test.excludedGroups></test.excludedGroups>
+        <test.exclude.pattern>none</test.exclude.pattern>
+        <quietTests>true</quietTests>
+        <remoteOwsTests>false</remoteOwsTests>
+        <maven.build.timestamp.format>dd-MMM-yyyy HH:mm</maven.build.timestamp.format>
+        <build.timestamp>${maven.build.timestamp}</build.timestamp>
+        <build.hudsonId>-1</build.hudsonId>
+        <fork.javac>false</fork.javac>
+        <javac.maxHeapSize>256M</javac.maxHeapSize>
+        <image.tests>true</image.tests>
+        <interactive.image>false</interactive.image>
+        <windows.leniency>true</windows.leniency>
+        <gf.version>3.5.0</gf.version>
+        <jasypt.version>1.9.2</jasypt.version>
+        <hibernate-version>3.6.9.Final</hibernate-version>
+        <hibernate-generic-dao-version>1.1.0</hibernate-generic-dao-version>
+        <hibernate-spatial-version>1.1.3.2</hibernate-spatial-version>
+        <opengeo-geodb.version>0.9</opengeo-geodb.version>
+        <!-- NOTE: be careful if upgrading slf4j, check the netcdf and netcdf-out build correcly -->
+        <slf4j.version>1.6.4</slf4j.version>
+        <joda-time.version>2.8.1</joda-time.version>
+        <git.commit.useNative>false</git.commit.useNative>
+        <git.commit.runOnlyOnce>true</git.commit.runOnlyOnce>
+        <eclipse.emf.version>2.15.0</eclipse.emf.version>
+        <jackson1.version>1.9.13</jackson1.version>
+        <jackson2.version>2.10.5</jackson2.version>
+        <jackson2.databind.version>2.10.5.1</jackson2.databind.version>
+        <compress-lzf.version>1.0.3</compress-lzf.version>
+        <marlin.version>0.9.3</marlin.version>
+        <postgresql.jdbc.version>42.3.3</postgresql.jdbc.version>
+        <postgis.jdbc.version>1.3.3</postgis.jdbc.version>
+        <oracle.jdbc.version>19.10.0.0</oracle.jdbc.version>
+        <mysql.jdbc.version>8.0.23</mysql.jdbc.version>
+        <solrj.version>7.2.1</solrj.version>
+        <mockito.version>3.8.0</mockito.version>
+        <jacoco.version>0.8.6</jacoco.version>
+        <hazelcast.version>3.11.1</hazelcast.version>
+        <argLine>-Xmx${test.maxHeapSize} -enableassertions ${jvm.opts} -Djava.awt.headless=${java.awt.headless} -Dsun.java2d.d3d=${sun.java2d.d3d} -DremoteOwsTests=${remoteOwsTests} -DquietTests=${quietTests} -Dorg.geotools.image.test.enabled=${image.tests} -Dorg.geotools.image.test.interactive=${interactive.image} -Duser.timezone=${user.timezone} -Dwindows.leniency=${windows.leniency} -XX:+TieredCompilation -XX:TieredStopAtLevel=1</argLine>
+        <spotless.action>apply</spotless.action>
+        <spotless.apply.skip>false</spotless.apply.skip>
+        <pom.fmt.action>sort</pom.fmt.action>
+        <pom.fmt.skip>${spotless.apply.skip}</pom.fmt.skip>
+        <errorProneFlags></errorProneFlags>
+        <errorProne.version>2.3.4</errorProne.version>
+        <javac.version>9+181-r4173-1</javac.version>
+        <pmd.version>6.29.0</pmd.version>
+        <checkstyle.skip>false</checkstyle.skip>
+        <qa>false</qa>
+        <lint>deprecation,unchecked</lint>
+
+		<!-- Dont't open multiple connections to one service to upload multiple artifacts at the same time -->
+		<maven.wagon.httpconnectionManager.maxPerRoute>1</maven.wagon.httpconnectionManager.maxPerRoute>
+		<!-- Dont't open multiple connections in total to upload multiple artifacts at the same time -->
+		<maven.wagon.httpconnectionManager.maxTotal>1</maven.wagon.httpconnectionManager.maxTotal>
+		<!-- Change the retry handler to a version that supports retries -->
+		<maven.wagon.http.retryHandler.class>standard</maven.wagon.http.retryHandler.class>
+		<!-- Try at most 6 times to deploy every artifact -->
+		<http.keepAlive>true</http.keepAlive>
+		<maven.wagon.http.pool>false</maven.wagon.http.pool>
+		<maven.wagon.httpconnectionManager.ttlSeconds>25</maven.wagon.httpconnectionManager.ttlSeconds>
+		<maven.wagon.http.retryHandler.count>6</maven.wagon.http.retryHandler.count>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
             <!-- importing geoserver dependencies management -->
@@ -193,17 +286,17 @@
                 <artifactId>hibernate-annotations</artifactId>
                 <version>${hibernate-annotations-version}</version>
             </dependency>
-   <dependency>
-     <groupId>org.jdom</groupId>
-     <artifactId>jdom2</artifactId>
-     <version>2.0.6</version>
-   </dependency>
+            <dependency>
+                <groupId>org.jdom</groupId>
+                <artifactId>jdom2</artifactId>
+                <version>2.0.6</version>
+            </dependency>
 
-   <dependency>
-     <groupId>com.google.code.gson</groupId>
-     <artifactId>gson</artifactId>
-     <version>2.3.1</version>
-   </dependency>
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.3.1</version>
+            </dependency>
 
             <dependency>
                 <groupId>org.geowebcache</groupId>
@@ -259,8 +352,8 @@
                 <version>${gwc.version}</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>org.geotools</groupId>
-                        <artifactId>gt-coverage</artifactId>
+                       <artifactId>gt-coverage</artifactId>
+                       <groupId>org.geotools</groupId>
                     </exclusion>
                 </exclusions>
             </dependency>
@@ -295,8 +388,8 @@
                 <version>${gwc.version}</version>
                 <exclusions>
                     <exclusion>
-                        <groupId>org.geotools</groupId>
-                        <artifactId>gt-wms</artifactId>
+                       <artifactId>gt-wms</artifactId>
+                       <groupId>org.geotools</groupId>
                     </exclusion>
                 </exclusions>
             </dependency>
@@ -374,9 +467,9 @@
 
             <!-- MapFish Printing dependencies -->
             <dependency>
-                <groupId>org.geonode.print</groupId>
-                <artifactId>mapfish-print-lib</artifactId>
-                <version>${mapfish-print-lib.version}</version>
+                <groupId>org.mapfish.print</groupId>
+                <artifactId>print-lib</artifactId>
+                <version>geosolutions-2.1-SNAPSHOT</version>
                 <exclusions>
                     <exclusion>
                         <groupId>commons-httpclient</groupId>
@@ -409,7 +502,7 @@
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
                 <artifactId>gs-wmts-multi-dimensional</artifactId>
-                <version>${gs.version}</version>
+                <version>${gs.community.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.geoserver.extension</groupId>
@@ -690,13 +783,13 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.12</version>
-    <scope>test</scope>
-   </dependency>
-   <dependency>
-     <groupId>org.awaitility</groupId>
-     <artifactId>awaitility</artifactId>
-     <version>4.0.1</version>
+                <version>4.13.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.awaitility</groupId>
+                <artifactId>awaitility</artifactId>
+                <version>4.0.1</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
@@ -725,11 +818,6 @@
                 <version>3.6</version>
             </dependency>
             <dependency>
-                <groupId>org.easymock</groupId>
-                <artifactId>easymockclassextension</artifactId>
-                <version>2.5.2</version>
-            </dependency>
-            <dependency>
                 <groupId>cglib</groupId>
                 <artifactId>cglib-nodep</artifactId>
                 <version>2.2</version>
@@ -742,7 +830,7 @@
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>2.23.0</version>
+                <version>${mockito.version}</version>
             </dependency>    
             <dependency>
                 <groupId>xalan</groupId>
@@ -750,11 +838,11 @@
                 <version>2.7.2</version>
             </dependency>
             <dependency>
-     <groupId>xalan</groupId>
-     <artifactId>serializer</artifactId>
-     <version>2.7.2</version>
-   </dependency>
-   <dependency>
+                <groupId>xalan</groupId>
+                <artifactId>serializer</artifactId>
+                <version>2.7.2</version>
+            </dependency>
+            <dependency>
                 <groupId>xpp3</groupId>
                 <artifactId>xpp3</artifactId>
                 <version>1.1.3.4.O</version>
@@ -772,7 +860,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>${jetty.servlet-api.version}</version>
+                <version>${servlet-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>oro</groupId>
@@ -802,7 +890,7 @@
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.6</version>
+                <version>2.8.0</version>
             </dependency>
             <dependency>
                 <groupId>commons-codec</groupId>
@@ -840,11 +928,11 @@
                 <version>3.2.2</version>
             </dependency>
             <dependency>
-    <groupId>org.apache.commons</groupId>
-    <artifactId>commons-collections4</artifactId>
-    <version>4.2</version>
-   </dependency>
-   <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.2</version>
+            </dependency>
+            <dependency>
                 <groupId>commons-dbcp</groupId>
                 <artifactId>commons-dbcp</artifactId>
                 <version>1.4</version>
@@ -877,14 +965,14 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-    <version>4.5.13</version>
+                <version>4.5.13</version>
             </dependency>
             <dependency>
-    <groupId>org.apache.httpcomponents</groupId>
-    <artifactId>httpclient-cache</artifactId>
-    <version>4.5.13</version>
-   </dependency>
-   <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient-cache</artifactId>
+                <version>4.5.13</version>
+            </dependency>
+            <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-beans</artifactId>
                 <version>${spring.version}</version>
@@ -973,101 +1061,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-
-        <geoserver.data.dir>geonode_v219x</geoserver.data.dir>
-        <osgeolive.data.dir>geonode_v219x_osgeolive</osgeolive.data.dir>
-
-        <gs.version>2.19-SNAPSHOT</gs.version>
-        <gt.version>25-SNAPSHOT</gt.version>
-        <gwc.version>1.19-SNAPSHOT</gwc.version>
-
-        <gs.community.version>2.19-SNAPSHOT</gs.community.version>
-        <gs.snapshot.version>2.19-SNAPSHOT</gs.snapshot.version>
-
-      <!-- GeoServer-EXT POM Properties -->
-        <spring.orm.version>3.1.1.RELEASE</spring.orm.version>
-        <spring-security-oauth2.version>2.0.18.RELEASE</spring-security-oauth2.version>
-
-        <hibernate-annotations-version>3.3.1.GA</hibernate-annotations-version>
-
-        <c3p0.version>0.9.0.4</c3p0.version>
-        <geodb.version>0.9</geodb.version>
-        <gson.version>2.3.1</gson.version>
-        <guava.version>25.1-jre</guava.version>
-        <tagsoup.version>1.2.1</tagsoup.version>
-        <mapfish-print-lib.version>2.1.5-SNAPSHOT</mapfish-print-lib.version>
-
-      <!-- Official GeoServer POM Properties -->
-        <jts.version>1.18.1</jts.version>
-        <spring.version>5.1.20.RELEASE</spring.version>
-        <spring.security.version>5.1.13.RELEASE</spring.security.version>
-        <servlet-api.version>3.0.1</servlet-api.version>
-        <jetty.version>9.4.36.v20210114</jetty.version>
-        <jetty.servlet-api.version>3.1.0</jetty.servlet-api.version>
-        <poi.version>4.0.0</poi.version>
-        <wicket.version>7.18.0</wicket.version>
-        <ant.version>1.10.9</ant.version>
-        <imageio-ext.version>1.3.10</imageio-ext.version>
-        <jaiext.version>1.1.20</jaiext.version>
-        <java.awt.headless>true</java.awt.headless>
-        <sun.java2d.d3d>true</sun.java2d.d3d>
-        <jvm.opts></jvm.opts>
-        <jalopy.phase>disabled</jalopy.phase>
-        <jalopy.srcExcludesPattern>disabled</jalopy.srcExcludesPattern>
-        <test.maxHeapSize>512M</test.maxHeapSize>
-        <test.excludedGroups></test.excludedGroups>
-        <test.exclude.pattern>none</test.exclude.pattern>
-        <quietTests>true</quietTests>
-        <remoteOwsTests>false</remoteOwsTests>
-        <maven.build.timestamp.format>dd-MMM-yyyy HH:mm</maven.build.timestamp.format>
-        <build.timestamp>${maven.build.timestamp}</build.timestamp>
-        <build.hudsonId>-1</build.hudsonId>
-        <fork.javac>false</fork.javac>
-        <javac.maxHeapSize>256M</javac.maxHeapSize>
-        <image.tests>true</image.tests>
-        <interactive.image>false</interactive.image>
-        <windows.leniency>true</windows.leniency>
-        <gf.version>3.5.0</gf.version>
-        <jasypt.version>1.9.2</jasypt.version>
-        <hibernate-version>3.6.9.Final</hibernate-version>
-        <hibernate-generic-dao-version>1.1.0</hibernate-generic-dao-version>
-        <hibernate-spatial-version>1.1.3.2</hibernate-spatial-version>
-        <opengeo-geodb.version>0.9</opengeo-geodb.version>
-        <!-- NOTE: be careful if upgrading slf4j, check the netcdf and netcdf-out build correcly -->
-        <slf4j.version>1.6.4</slf4j.version>
-        <joda-time.version>2.8.1</joda-time.version>
-        <git.commit.useNative>false</git.commit.useNative>
-        <git.commit.runOnlyOnce>true</git.commit.runOnlyOnce>
-        <eclipse.emf.version>2.15.0</eclipse.emf.version>
-        <jackson1.version>1.9.13</jackson1.version>
-        <jackson2.version>2.10.5</jackson2.version>
-        <jackson2.databind.version>2.10.5.1</jackson2.databind.version>
-        <compress-lzf.version>1.0.3</compress-lzf.version>
-        <marlin.version>0.9.3</marlin.version>
-        <postgresql.jdbc.version>42.2.19</postgresql.jdbc.version>
-        <postgis.jdbc.version>1.3.3</postgis.jdbc.version>
-        <oracle.jdbc.version>19.10.0.0</oracle.jdbc.version>
-        <mysql.jdbc.version>8.0.23</mysql.jdbc.version>
-        <solrj.version>7.2.1</solrj.version>
-        <mockito.version>3.8.0</mockito.version>
-        <jacoco.version>0.8.6</jacoco.version>
-        <hazelcast.version>3.11.1</hazelcast.version>
-        <argLine>-Xmx${test.maxHeapSize} -enableassertions ${jvm.opts} -Djava.awt.headless=${java.awt.headless} -Dsun.java2d.d3d=${sun.java2d.d3d} -DremoteOwsTests=${remoteOwsTests} -DquietTests=${quietTests} -Dorg.geotools.image.test.enabled=${image.tests} -Dorg.geotools.image.test.interactive=${interactive.image} -Duser.timezone=${user.timezone} -Dwindows.leniency=${windows.leniency} -XX:+TieredCompilation -XX:TieredStopAtLevel=1</argLine>
-        <fmt.action>format</fmt.action>
-        <fmt.skip>false</fmt.skip>
-        <pom.fmt.action>sort</pom.fmt.action>
-        <pom.fmt.skip>${fmt.skip}</pom.fmt.skip>
-        <errorProneFlags></errorProneFlags>
-        <errorProne.version>2.3.4</errorProne.version>
-        <javac.version>9+181-r4173-1</javac.version>
-        <pmd.version>6.29.0</pmd.version>
-        <checkstyle.skip>false</checkstyle.skip>
-        <qa>false</qa>
-        <lint>deprecation,unchecked</lint>
-    </properties>
     <modules>
         <module>web-app</module>
     </modules>
@@ -1083,7 +1076,6 @@
                 </includes>
             </resource>
             <resource>
-                <!-- without this the service configuration will not be included -->
                 <directory>${basedir}/src/main/resources</directory>
                 <includes>
                     <include>**/*</include>
@@ -1096,10 +1088,12 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>
                 <configuration>
-                    <source>${maven.compiler.source}</source>
-                    <target>${maven.compiler.target}</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <debug>true</debug>
                     <encoding>UTF-8</encoding>
+                    <fork>${fork.javac}</fork>
+                    <maxmem>${javac.maxHeapSize}</maxmem>
                 </configuration>
             </plugin>
             <plugin>
@@ -1107,7 +1101,7 @@
                     properties -->
                 <groupId>pl.project13.maven</groupId>
                 <artifactId>git-commit-id-plugin</artifactId>
-                <version>2.1.13</version>
+                <version>4.0.3</version>
                 <executions>
                     <execution>
                         <goals>
@@ -1126,6 +1120,11 @@
             </plugin>
         </plugins>
         <extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-http</artifactId>
+				<version>3.4.0</version>
+			</extension>
             <extension>
                 <groupId>org.apache.maven.wagon</groupId>
                 <!-- artifactId>wagon-webdav</artifactId>

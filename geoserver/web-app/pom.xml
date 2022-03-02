@@ -290,8 +290,8 @@
             <artifactId>freemarker</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.geonode.print</groupId>
-            <artifactId>mapfish-print-lib</artifactId>
+            <groupId>org.mapfish.print</groupId>
+            <artifactId>print-lib</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>commons-httpclient</groupId>
