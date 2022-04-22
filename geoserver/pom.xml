@@ -80,7 +80,7 @@
         <geoserver.data.dir>geonode_v219x</geoserver.data.dir>
         <osgeolive.data.dir>geonode_v219x_osgeolive</osgeolive.data.dir>
 
-        <gs.version>2.19.5</gs.version>
+        <gs.version>2.19.6</gs.version>
         <gt.version>25.5</gt.version>
         <gwc.version>1.19.2</gwc.version>
 
