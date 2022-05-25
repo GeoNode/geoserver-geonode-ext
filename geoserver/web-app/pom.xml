@@ -343,46 +343,6 @@
                 <version>1.6</version>
                 <executions>
                     <execution>
-                        <id>repack</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <!-- unzip the original geoserver web core jar -->
-                                <unzip src="${org.geoserver.web:gs-web-core:jar}" dest="${project.build.directory}/gs-web-core" />
-                                <!-- replace geoserver version with the current branch name -->
-                                <replaceregexp>
-                                    <regexp pattern="version\s*=.*" />
-                                    <substitution expression="version=${project.version}" />
-                                    <fileset dir="${project.build.directory}/gs-web-core">
-                                        <include name="GeoServerApplication*.properties" />
-                                    </fileset>
-                                </replaceregexp>
-                                <!-- replace geoserver build revision with current git commit id -->
-                                <replaceregexp>
-                                    <regexp pattern="build.revision\s*=.*" />
-                                    <substitution expression="build.revision=${build.commit.id}" />
-                                    <fileset dir="${project.build.directory}/gs-web-core">
-                                        <include name="GeoServerApplication*.properties" />
-                                    </fileset>
-                                </replaceregexp>
-                                <!-- replace geoserver build date with this build date -->
-                                <replaceregexp>
-                                    <regexp pattern="build.date\s*=.*" />
-                                    <substitution expression="build.date=${maven.build.timestamp}" />
-                                    <fileset dir="${project.build.directory}/gs-web-core">
-                                        <include name="GeoServerApplication*.properties" />
-                                    </fileset>
-                                </replaceregexp>
-                                <!-- recreate the modified jar -->
-                                <zip basedir="${project.build.directory}/gs-web-core"
-                                    destfile="${project.build.directory}/custom-gs-web-core.jar" />
-                            </target>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <id>data</id>
                         <phase>compile</phase>
                         <goals>
@@ -473,13 +433,6 @@
                     <warName>geoserver</warName>
                     <!-- add our modified geoserver web core jar -->
                     <webResources>
-                        <resource>
-                            <directory>${project.build.directory}</directory>
-                            <targetPath>WEB-INF/lib</targetPath>
-                            <includes>
-                                <include>custom-gs-web-core.jar</include>
-                            </includes>
-                        </resource>
                         <resource>
                             <!-- directory>${project.build.directory}/data</directory -->
                             <directory>${basedir}/../data/${geoserver.data.dir}/</directory>
