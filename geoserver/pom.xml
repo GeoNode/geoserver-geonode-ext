@@ -21,47 +21,10 @@
     </license>
   </licenses>
 
-  <repositories>
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <!-- contains release (including third-party-dependences)               -->
-      <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
-      <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <id>osgeo-releases</id>
-      <name>OSGeo Nexus Release Repository</name>
-      <url>https://repo.osgeo.org/repository/release/</url>
-    </repository>
+    <modules>
+        <module>web-app</module>
+    </modules>
 
-    <repository>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <!-- contains snapshots               -->
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <id>osgeo-snapshots</id>
-      <name>OSGeo Nexus Snapshot Repository</name>
-      <url>https://repo.osgeo.org/repository/snapshot/</url>
-    </repository>
-
-    <repository>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-      <id>geosolutions</id>
-      <name>geosolutions repository</name>
-      <url>https://maven.geo-solutions.it/</url>
-    </repository>
-  </repositories>
 
     <distributionManagement>
         <downloadUrl>http://maven.geo-solutions.it</downloadUrl>
@@ -110,7 +73,7 @@
         <wicket.version>7.18.0</wicket.version>
         <ant.version>1.10.11</ant.version>
         <imageio-ext.version>1.3.13</imageio-ext.version>
-        <jaiext.version>1.1.23</jaiext.version>
+    <jaiext.version>1.1.24</jaiext.version>
         <java.awt.headless>true</java.awt.headless>
         <sun.java2d.d3d>true</sun.java2d.d3d>
         <jvm.opts></jvm.opts>
@@ -146,7 +109,7 @@
         <jackson2.databind.version>2.13.2.1</jackson2.databind.version>
         <compress-lzf.version>1.0.3</compress-lzf.version>
         <marlin.version>0.9.3</marlin.version>
-    <postgresql.jdbc.version>42.4.1</postgresql.jdbc.version>
+    <postgresql.jdbc.version>42.4.3</postgresql.jdbc.version>
         <postgis.jdbc.version>1.3.3</postgis.jdbc.version>
         <oracle.jdbc.version>19.10.0.0</oracle.jdbc.version>
         <mysql.jdbc.version>8.0.28</mysql.jdbc.version>
@@ -1049,9 +1012,49 @@
         </dependencies>
     </dependencyManagement>
 
-    <modules>
-        <module>web-app</module>
-    </modules>
+
+  <repositories>
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <!-- contains release (including third-party-dependences)               -->
+      <!-- Restlet maven Repository (http://maven.restlet.org)                             -->
+      <!-- ucar (https://artifacts.unidata.ucar.edu/content/repositories/unidata-releases) -->
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <id>osgeo-releases</id>
+      <name>OSGeo Nexus Release Repository</name>
+      <url>https://repo.osgeo.org/repository/release/</url>
+    </repository>
+
+    <repository>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <!-- contains snapshots               -->
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>osgeo-snapshots</id>
+      <name>OSGeo Nexus Snapshot Repository</name>
+      <url>https://repo.osgeo.org/repository/snapshot/</url>
+    </repository>
+
+    <repository>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <id>geosolutions</id>
+      <name>geosolutions repository</name>
+      <url>https://maven.geo-solutions.it/</url>
+    </repository>
+  </repositories>
+
     <build>
         <finalName>${project.artifactId}</finalName>
 
