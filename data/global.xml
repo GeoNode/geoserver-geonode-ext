@@ -71,7 +71,7 @@
   <globalServices>true</globalServices>
   <xmlPostRequestLogBufferSize>1024</xmlPostRequestLogBufferSize>
   <xmlExternalEntitiesEnabled>false</xmlExternalEntitiesEnabled>
-  <lockProviderName>nullLockProvider</lockProviderName>
+  <lockProviderName>memoryLockProvider</lockProviderName>
   <webUIMode>DEFAULT</webUIMode>
   <resourceErrorHandling>SKIP_MISCONFIGURED_LAYERS</resourceErrorHandling>
 </global>
