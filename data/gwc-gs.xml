@@ -58,5 +58,5 @@
     <string>image/gif</string>
     <string>image/png8</string>
   </defaultOtherCacheFormats>
-  <lockProviderName>noLock</lockProviderName>
+  <lockProviderName>globalLock</lockProviderName>
 </GeoServerGWCConfig>
