@@ -68,7 +68,7 @@
         <repository>
           <uniqueVersion>false</uniqueVersion>
           <id>geosolutions</id>
-          <url>ftp://maven.geo-solutions.it/</url>
+          <url>ftps://maven.geo-solutions.it/</url>
         </repository>
         <site>
           <id>demo.geosolutions</id>
