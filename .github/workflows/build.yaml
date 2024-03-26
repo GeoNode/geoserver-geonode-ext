@@ -1,0 +1,55 @@
+name: Build image (manual)
+
+on: workflow_dispatch
+run-name: Build ${{ github.ref_name }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        path: 'geoserver-geonode-ext'
+    - uses: actions/checkout@v4
+      with:
+        repository: 'geoserver/geoserver'
+        ref: ${{ github.ref }}
+        path: 'geoserver'
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    - name: Set up JDK 11 for x64
+      uses: actions/setup-java@v3
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        architecture: x64
+        cache: maven
+    - name: Run the Maven phase
+      run: |
+        pushd geoserver/src
+        mvn -T 4 clean install dependency:tree -Dmaven.wagon.http.pool=false -Dmaven.wagon.http.retryHandler.count=100 -Djava.awt.headless=true -Dtest.maxHeapSize=256M -DskipTests -U -PsldService,printing,monitor,control-flow,wps,kmlppio,wps-download,excel,querylayer,gdal,authkey,css,ysld,importer,wmts-multi-dimensional,backup-restore,oauth2-geonode,oauth2-openid-connect,geofence-server,geofence-wps
+        popd
+    - name: Prepare artifacts
+      env:
+        GEOSERVER_VERSION: ${{ github.ref_name }}
+        #AWS_ACCESS_KEY_ID: "aws_test_id"
+        #AWS_SECRET_ACCESS_KEY: "aws_test_secret"
+        #AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        #AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      run: |
+         chmod +x geoserver-geonode-ext/.github/workflows/artifacts.sh
+         ./geoserver-geonode-ext/.github/workflows/artifacts.sh
+      shell: bash
+    - name: Upload artifacts to S3
+      uses: keithweaver/aws-s3-github-action@v1.0.0
+      with:
+        command: cp
+        source: ./geoserver/src/web/app/target/artifacts
+        destination: s3://artifacts.geonode.org/geoserver/test_${{ github.ref_name }}
+        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_region: eu-south-1
+        flags: --recursive
+    - name: Final message
+      run: echo "Build and push from branch ${{ github.ref_name }} completed"
