@@ -15,7 +15,7 @@ jobs:
       with:
         repository: 'geoserver/geoserver'
         ref: ${{ github.ref }}
-        fetch-depth: 1
+        fetch-depth: 0
         fetch-tags: 'true'
         path: 'geoserver'
     - name: Set up Docker Buildx
