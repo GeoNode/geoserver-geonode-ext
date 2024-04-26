@@ -11,12 +11,9 @@ jobs:
     - uses: actions/checkout@v4
       with:
         path: 'geoserver-geonode-ext'
-    - uses: actions/checkout@v3
-      with:
-        repository: 'geoserver/geoserver'
-        ref: ${{ github.ref }}
-        fetch-tags: 'true'
-        path: 'geoserver'
+    - name: Clone Geoserver
+      run: |
+        git clone --depth 1 --branch 2.24.2 https://github.com/geoserver/geoserver
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     - name: Set up JDK 11 for x64
