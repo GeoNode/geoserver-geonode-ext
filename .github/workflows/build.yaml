@@ -13,7 +13,7 @@ jobs:
         path: 'geoserver-geonode-ext'
     - name: Clone Geoserver
       run: |
-        git clone --depth 1 --branch 2.24.2 https://github.com/geoserver/geoserver
+        git clone --depth 1 --branch ${{ github.ref_name }} https://github.com/geoserver/geoserver
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
     - name: Set up JDK 11 for x64
