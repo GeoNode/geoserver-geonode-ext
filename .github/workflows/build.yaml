@@ -44,7 +44,7 @@ jobs:
       with:
         command: cp
         source: ./geoserver/src/web/app/target/artifacts
-        destination: s3://artifacts.geonode.org/geoserver/test_${{ github.ref_name }}
+        destination: s3://artifacts.geonode.org/geoserver/${{ github.ref_name }}
         aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws_region: eu-south-1
