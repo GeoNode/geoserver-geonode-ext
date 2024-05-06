@@ -4,7 +4,7 @@
   <requireTiledParameter>true</requireTiledParameter>
   <WMSCEnabled>true</WMSCEnabled>
   <TMSEnabled>true</TMSEnabled>
-  <securityEnabled>false</securityEnabled>
+  <securityEnabled>true</securityEnabled>
   <innerCachingEnabled>false</innerCachingEnabled>
   <persistenceEnabled>true</persistenceEnabled>
   <cacheProviderClass>class org.geowebcache.storage.blobstore.memory.guava.GuavaCacheProvider</cacheProviderClass>
