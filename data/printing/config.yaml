@@ -60,8 +60,8 @@ hosts:
     ip: 127.0.0.1
   - !localMatch
     dummy: true
-  - !acceptAll
-    dummy: true
+  #- !acceptAll
+  #  dummy: true
   - !dnsMatch
     host: localhost
     port: 80
@@ -170,7 +170,7 @@ layouts:
               spacingAfter: 100
               align: left
               text: '${mapTitle}'
-              maxLength: 100
+              #maxLength: 100
         - !map
           width: 500
           height: 320
@@ -191,7 +191,7 @@ layouts:
           absoluteX: 542
           absoluteY: 435
           width: 235
-          height: 500
+          #height: 500
           items:
             - !legends
               horizontalAlignment: left
@@ -239,7 +239,7 @@ layouts:
               nbColumns: 1
               items:
                 - !text
-                  width: 420
+                  #width: 420
                   text: '(c) example.com'
                   fontEncoding: Cp1252
                   fontSize: 7
@@ -247,7 +247,7 @@ layouts:
                   vertAlign: top
                   spacingAfter: 2
                 - !text
-                  width: 420
+                  #width: 420
                   text: '${now MM.dd.yyyy}'
                   fontEncoding: Cp1252
                   fontSize: 5
@@ -258,7 +258,7 @@ layouts:
               vertAlign: top
               fontSize: 8
               text: '${comment}'
-              maxLength: 1200
+              #maxLength: 1200
             - !scalebar
               align: right
               vertAlign: middle
@@ -335,14 +335,14 @@ layouts:
               nbColumns: 1
               items:
                 - !text
-                  width: 300
+                  #width: 300
                   text: '${comment}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
                   vertAlign: middle               
                 - !text
-                  width: 300
+                  #width: 300
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -408,7 +408,7 @@ layouts:
           widths: [395]
           items:
             - !text
-              width: 300
+              #width: 300
               text: '${comment}'  
               fontEncoding: Cp1252
               fontSize: 9                     
@@ -424,7 +424,7 @@ layouts:
               nbColumns: 1
               items:            
                 - !text
-                  width: 300
+                  #width: 300
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -477,14 +477,14 @@ layouts:
               nbColumns: 1
               items:
                 - !text
-                  width: 300
+                  #width: 300
                   text: '${comment}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
                   vertAlign: middle               
                 - !text
-                  width: 300
+                  #width: 300
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -550,7 +550,7 @@ layouts:
           widths: [395]
           items:
             - !text
-              width: 300
+              #width: 300
               text: '${comment}'  
               fontEncoding: Cp1252
               fontSize: 9                     
@@ -566,7 +566,7 @@ layouts:
               nbColumns: 1
               items:            
                 - !text
-                  width: 300
+                  #width: 300
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -579,7 +579,7 @@ layouts:
               type: 'bar sub'
               intervals: 5
     lastPage:
-      rotation: true
+      #rotation: true
       pageSize: 595 842 
       landscape: false
       items: 
@@ -657,14 +657,14 @@ layouts:
               nbColumns: 1
               items:
                 - !text
-                  width: 300
+                  #width: 300
                   text: '${comment}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
                   vertAlign: middle               
                 - !text
-                  width: 300
+                  #width: 300
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -682,7 +682,7 @@ layouts:
               type: 'bar sub'
               intervals: 5
     lastPage:
-      rotation: true
+      #rotation: true
       pageSize: 842 595
       landscape: false
       items: 
@@ -795,7 +795,7 @@ layouts:
           widths: [424]
           items:
             - !text
-              width: 424
+              #width: 424
               text: '${comment}'  
               fontEncoding: Cp1252
               fontSize: 9                     
@@ -811,7 +811,7 @@ layouts:
               nbColumns: 1
               items:            
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -891,14 +891,14 @@ layouts:
               nbColumns: 1
               items:
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${comment}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
                   vertAlign: middle               
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -964,7 +964,7 @@ layouts:
           widths: [424]
           items:
             - !text
-              width: 424
+              #width: 424
               text: '${comment}'  
               fontEncoding: Cp1252
               fontSize: 9                     
@@ -980,7 +980,7 @@ layouts:
               nbColumns: 1
               items:            
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -1033,14 +1033,14 @@ layouts:
               nbColumns: 1
               items:
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${comment}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
                   vertAlign: middle               
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -1106,7 +1106,7 @@ layouts:
           widths: [424]
           items:
             - !text
-              width: 424
+              #width: 424
               text: '${comment}'  
               fontEncoding: Cp1252
               fontSize: 9                     
@@ -1122,7 +1122,7 @@ layouts:
               nbColumns: 1
               items:            
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -1135,7 +1135,7 @@ layouts:
               type: 'bar sub'
               intervals: 5   
     lastPage:
-      rotation: true
+      #rotation: true
       pageSize: 842 1190 
       landscape: false
       items: 
@@ -1213,14 +1213,14 @@ layouts:
               nbColumns: 1
               items:
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${comment}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
                   vertAlign: middle               
                 - !text
-                  width: 424
+                  #width: 424
                   text: '${now MM.dd.yyyy}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
@@ -1238,7 +1238,7 @@ layouts:
               type: 'bar sub'
               intervals: 5
     lastPage:
-      rotation: true
+      #rotation: true
       pageSize: 1190 842
       landscape: false
       items: 
