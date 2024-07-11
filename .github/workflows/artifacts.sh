@@ -15,8 +15,6 @@ mkdir _tmp
 pushd _tmp
 unzip ../geoserver_vanilla.war
 
-## get rid of clashing/outdated dependencies
-rm -Rfv WEB-INF/lib/gs-sec-oauth2-core*
 ## copy the new ones
 cp -v ../geoserver-geonode-ext/libs/* WEB-INF/lib/
 
