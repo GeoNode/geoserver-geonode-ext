@@ -29,7 +29,7 @@
       <filter>geonode-oauth2</filter>
       <filter>anonymous</filter>
     </filters>
-    <filters name="gwc" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="restInterceptor" exceptionTranslationName="exception" path="/gwc/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
+    <filters name="gwc" class="org.geoserver.security.ServiceLoginFilterChain" interceptorName="restInterceptor" exceptionTranslationName="exception" path="/gwc/rest/**" disabled="false" allowSessionCreation="false" ssl="false" matchHTTPMethod="false">
       <filter>basic</filter>
       <filter>geonode-oauth2</filter>
       <filter>anonymous</filter>
