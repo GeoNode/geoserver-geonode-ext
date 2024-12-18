@@ -41,6 +41,9 @@ scales:
   - 140000000.0
   - 280000000.0
 
+formats:
+  - '*'
+
 outputFilename: 'GeoNode-Map-${date}.pdf'
 #== ms2 ===== 
 disableScaleLocking: true
@@ -282,7 +285,7 @@ layouts:
                   align: left
                   vertAlign: bottom
                 - !text
-                  text: '${now MM.dd.yyyy}'
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'
                   fontEncoding: Cp1252
                   fontSize: 5
                   align: left
@@ -308,7 +311,6 @@ layouts:
               maxSize: 108
               type: 'bar sub'
               intervals: 5
-
   #mapstore2 layout
   #=======A4 landscape with legend============================================
   A4_landscape :
@@ -414,7 +416,7 @@ layouts:
                   align: left
                   vertAlign: middle               
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -539,7 +541,7 @@ layouts:
                   align: left
                   vertAlign: bottom
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -639,7 +641,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -764,7 +766,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -901,7 +903,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -1090,7 +1092,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -1217,7 +1219,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -1342,7 +1344,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -1442,7 +1444,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -1567,7 +1569,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
@@ -1704,7 +1706,7 @@ layouts:
                   align: left
                   vertAlign: middle
                 - !text
-                  text: '${now MM.dd.yyyy}'  
+                  text: '${now MM/dd/yyyy, hh:mm:ss}'  
                   fontEncoding: Cp1252
                   fontSize: 9                     
                   align: left
