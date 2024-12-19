@@ -60,8 +60,8 @@ hosts:
     ip: 127.0.0.1
   - !localMatch
     dummy: true
-  #- !acceptAll
-  #  dummy: true
+  - !acceptAll
+    dummy: true
   - !dnsMatch
     host: localhost
     port: 80
