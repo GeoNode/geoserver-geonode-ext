@@ -173,12 +173,11 @@ layouts:
               spacingAfter: 100
               align: left
               text: '${mapTitle}'
-              #maxLength: 100
         - !map
           width: 500
           height: 320
-          absoluteX:30
-          absoluteY:435
+          absoluteX: 30
+          absoluteY: 435
         #legend panel
         - !columns
           config:
@@ -298,7 +297,6 @@ layouts:
                   vertAlign: top
                   fontSize: 8
                   text: '${comment}'
-                  maxLength: 1200
                 - !text
                   text: '${copyright}'
                   fontEncoding: Cp1252
@@ -331,8 +329,8 @@ layouts:
         - !map
           width: 592
           height: 400
-          absoluteX:30
-          absoluteY:475
+          absoluteX: 30
+          absoluteY: 475
         #legend panel            
         - !columns               
           config:
@@ -577,8 +575,8 @@ layouts:
         - !map
           width: 780
           height: 400
-          absoluteX:30
-          absoluteY:475
+          absoluteX: 30
+          absoluteY: 475
         - !columns
           absoluteX: 750
           absoluteY: 140
@@ -839,8 +837,8 @@ layouts:
         - !map
           width: 780
           height: 400
-          absoluteX:30
-          absoluteY:475
+          absoluteX: 30
+          absoluteY: 475
         - !columns
           absoluteX: 750
           absoluteY: 140
@@ -943,7 +941,7 @@ layouts:
                 padding: 4
                 backgroundColor: white
                 vertAlign: bottom
-          absoluteX:30
+          absoluteX: 30
           absoluteY: 535
           width: 780
           widths: [780]
@@ -1128,8 +1126,8 @@ layouts:
         - !map
           width: 837
           height: 594
-          absoluteX:42
-          absoluteY:700
+          absoluteX: 42
+          absoluteY: 700
         #legend panel            
         - !columns               
           config:
@@ -1380,8 +1378,8 @@ layouts:
         - !map
           width: 1102
           height: 594
-          absoluteX:42
-          absoluteY:700
+          absoluteX: 42
+          absoluteY: 700
         - !columns
           absoluteX: 1060
           absoluteY: 198
@@ -1642,8 +1640,8 @@ layouts:
         - !map
           width: 1102
           height: 594
-          absoluteX:42
-          absoluteY:700
+          absoluteX: 42
+          absoluteY: 700
         - !columns
           absoluteX: 1070
           absoluteY: 198
@@ -1746,7 +1744,7 @@ layouts:
                 padding: 4
                 backgroundColor: white
                 vertAlign: bottom
-          absoluteX:30
+          absoluteX: 30
           absoluteY: 800
           width: 780
           widths: [780]
