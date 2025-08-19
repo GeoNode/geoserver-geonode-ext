@@ -22,7 +22,10 @@ cp -v ../geoserver-geonode-ext/libs/* WEB-INF/lib/
 wget https://repo1.maven.org/maven2/org/postgis/postgis-jdbc/1.3.3/postgis-jdbc-1.3.3.jar -O WEB-INF/lib/postgis-jdbc-1.3.3.jar
 wget https://maven.geo-solutions.it/org/hibernatespatial/hibernate-spatial-postgis/1.1.3.2/hibernate-spatial-postgis-1.1.3.2.jar -O WEB-INF/lib/hibernate-spatial-postgis-1.1.3.2.jar
 rm WEB-INF/lib/hibernate-spatial-h2-geodb-1.1.3.2.jar 
-rm WEB-INF/lib/asm-3.1.jar # Removing duplicated asm see https://github.com/geoserver/geoserver/pull/8055/files
+
+# Removing duplicated asm, see https://github.com/geoserver/geoserver/pull/8055/files
+rm WEB-INF/lib/asm-3.1.jar
+rm WEB-INF/lib/cglib-2.2.jar
 
 PATCH="    <security-constraint>
       <web-resource-collection>
