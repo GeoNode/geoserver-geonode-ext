@@ -18,9 +18,6 @@ unzip ../geoserver_vanilla.war
 ## copy the new ones
 cp -v ../geoserver-geonode-ext/libs/* WEB-INF/lib/
 
-rm WEB-INF/lib/postgis-stubs-1.3.3.jar
-rm WEB-INF/lib/postgresql-8.3-603.jdbc4.jar
-
 cp -r ../geoserver-geonode-ext/data ./
 zip -r ../artifacts/geoserver.war ./
 popd
