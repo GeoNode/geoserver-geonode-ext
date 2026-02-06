@@ -29,7 +29,7 @@ jobs:
     - name: Run the Maven phase
       run: |
         pushd geoserver/src
-        mvn -T 4 clean install dependency:tree -Dmaven.wagon.http.pool=false -Dmaven.wagon.http.retryHandler.count=100 -Djava.awt.headless=true -Dtest.maxHeapSize=256M -DskipTests -U -PsldService,printing,monitor,control-flow,wps,kmlppio,wps-download,xlsxppio,excel,querylayer,gdal,authkey,css,ysld,wmts-multi-dimensional,backup-restore,oauth2-geonode,oauth2-openid-connect,geofence-server,geofence-server-postgres,geofence-wps
+        mvn -T 4 clean install dependency:tree -Dmaven.wagon.http.pool=false -Dmaven.wagon.http.retryHandler.count=100 -Djava.awt.headless=true -Dtest.maxHeapSize=256M -DskipTests -U -PsldService,printing,monitor,control-flow,wps,kmlppio,wps-download,xlsxppio,excel,oracle,querylayer,gdal,authkey,css,ysld,wmts-multi-dimensional,backup-restore,oauth2-geonode,oauth2-openid-connect,geofence-server,geofence-server-postgres,geofence-wps
         popd
     - name: Prepare artifacts
       env:
