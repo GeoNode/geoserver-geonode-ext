@@ -1,36 +1,9 @@
 geoserver-geonode-ext
 =====================
 
-GeoNode extends GeoServer with certain JSON, REST, and security capabilities.
+This repository contains branches with the default Geoserver for GeoNode Data Directory, which includes configurations for its plugins (Security, GWC, Printing, etc.).
 
-Security
---------
+The data directory is uploaded to an AWS Bucket and is used to build the [geoserver_data](https://github.com/GeoNode/geonode-docker/tree/master/docker/geoserver_data) Docker iamges, published to the [Docker Hub](https://hub.docker.com/repository/docker/geonode/geoserver_data)
 
-GeoServer delegates authentication and authorization to GeoNode.
-
-When the GeoServer plugin sees a request, it attempts to authorize with
-GeoNode:
-
-- If the request has a valid `sessionid` cookie (this links to a user in
-  GeoNode), GeoNode looks up the user's permissions and replies.
-
-- If there are HTTP credentials in the request (via the `HTTP_AUTHORIZATION`
-  header) and they match those configured in the `OGC_SETTINGS`,
-  GeoNode replies that this user is a super-user.
-
-- **Uploads** is a special case: here, GeoNode makes the original request
-  using the `OGC_SETTINGS` credentials.
-
-JSON
-----
-
-TODO
-
-.. todo:: Document GeoServer GeoJSON extensions
-
-REST
-----
-
-TODO
-
-.. todo:: Document GeoServer REST extensions
+> [!NOTE]
+> The main branch is empty. A dedicated branch is used for each published Geoserver version.
