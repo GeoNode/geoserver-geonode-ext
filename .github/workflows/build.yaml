@@ -6,6 +6,9 @@ run-name: Build ${{ github.ref_name }}
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
 
     steps:
     - uses: actions/checkout@v4
@@ -39,15 +42,15 @@ jobs:
          chmod +x geoserver-geonode-ext/.github/workflows/artifacts.sh
          ./geoserver-geonode-ext/.github/workflows/artifacts.sh
       shell: bash
-    - name: Upload artifacts to S3
-      uses: keithweaver/aws-s3-github-action@v1.0.0
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
       with:
-        command: cp
-        source: ./geoserver/src/web/app/target/artifacts
-        destination: s3://artifacts.geonode.org/geoserver/${{ github.ref_name }}
-        aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws_region: eu-south-1
-        flags: --recursive
+        role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+        aws-region: eu-south-1
+    - name: Upload artifacts to S3
+      run: |
+        aws s3 cp ./geoserver/src/web/app/target/artifacts \
+          s3://artifacts.geonode.org/geoserver/${{ github.ref_name }} \
+          --recursive
     - name: Final message
       run: echo "Build and push from branch ${{ github.ref_name }} completed"
