@@ -15,8 +15,9 @@ mkdir _tmp
 pushd _tmp
 unzip ../geoserver_vanilla.war
 
-## copy the new ones
 cp -v ../geoserver-geonode-ext/libs/* WEB-INF/lib/
+
+cp -v ../geoserver-geonode-ext/classes/* WEB-INF/classes/
 
 ## replace H2 hibernate with PostGIS for the Geofence rules DB
 wget https://repo1.maven.org/maven2/org/postgis/postgis-jdbc/1.3.3/postgis-jdbc-1.3.3.jar -O WEB-INF/lib/postgis-jdbc-1.3.3.jar
