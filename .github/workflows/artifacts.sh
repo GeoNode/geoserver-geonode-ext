@@ -8,7 +8,7 @@ mkdir artifacts
 
 mv geoserver.war geoserver_vanilla.war
 # copy geoserver_vanilla.wat artifact
-cp geoserver_vanilla.war artifacts/
+# cp geoserver_vanilla.war artifacts/
 
 # inflate data folder in geonode.war
 mkdir _tmp
