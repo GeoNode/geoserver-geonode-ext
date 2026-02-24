@@ -2,7 +2,7 @@
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 
 <beans>
-  <bean id="SldXmlReaderExclusionFilter" class="org.geoserver.platform.ClassExclusionFilter">
-    <property name="beanClass" value="org.geoserver.rest.catalog.AdminRequestCallback" />
+  <bean id="SldXmlReaderExclusionFilter" class="org.geoserver.platform.NameExclusionFilter">
+    <property name="beanId" value="sldXmlReader" />
   </bean>
 </beans>
