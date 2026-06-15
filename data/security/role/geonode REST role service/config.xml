@@ -14,4 +14,5 @@
   <cacheConcurrencyLevel>4</cacheConcurrencyLevel>
   <cacheMaximumSize>60000</cacheMaximumSize>
   <cacheExpirationTime>60000</cacheExpirationTime>
+  <authApiKey></authApiKey>
 </authKeyRESTRoleService>
