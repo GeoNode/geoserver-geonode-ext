@@ -8,5 +8,5 @@
     <value>500</value>
     <units>MiB</units>
   </globalQuota>
-  <quotaStore>H2</quotaStore>
+  <quotaStore>HSQL</quotaStore>
 </gwcQuotaConfiguration>
